@@ -17,7 +17,7 @@ class CreatePostStepOneViewController: UIViewController {
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var thingButton: UIButton!
     @IBOutlet weak var serviceButton: UIButton!
-    @IBOutlet weak var backButton: UIButton!
+
     @IBOutlet weak var nextButton: UIButton!
     
     @IBAction func backButtonAction(sender: AnyObject) {
@@ -35,7 +35,6 @@ class CreatePostStepOneViewController: UIViewController {
         
         thingButton.hidden = true
         serviceButton.hidden = true
-        backButton.hidden = true
         nextButton.hidden = true
     }
     
@@ -68,7 +67,6 @@ class CreatePostStepOneViewController: UIViewController {
         thingButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         serviceButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
         
-        backButton.hidden = false
         nextButton.hidden = false
     }
     
@@ -79,9 +77,7 @@ class CreatePostStepOneViewController: UIViewController {
         serviceButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         thingButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
         
-        backButton.hidden = false
         nextButton.hidden = false
-
     }
     
     

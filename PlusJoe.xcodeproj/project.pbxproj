@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A4C495B1AC501C000D164E2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C495A1AC501C000D164E2 /* SearchViewController.swift */; };
 		0AAC2E341AC457C300B60B47 /* CreatePostStepOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC2E331AC457C300B60B47 /* CreatePostStepOneViewController.swift */; };
 		0AAC2E361AC4580900B60B47 /* CreatePostStepTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC2E351AC4580900B60B47 /* CreatePostStepTwoViewController.swift */; };
 		0AC50CA41AC42AC90087F5D8 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AC50CA31AC42AC90087F5D8 /* fontawesome-webfont.ttf */; };
 		0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */; };
-		0AEAFBD11AC0E2F900800121 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD01AC0E2F900800121 /* ViewController.swift */; };
 		0AEAFBD41AC0E2F900800121 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD21AC0E2F900800121 /* Main.storyboard */; };
 		0AEAFBD61AC0E2F900800121 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD51AC0E2F900800121 /* Images.xcassets */; };
 		0AEAFBD91AC0E2F900800121 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD71AC0E2F900800121 /* LaunchScreen.xib */; };
@@ -46,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A4C495A1AC501C000D164E2 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = ../SearchViewController.swift; sourceTree = "<group>"; };
 		0AAC2E331AC457C300B60B47 /* CreatePostStepOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostStepOneViewController.swift; sourceTree = "<group>"; };
 		0AAC2E351AC4580900B60B47 /* CreatePostStepTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostStepTwoViewController.swift; sourceTree = "<group>"; };
 		0AC50CA31AC42AC90087F5D8 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fontawesome-webfont.ttf"; path = "PlusJoe/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
@@ -53,7 +54,6 @@
 		0AEAFBC91AC0E2F900800121 /* PlusJoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusJoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEAFBCD1AC0E2F900800121 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0AEAFBD01AC0E2F900800121 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0AEAFBD31AC0E2F900800121 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AEAFBD51AC0E2F900800121 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0AEAFBD81AC0E2F900800121 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 			children = (
 				0AEAFBD21AC0E2F900800121 /* Main.storyboard */,
 				0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */,
-				0AEAFBD01AC0E2F900800121 /* ViewController.swift */,
+				0A4C495A1AC501C000D164E2 /* SearchViewController.swift */,
 				0AAC2E331AC457C300B60B47 /* CreatePostStepOneViewController.swift */,
 				0AAC2E351AC4580900B60B47 /* CreatePostStepTwoViewController.swift */,
 				0AEAFBD51AC0E2F900800121 /* Images.xcassets */,
@@ -326,8 +326,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AAC2E341AC457C300B60B47 /* CreatePostStepOneViewController.swift in Sources */,
-				0AEAFBD11AC0E2F900800121 /* ViewController.swift in Sources */,
 				0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */,
+				0A4C495B1AC501C000D164E2 /* SearchViewController.swift in Sources */,
 				0AAC2E361AC4580900B60B47 /* CreatePostStepTwoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

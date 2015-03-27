@@ -1,10 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7528.3" systemVersion="14D113c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7528.3" systemVersion="14D113c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Uf5-hC-ZBj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7518.3"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="UGf-wR-bVz">
+            <objects>
+                <viewController id="Uf5-hC-ZBj" customClass="SearchViewController" customModule="PlusJoe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mez-Vv-1wJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="tER-OQ-72r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ikI-Rm-PiP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeK-I6-bOG">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="YXr-7J-lov"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="mEH-7T-ops"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="+joe" id="Q1h-cx-NXb">
+                                        <barButtonItem key="rightBarButtonItem" title="+" id="jzT-Uz-uny">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="2YP-7n-VBg"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eeK-I6-bOG" firstAttribute="leading" secondItem="ikI-Rm-PiP" secondAttribute="leadingMargin" constant="-16" id="0eb-Wg-R8p"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eeK-I6-bOG" secondAttribute="trailing" constant="-16" id="mm7-cq-aL0"/>
+                            <constraint firstItem="eeK-I6-bOG" firstAttribute="top" secondItem="Mez-Vv-1wJ" secondAttribute="bottom" id="yoE-AP-dQx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="createButton" destination="jzT-Uz-uny" id="AQg-Ih-wjV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U6A-vG-Rao" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-344" y="291"/>
+        </scene>
         <!--Create Post Step One View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -25,7 +70,11 @@
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="I want to:" id="SoY-UW-O7i">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="tz4-2n-gSx"/>
+                                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="tz4-2n-gSx">
+                                            <connections>
+                                                <action selector="backButtonAction:" destination="BYZ-38-t0r" id="QiK-tm-npv"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -77,33 +126,12 @@
                                     <action selector="serviceButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nUR-zc-17o"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oc-K7-D5c">
-                                <rect key="frame" x="145" y="310" width="150" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="IWZ-nj-uui"/>
-                                    <constraint firstAttribute="height" constant="60" id="d6Q-Hg-3K4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="back">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="backButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wjd-SA-Tn4"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAS-wm-gzp">
-                                <rect key="frame" x="305" y="310" width="150" height="60"/>
+                                <rect key="frame" x="145" y="310" width="310" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="82G-Li-aUn"/>
-                                    <constraint firstAttribute="height" constant="60" id="ioV-Ww-94D"/>
+                                    <constraint firstAttribute="height" constant="60" id="if3-wP-NUG"/>
+                                    <constraint firstAttribute="width" constant="310" id="v8Y-eI-MTZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="next">
@@ -166,25 +194,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="LAS-wm-gzp" firstAttribute="top" secondItem="i4f-qT-BAq" secondAttribute="bottom" constant="8" id="2B2-st-XRQ"/>
                             <constraint firstItem="mVQ-0k-Jmu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="8Ct-Vr-CgX"/>
                             <constraint firstAttribute="centerX" secondItem="i4f-qT-BAq" secondAttribute="centerX" constant="-80" id="JEd-0h-hrV"/>
                             <constraint firstItem="xHf-D9-sYv" firstAttribute="top" secondItem="mVQ-0k-Jmu" secondAttribute="bottom" constant="50" id="NUN-Lt-8mU"/>
                             <constraint firstItem="i4f-qT-BAq" firstAttribute="top" secondItem="xHf-D9-sYv" secondAttribute="bottom" constant="8" id="SXD-wo-oZQ"/>
                             <constraint firstAttribute="centerX" secondItem="uuk-B1-57Y" secondAttribute="centerX" constant="80" id="TE4-bI-q0b"/>
-                            <constraint firstItem="1oc-K7-D5c" firstAttribute="top" secondItem="uuk-B1-57Y" secondAttribute="bottom" constant="8" id="Ywg-WE-SVf"/>
-                            <constraint firstItem="LAS-wm-gzp" firstAttribute="top" secondItem="i4f-qT-BAq" secondAttribute="bottom" constant="8" id="dQi-T6-qyF"/>
-                            <constraint firstAttribute="centerX" secondItem="1oc-K7-D5c" secondAttribute="centerX" constant="80" id="dfx-WF-frO"/>
-                            <constraint firstAttribute="centerX" secondItem="LAS-wm-gzp" secondAttribute="centerX" constant="-80" id="hZ5-Mm-fGP"/>
                             <constraint firstItem="mVQ-0k-Jmu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="jZQ-Hq-VrX"/>
                             <constraint firstItem="uuk-B1-57Y" firstAttribute="top" secondItem="MBG-Br-CyC" secondAttribute="bottom" constant="8" id="oAF-PG-J4a"/>
                             <constraint firstAttribute="centerX" secondItem="MBG-Br-CyC" secondAttribute="centerX" constant="80" id="pU2-Z1-iGP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mVQ-0k-Jmu" secondAttribute="trailing" constant="-16" id="qzK-NW-wek"/>
+                            <constraint firstAttribute="centerX" secondItem="LAS-wm-gzp" secondAttribute="centerX" id="ucN-oQ-L2T"/>
                             <constraint firstItem="MBG-Br-CyC" firstAttribute="top" secondItem="mVQ-0k-Jmu" secondAttribute="bottom" constant="50" id="utj-hH-J77"/>
                             <constraint firstAttribute="centerX" secondItem="xHf-D9-sYv" secondAttribute="centerX" constant="-80" id="xJr-wp-DuH"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="1oc-K7-D5c" id="dgH-MO-KQC"/>
                         <outlet property="backNavButton" destination="tz4-2n-gSx" id="NVf-YK-2Dy"/>
                         <outlet property="buyButton" destination="xHf-D9-sYv" id="vgk-Fl-8eS"/>
                         <outlet property="nextButton" destination="LAS-wm-gzp" id="bGN-lY-ICb"/>
