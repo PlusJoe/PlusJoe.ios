@@ -36,6 +36,8 @@ class CreatePostStepOneViewController: UIViewController {
         thingButton.hidden = true
         serviceButton.hidden = true
         nextButton.hidden = true
+        
+        nextButton.setTitle("next" + "   \u{f054}", forState: UIControlState.Normal)
     }
     
     @IBAction func sellButtonAction(sender: AnyObject) {

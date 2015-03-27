@@ -4,6 +4,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7518.3"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="fontawesome-webfont.ttf">
+            <string>FontAwesome</string>
+            <string>FontAwesome</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Search View Controller-->
         <scene sceneID="UGf-wR-bVz">
@@ -126,14 +132,15 @@
                                     <action selector="serviceButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nUR-zc-17o"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAS-wm-gzp">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAS-wm-gzp">
                                 <rect key="frame" x="145" y="310" width="310" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="if3-wP-NUG"/>
                                     <constraint firstAttribute="width" constant="310" id="v8Y-eI-MTZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                 <state key="normal" title="next">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -234,15 +241,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="asdasd" translatesAutoresizingMaskIntoConstraints="NO" id="60z-9N-jft" customClass="Create">
-                                <rect key="frame" x="16" y="75" width="568" height="200"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60z-9N-jft" customClass="Create">
+                                <rect key="frame" x="16" y="108" width="568" height="154"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" hint="" label="">
+                                <accessibility key="accessibilityConfiguration" hint="description" label="">
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="gv5-gT-nL9"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="twitter"/>
                                 <userDefinedRuntimeAttributes>
@@ -261,20 +265,24 @@
                                 </constraints>
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem id="JsK-ZQ-cL8">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="LmJ-da-81O"/>
+                                    <navigationItem title="what is it?" id="JsK-ZQ-cL8">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="LmJ-da-81O">
+                                            <connections>
+                                                <action selector="backButtonAction:" destination="ea3-Qz-A6u" id="oTB-4g-cSO"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTx-cq-tCX">
-                                <rect key="frame" x="16" y="283" width="568" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zdv-YK-apm">
+                                <rect key="frame" x="174" y="270" width="410" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="EfA-Ni-Zxe"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="ajl-wD-lI5"/>
+                                    <constraint firstAttribute="height" constant="60" id="P41-nX-ymO"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <state key="normal" title="post">
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="next">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -285,23 +293,49 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lJb-pc-rrH">
+                                <rect key="frame" x="16" y="70" width="568" height="30"/>
+                                <accessibility key="accessibilityConfiguration" hint="name" label=""/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1SE-uJ-C8a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="price $" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U87-U4-oaN">
+                                <rect key="frame" x="16" y="285" width="150" height="30"/>
+                                <accessibility key="accessibilityConfiguration" hint="price in $"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Gxy-XO-YZX"/>
+                                    <constraint firstAttribute="width" constant="150" id="tD1-up-irt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="oTx-cq-tCX" firstAttribute="trailing" secondItem="Xwe-Xp-Ipr" secondAttribute="trailingMargin" id="1EZ-tG-4r1"/>
-                            <constraint firstItem="60z-9N-jft" firstAttribute="trailing" secondItem="Xwe-Xp-Ipr" secondAttribute="trailingMargin" id="48e-8k-uiz"/>
-                            <constraint firstItem="60z-9N-jft" firstAttribute="top" secondItem="7aU-Mq-2mJ" secondAttribute="bottom" constant="11" id="774-0f-F7H"/>
-                            <constraint firstItem="60z-9N-jft" firstAttribute="leading" secondItem="Xwe-Xp-Ipr" secondAttribute="leadingMargin" id="J8S-bS-K92"/>
-                            <constraint firstItem="oTx-cq-tCX" firstAttribute="top" secondItem="60z-9N-jft" secondAttribute="bottom" constant="8" id="PXg-H2-6ub"/>
+                            <constraint firstItem="Zdv-YK-apm" firstAttribute="leading" secondItem="U87-U4-oaN" secondAttribute="trailing" constant="8" id="6dE-oR-LEh"/>
+                            <constraint firstItem="Zdv-YK-apm" firstAttribute="leading" secondItem="U87-U4-oaN" secondAttribute="trailing" constant="8" id="D2A-8N-6Br"/>
+                            <constraint firstItem="U87-U4-oaN" firstAttribute="leading" secondItem="Xwe-Xp-Ipr" secondAttribute="leadingMargin" id="FKG-58-evp"/>
+                            <constraint firstItem="60z-9N-jft" firstAttribute="top" secondItem="lJb-pc-rrH" secondAttribute="bottom" constant="8" id="Mwu-PT-Tzv"/>
+                            <constraint firstItem="lJb-pc-rrH" firstAttribute="leading" secondItem="Xwe-Xp-Ipr" secondAttribute="leadingMargin" id="QZt-qb-GCT"/>
+                            <constraint firstItem="60z-9N-jft" firstAttribute="trailing" secondItem="Xwe-Xp-Ipr" secondAttribute="trailingMargin" id="RNu-ek-c9V"/>
                             <constraint firstItem="7aU-Mq-2mJ" firstAttribute="leading" secondItem="Xwe-Xp-Ipr" secondAttribute="leadingMargin" constant="-16" id="T4y-xl-afg"/>
-                            <constraint firstItem="oTx-cq-tCX" firstAttribute="leading" secondItem="Xwe-Xp-Ipr" secondAttribute="leadingMargin" id="aPC-lq-fFu"/>
+                            <constraint firstAttribute="centerY" secondItem="U87-U4-oaN" secondAttribute="centerY" id="anM-KQ-D5b"/>
                             <constraint firstItem="7aU-Mq-2mJ" firstAttribute="top" secondItem="1Jk-LC-Eam" secondAttribute="bottom" id="ifn-zt-oGp"/>
+                            <constraint firstItem="60z-9N-jft" firstAttribute="leading" secondItem="Xwe-Xp-Ipr" secondAttribute="leadingMargin" id="lgq-NR-dHx"/>
+                            <constraint firstItem="lJb-pc-rrH" firstAttribute="top" secondItem="7aU-Mq-2mJ" secondAttribute="bottom" constant="6" id="nb5-iI-D9i"/>
+                            <constraint firstItem="Zdv-YK-apm" firstAttribute="top" secondItem="60z-9N-jft" secondAttribute="bottom" constant="8" id="nmr-Ux-N9G"/>
+                            <constraint firstItem="U87-U4-oaN" firstAttribute="top" secondItem="60z-9N-jft" secondAttribute="bottom" constant="23" id="pkJ-T8-Ek1"/>
+                            <constraint firstItem="lJb-pc-rrH" firstAttribute="trailing" secondItem="Xwe-Xp-Ipr" secondAttribute="trailingMargin" id="uO8-Ml-LdL"/>
+                            <constraint firstItem="Zdv-YK-apm" firstAttribute="trailing" secondItem="Xwe-Xp-Ipr" secondAttribute="trailingMargin" id="xOY-h9-GMB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7aU-Mq-2mJ" secondAttribute="trailing" constant="-16" id="yoa-H5-GsC"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="LmJ-da-81O" id="4aW-EI-pIr"/>
-                        <outlet property="postBody" destination="60z-9N-jft" id="jZd-Py-puM"/>
+                        <outlet property="backNavButton" destination="LmJ-da-81O" id="x4n-zW-siq"/>
+                        <outlet property="nextButton" destination="Zdv-YK-apm" id="ToO-Bd-4CT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iak-xL-cnT" userLabel="First Responder" sceneMemberID="firstResponder"/>
