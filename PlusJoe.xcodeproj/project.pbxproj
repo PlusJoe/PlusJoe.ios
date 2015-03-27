@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AAC2E341AC457C300B60B47 /* CreatePostStepOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC2E331AC457C300B60B47 /* CreatePostStepOneViewController.swift */; };
+		0AAC2E361AC4580900B60B47 /* CreatePostStepTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC2E351AC4580900B60B47 /* CreatePostStepTwoViewController.swift */; };
+		0AC50CA41AC42AC90087F5D8 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AC50CA31AC42AC90087F5D8 /* fontawesome-webfont.ttf */; };
 		0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */; };
 		0AEAFBD11AC0E2F900800121 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD01AC0E2F900800121 /* ViewController.swift */; };
 		0AEAFBD41AC0E2F900800121 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD21AC0E2F900800121 /* Main.storyboard */; };
 		0AEAFBD61AC0E2F900800121 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD51AC0E2F900800121 /* Images.xcassets */; };
 		0AEAFBD91AC0E2F900800121 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD71AC0E2F900800121 /* LaunchScreen.xib */; };
 		0AEAFBE51AC0E2F900800121 /* PlusJoeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFBE41AC0E2F900800121 /* PlusJoeTests.swift */; };
-		0AEAFBEF1AC1C06D00800121 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFBEE1AC1C06D00800121 /* HomeViewController.swift */; };
 		0AEAFBFF1AC1C90600800121 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFBFA1AC1C90600800121 /* Bolts.framework */; };
 		0AEAFC001AC1C90600800121 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFBFB1AC1C90600800121 /* Parse.framework */; };
 		0AEAFC011AC1C90600800121 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFBFC1AC1C90600800121 /* ParseCrashReporting.framework */; };
@@ -44,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0AAC2E331AC457C300B60B47 /* CreatePostStepOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostStepOneViewController.swift; sourceTree = "<group>"; };
+		0AAC2E351AC4580900B60B47 /* CreatePostStepTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostStepTwoViewController.swift; sourceTree = "<group>"; };
+		0AC50CA31AC42AC90087F5D8 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fontawesome-webfont.ttf"; path = "PlusJoe/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
+		0AE6D3CD1AC2F6F90098011F /* PlusJoe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlusJoe-Bridging-Header.h"; sourceTree = "<group>"; };
 		0AEAFBC91AC0E2F900800121 /* PlusJoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusJoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEAFBCD1AC0E2F900800121 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +60,6 @@
 		0AEAFBDE1AC0E2F900800121 /* PlusJoeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlusJoeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEAFBE31AC0E2F900800121 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AEAFBE41AC0E2F900800121 /* PlusJoeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusJoeTests.swift; sourceTree = "<group>"; };
-		0AEAFBEE1AC1C06D00800121 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0AEAFBFA1AC1C90600800121 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		0AEAFBFB1AC1C90600800121 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		0AEAFBFC1AC1C90600800121 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -135,10 +140,12 @@
 				0AEAFBD21AC0E2F900800121 /* Main.storyboard */,
 				0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */,
 				0AEAFBD01AC0E2F900800121 /* ViewController.swift */,
+				0AAC2E331AC457C300B60B47 /* CreatePostStepOneViewController.swift */,
+				0AAC2E351AC4580900B60B47 /* CreatePostStepTwoViewController.swift */,
 				0AEAFBD51AC0E2F900800121 /* Images.xcassets */,
 				0AEAFBD71AC0E2F900800121 /* LaunchScreen.xib */,
 				0AEAFBCC1AC0E2F900800121 /* Supporting Files */,
-				0AEAFBEE1AC1C06D00800121 /* HomeViewController.swift */,
+				0AE6D3CD1AC2F6F90098011F /* PlusJoe-Bridging-Header.h */,
 			);
 			path = PlusJoe;
 			sourceTree = "<group>";
@@ -194,6 +201,7 @@
 		0AEAFC1B1AC1CA1600800121 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0AC50CA31AC42AC90087F5D8 /* fontawesome-webfont.ttf */,
 				0AEAFBF91AC1C8F100800121 /* Parse */,
 				0AEAFBF11AC1C48800800121 /* Flurry */,
 				0AEAFC191AC1C9E100800121 /* libsqlite3.dylib */,
@@ -297,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AEAFBD41AC0E2F900800121 /* Main.storyboard in Resources */,
+				0AC50CA41AC42AC90087F5D8 /* fontawesome-webfont.ttf in Resources */,
 				0AEAFBD91AC0E2F900800121 /* LaunchScreen.xib in Resources */,
 				0AEAFBD61AC0E2F900800121 /* Images.xcassets in Resources */,
 			);
@@ -316,9 +325,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AEAFBEF1AC1C06D00800121 /* HomeViewController.swift in Sources */,
+				0AAC2E341AC457C300B60B47 /* CreatePostStepOneViewController.swift in Sources */,
 				0AEAFBD11AC0E2F900800121 /* ViewController.swift in Sources */,
 				0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */,
+				0AAC2E361AC4580900B60B47 /* CreatePostStepTwoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +457,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PlusJoe",
@@ -459,6 +470,8 @@
 					"$(PROJECT_DIR)/PlusJoe",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PlusJoe/PlusJoe-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -466,6 +479,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PlusJoe",
@@ -478,6 +492,7 @@
 					"$(PROJECT_DIR)/PlusJoe",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PlusJoe/PlusJoe-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -534,6 +549,7 @@
 				0AEAFBEA1AC0E2F900800121 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0AEAFBEB1AC0E2F900800121 /* Build configuration list for PBXNativeTarget "PlusJoeTests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +558,7 @@
 				0AEAFBED1AC0E2F900800121 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
