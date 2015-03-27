@@ -242,7 +242,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60z-9N-jft" customClass="Create">
-                                <rect key="frame" x="16" y="108" width="568" height="154"/>
+                                <rect key="frame" x="16" y="72" width="568" height="190"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" hint="description" label="">
                                     <bool key="isElement" value="YES"/>
@@ -275,10 +275,10 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zdv-YK-apm">
-                                <rect key="frame" x="174" y="270" width="410" height="60"/>
+                                <rect key="frame" x="16" y="270" width="568" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="P41-nX-ymO"/>
+                                    <constraint firstAttribute="height" constant="60" id="dES-b9-L8H"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
@@ -293,49 +293,25 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lJb-pc-rrH">
-                                <rect key="frame" x="16" y="70" width="568" height="30"/>
-                                <accessibility key="accessibilityConfiguration" hint="name" label=""/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="1SE-uJ-C8a"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="price $" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U87-U4-oaN">
-                                <rect key="frame" x="16" y="285" width="150" height="30"/>
-                                <accessibility key="accessibilityConfiguration" hint="price in $"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Gxy-XO-YZX"/>
-                                    <constraint firstAttribute="width" constant="150" id="tD1-up-irt"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Zdv-YK-apm" firstAttribute="leading" secondItem="U87-U4-oaN" secondAttribute="trailing" constant="8" id="6dE-oR-LEh"/>
-                            <constraint firstItem="Zdv-YK-apm" firstAttribute="leading" secondItem="U87-U4-oaN" secondAttribute="trailing" constant="8" id="D2A-8N-6Br"/>
-                            <constraint firstItem="U87-U4-oaN" firstAttribute="leading" secondItem="Xwe-Xp-Ipr" secondAttribute="leadingMargin" id="FKG-58-evp"/>
-                            <constraint firstItem="60z-9N-jft" firstAttribute="top" secondItem="lJb-pc-rrH" secondAttribute="bottom" constant="8" id="Mwu-PT-Tzv"/>
-                            <constraint firstItem="lJb-pc-rrH" firstAttribute="leading" secondItem="Xwe-Xp-Ipr" secondAttribute="leadingMargin" id="QZt-qb-GCT"/>
-                            <constraint firstItem="60z-9N-jft" firstAttribute="trailing" secondItem="Xwe-Xp-Ipr" secondAttribute="trailingMargin" id="RNu-ek-c9V"/>
+                            <constraint firstItem="Zdv-YK-apm" firstAttribute="leading" secondItem="Xwe-Xp-Ipr" secondAttribute="leadingMargin" id="0cE-iM-NoU"/>
+                            <constraint firstItem="Zdv-YK-apm" firstAttribute="trailing" secondItem="Xwe-Xp-Ipr" secondAttribute="trailingMargin" id="12P-HQ-Hje"/>
+                            <constraint firstItem="Zdv-YK-apm" firstAttribute="top" secondItem="60z-9N-jft" secondAttribute="bottom" constant="8" id="4JR-aA-rbW"/>
+                            <constraint firstItem="60z-9N-jft" firstAttribute="trailing" secondItem="Xwe-Xp-Ipr" secondAttribute="trailingMargin" id="6sD-YK-dGX"/>
+                            <constraint firstItem="60z-9N-jft" firstAttribute="leading" secondItem="Xwe-Xp-Ipr" secondAttribute="leadingMargin" id="AdW-Ji-Fpc"/>
+                            <constraint firstAttribute="centerY" secondItem="Zdv-YK-apm" secondAttribute="centerY" id="E1v-UQ-12u"/>
+                            <constraint firstItem="60z-9N-jft" firstAttribute="top" secondItem="7aU-Mq-2mJ" secondAttribute="bottom" constant="8" id="Oev-Ua-PWC"/>
                             <constraint firstItem="7aU-Mq-2mJ" firstAttribute="leading" secondItem="Xwe-Xp-Ipr" secondAttribute="leadingMargin" constant="-16" id="T4y-xl-afg"/>
-                            <constraint firstAttribute="centerY" secondItem="U87-U4-oaN" secondAttribute="centerY" id="anM-KQ-D5b"/>
                             <constraint firstItem="7aU-Mq-2mJ" firstAttribute="top" secondItem="1Jk-LC-Eam" secondAttribute="bottom" id="ifn-zt-oGp"/>
-                            <constraint firstItem="60z-9N-jft" firstAttribute="leading" secondItem="Xwe-Xp-Ipr" secondAttribute="leadingMargin" id="lgq-NR-dHx"/>
-                            <constraint firstItem="lJb-pc-rrH" firstAttribute="top" secondItem="7aU-Mq-2mJ" secondAttribute="bottom" constant="6" id="nb5-iI-D9i"/>
-                            <constraint firstItem="Zdv-YK-apm" firstAttribute="top" secondItem="60z-9N-jft" secondAttribute="bottom" constant="8" id="nmr-Ux-N9G"/>
-                            <constraint firstItem="U87-U4-oaN" firstAttribute="top" secondItem="60z-9N-jft" secondAttribute="bottom" constant="23" id="pkJ-T8-Ek1"/>
-                            <constraint firstItem="lJb-pc-rrH" firstAttribute="trailing" secondItem="Xwe-Xp-Ipr" secondAttribute="trailingMargin" id="uO8-Ml-LdL"/>
-                            <constraint firstItem="Zdv-YK-apm" firstAttribute="trailing" secondItem="Xwe-Xp-Ipr" secondAttribute="trailingMargin" id="xOY-h9-GMB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7aU-Mq-2mJ" secondAttribute="trailing" constant="-16" id="yoa-H5-GsC"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backNavButton" destination="LmJ-da-81O" id="x4n-zW-siq"/>
                         <outlet property="nextButton" destination="Zdv-YK-apm" id="ToO-Bd-4CT"/>
+                        <outlet property="postBody" destination="60z-9N-jft" id="KMA-Ze-2Oo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iak-xL-cnT" userLabel="First Responder" sceneMemberID="firstResponder"/>

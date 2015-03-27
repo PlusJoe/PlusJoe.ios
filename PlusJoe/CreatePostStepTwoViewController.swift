@@ -11,6 +11,7 @@ import UIKit
 class CreatePostStepTwoViewController: UIViewController {
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
+
     @IBOutlet weak var postBody: UITextView!
     
     @IBOutlet weak var nextButton: UIButton!
@@ -29,6 +30,8 @@ class CreatePostStepTwoViewController: UIViewController {
         }
         
         nextButton.setTitle("next" + "   \u{f054}", forState: UIControlState.Normal)
+        
+        postBody.becomeFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
