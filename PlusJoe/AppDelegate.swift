@@ -8,10 +8,28 @@
 
 import UIKit
 
+//let PJHost = "http://plusjoe.com"
+
+var DEVICE_PHONE_NUMBER = ""
+var DEVICE_UUID = ""
+let APP_DELEGATE:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+let USER_DEFAULTS = NSUserDefaults.standardUserDefaults()
+
+
+func roundMoney(number: Double) -> Double {
+    let numberOfPlaces = 2.0
+    let multiplier = pow(10.0, numberOfPlaces)
+    return round(number * multiplier) / multiplier
+}
+
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+
+    var CURRENT_LOCATION:PFGeoPoint?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
