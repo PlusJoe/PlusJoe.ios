@@ -1,21 +1,20 @@
 //
-//  CreatePostStepTwoViewController.swift
+//  CreatePostStepFourViewController.swift
 //  PlusJoe
 //
-//  Created by D on 3/26/15.
+//  Created by D on 3/27/15.
 //  Copyright (c) 2015 PlusJoe. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class CreatePostStepTwoViewController: UIViewController {
+class CreatePostStepFourViewController: UIViewController {
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
-
-    @IBOutlet weak var postBody: UITextView!
+    
     
     @IBOutlet weak var nextButton: UIButton!
-
+    
     
     @IBAction func backButtonAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -31,7 +30,8 @@ class CreatePostStepTwoViewController: UIViewController {
         
         nextButton.setTitle("next" + "   \u{f054}", forState: UIControlState.Normal)
         
-        postBody.becomeFirstResponder()
     }
+    
+    
     
 }

@@ -11,6 +11,8 @@
 		0AAC2E341AC457C300B60B47 /* CreatePostStepOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC2E331AC457C300B60B47 /* CreatePostStepOneViewController.swift */; };
 		0AAC2E361AC4580900B60B47 /* CreatePostStepTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC2E351AC4580900B60B47 /* CreatePostStepTwoViewController.swift */; };
 		0AC50CA41AC42AC90087F5D8 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AC50CA31AC42AC90087F5D8 /* fontawesome-webfont.ttf */; };
+		0AC66FBD1AC5C1CA003C818C /* CreatePostStepThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC66FBC1AC5C1CA003C818C /* CreatePostStepThreeViewController.swift */; };
+		0AC66FBF1AC5C22C003C818C /* CreatePostStepFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC66FBE1AC5C22C003C818C /* CreatePostStepFourViewController.swift */; };
 		0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */; };
 		0AEAFBD41AC0E2F900800121 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD21AC0E2F900800121 /* Main.storyboard */; };
 		0AEAFBD61AC0E2F900800121 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD51AC0E2F900800121 /* Images.xcassets */; };
@@ -50,6 +52,8 @@
 		0AAC2E331AC457C300B60B47 /* CreatePostStepOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostStepOneViewController.swift; sourceTree = "<group>"; };
 		0AAC2E351AC4580900B60B47 /* CreatePostStepTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostStepTwoViewController.swift; sourceTree = "<group>"; };
 		0AC50CA31AC42AC90087F5D8 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fontawesome-webfont.ttf"; path = "PlusJoe/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
+		0AC66FBC1AC5C1CA003C818C /* CreatePostStepThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostStepThreeViewController.swift; sourceTree = "<group>"; };
+		0AC66FBE1AC5C22C003C818C /* CreatePostStepFourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostStepFourViewController.swift; sourceTree = "<group>"; };
 		0AE6D3CD1AC2F6F90098011F /* PlusJoe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlusJoe-Bridging-Header.h"; sourceTree = "<group>"; };
 		0AEAFBC91AC0E2F900800121 /* PlusJoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusJoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEAFBCD1AC0E2F900800121 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				0A4C495A1AC501C000D164E2 /* SearchViewController.swift */,
 				0AAC2E331AC457C300B60B47 /* CreatePostStepOneViewController.swift */,
 				0AAC2E351AC4580900B60B47 /* CreatePostStepTwoViewController.swift */,
+				0AC66FBC1AC5C1CA003C818C /* CreatePostStepThreeViewController.swift */,
+				0AC66FBE1AC5C22C003C818C /* CreatePostStepFourViewController.swift */,
 				0AEAFBD51AC0E2F900800121 /* Images.xcassets */,
 				0AEAFBD71AC0E2F900800121 /* LaunchScreen.xib */,
 				0AEAFBCC1AC0E2F900800121 /* Supporting Files */,
@@ -327,8 +333,10 @@
 			files = (
 				0AAC2E341AC457C300B60B47 /* CreatePostStepOneViewController.swift in Sources */,
 				0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */,
+				0AC66FBF1AC5C22C003C818C /* CreatePostStepFourViewController.swift in Sources */,
 				0A4C495B1AC501C000D164E2 /* SearchViewController.swift in Sources */,
 				0AAC2E361AC4580900B60B47 /* CreatePostStepTwoViewController.swift in Sources */,
+				0AC66FBD1AC5C1CA003C818C /* CreatePostStepThreeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
