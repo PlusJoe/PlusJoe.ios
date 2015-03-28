@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 //let PJHost = "http://plusjoe.com"
 
 var DEVICE_PHONE_NUMBER = ""
@@ -34,9 +35,67 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        // setup Flurry
+        // Flurry.startSession("") // replace flurryKey with your own key
+        Flurry.setCrashReportingEnabled(true)  // records app crashing in Flurry
+        Flurry.logEvent("Start Application")   // Example of even logging
+        Flurry.setSessionReportsOnCloseEnabled(false)
+        Flurry.setSessionReportsOnPauseEnabled(false)
+        Flurry.setBackgroundSessionEnabled(true)
+        
+        //setup parse
+        // parse prod
+        // parse dev
+        Parse.setApplicationId("9pCHhmNRhIJjSDACxNVJoE5gRs2jD7DIu04hRdOI", clientKey: "4wwq4Rw3JDprIs0ZlRqeQNd02zRAGnD0mogyxDW2")
+        
+        
+        // Register for Push Notitications and/or Alerts
+        let userNotificationTypes:UIUserNotificationType = (UIUserNotificationType.Alert |
+            UIUserNotificationType.Badge |
+            UIUserNotificationType.Sound)
+        
+        let settings:UIUserNotificationSettings  = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
+        //        application.registerForRemoteNotifications()
+        application.registerUserNotificationSettings(settings)
+        application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        
+        
+        //        BaseDataModel.clearStoredCredential()
+        //generate and store UUID for device if necessey
+//        if let credentials = BaseDataModel.getStoredCredential() {
+//            NSLog("getting GUID from nsuserdefaults")
+//            //            DEVICE_PHONE_NUMBER = credentials.user!
+//            DEVICE_UUID = credentials.password!
+//        }
+//        if DEVICE_UUID == "" {
+//            NSLog("generating new UDID")
+//            let uuidString = NSUUID().UUIDString
+//            //            var uuidRef:CFUUIDRef  = CFUUIDCreate(kCFAllocatorDefault)
+//            //            var uuidString = CFUUIDCreateString(nil, uuidRef)
+//            NSLog("uuid: \(uuidString)")
+//            BaseDataModel.storeCredential(uuidString)
+//            DEVICE_UUID = uuidString
+//        }
+        //        NSLog("UUID: \(DEVICE_UUID)")
+        
+        getCurrentLocation()
+//        getAlerts()
         return true
     }
-
+    
+    func getCurrentLocation() -> PFGeoPoint? {
+        if CURRENT_LOCATION == nil {
+            PFGeoPoint.geoPointForCurrentLocationInBackground({ (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
+                if !(error != nil) {
+                    self.CURRENT_LOCATION = geoPoint!
+                }
+            })
+        }
+        return CURRENT_LOCATION
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
