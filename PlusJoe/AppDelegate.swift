@@ -8,6 +8,11 @@
 
 import UIKit
 
+//let FLURRY_API_KEY = ""
+//let PARSE_APP_ID = ""
+//let PARSE_CLIENT_KEY = ""
+
+
 
 //let PJHost = "http://plusjoe.com"
 
@@ -15,6 +20,7 @@ var DEVICE_PHONE_NUMBER = ""
 var DEVICE_UUID = ""
 let APP_DELEGATE:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 let USER_DEFAULTS = NSUserDefaults.standardUserDefaults()
+
 
 
 func roundMoney(number: Double) -> Double {
@@ -38,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // setup Flurry
-        // Flurry.startSession("") // replace flurryKey with your own key
+        Flurry.startSession(FLURRY_API_KEY) // replace flurryKey with your own key
         Flurry.setCrashReportingEnabled(true)  // records app crashing in Flurry
         Flurry.logEvent("Start Application")   // Example of even logging
         Flurry.setSessionReportsOnCloseEnabled(false)
@@ -48,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //setup parse
         // parse prod
         // parse dev
-        Parse.setApplicationId("9pCHhmNRhIJjSDACxNVJoE5gRs2jD7DIu04hRdOI", clientKey: "4wwq4Rw3JDprIs0ZlRqeQNd02zRAGnD0mogyxDW2")
+        Parse.setApplicationId(PARSE_APP_ID, clientKey: PARSE_CLIENT_KEY)
         
         
         // Register for Push Notitications and/or Alerts
@@ -121,3 +127,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+//http://stackoverflow.com/questions/16244969/how-to-tell-git-to-ignore-individual-lines-i-e-gitignore-for-specific-lines-of
+//http://www.buildsucceeded.com/2014/swift-move-uitextfield-so-keyboard-does-not-hide-it-ios-8-xcode-6-swift/
+//https://github.com/NatashaTheRobot/SeinfeldQuotes
+//http://www.appcoda.com/self-sizing-cells/
+//http://www.snip2code.com/Snippet/197992/Swift-Background-Fetch
+//gitignore lines http://stackoverflow.com/questions/16244969/how-to-tell-git-to-ignore-individual-lines-i-e-gitignore-for-specific-lines-of
