@@ -14,7 +14,7 @@ import UIKit
 
 
 
-//let PJHost = "http://plusjoe.com"
+let PJHost = "http://plusjoe.com"
 
 var DEVICE_PHONE_NUMBER = ""
 var DEVICE_UUID = ""
@@ -70,21 +70,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //        BaseDataModel.clearStoredCredential()
         //generate and store UUID for device if necessey
-//        if let credentials = BaseDataModel.getStoredCredential() {
-//            NSLog("getting GUID from nsuserdefaults")
-//            //            DEVICE_PHONE_NUMBER = credentials.user!
-//            DEVICE_UUID = credentials.password!
-//        }
-//        if DEVICE_UUID == "" {
-//            NSLog("generating new UDID")
-//            let uuidString = NSUUID().UUIDString
-//            //            var uuidRef:CFUUIDRef  = CFUUIDCreate(kCFAllocatorDefault)
-//            //            var uuidString = CFUUIDCreateString(nil, uuidRef)
-//            NSLog("uuid: \(uuidString)")
-//            BaseDataModel.storeCredential(uuidString)
-//            DEVICE_UUID = uuidString
-//        }
-        //        NSLog("UUID: \(DEVICE_UUID)")
+        if let credentials = BaseDataModel.getStoredCredential() {
+            NSLog("getting GUID from nsuserdefaults")
+            //            DEVICE_PHONE_NUMBER = credentials.user!
+            DEVICE_UUID = credentials.password!
+        }
+        if DEVICE_UUID == "" {
+            NSLog("generating new UDID")
+            let uuidString = NSUUID().UUIDString
+            //            var uuidRef:CFUUIDRef  = CFUUIDCreate(kCFAllocatorDefault)
+            //            var uuidString = CFUUIDCreateString(nil, uuidRef)
+            NSLog("uuid: \(uuidString)")
+            BaseDataModel.storeCredential(uuidString)
+            DEVICE_UUID = uuidString
+        }
+
         
         getCurrentLocation()
 //        getAlerts()
@@ -96,6 +96,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             PFGeoPoint.geoPointForCurrentLocationInBackground({ (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
                 if !(error != nil) {
                     self.CURRENT_LOCATION = geoPoint!
+                    NSLog("current location detected")
+                    var post = PJPost(className: PJPost.parseClassName())
+                    post.location = self.CURRENT_LOCATION!
+                    post.createdBy = DEVICE_UUID
+                    post.save()
+
                 }
             })
         }

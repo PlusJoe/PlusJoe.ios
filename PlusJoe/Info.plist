@@ -51,5 +51,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We want to send your location data to +Joe, please allow access to location services.</string>
 </dict>
 </plist>

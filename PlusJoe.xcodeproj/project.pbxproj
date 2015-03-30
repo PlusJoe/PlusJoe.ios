@@ -14,6 +14,8 @@
 		0A48A75B1AC6EB89008E6482 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A48A7551AC6EB89008E6482 /* ParseFacebookUtilsV4.framework */; };
 		0A48A75C1AC6EB89008E6482 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A48A7561AC6EB89008E6482 /* ParseUI.framework */; };
 		0A4C495B1AC501C000D164E2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C495A1AC501C000D164E2 /* SearchViewController.swift */; };
+		0A60E1C31AC8E854003887C5 /* BaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */; };
+		0A60E1C51AC8ED2B003887C5 /* PJPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C41AC8ED2B003887C5 /* PJPost.swift */; };
 		0AAC2E341AC457C300B60B47 /* CreatePostStepOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC2E331AC457C300B60B47 /* CreatePostStepOneViewController.swift */; };
 		0AAC2E361AC4580900B60B47 /* CreatePostStepTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC2E351AC4580900B60B47 /* CreatePostStepTwoViewController.swift */; };
 		0AC50CA41AC42AC90087F5D8 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AC50CA31AC42AC90087F5D8 /* fontawesome-webfont.ttf */; };
@@ -55,6 +57,8 @@
 		0A48A7551AC6EB89008E6482 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		0A48A7561AC6EB89008E6482 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		0A4C495A1AC501C000D164E2 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = ../SearchViewController.swift; sourceTree = "<group>"; };
+		0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataModel.swift; sourceTree = "<group>"; };
+		0A60E1C41AC8ED2B003887C5 /* PJPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJPost.swift; sourceTree = "<group>"; };
 		0AAC2E331AC457C300B60B47 /* CreatePostStepOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostStepOneViewController.swift; sourceTree = "<group>"; };
 		0AAC2E351AC4580900B60B47 /* CreatePostStepTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostStepTwoViewController.swift; sourceTree = "<group>"; };
 		0AC50CA31AC42AC90087F5D8 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fontawesome-webfont.ttf"; path = "PlusJoe/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
@@ -132,6 +136,26 @@
 			path = "parse-library-1.7.0";
 			sourceTree = "<group>";
 		};
+		0A60E1C01AC8E7B4003887C5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */,
+				0A60E1C41AC8ED2B003887C5 /* PJPost.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0A60E1C11AC8E7CF003887C5 /* CreatePost */ = {
+			isa = PBXGroup;
+			children = (
+				0AAC2E331AC457C300B60B47 /* CreatePostStepOneViewController.swift */,
+				0AAC2E351AC4580900B60B47 /* CreatePostStepTwoViewController.swift */,
+				0AC66FBC1AC5C1CA003C818C /* CreatePostStepThreeViewController.swift */,
+				0AC66FBE1AC5C22C003C818C /* CreatePostStepFourViewController.swift */,
+			);
+			name = CreatePost;
+			sourceTree = "<group>";
+		};
 		0AEAFBC01AC0E2F900800121 = {
 			isa = PBXGroup;
 			children = (
@@ -154,13 +178,11 @@
 		0AEAFBCB1AC0E2F900800121 /* PlusJoe */ = {
 			isa = PBXGroup;
 			children = (
+				0A60E1C01AC8E7B4003887C5 /* Model */,
+				0A60E1C11AC8E7CF003887C5 /* CreatePost */,
 				0AEAFBD21AC0E2F900800121 /* Main.storyboard */,
 				0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */,
 				0A4C495A1AC501C000D164E2 /* SearchViewController.swift */,
-				0AAC2E331AC457C300B60B47 /* CreatePostStepOneViewController.swift */,
-				0AAC2E351AC4580900B60B47 /* CreatePostStepTwoViewController.swift */,
-				0AC66FBC1AC5C1CA003C818C /* CreatePostStepThreeViewController.swift */,
-				0AC66FBE1AC5C22C003C818C /* CreatePostStepFourViewController.swift */,
 				0AEAFBD51AC0E2F900800121 /* Images.xcassets */,
 				0AEAFBD71AC0E2F900800121 /* LaunchScreen.xib */,
 				0AEAFBCC1AC0E2F900800121 /* Supporting Files */,
@@ -334,12 +356,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A60E1C31AC8E854003887C5 /* BaseDataModel.swift in Sources */,
 				0AAC2E341AC457C300B60B47 /* CreatePostStepOneViewController.swift in Sources */,
 				0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */,
 				0AC66FBF1AC5C22C003C818C /* CreatePostStepFourViewController.swift in Sources */,
 				0A4C495B1AC501C000D164E2 /* SearchViewController.swift in Sources */,
 				0AAC2E361AC4580900B60B47 /* CreatePostStepTwoViewController.swift in Sources */,
 				0AC66FBD1AC5C1CA003C818C /* CreatePostStepThreeViewController.swift in Sources */,
+				0A60E1C51AC8ED2B003887C5 /* PJPost.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
