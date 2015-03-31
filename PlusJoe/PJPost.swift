@@ -23,6 +23,8 @@ class PJPost: PFObject, PFSubclassing {
     
     
     @NSManaged var createdBy: String //uuid
+    @NSManaged var sell: Bool // if it's false, it's not a sell, it's a buy
+    @NSManaged var thing: Bool // if it's false, it's not a thing, it's a service
     @NSManaged var body: String
     @NSManaged var words: [String]
     @NSManaged var hashtags: [String]

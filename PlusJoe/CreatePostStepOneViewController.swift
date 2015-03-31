@@ -38,6 +38,20 @@ class CreatePostStepOneViewController: UIViewController {
         nextButton.hidden = true
         
         nextButton.setTitle("next" + "   \u{f054}", forState: UIControlState.Normal)
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if CURRENT_LOCATION == nil {
+            let alertMessage = UIAlertController(title: "Warning", message: "Your current location cant be detected. Turn GPS on, and/or enable PlusJoe GPS access in preferences and try again.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+            alertMessage.addAction(ok)
+            presentViewController(alertMessage, animated: true, completion: nil)
+        }
+        
     }
     
     @IBAction func sellButtonAction(sender: AnyObject) {
