@@ -88,6 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         getCurrentLocation()
 //        getAlerts()
+        
         return true
     }
     
@@ -97,10 +98,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if !(error != nil) {
                     self.CURRENT_LOCATION = geoPoint!
                     NSLog("current location detected")
-                    var post = PJPost(className: PJPost.parseClassName())
-                    post.location = self.CURRENT_LOCATION!
-                    post.createdBy = DEVICE_UUID
-                    post.save()
+
+//                    var post = PJPost(className: PJPost.parseClassName())
+//                    post.location = self.CURRENT_LOCATION!
+//                    post.createdBy = DEVICE_UUID
+//                    post.body = "$50,123 $51 $52.00 This is a test #very #interesting for #selling a boats for $55.98 in a good condition"
+//                    post.active = false
+//                    post.archived = false
+//                    post.save()
 
                 }
             })

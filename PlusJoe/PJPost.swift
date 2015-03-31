@@ -10,6 +10,9 @@ import Foundation
 
 
 class PJPost: PFObject, PFSubclassing {
+    static func parseClassName() -> String {
+        return "Posts"
+    }
     
     override class func initialize() {
         var onceToken : dispatch_once_t = 0;
@@ -18,17 +21,14 @@ class PJPost: PFObject, PFSubclassing {
         }
     }
     
-    static func parseClassName() -> String {
-        return "Post"
-    }
     
     @NSManaged var createdBy: String //uuid
     @NSManaged var body: String
     @NSManaged var words: [String]
-    @NSManaged var hash_tags: [String]
-    @NSManaged var price_tags: [String]
+    @NSManaged var hashtags: [String]
+    @NSManaged var pricetags: [String]
     @NSManaged var location: PFGeoPoint
-    @NSManaged var active: Boolean
-    @NSManaged var archived: Boolean
+    @NSManaged var active: Bool
+    @NSManaged var archived: Bool
     
 }
