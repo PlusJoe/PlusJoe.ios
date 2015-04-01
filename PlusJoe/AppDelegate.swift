@@ -21,8 +21,9 @@ var DEVICE_UUID = ""
 let APP_DELEGATE:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 let USER_DEFAULTS = NSUserDefaults.standardUserDefaults()
 
-var CURRENT_LOCATION:PFGeoPoint?
+var CURRENT_LOCATION:PFGeoPoint? = nil // the app will only work if the current location can be detected
 
+var UNFINISHED_POST:PJPost? = nil // we use this to store intermidiary post object
 
 
 func roundMoney(number: Double) -> Double {
@@ -99,15 +100,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if !(error != nil) {
                     CURRENT_LOCATION = geoPoint!
                     NSLog("current location detected")
-
-//                    var post = PJPost(className: PJPost.parseClassName())
-//                    post.location = self.CURRENT_LOCATION!
-//                    post.createdBy = DEVICE_UUID
-//                    post.body = "$50,123 $51 $52.00 This is a test #very #interesting for #selling a boats for $55.98 in a good condition"
-//                    post.active = false
-//                    post.archived = false
-//                    post.save()
-
                 }
             })
         }

@@ -17,7 +17,7 @@ class CreatePostStepOneViewController: UIViewController {
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var thingButton: UIButton!
     @IBOutlet weak var serviceButton: UIButton!
-
+    
     @IBOutlet weak var nextButton: UIButton!
     
     @IBAction func backButtonAction(sender: AnyObject) {
@@ -52,7 +52,26 @@ class CreatePostStepOneViewController: UIViewController {
             presentViewController(alertMessage, animated: true, completion: nil)
         }
         
+        //now let's see if a temporary post was already created, otherwise use the new one
+        if UNFINISHED_POST == nil {// let's try to load one from a DB
+            UNFINISHED_POST = PJPost.getUnfinishedPost()
+        } else {
+            if UNFINISHED_POST?.sell == true {
+                sellButtonAction(self)
+            } else {
+                buyButtonAction(self)
+            }
+            
+            if UNFINISHED_POST?.thing == true {
+                thingButtonAction(self)
+            } else {
+                serviceButtonAction(self)
+            }
+            
+        }
     }
+    
+    
     
     @IBAction func sellButtonAction(sender: AnyObject) {
         sellButton.backgroundColor = UIColor.greenColor()
@@ -63,17 +82,23 @@ class CreatePostStepOneViewController: UIViewController {
         
         thingButton.hidden = false
         serviceButton.hidden = false
+        
+        
+        UNFINISHED_POST?.sell = true
+        UNFINISHED_POST?.saveEventually(nil)
     }
     
     @IBAction func buyButtonAction(sender: AnyObject) {
         buyButton.backgroundColor = UIColor.greenColor()
         sellButton.backgroundColor = UIColor.whiteColor()
-
+        
         buyButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         sellButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
         
         thingButton.hidden = false
         serviceButton.hidden = false
+        UNFINISHED_POST?.sell = false
+        UNFINISHED_POST?.saveEventually(nil)
     }
     
     @IBAction func thingButtonAction(sender: AnyObject) {
@@ -84,6 +109,9 @@ class CreatePostStepOneViewController: UIViewController {
         serviceButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
         
         nextButton.hidden = false
+        
+        UNFINISHED_POST?.thing = true
+        UNFINISHED_POST?.saveEventually(nil)
     }
     
     @IBAction func serviceButtonAction(sender: AnyObject) {
@@ -94,6 +122,9 @@ class CreatePostStepOneViewController: UIViewController {
         thingButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
         
         nextButton.hidden = false
+        
+        UNFINISHED_POST?.thing = false
+        UNFINISHED_POST?.saveEventually(nil)
     }
     
     
