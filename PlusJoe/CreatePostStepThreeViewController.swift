@@ -62,14 +62,6 @@ class CreatePostStepThreeViewController:
         takePhotoButton.setTitle("\u{f030}", forState: UIControlState.Normal)
         pickPhotoFromLibraryButton.setTitle( "\u{f1c5}", forState: UIControlState.Normal)
         
-        if UNFINISHED_POST?.image1file != nil
-            && UNFINISHED_POST?.image2file != nil
-            && UNFINISHED_POST?.image3file != nil
-            && UNFINISHED_POST?.image4file != nil {
-                takePhotoButton.hidden = true
-        } else {
-            takePhotoButton.hidden = false
-        }
         
         
         picker.delegate = self
@@ -79,6 +71,21 @@ class CreatePostStepThreeViewController:
         imageThree.contentMode = .ScaleAspectFill
         imageFour.contentMode = .ScaleAspectFill
 
+        if let imageFile1 = UNFINISHED_POST?.image1file.getData() {
+            imageOne.image = UIImage(data: imageFile1)
+        }
+        if let imageFile2 = UNFINISHED_POST?.image2file.getData() {
+            imageTwo.image = UIImage(data: imageFile2)
+        }
+        if let imageFile3 = UNFINISHED_POST?.image3file.getData() {
+            imageThree.image = UIImage(data: imageFile3)
+        }
+        if let imageFile4 = UNFINISHED_POST?.image4file.getData() {
+            imageFour.image = UIImage(data: imageFile4)
+        }
+
+        
+        showHidePhotoButtons()
     }
     
     @IBAction func shootPhoto(sender: UIBarButtonItem){
@@ -119,20 +126,25 @@ class CreatePostStepThreeViewController:
             }
             
             UNFINISHED_POST?.saveInBackgroundWithBlock(nil)
+        
+            self.showHidePhotoButtons()
             
-            if(self.imageOne.image != nil && self.imageTwo.image != nil && self.imageThree.image != nil && self.imageFour.image != nil) {
-                self.takePhotoButton.hidden = true
-                self.pickPhotoFromLibraryButton.hidden = true
-            } else {
-                self.takePhotoButton.hidden = false
-                self.pickPhotoFromLibraryButton.hidden = false
-            }
             self.dismissViewControllerAnimated(true, completion: nil) //5
         }
         
         
     }
 
+    func showHidePhotoButtons() -> () {
+        if(imageOne.image != nil && imageTwo.image != nil && imageThree.image != nil && imageFour.image != nil) {
+            takePhotoButton.hidden = true
+            pickPhotoFromLibraryButton.hidden = true
+        } else {
+            takePhotoButton.hidden = false
+            pickPhotoFromLibraryButton.hidden = false
+        }
+    }
+    
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
