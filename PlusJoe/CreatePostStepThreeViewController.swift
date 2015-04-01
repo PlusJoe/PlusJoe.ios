@@ -8,6 +8,24 @@
 
 import Foundation
 
+// http://rajiev.com/resize-uiimage-in-swift/
+extension UIImage {
+    public func resize(size:CGSize, completionHandler:(resizedImage:UIImage, data:NSData)->()) {
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), { () -> Void in
+            var newSize:CGSize = size
+            let rect = CGRectMake(0, 0, newSize.width, newSize.height)
+            UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+            self.drawInRect(rect)
+            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            let imageData = UIImageJPEGRepresentation(newImage, 0.5)
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completionHandler(resizedImage: newImage, data:imageData)
+            })
+        })
+    }
+}
+
 class CreatePostStepThreeViewController:
     UIViewController,
     UIImagePickerControllerDelegate,
@@ -82,36 +100,37 @@ class CreatePostStepThreeViewController:
     //MARK: Delegates
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         var chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
-        let imageData = UIImagePNGRepresentation(chosenImage)
-        
-        
-        let imageFile = PFFile(name:"image.png", data:imageData)
-        
-        if imageOne.image == nil {
-            imageOne.image = chosenImage
-            UNFINISHED_POST?.image1file = imageFile
-        } else if imageTwo.image == nil {
-            imageTwo.image = chosenImage
-            UNFINISHED_POST?.image2file = imageFile
-        } else if imageThree.image == nil {
-            imageThree.image = chosenImage
-            UNFINISHED_POST?.image3file = imageFile
-        } else if imageFour.image == nil {
-            imageFour.image = chosenImage
-            UNFINISHED_POST?.image4file = imageFile
+
+        chosenImage.resize(CGSizeMake(500,500)) { (resizedImage, data) -> () in
+            let imageFile = PFFile(name:"image.png", data:data)
+
+            if self.imageOne.image == nil {
+                self.imageOne.image = resizedImage
+                UNFINISHED_POST?.image1file = imageFile
+            } else if self.imageTwo.image == nil {
+                self.imageTwo.image = resizedImage
+                UNFINISHED_POST?.image2file = imageFile
+            } else if self.imageThree.image == nil {
+                self.imageThree.image = resizedImage
+                UNFINISHED_POST?.image3file = imageFile
+            } else if self.imageFour.image == nil {
+                self.imageFour.image = resizedImage
+                UNFINISHED_POST?.image4file = imageFile
+            }
+            
+            UNFINISHED_POST?.saveInBackgroundWithBlock(nil)
+            
+            if(self.imageOne.image != nil && self.imageTwo.image != nil && self.imageThree.image != nil && self.imageFour.image != nil) {
+                self.takePhotoButton.hidden = true
+                self.pickPhotoFromLibraryButton.hidden = true
+            } else {
+                self.takePhotoButton.hidden = false
+                self.pickPhotoFromLibraryButton.hidden = false
+            }
+            self.dismissViewControllerAnimated(true, completion: nil) //5
         }
         
-        UNFINISHED_POST?.saveEventually(nil)
         
-        if(imageOne.image != nil && imageTwo.image != nil && imageThree.image != nil && imageFour.image != nil) {
-            takePhotoButton.hidden = true
-            pickPhotoFromLibraryButton.hidden = true
-        } else {
-            takePhotoButton.hidden = false
-            pickPhotoFromLibraryButton.hidden = false
-        }
-        
-        dismissViewControllerAnimated(true, completion: nil) //5
     }
 
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
