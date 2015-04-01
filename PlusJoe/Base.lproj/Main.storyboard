@@ -11,6 +11,7 @@
             <string>FontAwesome</string>
             <string>FontAwesome</string>
             <string>FontAwesome</string>
+            <string>FontAwesome</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -337,16 +338,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4r4-I0-tjl" customClass="Crea">
-                                <rect key="frame" x="16" y="64" width="568" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCu-nf-9qM">
+                                <rect key="frame" x="16" y="64" width="280" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="NEI-Il-Hn3"/>
-                                    <constraint firstAttribute="height" constant="60" id="lHe-dB-0k1"/>
+                                    <constraint firstAttribute="height" constant="60" id="mhe-cw-kJv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                <state key="normal" title="take photo">
+                                <state key="normal" title="library">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -356,6 +356,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="photoFromLibrary:" destination="pG7-8D-lJ8" eventType="touchUpInside" id="h3B-Xh-Vu8"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4V0-eX-auf">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
@@ -374,17 +377,49 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hld-5H-Pqb">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hld-5H-Pqb">
                                 <rect key="frame" x="304" y="132" width="280" height="180"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ixs-Fn-qGY">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ixs-Fn-qGY">
                                 <rect key="frame" x="304" y="320" width="280" height="180"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lzn-X3-vgf">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lzn-X3-vgf">
                                 <rect key="frame" x="16" y="132" width="280" height="180"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5uw-1h-9YM">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5uw-1h-9YM">
                                 <rect key="frame" x="16" y="320" width="280" height="180"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ExH-wz-wai">
                                 <rect key="frame" x="16" y="508" width="568" height="60"/>
@@ -409,18 +444,65 @@
                                     <segue destination="Fia-ll-Yzk" kind="show" id="eEd-eA-Sfi"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4r4-I0-tjl">
+                                <rect key="frame" x="304" y="64" width="280" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="hte-sK-rbK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="photo">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="shootPhoto:" destination="pG7-8D-lJ8" eventType="touchUpInside" id="g4n-Te-wvH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ixs-Fn-qGY" firstAttribute="trailing" secondItem="zOr-Gh-qmZ" secondAttribute="trailingMargin" id="0WH-r6-3BL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4V0-eX-auf" secondAttribute="trailing" constant="-16" id="2ia-rl-TAt"/>
+                            <constraint firstItem="Lzn-X3-vgf" firstAttribute="height" secondItem="hld-5H-Pqb" secondAttribute="height" id="3aK-Ce-rXs"/>
+                            <constraint firstItem="Lzn-X3-vgf" firstAttribute="width" secondItem="hld-5H-Pqb" secondAttribute="width" id="5PG-gZ-ipP"/>
+                            <constraint firstItem="ExH-wz-wai" firstAttribute="top" secondItem="ixs-Fn-qGY" secondAttribute="bottom" constant="8" id="6O3-j1-sAw"/>
+                            <constraint firstItem="Lzn-X3-vgf" firstAttribute="height" secondItem="5uw-1h-9YM" secondAttribute="height" id="6YG-ju-fgl"/>
+                            <constraint firstItem="4r4-I0-tjl" firstAttribute="height" secondItem="QCu-nf-9qM" secondAttribute="height" id="7Zx-40-jmx"/>
+                            <constraint firstItem="4r4-I0-tjl" firstAttribute="leading" secondItem="QCu-nf-9qM" secondAttribute="trailing" constant="8" id="9j1-aS-ZSY"/>
+                            <constraint firstItem="ixs-Fn-qGY" firstAttribute="leading" secondItem="5uw-1h-9YM" secondAttribute="trailing" constant="8" id="AWe-Xs-bMi"/>
+                            <constraint firstItem="Lzn-X3-vgf" firstAttribute="top" secondItem="QCu-nf-9qM" secondAttribute="bottom" constant="8" id="BJr-i0-SFE"/>
+                            <constraint firstItem="Lzn-X3-vgf" firstAttribute="height" secondItem="ixs-Fn-qGY" secondAttribute="height" id="BaK-Go-YHl"/>
+                            <constraint firstItem="QCu-nf-9qM" firstAttribute="leading" secondItem="zOr-Gh-qmZ" secondAttribute="leadingMargin" id="BjX-Qu-ads"/>
+                            <constraint firstItem="hld-5H-Pqb" firstAttribute="trailing" secondItem="zOr-Gh-qmZ" secondAttribute="trailingMargin" id="DQW-BI-U2q"/>
+                            <constraint firstItem="4r4-I0-tjl" firstAttribute="trailing" secondItem="zOr-Gh-qmZ" secondAttribute="trailingMargin" id="H2m-lo-DvZ"/>
                             <constraint firstItem="ExH-wz-wai" firstAttribute="trailing" secondItem="zOr-Gh-qmZ" secondAttribute="trailingMargin" id="Jp4-Qy-ik0"/>
+                            <constraint firstItem="ixs-Fn-qGY" firstAttribute="top" secondItem="hld-5H-Pqb" secondAttribute="bottom" constant="8" id="K6A-UQ-rtp"/>
+                            <constraint firstItem="ixs-Fn-qGY" firstAttribute="leading" secondItem="5uw-1h-9YM" secondAttribute="trailing" constant="8" id="Kpr-4d-P6O"/>
+                            <constraint firstItem="Lzn-X3-vgf" firstAttribute="width" secondItem="5uw-1h-9YM" secondAttribute="width" id="N6o-ae-AaR"/>
                             <constraint firstItem="KQN-8D-XG7" firstAttribute="top" secondItem="ExH-wz-wai" secondAttribute="bottom" constant="32" id="Odb-Ec-4Ez"/>
+                            <constraint firstItem="Lzn-X3-vgf" firstAttribute="leading" secondItem="zOr-Gh-qmZ" secondAttribute="leadingMargin" id="Qpf-8e-IWR"/>
+                            <constraint firstItem="hld-5H-Pqb" firstAttribute="leading" secondItem="Lzn-X3-vgf" secondAttribute="trailing" constant="8" id="Rxg-0Y-vY0"/>
+                            <constraint firstItem="5uw-1h-9YM" firstAttribute="top" secondItem="Lzn-X3-vgf" secondAttribute="bottom" constant="8" id="SUg-N9-Bea"/>
                             <constraint firstItem="ExH-wz-wai" firstAttribute="leading" secondItem="zOr-Gh-qmZ" secondAttribute="leadingMargin" id="ToN-MD-sPf"/>
-                            <constraint firstItem="4r4-I0-tjl" firstAttribute="top" secondItem="4V0-eX-auf" secondAttribute="bottom" id="Vml-o1-0GW"/>
+                            <constraint firstItem="ExH-wz-wai" firstAttribute="top" secondItem="5uw-1h-9YM" secondAttribute="bottom" constant="8" id="Tu3-Aa-0jP"/>
+                            <constraint firstItem="Lzn-X3-vgf" firstAttribute="width" secondItem="ixs-Fn-qGY" secondAttribute="width" id="adx-i0-Gdu"/>
+                            <constraint firstItem="5uw-1h-9YM" firstAttribute="leading" secondItem="zOr-Gh-qmZ" secondAttribute="leadingMargin" id="ahA-Bo-jdY"/>
                             <constraint firstItem="4V0-eX-auf" firstAttribute="top" secondItem="FCi-bq-8lG" secondAttribute="bottom" id="egi-QE-19P"/>
-                            <constraint firstItem="4r4-I0-tjl" firstAttribute="leading" secondItem="zOr-Gh-qmZ" secondAttribute="leadingMargin" id="iVJ-Cn-kAm"/>
+                            <constraint firstItem="QCu-nf-9qM" firstAttribute="top" secondItem="4V0-eX-auf" secondAttribute="bottom" id="iWT-tG-7Fy"/>
+                            <constraint firstItem="4r4-I0-tjl" firstAttribute="top" secondItem="4V0-eX-auf" secondAttribute="bottom" id="kXs-U3-42D"/>
                             <constraint firstItem="4V0-eX-auf" firstAttribute="leading" secondItem="zOr-Gh-qmZ" secondAttribute="leadingMargin" constant="-16" id="muq-8C-kxE"/>
-                            <constraint firstItem="4r4-I0-tjl" firstAttribute="trailing" secondItem="zOr-Gh-qmZ" secondAttribute="trailingMargin" id="pIE-NU-9qe"/>
+                            <constraint firstItem="4r4-I0-tjl" firstAttribute="width" secondItem="QCu-nf-9qM" secondAttribute="width" id="oOQ-Cj-UfF"/>
+                            <constraint firstItem="hld-5H-Pqb" firstAttribute="top" secondItem="4r4-I0-tjl" secondAttribute="bottom" constant="8" id="qhz-fn-iO7"/>
+                            <constraint firstItem="hld-5H-Pqb" firstAttribute="leading" secondItem="Lzn-X3-vgf" secondAttribute="trailing" constant="8" id="vkO-HZ-Scy"/>
+                            <constraint firstItem="4r4-I0-tjl" firstAttribute="leading" secondItem="QCu-nf-9qM" secondAttribute="trailing" constant="8" id="yCe-7e-dTe"/>
                         </constraints>
                     </view>
                     <connections>
@@ -430,6 +512,7 @@
                         <outlet property="imageThree" destination="5uw-1h-9YM" id="gSm-ve-rla"/>
                         <outlet property="imageTwo" destination="hld-5H-Pqb" id="l1I-YE-2Qk"/>
                         <outlet property="nextButton" destination="ExH-wz-wai" id="UZ8-cP-kR6"/>
+                        <outlet property="pickPhotoFromLibraryButton" destination="QCu-nf-9qM" id="Woo-V6-mv4"/>
                         <outlet property="takePhotoButton" destination="4r4-I0-tjl" id="jxE-8Q-F30"/>
                     </connections>
                 </viewController>

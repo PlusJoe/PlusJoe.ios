@@ -55,22 +55,29 @@ class CreatePostStepOneViewController: UIViewController {
         //now let's see if a temporary post was already created, otherwise use the new one
         if UNFINISHED_POST == nil {// let's try to load one from a DB
             UNFINISHED_POST = PJPost.getUnfinishedPost()
+            if UNFINISHED_POST != nil {
+                populateButtons()
+            } else  {
+                UNFINISHED_POST = PJPost.createUnfinishedPost()
+            }
         } else {
-            if UNFINISHED_POST?.sell == true {
-                sellButtonAction(self)
-            } else {
-                buyButtonAction(self)
-            }
-            
-            if UNFINISHED_POST?.thing == true {
-                thingButtonAction(self)
-            } else {
-                serviceButtonAction(self)
-            }
-            
+            populateButtons()
         }
     }
     
+    func populateButtons() -> () {
+        if UNFINISHED_POST?.sell == true {
+            sellButtonAction(self)
+        } else {
+            buyButtonAction(self)
+        }
+        
+        if UNFINISHED_POST?.thing == true {
+            thingButtonAction(self)
+        } else {
+            serviceButtonAction(self)
+        }
+    }
     
     
     @IBAction func sellButtonAction(sender: AnyObject) {
