@@ -62,8 +62,6 @@ class CreatePostStepThreeViewController:
         takePhotoButton.setTitle("\u{f030}", forState: UIControlState.Normal)
         pickPhotoFromLibraryButton.setTitle( "\u{f1c5}", forState: UIControlState.Normal)
         
-        
-        
         picker.delegate = self
         
         imageOne.contentMode = .ScaleAspectFill
@@ -71,21 +69,38 @@ class CreatePostStepThreeViewController:
         imageThree.contentMode = .ScaleAspectFill
         imageFour.contentMode = .ScaleAspectFill
 
+        reloadImageViews()
+
+        self.imageOne.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "image1tapped:"))
+        self.imageTwo.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "image2tapped:"))
+        self.imageThree.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "image3tapped:"))
+        self.imageFour.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "image4tapped:"))
+        
+        
+        showHidePhotoButtons()
+    }
+    
+    func reloadImageViews() {
         if let imageFile1 = UNFINISHED_POST?.image1file.getData() {
             imageOne.image = UIImage(data: imageFile1)
+        } else {
+            imageOne.image = UIImage()
         }
         if let imageFile2 = UNFINISHED_POST?.image2file.getData() {
             imageTwo.image = UIImage(data: imageFile2)
+        } else {
+            imageTwo.image = UIImage()
         }
         if let imageFile3 = UNFINISHED_POST?.image3file.getData() {
             imageThree.image = UIImage(data: imageFile3)
+        } else {
+            imageThree.image = UIImage()
         }
         if let imageFile4 = UNFINISHED_POST?.image4file.getData() {
             imageFour.image = UIImage(data: imageFile4)
+        } else {
+            imageFour.image = UIImage()
         }
-
-        
-        showHidePhotoButtons()
     }
     
     @IBAction func shootPhoto(sender: UIBarButtonItem){
@@ -103,6 +118,114 @@ class CreatePostStepThreeViewController:
 //        presentViewController(picker, animated: true, completion: nil)//4
 //        picker.popoverPresentationController?.barButtonItem = sender as! UIBarButtonItem
     }
+
+    func showHidePhotoButtons() -> () {
+        if(UNFINISHED_POST?.image1file.name.rangeOfString("blank.png") == nil
+            && UNFINISHED_POST?.image2file.name.rangeOfString("blank.png") == nil
+            && UNFINISHED_POST?.image3file.name.rangeOfString("blank.png") == nil
+            && UNFINISHED_POST?.image4file.name.rangeOfString("blank.png") == nil) {
+                takePhotoButton.hidden = true
+                pickPhotoFromLibraryButton.hidden = true
+        } else {
+            takePhotoButton.hidden = false
+            pickPhotoFromLibraryButton.hidden = false
+        }
+    }
+    
+    
+    func image1tapped(sender: UITapGestureRecognizer) {
+        NSLog("image1 tapped")
+        if UNFINISHED_POST?.image1file.name.rangeOfString("blank.png") != nil {
+            return
+        }
+        let file2 = UNFINISHED_POST?.image2file
+        let file3 = UNFINISHED_POST?.image3file
+        let file4 = UNFINISHED_POST?.image4file
+        UNFINISHED_POST?.image1file = file2!
+        UNFINISHED_POST?.image2file = file3!
+        UNFINISHED_POST?.image3file = file4!
+        UNFINISHED_POST?.image4file = PFFile(name:"blank.png", data:NSData())
+        var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+        actInd.center = self.view.center
+        actInd.hidesWhenStopped = true
+        actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+        view.addSubview(actInd)
+        view.backgroundColor = UIColor.grayColor()
+        actInd.startAnimating()
+        UNFINISHED_POST?.saveInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
+            self.reloadImageViews()
+            actInd.stopAnimating()
+            self.view.backgroundColor = UIColor.whiteColor()
+            self.showHidePhotoButtons()
+        }
+    }
+    func image2tapped(sender: UITapGestureRecognizer) {
+        NSLog("image2 tapped")
+        if UNFINISHED_POST?.image2file.name.rangeOfString("blank.png") != nil {
+            return
+        }
+        let file3 = UNFINISHED_POST?.image3file
+        let file4 = UNFINISHED_POST?.image4file
+        UNFINISHED_POST?.image2file = file3!
+        UNFINISHED_POST?.image3file = file4!
+        UNFINISHED_POST?.image4file = PFFile(name:"blank.png", data:NSData())
+        var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+        actInd.center = self.view.center
+        actInd.hidesWhenStopped = true
+        actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+        view.addSubview(actInd)
+        view.backgroundColor = UIColor.grayColor()
+        actInd.startAnimating()
+        UNFINISHED_POST?.saveInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
+            self.reloadImageViews()
+            actInd.stopAnimating()
+            self.view.backgroundColor = UIColor.whiteColor()
+            self.showHidePhotoButtons()
+        }
+    }
+    func image3tapped(sender: UITapGestureRecognizer) {
+        NSLog("image3 tapped")
+        if UNFINISHED_POST?.image3file.name.rangeOfString("blank.png") != nil {
+            return
+        }
+        let file4 = UNFINISHED_POST?.image4file
+        UNFINISHED_POST?.image3file = file4!
+        UNFINISHED_POST?.image4file = PFFile(name:"blank.png", data:NSData())
+        var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+        actInd.center = self.view.center
+        actInd.hidesWhenStopped = true
+        actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+        view.addSubview(actInd)
+        view.backgroundColor = UIColor.grayColor()
+        actInd.startAnimating()
+        UNFINISHED_POST?.saveInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
+            self.reloadImageViews()
+            actInd.stopAnimating()
+            self.view.backgroundColor = UIColor.whiteColor()
+            self.showHidePhotoButtons()
+        }
+
+    }
+    func image4tapped(sender: UITapGestureRecognizer) {
+        NSLog("image4 tapped")
+        if UNFINISHED_POST?.image4file.name.rangeOfString("blank.png") != nil {
+            return
+        }
+        UNFINISHED_POST?.image4file = PFFile(name:"blank.png", data:NSData())
+        var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+        actInd.center = self.view.center
+        actInd.hidesWhenStopped = true
+        actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+        view.addSubview(actInd)
+        view.backgroundColor = UIColor.grayColor()
+        actInd.startAnimating()
+        UNFINISHED_POST?.saveInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
+            self.reloadImageViews()
+            actInd.stopAnimating()
+            self.view.backgroundColor = UIColor.whiteColor()
+            self.showHidePhotoButtons()
+        }
+    }
     
     //MARK: Delegates
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
@@ -111,16 +234,16 @@ class CreatePostStepThreeViewController:
         chosenImage.resize(CGSizeMake(500,500)) { (resizedImage, data) -> () in
             let imageFile = PFFile(name:"image.png", data:data)
 
-            if self.imageOne.image == nil {
+            if UNFINISHED_POST?.image1file.name.rangeOfString("blank.png") != nil {
                 self.imageOne.image = resizedImage
                 UNFINISHED_POST?.image1file = imageFile
-            } else if self.imageTwo.image == nil {
+            } else if UNFINISHED_POST?.image2file.name.rangeOfString("blank.png") != nil {
                 self.imageTwo.image = resizedImage
                 UNFINISHED_POST?.image2file = imageFile
-            } else if self.imageThree.image == nil {
+            } else if UNFINISHED_POST?.image3file.name.rangeOfString("blank.png") != nil {
                 self.imageThree.image = resizedImage
                 UNFINISHED_POST?.image3file = imageFile
-            } else if self.imageFour.image == nil {
+            } else if UNFINISHED_POST?.image4file.name.rangeOfString("blank.png") != nil {
                 self.imageFour.image = resizedImage
                 UNFINISHED_POST?.image4file = imageFile
             }
@@ -131,19 +254,11 @@ class CreatePostStepThreeViewController:
             
             self.dismissViewControllerAnimated(true, completion: nil) //5
         }
-        
+
+
         
     }
 
-    func showHidePhotoButtons() -> () {
-        if(imageOne.image != nil && imageTwo.image != nil && imageThree.image != nil && imageFour.image != nil) {
-            takePhotoButton.hidden = true
-            pickPhotoFromLibraryButton.hidden = true
-        } else {
-            takePhotoButton.hidden = false
-            pickPhotoFromLibraryButton.hidden = false
-        }
-    }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)

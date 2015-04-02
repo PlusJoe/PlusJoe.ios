@@ -58,6 +58,10 @@ class PJPost: PFObject, PFSubclassing {
         newPost.active = false
         newPost.archived = false
         newPost.body = ""
+        newPost.image1file = PFFile(name:"blank.png", data:NSData())
+        newPost.image2file = PFFile(name:"blank.png", data:NSData())
+        newPost.image3file = PFFile(name:"blank.png", data:NSData())
+        newPost.image4file = PFFile(name:"blank.png", data:NSData())
         newPost.save()
         return newPost
     }
