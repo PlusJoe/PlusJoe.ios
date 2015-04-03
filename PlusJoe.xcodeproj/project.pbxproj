@@ -37,6 +37,7 @@
 		0AEAFC181AC1C9D400800121 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC171AC1C9D400800121 /* libz.dylib */; };
 		0AEAFC1A1AC1C9E100800121 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC191AC1C9E100800121 /* libsqlite3.dylib */; };
 		0AEAFC1E1AC1CEAF00800121 /* libFlurry_6.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC1D1AC1CEAF00800121 /* libFlurry_6.2.0.a */; };
+		0AF801821ACD7D27009CAB14 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF801811ACD7D27009CAB14 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		0AEAFC191AC1C9E100800121 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		0AEAFC1C1AC1CEAF00800121 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		0AEAFC1D1AC1CEAF00800121 /* libFlurry_6.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.2.0.a; sourceTree = "<group>"; };
+		0AF801811ACD7D27009CAB14 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				0AEAFC181AC1C9D400800121 /* libz.dylib in Frameworks */,
 				0AEAFC161AC1C9C600800121 /* SystemConfiguration.framework in Frameworks */,
 				0A1031C01AC99B8100D2BC6C /* Bolts.framework in Frameworks */,
+				0AF801821ACD7D27009CAB14 /* MapKit.framework in Frameworks */,
 				0AEAFC121AC1C9B100800121 /* Security.framework in Frameworks */,
 				0A1031C21AC99B8100D2BC6C /* ParseCrashReporting.framework in Frameworks */,
 				0AEAFC1E1AC1CEAF00800121 /* libFlurry_6.2.0.a in Frameworks */,
@@ -229,6 +232,7 @@
 		0AEAFC1B1AC1CA1600800121 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0AF801811ACD7D27009CAB14 /* MapKit.framework */,
 				0A1031B91AC99B8100D2BC6C /* parse-library-1.7.0 */,
 				0AEAFBF11AC1C48800800121 /* Flurry */,
 				0AC50CA31AC42AC90087F5D8 /* fontawesome-webfont.ttf */,
@@ -302,6 +306,9 @@
 							};
 							com.apple.InAppPurchase = {
 								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
 							};
 						};
 					};

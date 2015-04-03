@@ -138,93 +138,123 @@ class CreatePostStepThreeViewController:
         if UNFINISHED_POST?.image1file.name.rangeOfString("blank.png") != nil {
             return
         }
-        let file2 = UNFINISHED_POST?.image2file
-        let file3 = UNFINISHED_POST?.image3file
-        let file4 = UNFINISHED_POST?.image4file
-        UNFINISHED_POST?.image1file = file2!
-        UNFINISHED_POST?.image2file = file3!
-        UNFINISHED_POST?.image3file = file4!
-        UNFINISHED_POST?.image4file = PFFile(name:"blank.png", data:NSData())
-        var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
-        actInd.center = self.view.center
-        actInd.hidesWhenStopped = true
-        actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
-        view.addSubview(actInd)
-        view.backgroundColor = UIColor.grayColor()
-        actInd.startAnimating()
-        UNFINISHED_POST?.saveInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
-            self.reloadImageViews()
-            actInd.stopAnimating()
-            self.view.backgroundColor = UIColor.whiteColor()
-            self.showHidePhotoButtons()
-        }
+        let alertMessage = UIAlertController(title: nil, message: "Delete photo?", preferredStyle: UIAlertControllerStyle.Alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .Default, handler: { (action) -> Void in})
+        let ok =     UIAlertAction(title: "OK",     style: .Default, handler: { (action) -> Void in
+            let file2 = UNFINISHED_POST?.image2file
+            let file3 = UNFINISHED_POST?.image3file
+            let file4 = UNFINISHED_POST?.image4file
+            UNFINISHED_POST?.image1file = file2!
+            UNFINISHED_POST?.image2file = file3!
+            UNFINISHED_POST?.image3file = file4!
+            UNFINISHED_POST?.image4file = PFFile(name:"blank.png", data:NSData())
+            var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+            actInd.center = self.view.center
+            actInd.hidesWhenStopped = true
+            actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+            self.view.addSubview(actInd)
+            self.view.backgroundColor = UIColor.grayColor()
+            actInd.startAnimating()
+            UNFINISHED_POST?.saveInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
+                self.reloadImageViews()
+                actInd.stopAnimating()
+                self.view.backgroundColor = UIColor.whiteColor()
+                self.showHidePhotoButtons()
+            }
+        })
+        alertMessage.addAction(cancel)
+        alertMessage.addAction(ok)
+        presentViewController(alertMessage, animated: true, completion: nil)
+        
     }
     func image2tapped(sender: UITapGestureRecognizer) {
         NSLog("image2 tapped")
         if UNFINISHED_POST?.image2file.name.rangeOfString("blank.png") != nil {
             return
         }
-        let file3 = UNFINISHED_POST?.image3file
-        let file4 = UNFINISHED_POST?.image4file
-        UNFINISHED_POST?.image2file = file3!
-        UNFINISHED_POST?.image3file = file4!
-        UNFINISHED_POST?.image4file = PFFile(name:"blank.png", data:NSData())
-        var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
-        actInd.center = self.view.center
-        actInd.hidesWhenStopped = true
-        actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
-        view.addSubview(actInd)
-        view.backgroundColor = UIColor.grayColor()
-        actInd.startAnimating()
-        UNFINISHED_POST?.saveInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
-            self.reloadImageViews()
-            actInd.stopAnimating()
-            self.view.backgroundColor = UIColor.whiteColor()
-            self.showHidePhotoButtons()
-        }
+        let alertMessage = UIAlertController(title: nil, message: "Delete photo?", preferredStyle: UIAlertControllerStyle.Alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .Default, handler: { (action) -> Void in})
+        let ok =     UIAlertAction(title: "OK",     style: .Default, handler: { (action) -> Void in
+            let file3 = UNFINISHED_POST?.image3file
+            let file4 = UNFINISHED_POST?.image4file
+            UNFINISHED_POST?.image2file = file3!
+            UNFINISHED_POST?.image3file = file4!
+            UNFINISHED_POST?.image4file = PFFile(name:"blank.png", data:NSData())
+            var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+            actInd.center = self.view.center
+            actInd.hidesWhenStopped = true
+            actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+            self.view.addSubview(actInd)
+            self.view.backgroundColor = UIColor.grayColor()
+            actInd.startAnimating()
+            UNFINISHED_POST?.saveInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
+                self.reloadImageViews()
+                actInd.stopAnimating()
+                self.view.backgroundColor = UIColor.whiteColor()
+                self.showHidePhotoButtons()
+            }
+        })
+        alertMessage.addAction(cancel)
+        alertMessage.addAction(ok)
+        presentViewController(alertMessage, animated: true, completion: nil)
     }
+    
     func image3tapped(sender: UITapGestureRecognizer) {
         NSLog("image3 tapped")
         if UNFINISHED_POST?.image3file.name.rangeOfString("blank.png") != nil {
             return
         }
-        let file4 = UNFINISHED_POST?.image4file
-        UNFINISHED_POST?.image3file = file4!
-        UNFINISHED_POST?.image4file = PFFile(name:"blank.png", data:NSData())
-        var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
-        actInd.center = self.view.center
-        actInd.hidesWhenStopped = true
-        actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
-        view.addSubview(actInd)
-        view.backgroundColor = UIColor.grayColor()
-        actInd.startAnimating()
-        UNFINISHED_POST?.saveInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
-            self.reloadImageViews()
-            actInd.stopAnimating()
-            self.view.backgroundColor = UIColor.whiteColor()
-            self.showHidePhotoButtons()
-        }
-
+        let alertMessage = UIAlertController(title: nil, message: "Delete photo?", preferredStyle: UIAlertControllerStyle.Alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .Default, handler: { (action) -> Void in})
+        let ok =     UIAlertAction(title: "OK",     style: .Default, handler: { (action) -> Void in
+            let file4 = UNFINISHED_POST?.image4file
+            UNFINISHED_POST?.image3file = file4!
+            UNFINISHED_POST?.image4file = PFFile(name:"blank.png", data:NSData())
+            var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+            actInd.center = self.view.center
+            actInd.hidesWhenStopped = true
+            actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+            self.view.addSubview(actInd)
+            self.view.backgroundColor = UIColor.grayColor()
+            actInd.startAnimating()
+            UNFINISHED_POST?.saveInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
+                self.reloadImageViews()
+                actInd.stopAnimating()
+                self.view.backgroundColor = UIColor.whiteColor()
+                self.showHidePhotoButtons()
+            }
+        })
+        alertMessage.addAction(cancel)
+        alertMessage.addAction(ok)
+        presentViewController(alertMessage, animated: true, completion: nil)
     }
+    
     func image4tapped(sender: UITapGestureRecognizer) {
         NSLog("image4 tapped")
         if UNFINISHED_POST?.image4file.name.rangeOfString("blank.png") != nil {
             return
         }
-        UNFINISHED_POST?.image4file = PFFile(name:"blank.png", data:NSData())
-        var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
-        actInd.center = self.view.center
-        actInd.hidesWhenStopped = true
-        actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
-        view.addSubview(actInd)
-        view.backgroundColor = UIColor.grayColor()
-        actInd.startAnimating()
-        UNFINISHED_POST?.saveInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
-            self.reloadImageViews()
-            actInd.stopAnimating()
-            self.view.backgroundColor = UIColor.whiteColor()
-            self.showHidePhotoButtons()
-        }
+        let alertMessage = UIAlertController(title: nil, message: "Delete photo?", preferredStyle: UIAlertControllerStyle.Alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .Default, handler: { (action) -> Void in})
+        let ok =     UIAlertAction(title: "OK",     style: .Default, handler: { (action) -> Void in
+            UNFINISHED_POST?.image4file = PFFile(name:"blank.png", data:NSData())
+            var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+            actInd.center = self.view.center
+            actInd.hidesWhenStopped = true
+            actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+            self.view.addSubview(actInd)
+            self.view.backgroundColor = UIColor.grayColor()
+            actInd.startAnimating()
+            UNFINISHED_POST?.saveInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
+                self.reloadImageViews()
+                actInd.stopAnimating()
+                self.view.backgroundColor = UIColor.whiteColor()
+                self.showHidePhotoButtons()
+            }
+        })
+        alertMessage.addAction(cancel)
+        alertMessage.addAction(ok)
+        presentViewController(alertMessage, animated: true, completion: nil)
     }
     
     //MARK: Delegates

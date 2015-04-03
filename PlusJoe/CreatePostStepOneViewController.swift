@@ -33,6 +33,8 @@ class CreatePostStepOneViewController: UIViewController {
         }
         
         
+        buyButton.hidden = true
+        sellButton.hidden = true
         thingButton.hidden = true
         serviceButton.hidden = true
         nextButton.hidden = true
@@ -59,6 +61,8 @@ class CreatePostStepOneViewController: UIViewController {
                 populateButtons()
             } else  {
                 UNFINISHED_POST = PJPost.createUnfinishedPost()
+                buyButton.hidden = false
+                sellButton.hidden = false
             }
         } else {
             populateButtons()
@@ -79,8 +83,9 @@ class CreatePostStepOneViewController: UIViewController {
         }
     }
     
-    
     @IBAction func sellButtonAction(sender: AnyObject) {
+        buyButton.hidden = false
+        sellButton.hidden = false
         sellButton.backgroundColor = UIColor.greenColor()
         buyButton.backgroundColor = UIColor.whiteColor()
         
@@ -90,12 +95,13 @@ class CreatePostStepOneViewController: UIViewController {
         thingButton.hidden = false
         serviceButton.hidden = false
         
-        
         UNFINISHED_POST?.sell = true
         UNFINISHED_POST?.saveEventually(nil)
     }
     
     @IBAction func buyButtonAction(sender: AnyObject) {
+        buyButton.hidden = false
+        sellButton.hidden = false
         buyButton.backgroundColor = UIColor.greenColor()
         sellButton.backgroundColor = UIColor.whiteColor()
         
@@ -104,34 +110,37 @@ class CreatePostStepOneViewController: UIViewController {
         
         thingButton.hidden = false
         serviceButton.hidden = false
+        
         UNFINISHED_POST?.sell = false
         UNFINISHED_POST?.saveEventually(nil)
     }
     
     @IBAction func thingButtonAction(sender: AnyObject) {
+        thingButton.hidden = false
         thingButton.backgroundColor = UIColor.greenColor()
         serviceButton.backgroundColor = UIColor.whiteColor()
         
         thingButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         serviceButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
         
-        nextButton.hidden = false
-        
         UNFINISHED_POST?.thing = true
         UNFINISHED_POST?.saveEventually(nil)
+
+        nextButton.hidden = false
     }
     
     @IBAction func serviceButtonAction(sender: AnyObject) {
+        serviceButton.hidden = false
         serviceButton.backgroundColor = UIColor.greenColor()
         thingButton.backgroundColor = UIColor.whiteColor()
         
         serviceButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         thingButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
         
-        nextButton.hidden = false
-        
         UNFINISHED_POST?.thing = false
         UNFINISHED_POST?.saveEventually(nil)
+        
+        nextButton.hidden = false
     }
     
     
