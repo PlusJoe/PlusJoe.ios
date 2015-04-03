@@ -140,4 +140,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //gitignore lines http://stackoverflow.com/questions/16244969/how-to-tell-git-to-ignore-individual-lines-i-e-gitignore-for-specific-lines-of
 // taking photo or picking image from library http://makeapppie.com/2014/12/04/swift-swift-using-the-uiimagepickercontroller-for-a-camera-and-photo-library/
 // scrollview with autolayout http://spin.atomicobject.com/2014/03/05/uiscrollview-autolayout-ios/
-
+// more on scroll view http://natashatherobot.com/ios-autolayout-scrollview/

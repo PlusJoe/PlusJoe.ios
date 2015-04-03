@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7528.3" systemVersion="14D127a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Uf5-hC-ZBj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7528.3" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Uf5-hC-ZBj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7518.3"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -535,6 +535,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yj0-LU-j9Q">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Tae-SZ-94r"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="44" id="ukh-H2-sb1"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="vSC-lY-JjJ"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="preview and submit" id="Hxp-TF-mYp">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="WuM-X9-T2u">
+                                            <connections>
+                                                <action selector="backButtonAction:" destination="Fia-ll-Yzk" id="HFM-Q8-afO"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <scrollView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1De-gf-PnF">
+                                <rect key="frame" x="0.0" y="64" width="600" height="448"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v1Y-li-MCe" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="448"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEU-YJ-QiB">
                                 <rect key="frame" x="16" y="520" width="568" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -556,59 +583,24 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <scrollView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1De-gf-PnF">
-                                <rect key="frame" x="0.0" y="64" width="600" height="448"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mX-fr-YWI" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="448"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="3mX-fr-YWI" firstAttribute="centerX" secondItem="1De-gf-PnF" secondAttribute="centerX" id="68y-fp-vJj"/>
-                                    <constraint firstAttribute="bottom" secondItem="3mX-fr-YWI" secondAttribute="bottom" id="VST-Uu-bkO"/>
-                                    <constraint firstItem="3mX-fr-YWI" firstAttribute="top" secondItem="1De-gf-PnF" secondAttribute="top" id="WXF-Oj-NeA"/>
-                                    <constraint firstItem="3mX-fr-YWI" firstAttribute="centerY" secondItem="1De-gf-PnF" secondAttribute="centerY" id="YeI-rO-X9M"/>
-                                    <constraint firstAttribute="trailing" secondItem="3mX-fr-YWI" secondAttribute="trailing" id="gKn-Yh-BdQ"/>
-                                    <constraint firstItem="3mX-fr-YWI" firstAttribute="leading" secondItem="1De-gf-PnF" secondAttribute="leading" id="xai-QK-7fc"/>
-                                </constraints>
-                            </scrollView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yj0-LU-j9Q">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Tae-SZ-94r"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="44" id="ukh-H2-sb1"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="vSC-lY-JjJ"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem title="preview and submit" id="Hxp-TF-mYp">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="WuM-X9-T2u">
-                                            <connections>
-                                                <action selector="backButtonAction:" destination="Fia-ll-Yzk" id="HFM-Q8-afO"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1De-gf-PnF" firstAttribute="leading" secondItem="Fj6-Be-aLh" secondAttribute="leading" id="7A5-U1-cPF"/>
+                            <constraint firstItem="1De-gf-PnF" firstAttribute="leading" secondItem="Fj6-Be-aLh" secondAttribute="leading" id="0oJ-60-bSb"/>
                             <constraint firstItem="Yj0-LU-j9Q" firstAttribute="leading" secondItem="Fj6-Be-aLh" secondAttribute="leadingMargin" constant="-16" id="ANw-AQ-Zoj"/>
-                            <constraint firstItem="1De-gf-PnF" firstAttribute="top" secondItem="Yj0-LU-j9Q" secondAttribute="bottom" id="H2D-px-5CX"/>
                             <constraint firstItem="HEU-YJ-QiB" firstAttribute="leading" secondItem="Fj6-Be-aLh" secondAttribute="leadingMargin" id="PAS-q6-Rwb"/>
+                            <constraint firstItem="HEU-YJ-QiB" firstAttribute="top" secondItem="1De-gf-PnF" secondAttribute="bottom" constant="8" id="Uvj-YX-tg6"/>
                             <constraint firstItem="4gg-Vt-36I" firstAttribute="top" secondItem="HEU-YJ-QiB" secondAttribute="bottom" constant="20" id="YdU-2U-QRQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Yj0-LU-j9Q" secondAttribute="trailing" constant="-16" id="iOG-IA-O41"/>
-                            <constraint firstItem="HEU-YJ-QiB" firstAttribute="top" secondItem="1De-gf-PnF" secondAttribute="bottom" constant="8" id="ieT-Zb-h5k"/>
                             <constraint firstItem="Yj0-LU-j9Q" firstAttribute="top" secondItem="hIt-SU-NMb" secondAttribute="bottom" id="kG0-Ps-N09"/>
-                            <constraint firstAttribute="trailing" secondItem="1De-gf-PnF" secondAttribute="trailing" id="mgY-Nz-YVc"/>
+                            <constraint firstItem="1De-gf-PnF" firstAttribute="top" secondItem="Yj0-LU-j9Q" secondAttribute="bottom" id="oqG-nY-XdZ"/>
                             <constraint firstItem="HEU-YJ-QiB" firstAttribute="trailing" secondItem="Fj6-Be-aLh" secondAttribute="trailingMargin" id="vaB-C3-Onb"/>
+                            <constraint firstAttribute="trailing" secondItem="1De-gf-PnF" secondAttribute="trailing" id="yhR-UK-YxF"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backNavButton" destination="WuM-X9-T2u" id="rTw-XM-Tty"/>
-                        <outlet property="contentView" destination="3mX-fr-YWI" id="rHM-6v-7Ux"/>
+                        <outlet property="contentView" destination="v1Y-li-MCe" id="YLY-92-c74"/>
                         <outlet property="nextButton" destination="HEU-YJ-QiB" id="DIg-W8-Z4j"/>
                         <outlet property="scrollView" destination="1De-gf-PnF" id="qXq-VS-ULg"/>
                     </connections>
