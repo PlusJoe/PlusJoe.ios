@@ -142,4 +142,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // scrollview with autolayout http://spin.atomicobject.com/2014/03/05/uiscrollview-autolayout-ios/
 // more on scroll view http://natashatherobot.com/ios-autolayout-scrollview/
 // update table view programmatically http://derpturkey.com/create-a-static-uitableview-without-storyboards/
+// dynamically sizing table cells hight http://www.raywenderlich.com/87975/dynamic-table-view-cell-height-ios-8-swift
+
 
