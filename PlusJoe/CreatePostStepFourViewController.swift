@@ -177,20 +177,54 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
 
         
         
+        
         cells.append(UITableViewCell())
-        let mapView = MKMapView()
-        mapView.frame = CGRectMake(10, 10, UIScreen.mainScreen().bounds.width-20, UIScreen.mainScreen().bounds.width)
+        let label5 = UILabel()
+        label5.font = UIFont(name: "Helvetica Neue", size: 12)
+        label5.text = "Your post will be searchable within following area:"
+        cells.last!.addSubview(label5)
+        embedConstrainst(cells.last!, childView: label5)
 
+        
+        
+        
+        
+
+        let mapView = MKMapView()//frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 200))
         mapView.mapType = MKMapType.Standard
-        mapView.zoomEnabled = true
-        mapView.scrollEnabled = true
-        cells.last!.addSubview(mapView)
-        cells.last!.layer.cornerRadius=5
-        cells.last!.layer.borderWidth=1
-        embedConstrainst(cells.last!, childView: mapView)
+        mapView.zoomEnabled = false
+        mapView.scrollEnabled = false
         
+        let mylocation = CLLocationCoordinate2D(
+            latitude: (UNFINISHED_POST?.location.latitude)!,
+            longitude: (UNFINISHED_POST?.location.longitude)!
+        )
+        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let region = MKCoordinateRegion(center: mylocation, span: span)
+        mapView.setRegion(region, animated: false)
+//        mapView.frame.size = CGSize(width: UIScreen.mainScreen().bounds.width, height: 200)
 
-        
+        let options:MKMapSnapshotOptions  = MKMapSnapshotOptions()
+        options.region = region
+        options.scale = UIScreen.mainScreen().scale
+        options.size = CGSize(width: UIScreen.mainScreen().bounds.width, height: 200)
+        let snapshotter:MKMapSnapshotter  = MKMapSnapshotter(options: options)
+        snapshotter.startWithCompletionHandler { (snapshot:MKMapSnapshot!, error:NSError!) -> Void in
+            let image:UIImage = snapshot.image
+            self.cells.append(UITableViewCell())
+            let imageView = UIImageView()
+            imageView.image = image
+            
+            imageView.contentMode = .ScaleAspectFill
+            imageView.sizeToFit()
+            imageView.clipsToBounds = true
+            self.cells.last!.addSubview(imageView)
+            self.embedConstrainst(self.cells.last!, childView: imageView)
+
+            self.tableView.reloadData()
+            self.tableView.reloadInputViews()
+
+        }
         
     }
 
