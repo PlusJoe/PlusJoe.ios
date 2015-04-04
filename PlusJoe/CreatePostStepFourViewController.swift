@@ -23,15 +23,7 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    var cell1: UITableViewCell = UITableViewCell()
-    var cell2: UITableViewCell = UITableViewCell()
-    var cell3: UITableViewCell = UITableViewCell()
-    var bodyPostCell: UITableViewCell = UITableViewCell()
-    var image1Cell: UITableViewCell = UITableViewCell()
-    var image2Cell: UITableViewCell = UITableViewCell()
-    var image3Cell: UITableViewCell = UITableViewCell()
-    var image4Cell: UITableViewCell = UITableViewCell()
-    var mapCell: UITableViewCell = UITableViewCell()
+    var cells = [UITableViewCell]()
 
     
     override func viewDidLoad() {
@@ -40,7 +32,7 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
         self.tableView.delegate      =   self
         self.tableView.dataSource    =   self
 
-        self.tableView.estimatedRowHeight = 80.0
+        self.tableView.estimatedRowHeight = 100.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
 
         // Do any additional setup after loading the view, typically from a nib.
@@ -55,10 +47,10 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
 
         
         
-        
-        let label1 = UILabel(frame: CGRectInset(self.cell1.contentView.bounds, 5, 0))
+        cells.append(UITableViewCell())
+        let label1 = UILabel(frame: CGRectInset(cells.last!.contentView.bounds, 5, 0))
         label1.setTranslatesAutoresizingMaskIntoConstraints(true)
-        label1.font = UIFont(name: "Times-Bold", size: 12)
+        label1.font = UIFont(name: "Helvetica-Bold", size: 14)
         if UNFINISHED_POST?.sell == false && UNFINISHED_POST?.thing == false {
             label1.text = "You wish to hire a service for $\((UNFINISHED_POST?.pricetags[0])!)"
         } else
@@ -71,47 +63,56 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
         if UNFINISHED_POST?.sell == true && UNFINISHED_POST?.thing == true {
             label1.text = "You wish to sell something for $\((UNFINISHED_POST?.pricetags[0])!)"
         }
-        cell1.addSubview(label1)
+        cells.last!.addSubview(label1)
         
-
-        let label2 = UILabel(frame: CGRectInset(self.cell1.contentView.bounds, 5, 0))
+        
+        
+        
+        cells.append(UITableViewCell())
+        let label2 = UILabel(frame: CGRectInset(cells.last!.contentView.bounds, 5, 0))//frame: CGRectInset(self.cell1.contentView.bounds, 5, 0))
         label2.setTranslatesAutoresizingMaskIntoConstraints(false)
-        label2.font = UIFont(name: "Helvetica Neue", size: 12)
+        label2.font = UIFont(name: "Helvetica Neue", size: 14)
         label2.text = "It will be searchable by following tags:"
-        cell2.addSubview(label2)
+        cells.last!.addSubview(label2)
 
-        let label3 = UILabel(frame: CGRectInset(self.cell1.contentView.bounds, 5, 0))//frame: CGRectMake(10, 60, UIScreen.mainScreen().bounds.size.width-10.0, 20))
+
+        
+        
+        
+        cells.append(UITableViewCell())
+        let label3 = UILabel(frame: CGRectInset(cells.last!.contentView.bounds, 5, 0))//frame: CGRectMake(10, 60, UIScreen.mainScreen().bounds.size.width-10.0, 20))
         label3.text = ""
         label3.numberOfLines = 0
 //        label3.setTranslatesAutoresizingMaskIntoConstraints(false)
-        label3.font = UIFont(name: "Times-Bold", size: 12)
+        label3.font = UIFont(name: "Helvetica-Bold", size: 12)
         for var index = 0; index < (UNFINISHED_POST?.hashtags)!.count; ++index {
             label3.text = label3.text! + (UNFINISHED_POST?.hashtags[index])!
             if index < ((UNFINISHED_POST?.hashtags)!.count)-1  {
                 label3.text = label3.text! + ", "
             }
         }
-        cell3.addSubview(label3)
+        cells.last!.addSubview(label3)
 
 
-//
-//        let postBody = UITextView()
-//        postBody.setTranslatesAutoresizingMaskIntoConstraints(false)
-//        postBody.font = UIFont(name: "American TypeWriter", size: 14)
-//        postBody.sizeToFit()
-//        postBody.scrollEnabled = true
-//        postBody.text = UNFINISHED_POST?.body
-//        postBody.scrollEnabled = false
-//        postBody.userInteractionEnabled = false
-//
-//        contentView.addSubview(postBody)
-//
+        
+        
+        cells.append(UITableViewCell())
+        let postBody = UITextView(frame: CGRectInset(cells.last!.contentView.bounds, 5, 0))
+        postBody.setTranslatesAutoresizingMaskIntoConstraints(false)
+        postBody.font = UIFont(name: "American TypeWriter", size: 14)
+        postBody.sizeToFit()
+        postBody.scrollEnabled = true
+        postBody.text = UNFINISHED_POST?.body
+        postBody.scrollEnabled = false
+        postBody.userInteractionEnabled = false
+        cells.last!.addSubview(postBody)
+
 //        let label4 = UILabel()
 //        label4.setTranslatesAutoresizingMaskIntoConstraints(false)
 //        label4.font = UIFont(name: "Helvetica Neue", size: 12)
 //        label4.text = "Here are some photos:"
 //        contentView.addSubview(label4)
-//        
+//
 //
 //        let image1 = UIView()
 //        image1.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -129,8 +130,8 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
 //        }
         
         
-//        postBody.layer.cornerRadius=5
-//        postBody.layer.borderWidth=1
+        postBody.layer.cornerRadius=5
+        postBody.layer.borderWidth=1
 //        label4.layer.cornerRadius=5
 //        label4.layer.borderWidth=1
 //        image1.layer.cornerRadius=5
@@ -225,21 +226,13 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
     // Return the number of rows for each section in your static table
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch(section) {
-        case 0: return 3    // section 0 has 7 rows
+        case 0: return cells.count    // section 0 has 7 rows
         default: fatalError("Unknown number of sections")
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:UITableViewCell
-        switch(indexPath.row) {
-        case 0: cell = cell1    // section 0 has 7 rows
-        case 1: cell = cell2
-        case 2: cell = cell3
-        default: fatalError("Unknown number of sections")
-        }
-        
-        return cell
+        return cells[indexPath.row]
     }
 
 }
