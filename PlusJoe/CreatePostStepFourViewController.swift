@@ -181,7 +181,7 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
         cells.append(UITableViewCell())
         let label5 = UILabel()
         label5.font = UIFont(name: "Helvetica Neue", size: 12)
-        label5.text = "Your post will be searchable within following area:"
+        label5.text = "Your post will be searchable within and beyond following area:"
         cells.last!.addSubview(label5)
         embedConstrainst(cells.last!, childView: label5)
 
