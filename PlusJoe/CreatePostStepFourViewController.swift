@@ -103,7 +103,7 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
         let postBody = UILabel()
         postBody.numberOfLines = 0
         postBody.text = ""
-        postBody.font = UIFont(name: "American TypeWriter", size: 14)
+        postBody.font = UIFont(name: "American TypeWriter", size: 18)
         postBody.text = postBody.text! + (UNFINISHED_POST?.body)!
         cells.last!.addSubview(postBody)
         cells.last!.layer.cornerRadius=5
