@@ -180,13 +180,12 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
         
         cells.append(UITableViewCell())
         let label5 = UILabel()
+        label5.numberOfLines = 0
         label5.font = UIFont(name: "Helvetica Neue", size: 12)
         label5.text = "Your post will be searchable within and beyond following area:"
         cells.last!.addSubview(label5)
         embedConstrainst(cells.last!, childView: label5)
-
-        
-        
+                
         
         
 
@@ -286,4 +285,9 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
         return cells[indexPath.row]
     }
 
+    @IBAction func finishPost(sender: AnyObject) {
+        UNFINISHED_POST?.active = true
+        UNFINISHED_POST?.save()
+        UNFINISHED_POST = nil
+    }
 }

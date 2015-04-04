@@ -14,7 +14,10 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var createButton: UIBarButtonItem!
     
-    
+    @IBAction func unwindToHome (segue : UIStoryboardSegue) {
+        NSLog("SearchPosts seque from segue id: \(segue.identifier)")
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

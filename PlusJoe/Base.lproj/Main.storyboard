@@ -573,6 +573,10 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="finishPost:" destination="Fia-ll-Yzk" eventType="touchUpInside" id="JH3-ei-Ysu"/>
+                                    <segue destination="fqb-au-uUD" kind="unwind" unwindAction="unwindToHome:" id="4xd-4X-hdR"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Lod-q1-HKN">
                                 <rect key="frame" x="0.0" y="64" width="600" height="448"/>
@@ -600,6 +604,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4D1-ad-ly6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="fqb-au-uUD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2625" y="291"/>
         </scene>
