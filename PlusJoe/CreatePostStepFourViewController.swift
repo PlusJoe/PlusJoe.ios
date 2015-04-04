@@ -112,6 +112,8 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
         
         
         
+        
+        
 
         if let imageFile = UNFINISHED_POST?.image1file.getData() {
             cells.append(UITableViewCell())
@@ -139,7 +141,6 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
             cells.last!.addSubview(label4)
             embedConstrainst(cells.last!, childView: label4)
         }
-        
         if let imageFile = UNFINISHED_POST?.image2file.getData() {
             cells.append(UITableViewCell())
             let image = UIImageView()
@@ -151,7 +152,6 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
             cells.last!.addSubview(image)
             embedConstrainst(cells.last!, childView: image)
         }
-        
         if let imageFile = UNFINISHED_POST?.image3file.getData() {
             cells.append(UITableViewCell())
             let image = UIImageView()
@@ -163,7 +163,6 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
             cells.last!.addSubview(image)
             embedConstrainst(cells.last!, childView: image)
         }
-
         if let imageFile = UNFINISHED_POST?.image4file.getData() {
             cells.append(UITableViewCell())
             let image = UIImageView()
@@ -176,6 +175,22 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
             embedConstrainst(cells.last!, childView: image)
         }
 
+        
+        
+        cells.append(UITableViewCell())
+        let mapView = MKMapView()
+        mapView.frame = CGRectMake(10, 10, UIScreen.mainScreen().bounds.width-20, UIScreen.mainScreen().bounds.width)
+
+        mapView.mapType = MKMapType.Standard
+        mapView.zoomEnabled = true
+        mapView.scrollEnabled = true
+        cells.last!.addSubview(mapView)
+        cells.last!.layer.cornerRadius=5
+        cells.last!.layer.borderWidth=1
+        embedConstrainst(cells.last!, childView: mapView)
+        
+
+        
         
     }
 
