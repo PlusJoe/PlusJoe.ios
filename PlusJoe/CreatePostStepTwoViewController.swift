@@ -8,11 +8,13 @@
 
 import UIKit
 
-class CreatePostStepTwoViewController: UIViewController {
+class CreatePostStepTwoViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
 
     @IBOutlet weak var postBody: UITextView!
+    
+    @IBOutlet weak var countLabel: UILabel!
     
     @IBOutlet weak var nextButton: UIButton!
 
@@ -56,6 +58,15 @@ class CreatePostStepTwoViewController: UIViewController {
         
         postBody.becomeFirstResponder()
         postBody.text = UNFINISHED_POST?.body
+        postBody.delegate = self
+        
+        
     }
+    
+     func textViewDidChange(textView: UITextView) {
+//        NSLog("text changed: \(textView.text)")
+        countLabel.text = "+" + String(140 - count(textView.text))
+    }
+
     
 }
