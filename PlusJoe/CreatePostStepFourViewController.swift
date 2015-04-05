@@ -32,7 +32,7 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
         self.tableView.delegate      =   self
         self.tableView.dataSource    =   self
 
-        self.tableView.estimatedRowHeight = 100.0
+        self.tableView.estimatedRowHeight = 10.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
 
         self.tableView.scrollEnabled = true
@@ -128,8 +128,8 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
             let image = UIImageView()
             image.image = UIImage(data: imageFile)
             
-            image.contentMode = .ScaleAspectFill
-            image.sizeToFit()
+            image.contentMode = .ScaleAspectFit
+//            image.sizeToFit()
             image.clipsToBounds = true
             cells.last!.addSubview(image)
             embedConstrainst(cells.last!, childView: image)
@@ -141,13 +141,15 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
             cells.last!.addSubview(label4)
             embedConstrainst(cells.last!, childView: label4)
         }
+        
+        
         if let imageFile = UNFINISHED_POST?.image2file.getData() {
             cells.append(UITableViewCell())
             let image = UIImageView()
             image.image = UIImage(data: imageFile)
             
-            image.contentMode = .ScaleAspectFill
-            image.sizeToFit()
+            image.contentMode = .ScaleAspectFit
+//            image.sizeToFit()
             image.clipsToBounds = true
             cells.last!.addSubview(image)
             embedConstrainst(cells.last!, childView: image)
@@ -157,8 +159,8 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
             let image = UIImageView()
             image.image = UIImage(data: imageFile)
             
-            image.contentMode = .ScaleAspectFill
-            image.sizeToFit()
+            image.contentMode = .ScaleAspectFit
+//            image.sizeToFit()
             image.clipsToBounds = true
             cells.last!.addSubview(image)
             embedConstrainst(cells.last!, childView: image)
@@ -168,8 +170,8 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
             let image = UIImageView()
             image.image = UIImage(data: imageFile)
             
-            image.contentMode = .ScaleAspectFill
-            image.sizeToFit()
+            image.contentMode = .ScaleAspectFit
+//            image.sizeToFit()
             image.clipsToBounds = true
             cells.last!.addSubview(image)
             embedConstrainst(cells.last!, childView: image)
@@ -214,7 +216,7 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
             let imageView = UIImageView()
             imageView.image = image
             
-            imageView.contentMode = .ScaleAspectFill
+            imageView.contentMode = .ScaleAspectFit
             imageView.sizeToFit()
             imageView.clipsToBounds = true
             self.cells.last!.addSubview(imageView)

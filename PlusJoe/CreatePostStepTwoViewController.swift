@@ -60,12 +60,28 @@ class CreatePostStepTwoViewController: UIViewController, UITextViewDelegate {
         postBody.text = UNFINISHED_POST?.body
         postBody.delegate = self
         
-        
+        countLabel.text = "+" + String(140 - count(postBody.text))
     }
     
      func textViewDidChange(textView: UITextView) {
 //        NSLog("text changed: \(textView.text)")
-        countLabel.text = "+" + String(140 - count(textView.text))
+        
+        var countChars = count(textView.text)
+        countLabel.text = "+" + String(140 - countChars)
+        
+        if(countChars > 130) {
+            countLabel.textColor = UIColor.redColor()
+        } else {
+            countLabel.textColor = UIColor.blueColor()
+        }
+        
+        while(countChars > 140) {
+            postBody.text = dropLast(postBody.text)
+            countChars--
+            countLabel.text = "+" + String(140 - countChars)
+        }
+        
+        
     }
 
     
