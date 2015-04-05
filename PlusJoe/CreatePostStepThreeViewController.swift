@@ -10,9 +10,10 @@ import Foundation
 
 // http://rajiev.com/resize-uiimage-in-swift/
 extension UIImage {
-    public func resize(size:CGSize, completionHandler:(resizedImage:UIImage, data:NSData)->()) {
+    public func resize(newWidth:Int, completionHandler:(resizedImage:UIImage, data:NSData)->()) {
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), { () -> Void in
-            var newSize:CGSize = size
+            let newSize:CGSize = CGSizeMake(CGFloat(newWidth), CGFloat(Float(newWidth) * Float(self.size.height) / Float(self.size.width)))
+            
             let rect = CGRectMake(0, 0, newSize.width, newSize.height)
             UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
             self.drawInRect(rect)
@@ -64,10 +65,10 @@ class CreatePostStepThreeViewController:
         
         picker.delegate = self
         
-        imageOne.contentMode = .ScaleAspectFill
-        imageTwo.contentMode = .ScaleAspectFill
-        imageThree.contentMode = .ScaleAspectFill
-        imageFour.contentMode = .ScaleAspectFill
+        imageOne.contentMode = .ScaleAspectFit
+        imageTwo.contentMode = .ScaleAspectFit
+        imageThree.contentMode = .ScaleAspectFit
+        imageFour.contentMode = .ScaleAspectFit
 
         reloadImageViews()
 
@@ -276,7 +277,7 @@ class CreatePostStepThreeViewController:
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         var chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
 
-        chosenImage.resize(CGSizeMake(500,500)) { (resizedImage, data) -> () in
+        chosenImage.resize(500) { (resizedImage, data) -> () in
             let imageFile = PFFile(name:"image.png", data:data)
 
             if UNFINISHED_POST?.image1file.name.rangeOfString("blank.png") != nil {
