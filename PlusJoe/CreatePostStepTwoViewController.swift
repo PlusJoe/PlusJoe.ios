@@ -8,6 +8,22 @@
 
 import UIKit
 
+extension String {
+    func beginsWith (str: String) -> Bool {
+        if let range = self.rangeOfString(str) {
+            return range.startIndex == self.startIndex
+        }
+        return false
+    }
+    
+    func endsWith (str: String) -> Bool {
+        if let range = self.rangeOfString(str) {
+            return range.endIndex == self.endIndex
+        }
+        return false
+    }
+}
+
 class CreatePostStepTwoViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
@@ -18,24 +34,25 @@ class CreatePostStepTwoViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var nextButton: UIButton!
 
+    let placeHolderText = "Your post must contain at least one #hash_tag. It should also contain exactly one $price_tag. Other people in your communitry will be able to find your post and will be notified by #hash_tags -- choose your #hash_tags wisely."
     
     @IBAction func backButtonAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func nextButtonClicked(sender: AnyObject) {
-        if postBody.text == "" || postBody.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) < 10 {
-            let alertMessage = UIAlertController(title: "Warning", message: "Your post can't be empty. Try again.", preferredStyle: UIAlertControllerStyle.Alert)
+        if postBody.text == "" || postBody.text == placeHolderText || count(postBody.text) < 10 {
+            let alertMessage = UIAlertController(title: nil, message: "Your post can't be empty. Try again.", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
             alertMessage.addAction(ok)
             presentViewController(alertMessage, animated: true, completion: nil)
         } else if postBody.text.rangeOfString("#") == nil {
-            let alertMessage = UIAlertController(title: "Warning", message: "Your post can not be saved without any #hash_tags. You post will not be searchable unless it has #hash_tags. Add some #has_tags and try again.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertMessage = UIAlertController(title: nil, message: "Your post can not be saved without any #hash_tags. You post will not be searchable unless it has #hash_tags. Add some #has_tags and try again.", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
             alertMessage.addAction(ok)
             presentViewController(alertMessage, animated: true, completion: nil)
         } else if postBody.text.componentsSeparatedByString("$").count != 2 {
-            let alertMessage = UIAlertController(title: "Warning", message: "Your post must contain exactly one $price_tag. A $price_tag must contain a whole ammount and may look like this $5 or $50 or $5003.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertMessage = UIAlertController(title: nil, message: "Your post must contain exactly one $price_tag. A $price_tag must contain a whole ammount and may look like this $5 or $50 or $5003.", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
             alertMessage.addAction(ok)
             presentViewController(alertMessage, animated: true, completion: nil)
@@ -61,11 +78,23 @@ class CreatePostStepTwoViewController: UIViewController, UITextViewDelegate {
         postBody.delegate = self
         
         countLabel.text = "+" + String(140 - count(postBody.text))
+        
+        if postBody.text == "" {
+            postBody.textColor = UIColor.lightGrayColor()
+            postBody.text = placeHolderText
+            postBody.selectedRange = NSMakeRange(0, 0);
+        }
     }
+    
     
      func textViewDidChange(textView: UITextView) {
 //        NSLog("text changed: \(textView.text)")
         
+        if postBody.text != placeHolderText && postBody.text.endsWith(placeHolderText) {
+            postBody.text = String(postBody.text[postBody.text.startIndex])
+            postBody.textColor = UIColor.blackColor()
+        }
+
         var countChars = count(textView.text)
         countLabel.text = "+" + String(140 - countChars)
         
@@ -80,9 +109,10 @@ class CreatePostStepTwoViewController: UIViewController, UITextViewDelegate {
             countChars--
             countLabel.text = "+" + String(140 - countChars)
         }
-        
-        
     }
+
+//    func textViewDidBeginEditing(textView: UITextView) {
+//    }
 
     
 }

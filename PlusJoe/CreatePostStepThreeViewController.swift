@@ -65,10 +65,10 @@ class CreatePostStepThreeViewController:
         
         picker.delegate = self
         
-        imageOne.contentMode = .ScaleAspectFit
-        imageTwo.contentMode = .ScaleAspectFit
-        imageThree.contentMode = .ScaleAspectFit
-        imageFour.contentMode = .ScaleAspectFit
+        imageOne.contentMode = .ScaleAspectFill
+        imageTwo.contentMode = .ScaleAspectFill
+        imageThree.contentMode = .ScaleAspectFill
+        imageFour.contentMode = .ScaleAspectFill
 
         reloadImageViews()
 
