@@ -65,54 +65,6 @@ class PJPost: PFObject, PFSubclassing {
         newPost.save()
         return newPost
     }
-
-//    class func updateBody(postObject: PJPost, postBody: String) {
-//        let query = PJHashTag.query()
-//        query!.whereKey("post", equalTo:postObject)
-//        query!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
-//              PFObject.deleteAllInBackground(objects: objects, block: { (<#Bool#>, <#NSError?#>) -> Void in
-//                <#code#>
-//              })
-//        })
-//    }
-
-    
-    
-    class func autoComplete(
-        location: PFGeoPoint,
-        searchText: String,
-        succeeded:(results:[String]) -> (),
-        failed:(error: NSError!) -> ()
-        ) -> () {
-            
-            // Create a query for places
-            let query = PJPost.query()
-            // Interested in locations near user.
-            query!.whereKey("location", nearGeoPoint:location)
-//            query!.whereKey("createdBy", notEqualTo: DEVICE_UUID)  //TODO: uncomment
-            NSLog("Searching for string \(searchText)")
-            query!.whereKey("hashtags", hasPrefix: "q")
-            // Limit what could be a lot of points.
-            query!.limit = 10
-            // Final list of objects
-            //                self.postsNearMe =
-            
-            query!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
-                if error == nil {
-                    // The find succeeded.
-                    // Do something with the found objects
-                    
-                    NSLog("results: \(objects?.count)")
-//                    succeeded(results: objects as! [String])
-                    succeeded(results: ["qwe", "qweqwe"])
-                } else {
-                    // Log details of the failure
-                    failed(error: error)
-                }
-            })
-            
-    }
-
     
     
 }

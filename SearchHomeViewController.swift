@@ -50,11 +50,21 @@ class SearchHomeViewController: UIViewController {
     
     func textFieldTextChanged(sender : AnyObject) {
         NSLog("searching for text: " + searchTextField.text); //the textView parameter is the textView where text was changed
-        PJPost.autoComplete(CURRENT_LOCATION!, searchText: searchTextField.text, succeeded: { (results) -> () in
+        PJHashTag.autoComplete(CURRENT_LOCATION!, searchText: searchTextField.text, succeeded: { (results) -> () in
+            let autoCompleteMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+
             for result in results {
                 NSLog( "completed to string: \(result)")
+
+                let wordAction = UIAlertAction(title: result, style: .Default, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                    println("clicked: \(result)")
+                })
+                autoCompleteMenu.addAction(wordAction)
             }
             
+            self.presentViewController(autoCompleteMenu, animated: true, completion: nil)
+
         }) { (error) -> () in
             NSLog("error autocompleting")
         }
