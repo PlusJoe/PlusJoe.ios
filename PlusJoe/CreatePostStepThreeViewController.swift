@@ -84,15 +84,15 @@ class CreatePostStepThreeViewController:
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         //come back to previous step after refetching the generated fields
-        UNFINISHED_POST?.fetch()
-        if UNFINISHED_POST?.hashtags.count == 0 || UNFINISHED_POST?.pricetags.count == 0 {
-            let alertMessage = UIAlertController(title: "Warning", message: "Something is not right, come back to previous step and fix #hash_tags or $price_tags", preferredStyle: UIAlertControllerStyle.Alert)
-            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-                self.dismissViewControllerAnimated(true, completion: nil)
-            })
-            alertMessage.addAction(ok)
-            presentViewController(alertMessage, animated: true, completion: nil)
-        }
+//        UNFINISHED_POST?.fetch()
+//        if UNFINISHED_POST?.hashtags.count == 0 {
+//            let alertMessage = UIAlertController(title: "Warning", message: "Something is not right, come back to previous step and fix #hash_tags", preferredStyle: UIAlertControllerStyle.Alert)
+//            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+//                self.dismissViewControllerAnimated(true, completion: nil)
+//            })
+//            alertMessage.addAction(ok)
+//            presentViewController(alertMessage, animated: true, completion: nil)
+//        }
 
     }
     

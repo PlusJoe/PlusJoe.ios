@@ -54,16 +54,16 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
         let label1 = UILabel()
         label1.font = UIFont(name: "Helvetica-Bold", size: 14)
         if UNFINISHED_POST?.sell == false && UNFINISHED_POST?.thing == false {
-            label1.text = "You wish to hire a service for $\((UNFINISHED_POST?.pricetags[0])!)"
+            label1.text = "You wish to hire a service for $\(UNFINISHED_POST!.price)"
         } else
         if UNFINISHED_POST?.sell == false && UNFINISHED_POST?.thing == true {
-            label1.text = "You wish to buy something for $\((UNFINISHED_POST?.pricetags[0])!)"
+            label1.text = "You wish to buy something for $\(UNFINISHED_POST!.price)"
         } else
         if UNFINISHED_POST?.sell == true && UNFINISHED_POST?.thing == false {
-            label1.text = "You wish to offer a service for $\((UNFINISHED_POST?.pricetags[0])!)"
+            label1.text = "You wish to offer a service for $\(UNFINISHED_POST!.price)"
         } else
         if UNFINISHED_POST?.sell == true && UNFINISHED_POST?.thing == true {
-            label1.text = "You wish to sell something for $\((UNFINISHED_POST?.pricetags[0])!)"
+            label1.text = "You wish to sell something for $\(UNFINISHED_POST!.price)"
         }
         cells.last!.addSubview(label1)
         embedConstrainst(cells.last!, childView: label1)
@@ -87,9 +87,12 @@ class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, U
         label3.text = ""
         label3.numberOfLines = 0
         label3.font = UIFont(name: "Helvetica-Bold", size: 12)
-        for var index = 0; index < (UNFINISHED_POST?.hashtags)!.count; ++index {
-            label3.text = label3.text! + (UNFINISHED_POST?.hashtags[index])!
-            if index < ((UNFINISHED_POST?.hashtags)!.count)-1  {
+        let query = PJHashTag.query()
+        query!.whereKey("post", equalTo:UNFINISHED_POST!)
+        let hashTags:[PJHashTag] = query!.findObjects() as! [PJHashTag]
+        for var index = 0; index < hashTags.count; ++index {
+            label3.text = label3.text! + hashTags[index].tag
+            if index < (hashTags.count)-1  {
                 label3.text = label3.text! + ", "
             }
         }
