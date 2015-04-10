@@ -10,7 +10,7 @@ import Foundation
 
 import UIKit
 
-class SearchHomeViewController: UIViewController {
+class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var createButton: UIBarButtonItem!
     
@@ -20,6 +20,9 @@ class SearchHomeViewController: UIViewController {
 
     @IBOutlet weak var searchButton: UIButton!
     
+    @IBOutlet weak var autocompleteTableView: UITableView!
+    
+    var completions = [String]()
     
     @IBAction func backButtonAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -45,32 +48,50 @@ class SearchHomeViewController: UIViewController {
             name:UITextFieldTextDidChangeNotification,
             object: searchTextField
         )
-
+        
+        autocompleteTableView.hidden = true
+        autocompleteTableView.delegate      =   self
+        autocompleteTableView.dataSource    =   self
+        
     }
+    
     
     func textFieldTextChanged(sender : AnyObject) {
         NSLog("searching for text: " + searchTextField.text); //the textView parameter is the textView where text was changed
         PJHashTag.autoComplete(CURRENT_LOCATION!, searchText: searchTextField.text, succeeded: { (results) -> () in
-            let autoCompleteMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-
-            for result in results {
-                NSLog( "completed to string: \(result)")
-
-                let wordAction = UIAlertAction(title: result, style: .Default, handler: {
-                    (alert: UIAlertAction!) -> Void in
-                    println("clicked: \(result)")
-                })
-                autoCompleteMenu.addAction(wordAction)
-            }
             
-            self.presentViewController(autoCompleteMenu, animated: true, completion: nil)
-
+            self.autocompleteTableView.hidden = false
+            self.completions = results
+            self.autocompleteTableView.reloadData()
+            self.autocompleteTableView.reloadInputViews()
+            
         }) { (error) -> () in
             NSLog("error autocompleting")
         }
         
         
     }
+ 
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.completions.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        var cell = autocompleteTableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+        
+        cell.textLabel?.text = self.completions[indexPath.row]
+        
+        return cell
+        
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        autocompleteTableView.hidden = true
+        println("You selected cell #\(self.completions[indexPath.row])!")
+    }
+    
     
 }
 

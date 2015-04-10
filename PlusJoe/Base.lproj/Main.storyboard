@@ -168,10 +168,10 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMG-ys-aTF">
-                                <rect key="frame" x="16" y="154" width="568" height="80"/>
+                                <rect key="frame" x="16" y="260" width="568" height="80"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="emx-jb-9SI"/>
+                                    <constraint firstAttribute="height" constant="80" id="FDX-v5-Frj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
@@ -187,29 +187,47 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for something" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="Spt-Zy-r2P">
-                                <rect key="frame" x="16" y="84" width="568" height="50"/>
+                                <rect key="frame" x="16" y="71" width="568" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="n0U-Cs-IP7"/>
+                                    <constraint firstAttribute="height" constant="50" id="rlq-Z5-NV0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="F5R-QV-1gj">
+                                <rect key="frame" x="16" y="129" width="568" height="123"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="m5W-SV-AoK">
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" tableViewCell="m5W-SV-AoK" id="WTb-MW-AX8">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eeK-I6-bOG" firstAttribute="leading" secondItem="ikI-Rm-PiP" secondAttribute="leadingMargin" constant="-16" id="0eb-Wg-R8p"/>
-                            <constraint firstItem="iMG-ys-aTF" firstAttribute="top" secondItem="Spt-Zy-r2P" secondAttribute="bottom" constant="20" id="JmX-Vx-esx"/>
-                            <constraint firstItem="iMG-ys-aTF" firstAttribute="leading" secondItem="ikI-Rm-PiP" secondAttribute="leadingMargin" id="W1u-AU-uLS"/>
-                            <constraint firstItem="Spt-Zy-r2P" firstAttribute="trailing" secondItem="ikI-Rm-PiP" secondAttribute="trailingMargin" id="YTP-cp-jPu"/>
-                            <constraint firstItem="Spt-Zy-r2P" firstAttribute="top" secondItem="eeK-I6-bOG" secondAttribute="bottom" constant="20" id="a34-So-wDZ"/>
-                            <constraint firstItem="iMG-ys-aTF" firstAttribute="top" secondItem="Spt-Zy-r2P" secondAttribute="bottom" constant="20" id="fDE-S4-vKK"/>
-                            <constraint firstItem="Spt-Zy-r2P" firstAttribute="leading" secondItem="ikI-Rm-PiP" secondAttribute="leadingMargin" id="jqh-XE-lxF"/>
-                            <constraint firstItem="iMG-ys-aTF" firstAttribute="trailing" secondItem="ikI-Rm-PiP" secondAttribute="trailingMargin" id="mGn-gy-cBg"/>
+                            <constraint firstItem="F5R-QV-1gj" firstAttribute="leading" secondItem="ikI-Rm-PiP" secondAttribute="leadingMargin" id="0sP-R3-KUX"/>
+                            <constraint firstItem="Spt-Zy-r2P" firstAttribute="top" secondItem="eeK-I6-bOG" secondAttribute="bottom" constant="7" id="EAI-ZE-GnK"/>
+                            <constraint firstItem="iMG-ys-aTF" firstAttribute="trailing" secondItem="ikI-Rm-PiP" secondAttribute="trailingMargin" id="Qnc-80-J5S"/>
+                            <constraint firstAttribute="centerY" secondItem="iMG-ys-aTF" secondAttribute="centerY" id="TlI-Hn-Zhr"/>
+                            <constraint firstItem="F5R-QV-1gj" firstAttribute="top" secondItem="Spt-Zy-r2P" secondAttribute="bottom" constant="8" id="eNy-Np-lUL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eeK-I6-bOG" secondAttribute="trailing" constant="-16" id="mm7-cq-aL0"/>
+                            <constraint firstItem="iMG-ys-aTF" firstAttribute="leading" secondItem="ikI-Rm-PiP" secondAttribute="leadingMargin" id="pvd-ca-ZfT"/>
+                            <constraint firstItem="F5R-QV-1gj" firstAttribute="trailing" secondItem="ikI-Rm-PiP" secondAttribute="trailingMargin" id="rFF-sO-muZ"/>
+                            <constraint firstItem="Spt-Zy-r2P" firstAttribute="leading" secondItem="ikI-Rm-PiP" secondAttribute="leadingMargin" id="s7n-6n-7M4"/>
+                            <constraint firstItem="iMG-ys-aTF" firstAttribute="top" secondItem="F5R-QV-1gj" secondAttribute="bottom" constant="8" id="sWU-9w-2Sk"/>
+                            <constraint firstItem="Spt-Zy-r2P" firstAttribute="trailing" secondItem="ikI-Rm-PiP" secondAttribute="trailingMargin" id="uUt-ao-44o"/>
+                            <constraint firstItem="F5R-QV-1gj" firstAttribute="top" secondItem="Spt-Zy-r2P" secondAttribute="bottom" constant="8" id="xgV-fz-KHE"/>
                             <constraint firstItem="eeK-I6-bOG" firstAttribute="top" secondItem="Mez-Vv-1wJ" secondAttribute="bottom" id="yoE-AP-dQx"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="autocompleteTableView" destination="F5R-QV-1gj" id="GGr-dA-tay"/>
                         <outlet property="backNavButton" destination="e3P-17-kSF" id="fiD-7U-aSt"/>
                         <outlet property="createButton" destination="jzT-Uz-uny" id="AQg-Ih-wjV"/>
                         <outlet property="searchButton" destination="iMG-ys-aTF" id="e00-Qz-IeG"/>
