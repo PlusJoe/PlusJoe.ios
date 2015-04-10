@@ -90,6 +90,7 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         autocompleteTableView.hidden = true
         println("You selected cell #\(self.completions[indexPath.row])!")
+        searchTextField.text = self.completions[indexPath.row]        
     }
     
     
