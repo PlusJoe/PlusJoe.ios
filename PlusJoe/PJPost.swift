@@ -29,6 +29,7 @@ class PJPost: PFObject, PFSubclassing {
 //    @NSManaged var words: [String]!
 //    @NSManaged var hashtags: [PJHashTag]!
     @NSManaged var price: Int
+    @NSManaged var fee: Int
     @NSManaged var location: PFGeoPoint
     @NSManaged var active: Bool
     @NSManaged var archived: Bool
@@ -58,6 +59,7 @@ class PJPost: PFObject, PFSubclassing {
         newPost.active = false
         newPost.archived = false
         newPost.body = ""
+        newPost.fee = 0
         newPost.image1file = PFFile(name:"blank.png", data:NSData())
         newPost.image2file = PFFile(name:"blank.png", data:NSData())
         newPost.image3file = PFFile(name:"blank.png", data:NSData())

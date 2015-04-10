@@ -55,7 +55,6 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         
     }
     
-    
     func textFieldTextChanged(sender : AnyObject) {
         NSLog("searching for text: " + searchTextField.text); //the textView parameter is the textView where text was changed
         PJHashTag.autoComplete(CURRENT_LOCATION!, searchText: searchTextField.text, succeeded: { (results) -> () in
@@ -68,8 +67,6 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         }) { (error) -> () in
             NSLog("error autocompleting")
         }
-        
-        
     }
  
     
@@ -90,9 +87,7 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         autocompleteTableView.hidden = true
         println("You selected cell #\(self.completions[indexPath.row])!")
-        searchTextField.text = self.completions[indexPath.row]        
+        searchTextField.text = self.completions[indexPath.row]
     }
-    
-    
 }
 

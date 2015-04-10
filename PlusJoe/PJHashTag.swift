@@ -55,8 +55,18 @@ class PJHashTag: PFObject, PFSubclassing {
                     // Do something with the found objects
                     
                     NSLog("results: \(objects!.count)")
-                    let tags:[String] = (objects as! [PJHashTag]).map{$0.tag}
-                    succeeded(results: tags)
+                    let alltags = (objects as! [PJHashTag]).map{$0.tag}
+                    var hashTags:Set<String> = Set<String>()
+                    var orderedResults:[String] = [String]()
+                    for tag in alltags {
+                        hashTags.insert(tag)
+                    }
+                    for tag in sorted(hashTags) {
+                        orderedResults.append(tag)
+                    }
+                    
+                    
+                    succeeded(results: orderedResults)
                 } else {
                     // Log details of the failure
                     failed(error: error)
