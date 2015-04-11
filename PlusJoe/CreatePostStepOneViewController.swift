@@ -24,6 +24,20 @@ class CreatePostStepOneViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if CURRENT_LOCATION == nil {
+            let alertMessage = UIAlertController(title: nil, message: "Your current location cant be detected. Turn GPS on, and/or enable PlusJoe GPS access in preferences and try again.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+            alertMessage.addAction(ok)
+            presentViewController(alertMessage, animated: true, completion: nil)
+        }
+        
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -41,16 +55,7 @@ class CreatePostStepOneViewController: UIViewController {
         
         nextButton.setTitle("next" + "   \u{f054}", forState: UIControlState.Normal)
         
-        
-        if CURRENT_LOCATION == nil {
-            let alertMessage = UIAlertController(title: "Warning", message: "Your current location cant be detected. Turn GPS on, and/or enable PlusJoe GPS access in preferences and try again.", preferredStyle: UIAlertControllerStyle.Alert)
-            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-                self.dismissViewControllerAnimated(true, completion: nil)
-            })
-            alertMessage.addAction(ok)
-            presentViewController(alertMessage, animated: true, completion: nil)
-        }
-        
+                
         //now let's see if a temporary post was already created, otherwise use the new one
         if UNFINISHED_POST == nil {// let's try to load one from a DB
             UNFINISHED_POST = PJPost.getUnfinishedPost()

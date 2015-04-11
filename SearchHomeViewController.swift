@@ -53,6 +53,20 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         autocompleteTableView.delegate      =   self
         autocompleteTableView.dataSource    =   self
         
+
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if CURRENT_LOCATION == nil {
+            let alertMessage = UIAlertController(title: nil, message: "Your current location cant be detected. Turn GPS on, and/or enable PlusJoe GPS access in preferences and try again.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+            alertMessage.addAction(ok)
+            presentViewController(alertMessage, animated: true, completion: nil)
+        }
+
     }
     
     func textFieldTextChanged(sender : AnyObject) {
@@ -89,5 +103,13 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         println("You selected cell #\(self.completions[indexPath.row])!")
         searchTextField.text = self.completions[indexPath.row]
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "searchResults") {
+            var searchResutsViewController = segue.destinationViewController as! SearchResultsViewController
+            searchResutsViewController.searchString = searchTextField.text
+        }
+    }
+    
 }
 

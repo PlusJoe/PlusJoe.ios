@@ -21,9 +21,9 @@ var DEVICE_UUID = ""
 let APP_DELEGATE:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 let USER_DEFAULTS = NSUserDefaults.standardUserDefaults()
 
-var CURRENT_LOCATION:PFGeoPoint? = nil // the app will only work if the current location can be detected
+var CURRENT_LOCATION:PFGeoPoint! = nil // the app will only work if the current location can be detected
 
-var UNFINISHED_POST:PJPost? = nil // we use this to store intermidiary post object
+var UNFINISHED_POST:PJPost! = nil // we use this to store intermidiary post object
 
 
 func roundMoney(number: Double) -> Double {

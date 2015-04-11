@@ -86,7 +86,7 @@ class CreatePostStepThreeViewController:
         //come back to previous step after refetching the generated fields
 //        UNFINISHED_POST?.fetch()
 //        if UNFINISHED_POST?.hashtags.count == 0 {
-//            let alertMessage = UIAlertController(title: "Warning", message: "Something is not right, come back to previous step and fix #hash_tags", preferredStyle: UIAlertControllerStyle.Alert)
+//            let alertMessage = UIAlertController(title: nil, message: "Something is not right, come back to previous step and fix #hash_tags", preferredStyle: UIAlertControllerStyle.Alert)
 //            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
 //                self.dismissViewControllerAnimated(true, completion: nil)
 //            })
