@@ -51,14 +51,14 @@ class SearchResultsViewController: UIViewController {
                     let location = self.posts[index].location
                     annotation.coordinate =
                         CLLocationCoordinate2D(latitude: CLLocationDegrees(location.latitude), longitude: CLLocationDegrees(location.longitude))
-                    annotation.title = "\(index)"
+                    annotation.title = "\(index + 1)"
 //                    annotation.subtitle = "\(index)"
                     self.mapView.addAnnotation(annotation)
                     annotations.append(annotation)
                 }
 
+                self.mapView.selectAnnotation(annotations[0], animated: true)
                 self.mapView.showAnnotations(annotations, animated: true)
-                
                 
             }) { (error) -> () in
                 let alertMessage = UIAlertController(title: nil, message: "Search Error, try again.", preferredStyle: UIAlertControllerStyle.Alert)
