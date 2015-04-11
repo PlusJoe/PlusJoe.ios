@@ -34,7 +34,7 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         // Do any additional setup after loading the view, typically from a nib.
         backNavButton.title = "\u{f053}"
         createButton.title = "\u{f067}"
-        if let font = UIFont(name: "FontAwesome", size: 30) {
+        if let font = UIFont(name: "FontAwesome", size: 20) {
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
             createButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }

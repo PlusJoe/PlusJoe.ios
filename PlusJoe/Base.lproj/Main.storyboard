@@ -281,19 +281,39 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UV9-sd-r2f">
+                                <rect key="frame" x="0.0" y="64" width="600" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="K0X-2A-qIy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8XB-TF-aTK">
+                                <rect key="frame" x="0.0" y="89" width="600" height="194"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="MSf-lC-Rov" secondAttribute="trailing" constant="-16" id="0fY-g8-tFi"/>
+                            <constraint firstItem="UV9-sd-r2f" firstAttribute="leading" secondItem="zNO-aw-X3i" secondAttribute="leadingMargin" constant="-16" id="1FK-sg-pII"/>
                             <constraint firstAttribute="centerY" secondItem="tg7-5f-4q0" secondAttribute="centerY" id="290-JJ-5SR"/>
                             <constraint firstItem="MSf-lC-Rov" firstAttribute="leading" secondItem="zNO-aw-X3i" secondAttribute="leadingMargin" constant="-16" id="6gY-Mu-gK5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UV9-sd-r2f" secondAttribute="trailing" constant="-16" id="G8Q-NZ-eSG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tg7-5f-4q0" secondAttribute="trailing" constant="-16" id="HMg-Hj-bIA"/>
+                            <constraint firstItem="UV9-sd-r2f" firstAttribute="top" secondItem="MSf-lC-Rov" secondAttribute="bottom" id="b8z-1p-zfU"/>
+                            <constraint firstItem="8XB-TF-aTK" firstAttribute="top" secondItem="MSf-lC-Rov" secondAttribute="bottom" constant="25" id="c7I-uI-m1c"/>
+                            <constraint firstItem="tg7-5f-4q0" firstAttribute="top" secondItem="8XB-TF-aTK" secondAttribute="bottom" constant="1" id="dSB-6d-g3P"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8XB-TF-aTK" secondAttribute="trailing" constant="-16" id="dcH-JT-dXx"/>
                             <constraint firstItem="MSf-lC-Rov" firstAttribute="top" secondItem="J3p-5N-ysd" secondAttribute="bottom" id="kFC-DL-hnq"/>
+                            <constraint firstItem="8XB-TF-aTK" firstAttribute="leading" secondItem="zNO-aw-X3i" secondAttribute="leadingMargin" constant="-16" id="l0k-1I-jAm"/>
                             <constraint firstItem="tg7-5f-4q0" firstAttribute="leading" secondItem="zNO-aw-X3i" secondAttribute="leadingMargin" constant="-16" id="v7D-Fp-wIT"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backNavButton" destination="DS4-Vj-o1A" id="cUq-7K-lec"/>
+                        <outlet property="resultNumber" destination="UV9-sd-r2f" id="yB7-8p-Nzj"/>
                         <outlet property="searchingForLabel" destination="tg7-5f-4q0" id="1xZ-9h-B99"/>
                     </connections>
                 </viewController>
