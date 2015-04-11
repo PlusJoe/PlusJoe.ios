@@ -30,8 +30,6 @@ class PJHashTag: PFObject, PFSubclassing {
         succeeded:(results:[String]) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
-            
-            // Create a query for places
             let queryPost = PJPost.query()
             // Interested in locations near user.
             queryPost!.whereKey("location", nearGeoPoint:location)
