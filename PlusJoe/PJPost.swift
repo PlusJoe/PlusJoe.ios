@@ -86,7 +86,9 @@ class PJPost: PFObject, PFSubclassing {
             
             let queryTag = PJHashTag.query()
             queryTag!.whereKey("post", matchesQuery:queryPost!)
-            queryTag!.whereKey("tag", equalTo: searchText)
+            if searchText != "" {
+                queryTag!.whereKey("tag", equalTo: searchText)
+            }
             queryTag!.includeKey("post")
             // Limit what could be a lot of points.
             queryTag!.limit = 100
