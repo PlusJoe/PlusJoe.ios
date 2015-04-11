@@ -18,6 +18,8 @@ class SearchResultsViewController: UIViewController {
     
     @IBOutlet weak var resultNumber: UILabel!
     
+    @IBOutlet weak var mapView: MKMapView!
+    
     @IBOutlet weak var searchingForLabel: UILabel!
     
     var posts:[PJPost] = [PJPost]()
@@ -37,11 +39,27 @@ class SearchResultsViewController: UIViewController {
         searchingForLabel.text = "Searching for: \(searchString)"
     }
     
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         PJPost.search(CURRENT_LOCATION, searchText: searchString,
             succeeded: { (results) -> () in
                 self.posts = results
+                var annotations = [MKPointAnnotation]()
+                for index in 0...self.posts.count-1 {
+                    let annotation = MKPointAnnotation()
+                    let location = self.posts[index].location
+                    annotation.coordinate =
+                        CLLocationCoordinate2D(latitude: CLLocationDegrees(location.latitude), longitude: CLLocationDegrees(location.longitude))
+                    annotation.title = "\(index)"
+//                    annotation.subtitle = "\(index)"
+                    self.mapView.addAnnotation(annotation)
+                    annotations.append(annotation)
+                }
+
+                self.mapView.showAnnotations(annotations, animated: true)
+                
+                
             }) { (error) -> () in
                 let alertMessage = UIAlertController(title: nil, message: "Search Error, try again.", preferredStyle: UIAlertControllerStyle.Alert)
                 let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in

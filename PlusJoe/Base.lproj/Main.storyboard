@@ -313,6 +313,7 @@
                     </view>
                     <connections>
                         <outlet property="backNavButton" destination="DS4-Vj-o1A" id="cUq-7K-lec"/>
+                        <outlet property="mapView" destination="8XB-TF-aTK" id="XLr-Ck-lO1"/>
                         <outlet property="resultNumber" destination="UV9-sd-r2f" id="yB7-8p-Nzj"/>
                         <outlet property="searchingForLabel" destination="tg7-5f-4q0" id="1xZ-9h-B99"/>
                     </connections>
