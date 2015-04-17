@@ -13,6 +13,7 @@
 		0A1031C31AC99B8100D2BC6C /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1031BD1AC99B8100D2BC6C /* ParseFacebookUtils.framework */; };
 		0A1031C41AC99B8100D2BC6C /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1031BE1AC99B8100D2BC6C /* ParseFacebookUtilsV4.framework */; };
 		0A1031C51AC99B8100D2BC6C /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1031BF1AC99B8100D2BC6C /* ParseUI.framework */; };
+		0A1C41451AE0555D00270347 /* SearchDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1C41441AE0555D00270347 /* SearchDetailsViewController.swift */; };
 		0A4C495B1AC501C000D164E2 /* SearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C495A1AC501C000D164E2 /* SearchHomeViewController.swift */; };
 		0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */; };
 		0A60E1C31AC8E854003887C5 /* BaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */; };
@@ -60,6 +61,7 @@
 		0A1031BD1AC99B8100D2BC6C /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		0A1031BE1AC99B8100D2BC6C /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		0A1031BF1AC99B8100D2BC6C /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		0A1C41441AE0555D00270347 /* SearchDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailsViewController.swift; sourceTree = "<group>"; };
 		0A4C495A1AC501C000D164E2 /* SearchHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchHomeViewController.swift; path = ../SearchHomeViewController.swift; sourceTree = "<group>"; };
 		0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
 		0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataModel.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			children = (
 				0A4C495A1AC501C000D164E2 /* SearchHomeViewController.swift */,
 				0AD4A2921AD8917A00539470 /* SearchResultsViewController.swift */,
+				0A1C41441AE0555D00270347 /* SearchDetailsViewController.swift */,
 			);
 			name = SearchPost;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				0A4C495B1AC501C000D164E2 /* SearchHomeViewController.swift in Sources */,
 				0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */,
 				0AAC2E361AC4580900B60B47 /* CreatePostStepTwoViewController.swift in Sources */,
+				0A1C41451AE0555D00270347 /* SearchDetailsViewController.swift in Sources */,
 				0AC66FBD1AC5C1CA003C818C /* CreatePostStepThreeViewController.swift in Sources */,
 				0A60E1C51AC8ED2B003887C5 /* PJPost.swift in Sources */,
 			);

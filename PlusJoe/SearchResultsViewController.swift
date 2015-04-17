@@ -10,21 +10,27 @@ import Foundation
 import UIKit
 import MapKit
 
-class SearchResultsViewController: UIViewController, MKMapViewDelegate {
+class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
-    
     var searchString = ""
-    
     @IBOutlet weak var resultNumber: UILabel!
-    
     @IBOutlet weak var mapView: MKMapView!
-    
     @IBOutlet weak var searchingForLabel: UILabel!
+
+    @IBOutlet weak var pageView: UIView!
     
     var posts:[PJPost] = [PJPost]()
+
     
-    var currentPost = 0
+    var currentPost:UInt = 0
+
+    var pageController:UIPageViewController!
+
+    
+    @IBOutlet weak var currentPostBody: UILabel!
+    
+    
     
     @IBAction func backButtonAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -44,6 +50,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate {
         }
         
         mapView.delegate = self
+
     }
     
     
@@ -60,6 +67,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate {
                     })
                     alertMessage.addAction(ok)
                     self.presentViewController(alertMessage, animated: true, completion: nil)
+                    return
                 }
                 
                 var annotations = [MKPointAnnotation]()
@@ -78,6 +86,37 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate {
                     self.mapView.showAnnotations(annotations, animated: true)
                 }
                 
+
+                
+                
+                let options = [UIPageViewControllerOptionSpineLocationKey: UIPageViewControllerSpineLocation.Min.rawValue]
+                
+                self.pageController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll,
+                    navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal,
+                    options: options)
+                
+                
+                self.pageController?.dataSource = self
+                self.pageController?.view.frame = self.view.bounds
+                
+                let searchDetailsViewController:SearchDetailsViewController = self.viewControllerAtIndex(0)!
+                
+                let viewControllers = [searchDetailsViewController]
+                
+                self.pageController?.setViewControllers(viewControllers,
+                    direction: UIPageViewControllerNavigationDirection.Forward,
+                    animated: true,
+                    completion: nil)
+                
+                
+                self.addChildViewController(self.pageController!)
+                self.pageView.addSubview(self.pageController!.view)
+                self.pageController!.didMoveToParentViewController(self)
+                self.viewControllerAtIndex(0)
+
+                
+                
+                
             }) { (error) -> () in
                 let alertMessage = UIAlertController(title: nil, message: "Search Error, try again.", preferredStyle: UIAlertControllerStyle.Alert)
                 let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
@@ -91,10 +130,51 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
         NSLog("selected annotation: \(view.annotation.title)")
-        currentPost = view.annotation.title!.toInt()!
+        currentPost = UInt(view.annotation.title!.toInt()!)
         resultNumber.text = "\(currentPost) of \(posts.count)"
 
     }
     
+    
+    func viewControllerAtIndex(index:UInt) -> (SearchDetailsViewController?) {
+        // Return the data view controller for the given index.
+        if (self.posts.count == 0 || (Int(index) >= self.posts.count)) {
+            return nil
+        }
+        
+        let searchDetailsViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SearchDetailsView") as! SearchDetailsViewController
+        
+
+        searchDetailsViewController.postBodyText = posts[Int(index)].body
+        searchDetailsViewController.postIndex = index
+
+        return searchDetailsViewController
+    }
+    
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+var index = (viewController as! SearchDetailsViewController).postIndex
+        
+        if ((index == 0) || (Int(index) == NSNotFound)) {
+        return nil
+        }
+        index--
+        return viewControllerAtIndex(index)
+    }
+    
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+        var index = (viewController as! SearchDetailsViewController).postIndex
+        if (Int(index) == NSNotFound) {
+            return nil
+        }
+        index++
+        if(Int(index) == self.posts.count) {
+            return nil
+        }
+        return viewControllerAtIndex(index)
+    }
+    
+
     
 }
