@@ -12,6 +12,9 @@ import Foundation
 class PostDetailsViewController : UIViewController {
     @IBOutlet weak var backNavButton: UIBarButtonItem!
     
+    var post:PJPost? 
+    
+    
     @IBAction func backButtonAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -26,5 +29,5 @@ class PostDetailsViewController : UIViewController {
         
     }
 
-    
+
 }
