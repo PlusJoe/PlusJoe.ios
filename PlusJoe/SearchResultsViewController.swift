@@ -17,7 +17,8 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     @IBOutlet weak var resultNumber: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var searchingForLabel: UILabel!
-
+    var annotations = [MKPointAnnotation]()
+    
     @IBOutlet weak var pageView: UIView!
     
     var posts:[PJPost] = [PJPost]()
@@ -59,7 +60,6 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
         PJPost.search(CURRENT_LOCATION, searchText: searchString,
             succeeded: { (results) -> () in
                 self.posts = results
-//                self.resultNumber.text = "\(self.currentPost+1) of \(self.posts.count)"
                 if results.count == 0 {
                     let alertMessage = UIAlertController(title: nil, message: "Nothing found, try again.", preferredStyle: UIAlertControllerStyle.Alert)
                     let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
@@ -70,7 +70,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
                     return
                 }
                 
-                var annotations = [MKPointAnnotation]()
+
                 for var index = 0; index < self.posts.count; ++index {
                     let annotation = MKPointAnnotation()
                     let location = self.posts[index].location
@@ -79,11 +79,11 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
                     annotation.title = "\(index + 1)"
                     //                    annotation.subtitle = "\(index)"
                     self.mapView.addAnnotation(annotation)
-                    annotations.append(annotation)
+                    self.annotations.append(annotation)
                 }
-                if annotations.count > 0 {
-                    self.mapView.selectAnnotation(annotations[0], animated: true)
-                    self.mapView.showAnnotations(annotations, animated: true)
+                if self.annotations.count > 0 {
+                    self.mapView.selectAnnotation(self.annotations[0], animated: true)
+                    self.mapView.showAnnotations(self.annotations, animated: true)
                 }
                 
 
@@ -116,7 +116,6 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
 
                 
                 
-                
             }) { (error) -> () in
                 let alertMessage = UIAlertController(title: nil, message: "Search Error, try again.", preferredStyle: UIAlertControllerStyle.Alert)
                 let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
@@ -133,6 +132,15 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
         currentPost = UInt(view.annotation.title!.toInt()!)
         resultNumber.text = "\(currentPost) of \(posts.count)"
 
+        let searchDetailsViewController:SearchDetailsViewController = self.viewControllerAtIndex(currentPost-1)!
+        
+        let viewControllers = [searchDetailsViewController]
+        
+        self.pageController?.setViewControllers(viewControllers,
+            direction: UIPageViewControllerNavigationDirection.Forward,
+            animated: true,
+            completion: nil)
+
     }
     
     
@@ -145,9 +153,10 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
         let searchDetailsViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SearchDetailsView") as! SearchDetailsViewController
         
 
-        searchDetailsViewController.postBodyText = posts[Int(index)].body
+        searchDetailsViewController.post = posts[Int(index)]
         searchDetailsViewController.postIndex = index
-
+        searchDetailsViewController.searchResultsViewController = self
+        
         return searchDetailsViewController
     }
     
@@ -175,6 +184,32 @@ var index = (viewController as! SearchDetailsViewController).postIndex
         return viewControllerAtIndex(index)
     }
     
-
+    
+    
+//    func goToPage(pageNumber) -> () {
+//    int currentPage = [[self.pager.viewControllers objectAtIndex:0] idx];
+//    
+//    // Don't do anything if we're already at the first page
+//    if (currentPage =< 0) {
+//    return;
+//    }
+//    
+//    // Instead get the view controller of the first page
+//    SomePageViewController *newInitialViewController = (SomePageViewController *)[self viewControllerAtIndex:0];
+//    NSArray *initialViewControllers = [NSArray arrayWithObject:newInitialViewController];
+//    
+//    // Do the setViewControllers: again but this time use direction animation:
+//    [self.pager setViewControllers:initialViewControllers direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:nil];
+//    }
+    
+    
+//    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+//        return self.posts.count
+//    }
+//
+//    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+//        var currentIndex = pageViewController.viewControllers.objectAtIndex 0] idx];
+//        return pageViewController.
+//    }
     
 }

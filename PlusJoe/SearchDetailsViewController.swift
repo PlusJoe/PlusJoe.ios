@@ -10,10 +10,12 @@ import Foundation
 
 class SearchDetailsViewController : UIViewController {
     
+    var searchResultsViewController:SearchResultsViewController?
+    
     @IBOutlet weak var postBody: UILabel!
-    
-    var postBodyText = ""
-    
+    @IBOutlet weak var postImage: UIImageView!
+
+    var post:PJPost?
     
     var postIndex:UInt = 0
 
@@ -30,6 +32,14 @@ class SearchDetailsViewController : UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        postBody.text = postBodyText
+        postBody.text = post?.body
+
+        if let imageFile = post?.image1file.getData() {
+            postImage.image = UIImage(data: imageFile)
+            
+            postImage.contentMode = .ScaleAspectFit
+            postImage.clipsToBounds = true
+        }
+        searchResultsViewController?.mapView.selectAnnotation(searchResultsViewController?.annotations[Int(postIndex)], animated: true)
     }
 }
