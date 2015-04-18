@@ -305,6 +305,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="vqn-qR-0zV" kind="show" id="Obk-yo-a6m"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resuts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UV9-sd-r2f">
                                 <rect key="frame" x="0.0" y="291" width="600" height="18"/>
@@ -352,6 +355,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RvG-il-0Cw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1204" y="1073"/>
+        </scene>
+        <!--Post Details View Controller-->
+        <scene sceneID="fUt-E3-Ezy">
+            <objects>
+                <viewController id="vqn-qR-0zV" customClass="PostDetailsViewController" customModule="PlusJoe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EmU-3I-c5H"/>
+                        <viewControllerLayoutGuide type="bottom" id="yIr-MX-qL7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G9G-y9-H9f">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T0b-SD-uUY">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="KVu-g6-973"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="Kg4-Y9-Vya"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="44" id="bde-lM-1ZS"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="+joe" id="XNZ-i8-kqO">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="AC2-X3-MTx">
+                                            <connections>
+                                                <action selector="backButtonAction:" destination="vqn-qR-0zV" id="BLF-E5-qyi"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="T0b-SD-uUY" firstAttribute="leading" secondItem="G9G-y9-H9f" secondAttribute="leadingMargin" constant="-16" id="JXk-wq-XGX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="T0b-SD-uUY" secondAttribute="trailing" constant="-16" id="TYa-hZ-G8x"/>
+                            <constraint firstItem="T0b-SD-uUY" firstAttribute="top" secondItem="EmU-3I-c5H" secondAttribute="bottom" id="jW0-cu-orh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backNavButton" destination="AC2-X3-MTx" id="3fa-uM-oCX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3h6-ZM-R9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1204" y="1803"/>
         </scene>
         <!--Search Details View Controller-->
         <scene sceneID="ZFr-oL-UuD">

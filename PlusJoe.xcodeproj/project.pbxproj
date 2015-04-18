@@ -40,6 +40,7 @@
 		0AEAFC181AC1C9D400800121 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC171AC1C9D400800121 /* libz.dylib */; };
 		0AEAFC1A1AC1C9E100800121 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC191AC1C9E100800121 /* libsqlite3.dylib */; };
 		0AEAFC1E1AC1CEAF00800121 /* libFlurry_6.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC1D1AC1CEAF00800121 /* libFlurry_6.2.0.a */; };
+		0AEC370D1AE2B597005F99A7 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */; };
 		0AF02E081AD5B78800792A5E /* PJHashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF02E071AD5B78800792A5E /* PJHashTag.swift */; };
 		0AF801821ACD7D27009CAB14 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF801811ACD7D27009CAB14 /* MapKit.framework */; };
 /* End PBXBuildFile section */
@@ -94,6 +95,7 @@
 		0AEAFC191AC1C9E100800121 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		0AEAFC1C1AC1CEAF00800121 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		0AEAFC1D1AC1CEAF00800121 /* libFlurry_6.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.2.0.a; sourceTree = "<group>"; };
+		0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		0AF02E071AD5B78800792A5E /* PJHashTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJHashTag.swift; sourceTree = "<group>"; };
 		0AF801811ACD7D27009CAB14 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -195,6 +197,7 @@
 				0A60E1C11AC8E7CF003887C5 /* CreatePost */,
 				0AF02E061AD446D800792A5E /* SearchPost */,
 				0AEAFBD21AC0E2F900800121 /* Main.storyboard */,
+				0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */,
 				0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */,
 				0AEAFBD51AC0E2F900800121 /* Images.xcassets */,
 				0AEAFBD71AC0E2F900800121 /* LaunchScreen.xib */,
@@ -386,6 +389,7 @@
 				0AF02E081AD5B78800792A5E /* PJHashTag.swift in Sources */,
 				0A60E1C31AC8E854003887C5 /* BaseDataModel.swift in Sources */,
 				0AAC2E341AC457C300B60B47 /* CreatePostStepOneViewController.swift in Sources */,
+				0AEC370D1AE2B597005F99A7 /* PostDetailsViewController.swift in Sources */,
 				0AD4A2931AD8917A00539470 /* SearchResultsViewController.swift in Sources */,
 				0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */,
 				0AC66FBF1AC5C22C003C818C /* CreatePostStepFourViewController.swift in Sources */,
