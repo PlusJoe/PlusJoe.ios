@@ -192,8 +192,8 @@
 			children = (
 				0A60E1C01AC8E7B4003887C5 /* Model */,
 				0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */,
-				0AF02E061AD446D800792A5E /* SearchPost */,
 				0A60E1C11AC8E7CF003887C5 /* CreatePost */,
+				0AF02E061AD446D800792A5E /* SearchPost */,
 				0AEAFBD21AC0E2F900800121 /* Main.storyboard */,
 				0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */,
 				0AEAFBD51AC0E2F900800121 /* Images.xcassets */,

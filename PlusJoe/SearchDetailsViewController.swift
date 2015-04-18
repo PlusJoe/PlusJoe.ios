@@ -15,6 +15,10 @@ class SearchDetailsViewController : UIViewController {
     @IBOutlet weak var postBody: UILabel!
     @IBOutlet weak var postImage: UIImageView!
 
+    @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var fee: UILabel!
+    
+    
     var post:PJPost?
     
     var postIndex:UInt = 0
@@ -33,7 +37,9 @@ class SearchDetailsViewController : UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         postBody.text = post?.body
-
+        price.text = "$\((post?.price)!)"
+        fee.text = "$\((post?.fee)!)"
+        
         if let imageFile = post?.image1file.getData() {
             postImage.image = UIImage(data: imageFile)
             
