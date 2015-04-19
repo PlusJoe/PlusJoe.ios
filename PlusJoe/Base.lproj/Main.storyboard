@@ -288,27 +288,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myg-Oq-FUM">
-                                <rect key="frame" x="16" y="538" width="568" height="62"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="62" id="o30-LI-MFg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="15"/>
-                                <state key="normal" title="details">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="vqn-qR-0zV" kind="show" identifier="postDetailsSegue" id="Obk-yo-a6m"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resuts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UV9-sd-r2f">
                                 <rect key="frame" x="0.0" y="291" width="600" height="18"/>
                                 <constraints>
@@ -318,6 +297,27 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myg-Oq-FUM">
+                                <rect key="frame" x="16" y="538" width="568" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0xS-UK-4s5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="15"/>
+                                <state key="normal" title="details">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="vqn-qR-0zV" kind="show" identifier="postDetailsSegue" id="Obk-yo-a6m"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -325,23 +325,23 @@
                             <constraint firstAttribute="centerY" secondItem="UV9-sd-r2f" secondAttribute="centerY" id="0y0-EQ-B9v"/>
                             <constraint firstItem="MSf-lC-Rov" firstAttribute="leading" secondItem="zNO-aw-X3i" secondAttribute="leadingMargin" constant="-16" id="6gY-Mu-gK5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="E0E-IY-Tij" secondAttribute="trailing" constant="-16" id="7Le-Gx-zi1"/>
-                            <constraint firstItem="myg-Oq-FUM" firstAttribute="top" secondItem="E0E-IY-Tij" secondAttribute="bottom" constant="8" id="7da-9U-ERU"/>
                             <constraint firstItem="UV9-sd-r2f" firstAttribute="leading" secondItem="zNO-aw-X3i" secondAttribute="leadingMargin" constant="-16" id="84v-tG-wIn"/>
                             <constraint firstItem="E0E-IY-Tij" firstAttribute="top" secondItem="UV9-sd-r2f" secondAttribute="bottom" constant="8" id="CrF-Nc-cW6"/>
                             <constraint firstItem="8XB-TF-aTK" firstAttribute="leading" secondItem="zNO-aw-X3i" secondAttribute="leadingMargin" constant="-16" id="Ep8-ch-8Ut"/>
+                            <constraint firstItem="myg-Oq-FUM" firstAttribute="leading" secondItem="zNO-aw-X3i" secondAttribute="leadingMargin" id="HcC-gl-dLU"/>
+                            <constraint firstItem="myg-Oq-FUM" firstAttribute="trailing" secondItem="zNO-aw-X3i" secondAttribute="trailingMargin" id="JwY-gc-M6i"/>
                             <constraint firstItem="UV9-sd-r2f" firstAttribute="top" secondItem="8XB-TF-aTK" secondAttribute="bottom" constant="8" id="N9c-SQ-lRK"/>
                             <constraint firstAttribute="centerX" secondItem="UV9-sd-r2f" secondAttribute="centerX" id="TeS-3G-jHH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UV9-sd-r2f" secondAttribute="trailing" constant="-16" id="Tf0-vD-iTW"/>
+                            <constraint firstItem="myg-Oq-FUM" firstAttribute="top" secondItem="E0E-IY-Tij" secondAttribute="bottom" constant="8" id="Tpi-Ki-mpj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tg7-5f-4q0" secondAttribute="trailing" constant="-16" id="Wza-yK-h97"/>
-                            <constraint firstItem="myg-Oq-FUM" firstAttribute="leading" secondItem="zNO-aw-X3i" secondAttribute="leadingMargin" id="ZQV-dL-dtY"/>
                             <constraint firstItem="E0E-IY-Tij" firstAttribute="leading" secondItem="zNO-aw-X3i" secondAttribute="leadingMargin" constant="-16" id="a2Q-hh-6VO"/>
                             <constraint firstItem="tg7-5f-4q0" firstAttribute="top" secondItem="MSf-lC-Rov" secondAttribute="bottom" id="aPD-w6-xiE"/>
                             <constraint firstItem="8XB-TF-aTK" firstAttribute="top" secondItem="tg7-5f-4q0" secondAttribute="bottom" id="eLZ-jn-XT9"/>
                             <constraint firstItem="MSf-lC-Rov" firstAttribute="top" secondItem="J3p-5N-ysd" secondAttribute="bottom" id="kFC-DL-hnq"/>
+                            <constraint firstItem="Sgi-Vf-pLH" firstAttribute="top" secondItem="myg-Oq-FUM" secondAttribute="bottom" constant="12" id="kXn-cz-7rR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8XB-TF-aTK" secondAttribute="trailing" constant="-16" id="rgw-uN-RHv"/>
-                            <constraint firstItem="Sgi-Vf-pLH" firstAttribute="top" secondItem="myg-Oq-FUM" secondAttribute="bottom" id="vtT-bB-heQ"/>
                             <constraint firstItem="tg7-5f-4q0" firstAttribute="leading" secondItem="zNO-aw-X3i" secondAttribute="leadingMargin" constant="-16" id="xGU-iv-j8e"/>
-                            <constraint firstItem="myg-Oq-FUM" firstAttribute="trailing" secondItem="zNO-aw-X3i" secondAttribute="trailingMargin" id="ys3-bl-WYb"/>
                         </constraints>
                     </view>
                     <connections>
@@ -386,6 +386,12 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="at6-wy-p1O">
+                                <rect key="frame" x="16" y="64" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -396,6 +402,7 @@
                     </view>
                     <connections>
                         <outlet property="backNavButton" destination="AC2-X3-MTx" id="3fa-uM-oCX"/>
+                        <outlet property="postNumberLabel" destination="at6-wy-p1O" id="iS9-SJ-ECZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3h6-ZM-R9f" userLabel="First Responder" sceneMemberID="firstResponder"/>

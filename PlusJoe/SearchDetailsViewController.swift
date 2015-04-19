@@ -22,6 +22,8 @@ class SearchDetailsViewController : UIViewController {
     var post:PJPost?
     
     var postIndex:UInt = 0
+    var totalPosts = 0
+    var searchString = ""
 
     
     override func viewDidLoad() {
@@ -53,6 +55,7 @@ class SearchDetailsViewController : UIViewController {
         if(segue.identifier == "postDetailsSegue") {
             var postDetailsViewController = segue.destinationViewController as! PostDetailsViewController
             postDetailsViewController.post = post
+            postDetailsViewController.postNumberText = "\(postIndex) of \(totalPosts) for \(searchString)"
         }
     }
 

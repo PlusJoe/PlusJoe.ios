@@ -14,6 +14,9 @@ class PostDetailsViewController : UIViewController {
     
     var post:PJPost? 
     
+    @IBOutlet weak var postNumberLabel: UILabel!
+
+    var postNumberText = ""
     
     @IBAction func backButtonAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -26,7 +29,8 @@ class PostDetailsViewController : UIViewController {
         if let font = UIFont(name: "FontAwesome", size: 20) {
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
-        
+    
+        postNumberLabel.text = postNumberText
     }
 
 

@@ -51,12 +51,11 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
         }
         
         mapView.delegate = self
+        
+        
+        
+        
 
-    }
-    
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
         PJPost.search(CURRENT_LOCATION, searchText: searchString,
             succeeded: { (results) -> () in
                 self.posts = results
@@ -70,7 +69,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
                     return
                 }
                 
-
+                
                 for var index = 0; index < self.posts.count; ++index {
                     let annotation = MKPointAnnotation()
                     let location = self.posts[index].location
@@ -86,7 +85,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
                     self.mapView.showAnnotations(self.annotations, animated: true)
                 }
                 
-
+                
                 
                 
                 let options = [UIPageViewControllerOptionSpineLocationKey: UIPageViewControllerSpineLocation.Min.rawValue]
@@ -113,7 +112,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
                 self.pageView.addSubview(self.pageController!.view)
                 self.pageController!.didMoveToParentViewController(self)
                 self.viewControllerAtIndex(0)
-
+                
                 
                 
             }) { (error) -> () in
@@ -125,6 +124,12 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
                 self.presentViewController(alertMessage, animated: true, completion: nil)
                 
         }
+        
+    }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
@@ -155,6 +160,9 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
 
         searchDetailsViewController.post = posts[Int(index)]
         searchDetailsViewController.postIndex = index
+        searchDetailsViewController.totalPosts = self.posts.count
+        searchDetailsViewController.searchString = searchString
+        
         searchDetailsViewController.searchResultsViewController = self
         
         return searchDetailsViewController
@@ -183,33 +191,5 @@ var index = (viewController as! SearchDetailsViewController).postIndex
         }
         return viewControllerAtIndex(index)
     }
-    
-    
-    
-//    func goToPage(pageNumber) -> () {
-//    int currentPage = [[self.pager.viewControllers objectAtIndex:0] idx];
-//    
-//    // Don't do anything if we're already at the first page
-//    if (currentPage =< 0) {
-//    return;
-//    }
-//    
-//    // Instead get the view controller of the first page
-//    SomePageViewController *newInitialViewController = (SomePageViewController *)[self viewControllerAtIndex:0];
-//    NSArray *initialViewControllers = [NSArray arrayWithObject:newInitialViewController];
-//    
-//    // Do the setViewControllers: again but this time use direction animation:
-//    [self.pager setViewControllers:initialViewControllers direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:nil];
-//    }
-    
-    
-//    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-//        return self.posts.count
-//    }
-//
-//    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-//        var currentIndex = pageViewController.viewControllers.objectAtIndex 0] idx];
-//        return pageViewController.
-//    }
-    
+                
 }
