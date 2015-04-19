@@ -22,8 +22,8 @@ class SearchDetailsViewController : UIViewController {
     var post:PJPost?
     
     var postIndex:UInt = 0
-    var totalPosts = 0
-    var searchString = ""
+//    var totalPosts = 0
+//    var searchString = ""
 
     
     override func viewDidLoad() {
@@ -49,14 +49,6 @@ class SearchDetailsViewController : UIViewController {
             postImage.clipsToBounds = true
         }
         searchResultsViewController?.mapView.selectAnnotation(searchResultsViewController?.annotations[Int(postIndex)], animated: true)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier == "postDetailsSegue") {
-            var postDetailsViewController = segue.destinationViewController as! PostDetailsViewController
-            postDetailsViewController.post = post
-            postDetailsViewController.postNumberText = "\(postIndex) of \(totalPosts) for \(searchString)"
-        }
     }
 
     

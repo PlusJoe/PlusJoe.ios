@@ -288,7 +288,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resuts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UV9-sd-r2f">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UV9-sd-r2f">
                                 <rect key="frame" x="0.0" y="291" width="600" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="fUr-iR-RKD"/>
@@ -315,7 +315,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="vqn-qR-0zV" kind="show" identifier="postDetailsSegue" id="Obk-yo-a6m"/>
+                                    <segue destination="vqn-qR-0zV" kind="show" identifier="postDetailsSegue" id="XRP-0G-4Wp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -386,18 +386,46 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="at6-wy-p1O">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="at6-wy-p1O">
                                 <rect key="frame" x="16" y="64" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ejh-jr-8oP"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZo-VS-9Y8">
+                                <rect key="frame" x="16" y="542" width="568" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Asw-El-wKF"/>
+                                    <constraint firstAttribute="height" constant="50" id="I2u-KE-s0a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="15"/>
+                                <state key="normal" title="actions">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="at6-wy-p1O" firstAttribute="top" secondItem="T0b-SD-uUY" secondAttribute="bottom" id="1TO-vN-1Nz"/>
+                            <constraint firstItem="lZo-VS-9Y8" firstAttribute="trailing" secondItem="G9G-y9-H9f" secondAttribute="trailingMargin" id="5Gv-UE-FxR"/>
+                            <constraint firstItem="yIr-MX-qL7" firstAttribute="top" secondItem="lZo-VS-9Y8" secondAttribute="bottom" constant="8" id="8eN-If-yrs"/>
+                            <constraint firstItem="at6-wy-p1O" firstAttribute="leading" secondItem="G9G-y9-H9f" secondAttribute="leadingMargin" id="8q6-QX-WqZ"/>
                             <constraint firstItem="T0b-SD-uUY" firstAttribute="leading" secondItem="G9G-y9-H9f" secondAttribute="leadingMargin" constant="-16" id="JXk-wq-XGX"/>
+                            <constraint firstItem="lZo-VS-9Y8" firstAttribute="leading" secondItem="G9G-y9-H9f" secondAttribute="leadingMargin" id="Kxk-0V-lB7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="T0b-SD-uUY" secondAttribute="trailing" constant="-16" id="TYa-hZ-G8x"/>
                             <constraint firstItem="T0b-SD-uUY" firstAttribute="top" secondItem="EmU-3I-c5H" secondAttribute="bottom" id="jW0-cu-orh"/>
+                            <constraint firstItem="at6-wy-p1O" firstAttribute="trailing" secondItem="G9G-y9-H9f" secondAttribute="trailingMargin" id="qbE-CW-5lK"/>
                         </constraints>
                     </view>
                     <connections>

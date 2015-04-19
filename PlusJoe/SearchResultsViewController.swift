@@ -160,8 +160,8 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
 
         searchDetailsViewController.post = posts[Int(index)]
         searchDetailsViewController.postIndex = index
-        searchDetailsViewController.totalPosts = self.posts.count
-        searchDetailsViewController.searchString = searchString
+//        searchDetailsViewController.totalPosts = self.posts.count
+//        searchDetailsViewController.searchString = searchString
         
         searchDetailsViewController.searchResultsViewController = self
         
@@ -191,5 +191,18 @@ var index = (viewController as! SearchDetailsViewController).postIndex
         }
         return viewControllerAtIndex(index)
     }
-                
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "postDetailsSegue") {
+            var postDetailsViewController = segue.destinationViewController as! PostDetailsViewController
+            postDetailsViewController.post = posts[Int(currentPost)-1]
+            if searchString != "" {
+                postDetailsViewController.postNumberText = "\(currentPost) of \(posts.count) for \(searchString)"
+            } else {
+                postDetailsViewController.postNumberText = "\(currentPost) of \(posts.count)"
+            }
+        }
+    }
+
+    
 }
