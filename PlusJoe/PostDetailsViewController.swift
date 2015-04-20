@@ -15,6 +15,11 @@ class PostDetailsViewController : UIViewController {
     var post:PJPost? 
     
     @IBOutlet weak var postNumberLabel: UILabel!
+    @IBOutlet weak var imagesView: UIView!
+    @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var fee: UILabel!
+    @IBOutlet weak var postBody: UILabel!
+
 
     var postNumberText = ""
     
@@ -31,6 +36,9 @@ class PostDetailsViewController : UIViewController {
         }
     
         postNumberLabel.text = postNumberText
+        postBody.text = post?.body
+        price.text = "$\((post?.price)!)"
+        fee.text = "$\((post?.fee)!)"
     }
 
 

@@ -18,12 +18,8 @@ class SearchDetailsViewController : UIViewController {
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var fee: UILabel!
     
-    
     var post:PJPost?
-    
     var postIndex:UInt = 0
-//    var totalPosts = 0
-//    var searchString = ""
 
     
     override func viewDidLoad() {
