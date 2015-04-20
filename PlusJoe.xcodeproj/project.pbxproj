@@ -41,6 +41,7 @@
 		0AEAFC1A1AC1C9E100800121 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC191AC1C9E100800121 /* libsqlite3.dylib */; };
 		0AEAFC1E1AC1CEAF00800121 /* libFlurry_6.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC1D1AC1CEAF00800121 /* libFlurry_6.2.0.a */; };
 		0AEC370D1AE2B597005F99A7 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */; };
+		0AEC37101AE4A677005F99A7 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */; };
 		0AF02E081AD5B78800792A5E /* PJHashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF02E071AD5B78800792A5E /* PJHashTag.swift */; };
 		0AF801821ACD7D27009CAB14 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF801811ACD7D27009CAB14 /* MapKit.framework */; };
 /* End PBXBuildFile section */
@@ -96,6 +97,7 @@
 		0AEAFC1C1AC1CEAF00800121 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		0AEAFC1D1AC1CEAF00800121 /* libFlurry_6.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.2.0.a; sourceTree = "<group>"; };
 		0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
+		0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		0AF02E071AD5B78800792A5E /* PJHashTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJHashTag.swift; sourceTree = "<group>"; };
 		0AF801811ACD7D27009CAB14 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -192,12 +194,12 @@
 		0AEAFBCB1AC0E2F900800121 /* PlusJoe */ = {
 			isa = PBXGroup;
 			children = (
-				0A60E1C01AC8E7B4003887C5 /* Model */,
 				0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */,
+				0A60E1C01AC8E7B4003887C5 /* Model */,
 				0A60E1C11AC8E7CF003887C5 /* CreatePost */,
 				0AF02E061AD446D800792A5E /* SearchPost */,
+				0AEC370E1AE4A61E005F99A7 /* PostDetails */,
 				0AEAFBD21AC0E2F900800121 /* Main.storyboard */,
-				0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */,
 				0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */,
 				0AEAFBD51AC0E2F900800121 /* Images.xcassets */,
 				0AEAFBD71AC0E2F900800121 /* LaunchScreen.xib */,
@@ -261,6 +263,15 @@
 				0AEAFC051AC1C97300800121 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0AEC370E1AE4A61E005F99A7 /* PostDetails */ = {
+			isa = PBXGroup;
+			children = (
+				0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */,
+				0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */,
+			);
+			name = PostDetails;
 			sourceTree = "<group>";
 		};
 		0AF02E061AD446D800792A5E /* SearchPost */ = {
@@ -396,6 +407,7 @@
 				0A4C495B1AC501C000D164E2 /* SearchHomeViewController.swift in Sources */,
 				0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */,
 				0AAC2E361AC4580900B60B47 /* CreatePostStepTwoViewController.swift in Sources */,
+				0AEC37101AE4A677005F99A7 /* ImageViewController.swift in Sources */,
 				0A1C41451AE0555D00270347 /* SearchDetailsViewController.swift in Sources */,
 				0AC66FBD1AC5C1CA003C818C /* CreatePostStepThreeViewController.swift in Sources */,
 				0A60E1C51AC8ED2B003887C5 /* PJPost.swift in Sources */,

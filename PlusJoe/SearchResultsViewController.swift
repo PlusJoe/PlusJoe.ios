@@ -160,8 +160,6 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
 
         searchDetailsViewController.post = posts[Int(index)]
         searchDetailsViewController.postIndex = index
-//        searchDetailsViewController.totalPosts = self.posts.count
-//        searchDetailsViewController.searchString = searchString
         
         searchDetailsViewController.searchResultsViewController = self
         

@@ -498,10 +498,18 @@
             </objects>
             <point key="canvasLocation" x="1204" y="1803"/>
         </scene>
+        <!--Page View Controller-->
+        <scene sceneID="UzZ-qC-oCa">
+            <objects>
+                <pageViewController storyboardIdentifier="ImagesPageController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="gux-Xp-NMv" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="76y-De-R3O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1875" y="1803"/>
+        </scene>
         <!--Search Details View Controller-->
         <scene sceneID="ZFr-oL-UuD">
             <objects>
-                <viewController storyboardIdentifier="SearchDetailsView" id="b7x-Kg-k6N" customClass="SearchDetailsViewController" customModule="PlusJoe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchDetailsView" id="b7x-Kg-k6N" customClass="SearchDetailsViewController" customModule="PlusJoe" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VfJ-ZD-p7z"/>
                         <viewControllerLayoutGuide type="bottom" id="Nfk-jp-rZ2"/>
@@ -583,6 +591,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2A-jX-qCS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1875" y="1073"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="KKV-Zt-5Yn">
+            <objects>
+                <viewController storyboardIdentifier="ImageDetailsView" id="BRI-Ni-eSa" customClass="ImageViewController" customModule="PlusJoe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uEc-rN-oDa"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mxq-7x-JWl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uAv-Jp-8rx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7nE-it-4qy">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7nE-it-4qy" firstAttribute="top" secondItem="uAv-Jp-8rx" secondAttribute="topMargin" id="B0a-3t-mXu"/>
+                            <constraint firstItem="7nE-it-4qy" firstAttribute="leading" secondItem="uAv-Jp-8rx" secondAttribute="leadingMargin" constant="-16" id="XP0-2g-RXq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7nE-it-4qy" secondAttribute="trailing" constant="-16" id="o5k-mY-YyA"/>
+                            <constraint firstItem="Mxq-7x-JWl" firstAttribute="top" secondItem="7nE-it-4qy" secondAttribute="bottom" id="z4x-1s-fIn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="7nE-it-4qy" id="Q1c-v2-XJF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UBL-HI-ZlK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2573" y="1803"/>
         </scene>
         <!--Create Post Step One View Controller-->
         <scene sceneID="tne-QT-ifu">

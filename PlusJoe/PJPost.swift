@@ -26,8 +26,8 @@ class PJPost: PFObject, PFSubclassing {
     @NSManaged var sell: Bool // if it's false, it's not a sell, it's a buy
     @NSManaged var thing: Bool // if it's false, it's not a thing, it's a service
     @NSManaged var body: String
-//    @NSManaged var words: [String]!
-//    @NSManaged var hashtags: [PJHashTag]!
+    //    @NSManaged var words: [String]!
+    //    @NSManaged var hashtags: [PJHashTag]!
     @NSManaged var price: Int
     @NSManaged var fee: Int
     @NSManaged var location: PFGeoPoint
@@ -39,7 +39,7 @@ class PJPost: PFObject, PFSubclassing {
     @NSManaged var image3file: PFFile
     @NSManaged var image4file: PFFile
     
-
+    
     
     class func getUnfinishedPost() -> (PJPost?) {
         let query = PJPost.query()
@@ -74,7 +74,7 @@ class PJPost: PFObject, PFSubclassing {
         succeeded:(results:[PJPost]) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
-
+            
             let queryPost = PJPost.query()
             // Interested in locations near user.
             queryPost!.whereKey("location", nearGeoPoint:location)
@@ -117,8 +117,6 @@ class PJPost: PFObject, PFSubclassing {
                     failed(error: error)
                 }
             })
-
-            
     }
-    
+ 
 }
