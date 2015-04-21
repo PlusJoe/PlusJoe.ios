@@ -40,6 +40,8 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        detailsButton.enabled = false
+
         // Do any additional setup after loading the view, typically from a nib.
         backNavButton.title = "\u{f053}"
         if let font = UIFont(name: "FontAwesome", size: 20) {
@@ -118,7 +120,8 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
                 self.pageController!.didMoveToParentViewController(self)
                 self.viewControllerAtIndex(0)
                 
-                
+                self.detailsButton.enabled = true
+
                 
             }) { (error) -> () in
                 let alertMessage = UIAlertController(title: nil, message: "Search Error, try again.", preferredStyle: UIAlertControllerStyle.Alert)

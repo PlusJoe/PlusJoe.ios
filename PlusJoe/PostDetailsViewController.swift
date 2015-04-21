@@ -132,6 +132,8 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
             self.viewControllerAtIndex(0)
         }
         
+        
+        
     }
 
     
@@ -180,5 +182,24 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         return 0
     }
 
+    @IBAction func actionsTapped(sender: AnyObject) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        let oneAction = UIAlertAction(title: "Flag as Inapropriate", style: .Default) { (_) in }
+        let twoAction = UIAlertAction(title: "Buy it", style: .Default) { (_) in }
+        let threeAction = UIAlertAction(title: "Share & earn finders fee", style: .Default) { (_) in }
+        let fourAction = UIAlertAction(title: "Contact this person", style: .Default) { (_) in }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+        
+        alertController.addAction(oneAction)
+        alertController.addAction(twoAction)
+        alertController.addAction(threeAction)
+        alertController.addAction(fourAction)
+        alertController.addAction(cancelAction)
+
+
+        self.presentViewController(alertController, animated: true, completion: nil)
+
+    }
     
 }
