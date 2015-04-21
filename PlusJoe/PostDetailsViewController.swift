@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 
 extension UIColor {
@@ -65,57 +66,79 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
             options: options)
         
         
-        self.pageController?.dataSource = self
-        self.pageController?.view.frame = self.imagesView.bounds
-        
-        let appearance = UIPageControl.appearance()
-        appearance.pageIndicatorTintColor =  UIColor.whiteColor()
-        appearance.currentPageIndicatorTintColor = UIColor.greenColor()
-        appearance.backgroundColor = UIColor(rgb: 0x006600)
         
 
         if let imageFile = post?.image1file.getData() {
-            let imageViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("ImageDetailsView") as! ImageViewController
-            imageViewController.image  = UIImage(data: imageFile)
-            imageViewController.index = 0
-            imageViewControllers.append(imageViewController)
-
-
+            addImageToView(UIImage(data: imageFile)!)
         }
         if let imageFile = post?.image2file.getData() {
-            let imageViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("ImageDetailsView") as! ImageViewController
-            imageViewController.image  = UIImage(data: imageFile)
-            imageViewController.index = 1
-            imageViewControllers.append(imageViewController)
+            addImageToView(UIImage(data: imageFile)!)
         }
         if let imageFile = post?.image3file.getData() {
-            let imageViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("ImageDetailsView") as! ImageViewController
-            imageViewController.image  = UIImage(data: imageFile)
-            imageViewController.index = 2
-            imageViewControllers.append(imageViewController)
+            addImageToView(UIImage(data: imageFile)!)
         }
         if let imageFile = post?.image4file.getData() {
-            let imageViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("ImageDetailsView") as! ImageViewController
-            imageViewController.image  = UIImage(data: imageFile)
-            imageViewController.index = 3
-            imageViewControllers.append(imageViewController)
+            addImageToView(UIImage(data: imageFile)!)
         }
 
-        
-        self.pageController?.setViewControllers([imageViewControllers[0]],
-            direction: UIPageViewControllerNavigationDirection.Forward,
-            animated: true,
-            completion: nil)
+
         
         
+        let mapView = MKMapView()//frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 200))
+        mapView.mapType = MKMapType.Standard
+        mapView.zoomEnabled = false
+        mapView.scrollEnabled = false
         
-        self.addChildViewController(self.pageController!)
-        self.imagesView.addSubview(self.pageController!.view)
-        self.pageController!.didMoveToParentViewController(self)
-        self.viewControllerAtIndex(0)
+        let mylocation = CLLocationCoordinate2D(
+            latitude: (post?.location.latitude)!,
+            longitude: (post?.location.longitude)!
+        )
+        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let region = MKCoordinateRegion(center: mylocation, span: span)
+        mapView.setRegion(region, animated: false)
+        //        mapView.frame.size = CGSize(width: UIScreen.mainScreen().bounds.width, height: 200)
+        
+        let mapOptions:MKMapSnapshotOptions  = MKMapSnapshotOptions()
+        mapOptions.region = region
+//        mapOptions.scale = self.imagesView.scale
+        mapOptions.size = CGSize(width: self.imagesView.bounds.width, height: self.imagesView.bounds.height)
+        let snapshotter:MKMapSnapshotter  = MKMapSnapshotter(options: mapOptions)
+        snapshotter.startWithCompletionHandler { (snapshot:MKMapSnapshot!, error:NSError!) -> Void in
+            self.addImageToView(snapshot.image)
+            
+            self.pageController?.dataSource = self
+            self.pageController?.view.frame = self.imagesView.bounds
+            
+            let appearance = UIPageControl.appearance()
+            appearance.pageIndicatorTintColor =  UIColor.whiteColor()
+            appearance.currentPageIndicatorTintColor = UIColor.greenColor()
+            appearance.backgroundColor = UIColor(rgb: 0x006600)
+            appearance.hidesForSinglePage = true
+            
+            
+            self.pageController?.setViewControllers([self.imageViewControllers[0]],
+                direction: UIPageViewControllerNavigationDirection.Forward,
+                animated: true,
+                completion: nil)
+            
+            
+            
+            self.addChildViewController(self.pageController!)
+            self.imagesView.addSubview(self.pageController!.view)
+            self.pageController!.didMoveToParentViewController(self)
+            self.viewControllerAtIndex(0)
+        }
         
     }
 
+    
+    private func addImageToView(image:UIImage) -> () {
+        let imageViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("ImageDetailsView") as! ImageViewController
+        imageViewController.image  = image
+        imageViewController.index = UInt(self.imageViewControllers.count)
+        self.imageViewControllers.append(imageViewController)
+    }
+    
 
     func viewControllerAtIndex(index:UInt) -> (ImageViewController?) {
         return imageViewControllers[Int(index)]
