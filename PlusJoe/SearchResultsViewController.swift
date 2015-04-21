@@ -20,6 +20,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     var annotations = [MKPointAnnotation]()
     
     @IBOutlet weak var pageView: UIView!
+    @IBOutlet weak var detailsButton: UIButton!
     
     var posts:[PJPost] = [PJPost]()
 
@@ -49,6 +50,10 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
         } else {
             searchingForLabel.text = "Showing all in your area"
         }
+        
+        detailsButton.setTitle("details" + "   \u{f05a}", forState: UIControlState.Normal)
+
+        
         
         mapView.delegate = self
         

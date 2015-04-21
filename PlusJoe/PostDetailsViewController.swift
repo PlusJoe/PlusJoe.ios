@@ -31,7 +31,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var fee: UILabel!
     @IBOutlet weak var postBody: UILabel!
-    
+    @IBOutlet weak var actionsButton: UIButton!
 //    var images = [NSData]()
     var imageViewControllers = [ImageViewController]()
     
@@ -52,6 +52,9 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
     
+        actionsButton.setTitle("actions" + "   \u{f0c9}", forState: UIControlState.Normal)
+
+        
         postNumberLabel.text = postNumberText
         postBody.text = post?.body
         price.text = "$\((post?.price)!)"
