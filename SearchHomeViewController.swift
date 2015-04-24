@@ -93,6 +93,7 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         var cell = autocompleteTableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
         
         cell.textLabel?.text = self.completions[indexPath.row]
+        cell.textLabel?.textColor = UIColor(rgb: 0xff8000)
         
         return cell
         

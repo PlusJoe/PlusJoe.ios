@@ -149,6 +149,9 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
         
         let viewControllers = [searchDetailsViewController]
         
+        //weird, need this sleep to prevent for crashes
+        usleep(100)
+        
         self.pageController?.setViewControllers(viewControllers,
             direction: UIPageViewControllerNavigationDirection.Forward,
             animated: true,

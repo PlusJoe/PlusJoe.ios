@@ -10,16 +10,6 @@ import Foundation
 import MapKit
 
 
-extension UIColor {
-    convenience init(rgb: UInt) {
-        self.init(
-            red: CGFloat((rgb & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgb & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgb & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
-}
 
 class PostDetailsViewController : UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate  {
     @IBOutlet weak var backNavButton: UIBarButtonItem!
@@ -114,8 +104,8 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
             
             let appearance = UIPageControl.appearance()
             appearance.pageIndicatorTintColor =  UIColor.whiteColor()
-            appearance.currentPageIndicatorTintColor = UIColor.greenColor()
-            appearance.backgroundColor = UIColor(rgb: 0x006600)
+            appearance.currentPageIndicatorTintColor = UIColor(rgb:0xff8000)
+            appearance.backgroundColor = UIColor(rgb: 0xffd37c)
             appearance.hidesForSinglePage = true
             
             
@@ -183,18 +173,49 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     }
 
     @IBAction func actionsTapped(sender: AnyObject) {
+        
+        
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        alertController.view.tintColor = UIColor(rgb: 0xff8000)
         
-        let oneAction = UIAlertAction(title: "Flag as Inapropriate", style: .Default) { (_) in }
-        let twoAction = UIAlertAction(title: "Buy it", style: .Default) { (_) in }
-        let threeAction = UIAlertAction(title: "Share & earn finders fee", style: .Default) { (_) in }
-        let fourAction = UIAlertAction(title: "Contact this person", style: .Default) { (_) in }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
-        
+        let oneAction = UIAlertAction(title: "Flag as Inapropriate", style: .Default) { (_) in
+            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+            alertMessage.addAction(ok)
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+        }
         alertController.addAction(oneAction)
-        alertController.addAction(twoAction)
+
+        
+        if post?.sell == true { // this menu should only be available for the sell posts
+            let twoAction = UIAlertAction(title: "Buy it", style: .Default) { (_) in
+                let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
+                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+                alertMessage.addAction(ok)
+                self.presentViewController(alertMessage, animated: true, completion: nil)
+            }
+            alertController.addAction(twoAction)
+        }
+        
+        let threeAction = UIAlertAction(title: "Share & earn finders fee", style: .Default) { (_) in
+            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+            alertMessage.addAction(ok)
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+        }
         alertController.addAction(threeAction)
+
+        
+        let fourAction = UIAlertAction(title: "Contact this person", style: .Default) { (_) in
+            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+            alertMessage.addAction(ok)
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+        }
         alertController.addAction(fourAction)
+
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
         alertController.addAction(cancelAction)
 
 

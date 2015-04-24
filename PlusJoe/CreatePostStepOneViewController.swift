@@ -88,7 +88,7 @@ class CreatePostStepOneViewController: UIViewController {
     @IBAction func sellButtonAction(sender: AnyObject) {
         buyButton.hidden = false
         sellButton.hidden = false
-        sellButton.backgroundColor = UIColor.greenColor()
+        sellButton.backgroundColor = UIColor(rgb:0xffd37c)
         buyButton.backgroundColor = UIColor.whiteColor()
         
         sellButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
@@ -104,7 +104,7 @@ class CreatePostStepOneViewController: UIViewController {
     @IBAction func buyButtonAction(sender: AnyObject) {
         buyButton.hidden = false
         sellButton.hidden = false
-        buyButton.backgroundColor = UIColor.greenColor()
+        buyButton.backgroundColor = UIColor(rgb:0xffd37c)
         sellButton.backgroundColor = UIColor.whiteColor()
         
         buyButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
@@ -119,7 +119,7 @@ class CreatePostStepOneViewController: UIViewController {
     
     @IBAction func thingButtonAction(sender: AnyObject) {
         thingButton.hidden = false
-        thingButton.backgroundColor = UIColor.greenColor()
+        thingButton.backgroundColor = UIColor(rgb:0xffd37c)
         serviceButton.backgroundColor = UIColor.whiteColor()
         
         thingButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
@@ -133,7 +133,7 @@ class CreatePostStepOneViewController: UIViewController {
     
     @IBAction func serviceButtonAction(sender: AnyObject) {
         serviceButton.hidden = false
-        serviceButton.backgroundColor = UIColor.greenColor()
+        serviceButton.backgroundColor = UIColor(rgb:0xffd37c)
         thingButton.backgroundColor = UIColor.whiteColor()
         
         serviceButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
