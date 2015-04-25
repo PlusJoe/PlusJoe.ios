@@ -22,6 +22,9 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     @IBOutlet weak var fee: UILabel!
     @IBOutlet weak var postBody: UILabel!
     @IBOutlet weak var actionsButton: UIButton!
+    @IBOutlet weak var alertsButton: UIButton!
+    @IBOutlet weak var chatButton: UIButton!
+    
 //    var images = [NSData]()
     var imageViewControllers = [ImageViewController]()
     
@@ -42,7 +45,9 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
     
-        actionsButton.setTitle("actions" + "   \u{f0c9}", forState: UIControlState.Normal)
+        actionsButton.setTitle("\u{f0c9}\nactions", forState: UIControlState.Normal)
+        alertsButton.setTitle("\u{f0f3}5\nalerts", forState: UIControlState.Normal)
+        chatButton.setTitle("\u{f086}3\nchat", forState: UIControlState.Normal)
 
         
         postNumberLabel.text = postNumberText
@@ -172,9 +177,8 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         return 0
     }
 
+
     @IBAction func actionsTapped(sender: AnyObject) {
-        
-        
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         alertController.view.tintColor = UIColor(rgb: 0xff8000)
         
@@ -206,13 +210,13 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         alertController.addAction(threeAction)
 
         
-        let fourAction = UIAlertAction(title: "Contact this person", style: .Default) { (_) in
-            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
-            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
-            alertMessage.addAction(ok)
-            self.presentViewController(alertMessage, animated: true, completion: nil)
-        }
-        alertController.addAction(fourAction)
+//        let fourAction = UIAlertAction(title: "Contact this person", style: .Default) { (_) in
+//            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
+//            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+//            alertMessage.addAction(ok)
+//            self.presentViewController(alertMessage, animated: true, completion: nil)
+//        }
+//        alertController.addAction(fourAction)
 
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }

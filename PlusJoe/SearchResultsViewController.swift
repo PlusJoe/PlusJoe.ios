@@ -21,6 +21,8 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     
     @IBOutlet weak var pageView: UIView!
     @IBOutlet weak var detailsButton: UIButton!
+    @IBOutlet weak var alertsButton: UIButton!
+    @IBOutlet weak var chatButton: UIButton!
     
     var posts:[PJPost] = [PJPost]()
 
@@ -53,7 +55,9 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
             searchingForLabel.text = "Showing all in your area"
         }
         
-        detailsButton.setTitle("details" + "   \u{f05a}", forState: UIControlState.Normal)
+        detailsButton.setTitle("\u{f05a}\ndetails", forState: UIControlState.Normal)
+        alertsButton.setTitle("\u{f0f3}5\nalerts", forState: UIControlState.Normal)
+//        chatButton.setTitle("\u{f086}3/10\nchat", forState: UIControlState.Normal)
 
         
         
