@@ -33,6 +33,7 @@ class PJPost: PFObject, PFSubclassing {
     @NSManaged var location: PFGeoPoint
     @NSManaged var active: Bool
     @NSManaged var archived: Bool
+    @NSManaged var inappropriate: Bool
     
     @NSManaged var image1file: PFFile
     @NSManaged var image2file: PFFile
@@ -80,6 +81,7 @@ class PJPost: PFObject, PFSubclassing {
             queryPost!.whereKey("location", nearGeoPoint:location)
             queryPost!.whereKey("active", equalTo:true)
             queryPost!.whereKey("archived", equalTo:false)
+            queryPost!.whereKey("inappropriate", notEqualTo:true)
             //            query!.whereKey("createdBy", notEqualTo: DEVICE_UUID)  //TODO: uncomment
             NSLog("Searching for string \(searchText)")
             

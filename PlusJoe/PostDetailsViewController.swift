@@ -183,8 +183,14 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         alertController.view.tintColor = UIColor(rgb: 0xff8000)
         
         let oneAction = UIAlertAction(title: "Flag as Inapropriate", style: .Default) { (_) in
-            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
-            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+            let alertMessage = UIAlertController(title: nil, message: "Are you sure?", preferredStyle: UIAlertControllerStyle.Alert)
+            let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in })
+            let ok = UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
+                self.post?.inappropriate = true
+                self.post?.save()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+            alertMessage.addAction(cancel)
             alertMessage.addAction(ok)
             self.presentViewController(alertMessage, animated: true, completion: nil)
         }
