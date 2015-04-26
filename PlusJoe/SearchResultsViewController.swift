@@ -22,7 +22,8 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     @IBOutlet weak var pageView: UIView!
     @IBOutlet weak var detailsButton: UIButton!
     @IBOutlet weak var alertsButton: UIButton!
-    @IBOutlet weak var chatButton: UIButton!
+    @IBOutlet weak var bookmarksButton: UIButton!
+
     
     var posts:[PJPost] = [PJPost]()
 
@@ -57,7 +58,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
         
         detailsButton.setTitle("\u{f05a}\ndetails", forState: UIControlState.Normal)
         alertsButton.setTitle("\u{f0f3}5\nalerts", forState: UIControlState.Normal)
-//        chatButton.setTitle("\u{f086}3/10\nchat", forState: UIControlState.Normal)
+        bookmarksButton.setTitle("\u{f02e}11\nbookmarks", forState: UIControlState.Normal)
 
         
         

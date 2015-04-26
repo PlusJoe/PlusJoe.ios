@@ -19,6 +19,7 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     @IBOutlet weak var searchTextField: UITextField!
 
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var bookmarkButton: UIButton!
     
     @IBOutlet weak var autocompleteTableView: UITableView!
     
@@ -40,6 +41,8 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         }
         searchButton.setTitle("Search   \u{f002}",forState: UIControlState.Normal)
         searchTextField.becomeFirstResponder()
+
+        bookmarkButton.setTitle("\u{f097}",forState: UIControlState.Normal)
        
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(
