@@ -71,7 +71,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         menuButton.setTitle("\u{f0c9}", forState: .Normal)
 
         
-        chatButton.setTitle("\u{f086} 3 chat", forState: UIControlState.Normal)
+        chatButton.setTitle(" 3 new \u{f086}", forState: UIControlState.Normal)
 
         postBody.text = post?.body
         price.text = "$\((post?.price)!)"

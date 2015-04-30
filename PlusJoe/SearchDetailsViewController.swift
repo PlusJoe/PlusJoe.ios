@@ -58,7 +58,7 @@ class SearchDetailsViewController : UIViewController {
         if(segue.identifier == "postDetailsSegue") {
             var postDetailsViewController = segue.destinationViewController as! PostDetailsViewController
             postDetailsViewController.post = self.post
-            postDetailsViewController.postNumberText = "\(post) / \(searchResultsViewController!.posts.count)"
+            postDetailsViewController.postNumberText = "\(searchResultsViewController!.currentPost) / \(searchResultsViewController!.posts.count)"
         }
     }
 
