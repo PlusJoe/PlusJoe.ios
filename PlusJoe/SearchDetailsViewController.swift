@@ -17,6 +17,7 @@ class SearchDetailsViewController : UIViewController {
 
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var fee: UILabel!
+    @IBOutlet weak var detailsButton: UIButton!
     
     var post:PJPost?
     var postIndex:UInt = 0
@@ -25,6 +26,9 @@ class SearchDetailsViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NSLog("SearchDetailsViewController viewDidLoad")
+
+        detailsButton.setTitle("details \u{f05a}", forState: .Normal)
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -38,6 +42,7 @@ class SearchDetailsViewController : UIViewController {
         price.text = "$\((post?.price)!)"
         fee.text = "$\((post?.fee)!)"
         
+        
         if let imageFile = post?.image1file.getData() {
             postImage.image = UIImage(data: imageFile)
             
@@ -45,6 +50,16 @@ class SearchDetailsViewController : UIViewController {
             postImage.clipsToBounds = true
         }
         searchResultsViewController?.mapView.selectAnnotation(searchResultsViewController?.annotations[Int(postIndex)], animated: true)
+        
+
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "postDetailsSegue") {
+            var postDetailsViewController = segue.destinationViewController as! PostDetailsViewController
+            postDetailsViewController.post = self.post
+            postDetailsViewController.postNumberText = "\(post) / \(searchResultsViewController!.posts.count)"
+        }
     }
 
     

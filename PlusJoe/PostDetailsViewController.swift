@@ -12,17 +12,20 @@ import MapKit
 
 
 class PostDetailsViewController : UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate  {
+    
     @IBOutlet weak var backNavButton: UIBarButtonItem!
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var menuView: UIView!
+    @IBOutlet weak var alertsButton: UIButton!
+    var lbl_card_count:UILabel?
+    @IBOutlet weak var menuButton: UIButton!
     
     var post:PJPost? 
-    
-    @IBOutlet weak var postNumberLabel: UILabel!
+
     @IBOutlet weak var imagesView: UIView!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var fee: UILabel!
     @IBOutlet weak var postBody: UILabel!
-    @IBOutlet weak var actionsButton: UIButton!
-    @IBOutlet weak var alertsButton: UIButton!
     @IBOutlet weak var chatButton: UIButton!
     
 //    var images = [NSData]()
@@ -31,7 +34,6 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     var postNumberText = ""
     
     var pageController:UIPageViewController!
-
 
     @IBAction func backButtonAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -45,12 +47,32 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
     
-        actionsButton.setTitle("\u{f0c9}\nactions", forState: UIControlState.Normal)
-        alertsButton.setTitle("\u{f0f3}5\nalerts", forState: UIControlState.Normal)
-        chatButton.setTitle("\u{f086}3\nchat", forState: UIControlState.Normal)
+        self.navBar.topItem?.title = postNumberText
+
+        alertsButton.setTitle("\u{f0f3}", forState: .Normal)
+        lbl_card_count = UILabel(frame: CGRectMake(23,0, 13, 13))
+        lbl_card_count!.textColor = UIColor.whiteColor()
+        lbl_card_count!.textAlignment = NSTextAlignment.Center
+        lbl_card_count!.text = "22"
+        lbl_card_count!.layer.borderWidth = 1;
+        lbl_card_count!.layer.cornerRadius = 4;
+        lbl_card_count!.layer.masksToBounds = true
+        lbl_card_count!.layer.borderColor = UIColor.clearColor().CGColor
+        lbl_card_count!.layer.shadowColor = UIColor.clearColor().CGColor
+        lbl_card_count!.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+        lbl_card_count!.layer.shadowOpacity = 0.0;
+        lbl_card_count!.backgroundColor = UIColor.redColor()
+        lbl_card_count!.font = UIFont(name: "ArialMT", size: 10)
+        menuView.addSubview(lbl_card_count!)
+        lbl_card_count!.hidden = false
+        
+        
+        
+        menuButton.setTitle("\u{f0c9}", forState: .Normal)
 
         
-        postNumberLabel.text = postNumberText
+        chatButton.setTitle("\u{f086} 3 chat", forState: UIControlState.Normal)
+
         postBody.text = post?.body
         price.text = "$\((post?.price)!)"
         fee.text = "$\((post?.fee)!)"

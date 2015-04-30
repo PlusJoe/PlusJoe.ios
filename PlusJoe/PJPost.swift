@@ -82,7 +82,7 @@ class PJPost: PFObject, PFSubclassing {
             queryPost!.whereKey("active", equalTo:true)
             queryPost!.whereKey("archived", equalTo:false)
             queryPost!.whereKey("inappropriate", notEqualTo:true)
-            //            query!.whereKey("createdBy", notEqualTo: DEVICE_UUID)  //TODO: uncomment
+            queryPost!.whereKey("createdBy", notEqualTo: DEVICE_UUID)  
             NSLog("Searching for string \(searchText)")
             
             
