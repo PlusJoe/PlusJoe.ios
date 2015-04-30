@@ -303,6 +303,9 @@
                                                         <state key="normal" title="M">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="actionsTapped:" destination="LoE-Pl-xOk" eventType="touchUpInside" id="AVP-Ze-jFs"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSe-g1-AOO">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="32"/>
@@ -436,6 +439,9 @@
                                                         <state key="normal" title="M">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="actionsTapped:" destination="vqn-qR-0zV" eventType="touchUpInside" id="Tvo-al-Zyd"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lT-GU-9XT">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="32"/>
