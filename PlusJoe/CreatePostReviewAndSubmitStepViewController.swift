@@ -52,7 +52,7 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
         
         cells.append(UITableViewCell())
         let label1 = UILabel()
-        label1.font = UIFont(name: "Helvetica-Bold", size: 14)
+        label1.font = UIFont(name: "Helvetica-Bold", size: 18)
         if UNFINISHED_POST?.sell == false && UNFINISHED_POST?.thing == false {
             label1.text = "You wish to hire a service for $\(UNFINISHED_POST!.price)"
         } else
@@ -65,9 +65,25 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
         if UNFINISHED_POST?.sell == true && UNFINISHED_POST?.thing == true {
             label1.text = "You wish to sell something for $\(UNFINISHED_POST!.price)"
         }
+        label1.numberOfLines = 0
         cells.last!.addSubview(label1)
         embedConstrainst(cells.last!, childView: label1)
 
+        
+        
+        
+        
+        if UNFINISHED_POST!.fee > 0 {
+            cells.append(UITableViewCell())
+            let labelFee = UILabel()
+            labelFee.font = UIFont(name: "Helvetica-Bold", size: 14)
+            labelFee.text = "If someone helps you to acheive your goal, you will pay the finder's fee of $\(UNFINISHED_POST.fee)"
+            labelFee.numberOfLines = 0
+            cells.last!.addSubview(labelFee)
+            embedConstrainst(cells.last!, childView: labelFee)
+        }
+        
+        
         
         
         
