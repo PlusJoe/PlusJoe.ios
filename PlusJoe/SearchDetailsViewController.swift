@@ -43,12 +43,17 @@ class SearchDetailsViewController : UIViewController {
         fee.text = "$\((post?.fee)!)"
         
         
-        if let imageFile = post?.image1file.getData() {
-            postImage.image = UIImage(data: imageFile)
-            
-            postImage.contentMode = .ScaleAspectFit
-            postImage.clipsToBounds = true
-        }
+        
+        post?.image1file.getDataInBackgroundWithBlock({ (imageFile:NSData?, error:NSError?) -> Void in
+            if error == nil {
+                if imageFile != nil {
+                self.postImage.image = UIImage(data: imageFile!)
+                self.postImage.contentMode = .ScaleAspectFit
+                self.postImage.clipsToBounds = true
+                }
+            }
+        })
+
         searchResultsViewController?.mapView.selectAnnotation(searchResultsViewController?.annotations[Int(postIndex)], animated: true)
         
 

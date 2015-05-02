@@ -1,5 +1,5 @@
 //
-//  CreatePostStepTwoViewController.swift
+//  CreatePostDescribeStepViewController
 //  PlusJoe
 //
 //  Created by D on 3/26/15.
@@ -24,7 +24,7 @@ extension String {
     }
 }
 
-class CreatePostStepTwoViewController: UIViewController, UITextViewDelegate {
+class CreatePostDescribeStepViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
 

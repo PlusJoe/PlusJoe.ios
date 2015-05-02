@@ -132,7 +132,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
                 self.addChildViewController(self.pageController!)
                 self.pageView.addSubview(self.pageController!.view)
                 self.pageController!.didMoveToParentViewController(self)
-                self.viewControllerAtIndex(0)
+//                self.viewControllerAtIndex(0)
                 self.navBar.topItem?.title = "1 / \(self.posts.count)"
                 
                 
@@ -149,12 +149,8 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     }
     
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
-        NSLog("selected annotation: \(view.annotation.title)")
+        NSLog("!!!!!!!!!!!!!!!!!!!!!!! selected annotation: \(view.annotation.title)")
         currentPost = UInt(view.annotation.title!.toInt()!)
 //        resultNumber.text = "\(currentPost) of \(posts.count)"
 
@@ -180,6 +176,8 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     
     
     func viewControllerAtIndex(index:UInt) -> (SearchDetailsViewController?) {
+        NSLog("@@@@@@@@@@@@@@@@@@@@@@@@@@  viewControllerAtIndex: \(index)")
+
         // Return the data view controller for the given index.
         if (self.posts.count == 0 || (Int(index) >= self.posts.count)) {
             return nil
@@ -195,6 +193,8 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
         
         return searchDetailsViewController
     }
+    
+    
     
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {

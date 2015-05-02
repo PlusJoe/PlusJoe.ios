@@ -1,5 +1,5 @@
 //
-//  CreatePostStepFourViewController.swift
+//  CreatePostReviewAndSubmitStepViewController
 //  PlusJoe
 //
 //  Created by D on 3/27/15.
@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class CreatePostStepFourViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!

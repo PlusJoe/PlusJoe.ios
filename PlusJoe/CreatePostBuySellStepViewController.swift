@@ -1,5 +1,5 @@
 //
-//  CreatePostStepOneViewController.swift
+//  CreatePostBuySellStepViewController
 //  PlusJoe
 //
 //  Created by D on 3/26/15.
@@ -9,7 +9,7 @@
 
 import UIKit
 
-class CreatePostStepOneViewController: UIViewController {
+class CreatePostBuySellStepViewController: UIViewController {
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
     

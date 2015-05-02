@@ -1,5 +1,5 @@
 //
-//  CreatePostStepThreeViewController.swift
+//  CreatePostPhotosStepViewController
 //  PlusJoe
 //
 //  Created by D on 3/27/15.
@@ -27,7 +27,7 @@ extension UIImage {
     }
 }
 
-class CreatePostStepThreeViewController:
+class CreatePostPhotosStepViewController:
     UIViewController,
     UIImagePickerControllerDelegate,
     UINavigationControllerDelegate
@@ -81,20 +81,6 @@ class CreatePostStepThreeViewController:
         showHidePhotoButtons()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        //come back to previous step after refetching the generated fields
-//        UNFINISHED_POST?.fetch()
-//        if UNFINISHED_POST?.hashtags.count == 0 {
-//            let alertMessage = UIAlertController(title: nil, message: "Something is not right, come back to previous step and fix #hash_tags", preferredStyle: UIAlertControllerStyle.Alert)
-//            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-//                self.dismissViewControllerAnimated(true, completion: nil)
-//            })
-//            alertMessage.addAction(ok)
-//            presentViewController(alertMessage, animated: true, completion: nil)
-//        }
-
-    }
     
     func reloadImageViews() {
         if let imageFile1 = UNFINISHED_POST?.image1file.getData() {

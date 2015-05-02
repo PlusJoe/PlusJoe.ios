@@ -13,16 +13,17 @@
 		0A1031C31AC99B8100D2BC6C /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1031BD1AC99B8100D2BC6C /* ParseFacebookUtils.framework */; };
 		0A1031C41AC99B8100D2BC6C /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1031BE1AC99B8100D2BC6C /* ParseFacebookUtilsV4.framework */; };
 		0A1031C51AC99B8100D2BC6C /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1031BF1AC99B8100D2BC6C /* ParseUI.framework */; };
+		0A1A318B1AF406F100853A30 /* CreatePostFindersFeeStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A318A1AF406F100853A30 /* CreatePostFindersFeeStepViewController.swift */; };
 		0A1C41451AE0555D00270347 /* SearchDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1C41441AE0555D00270347 /* SearchDetailsViewController.swift */; };
 		0A4C495B1AC501C000D164E2 /* SearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C495A1AC501C000D164E2 /* SearchHomeViewController.swift */; };
 		0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */; };
 		0A60E1C31AC8E854003887C5 /* BaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */; };
 		0A60E1C51AC8ED2B003887C5 /* PJPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C41AC8ED2B003887C5 /* PJPost.swift */; };
-		0AAC2E341AC457C300B60B47 /* CreatePostStepOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC2E331AC457C300B60B47 /* CreatePostStepOneViewController.swift */; };
-		0AAC2E361AC4580900B60B47 /* CreatePostStepTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC2E351AC4580900B60B47 /* CreatePostStepTwoViewController.swift */; };
+		0AAC2E341AC457C300B60B47 /* CreatePostBuySellStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC2E331AC457C300B60B47 /* CreatePostBuySellStepViewController.swift */; };
+		0AAC2E361AC4580900B60B47 /* CreatePostDescribeStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC2E351AC4580900B60B47 /* CreatePostDescribeStepViewController.swift */; };
 		0AC50CA41AC42AC90087F5D8 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AC50CA31AC42AC90087F5D8 /* fontawesome-webfont.ttf */; };
-		0AC66FBD1AC5C1CA003C818C /* CreatePostStepThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC66FBC1AC5C1CA003C818C /* CreatePostStepThreeViewController.swift */; };
-		0AC66FBF1AC5C22C003C818C /* CreatePostStepFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC66FBE1AC5C22C003C818C /* CreatePostStepFourViewController.swift */; };
+		0AC66FBD1AC5C1CA003C818C /* CreatePostPhotosStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC66FBC1AC5C1CA003C818C /* CreatePostPhotosStepViewController.swift */; };
+		0AC66FBF1AC5C22C003C818C /* CreatePostReviewAndSubmitStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC66FBE1AC5C22C003C818C /* CreatePostReviewAndSubmitStepViewController.swift */; };
 		0AD4A2931AD8917A00539470 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4A2921AD8917A00539470 /* SearchResultsViewController.swift */; };
 		0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */; };
 		0AEAFBD41AC0E2F900800121 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD21AC0E2F900800121 /* Main.storyboard */; };
@@ -63,16 +64,17 @@
 		0A1031BD1AC99B8100D2BC6C /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		0A1031BE1AC99B8100D2BC6C /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		0A1031BF1AC99B8100D2BC6C /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		0A1A318A1AF406F100853A30 /* CreatePostFindersFeeStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostFindersFeeStepViewController.swift; sourceTree = "<group>"; };
 		0A1C41441AE0555D00270347 /* SearchDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailsViewController.swift; sourceTree = "<group>"; };
 		0A4C495A1AC501C000D164E2 /* SearchHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchHomeViewController.swift; path = ../SearchHomeViewController.swift; sourceTree = "<group>"; };
 		0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
 		0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataModel.swift; sourceTree = "<group>"; };
 		0A60E1C41AC8ED2B003887C5 /* PJPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJPost.swift; sourceTree = "<group>"; };
-		0AAC2E331AC457C300B60B47 /* CreatePostStepOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostStepOneViewController.swift; sourceTree = "<group>"; };
-		0AAC2E351AC4580900B60B47 /* CreatePostStepTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostStepTwoViewController.swift; sourceTree = "<group>"; };
+		0AAC2E331AC457C300B60B47 /* CreatePostBuySellStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostBuySellStepViewController.swift; sourceTree = "<group>"; };
+		0AAC2E351AC4580900B60B47 /* CreatePostDescribeStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostDescribeStepViewController.swift; sourceTree = "<group>"; };
 		0AC50CA31AC42AC90087F5D8 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fontawesome-webfont.ttf"; path = "PlusJoe/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
-		0AC66FBC1AC5C1CA003C818C /* CreatePostStepThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostStepThreeViewController.swift; sourceTree = "<group>"; };
-		0AC66FBE1AC5C22C003C818C /* CreatePostStepFourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostStepFourViewController.swift; sourceTree = "<group>"; };
+		0AC66FBC1AC5C1CA003C818C /* CreatePostPhotosStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostPhotosStepViewController.swift; sourceTree = "<group>"; };
+		0AC66FBE1AC5C22C003C818C /* CreatePostReviewAndSubmitStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostReviewAndSubmitStepViewController.swift; sourceTree = "<group>"; };
 		0AD4A2921AD8917A00539470 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		0AE6D3CD1AC2F6F90098011F /* PlusJoe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlusJoe-Bridging-Header.h"; sourceTree = "<group>"; };
 		0AEAFBC91AC0E2F900800121 /* PlusJoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusJoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,10 +166,11 @@
 		0A60E1C11AC8E7CF003887C5 /* CreatePost */ = {
 			isa = PBXGroup;
 			children = (
-				0AAC2E331AC457C300B60B47 /* CreatePostStepOneViewController.swift */,
-				0AAC2E351AC4580900B60B47 /* CreatePostStepTwoViewController.swift */,
-				0AC66FBC1AC5C1CA003C818C /* CreatePostStepThreeViewController.swift */,
-				0AC66FBE1AC5C22C003C818C /* CreatePostStepFourViewController.swift */,
+				0AAC2E331AC457C300B60B47 /* CreatePostBuySellStepViewController.swift */,
+				0AAC2E351AC4580900B60B47 /* CreatePostDescribeStepViewController.swift */,
+				0AC66FBC1AC5C1CA003C818C /* CreatePostPhotosStepViewController.swift */,
+				0A1A318A1AF406F100853A30 /* CreatePostFindersFeeStepViewController.swift */,
+				0AC66FBE1AC5C22C003C818C /* CreatePostReviewAndSubmitStepViewController.swift */,
 			);
 			name = CreatePost;
 			sourceTree = "<group>";
@@ -399,17 +402,18 @@
 			files = (
 				0AF02E081AD5B78800792A5E /* PJHashTag.swift in Sources */,
 				0A60E1C31AC8E854003887C5 /* BaseDataModel.swift in Sources */,
-				0AAC2E341AC457C300B60B47 /* CreatePostStepOneViewController.swift in Sources */,
+				0AAC2E341AC457C300B60B47 /* CreatePostBuySellStepViewController.swift in Sources */,
 				0AEC370D1AE2B597005F99A7 /* PostDetailsViewController.swift in Sources */,
 				0AD4A2931AD8917A00539470 /* SearchResultsViewController.swift in Sources */,
 				0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */,
-				0AC66FBF1AC5C22C003C818C /* CreatePostStepFourViewController.swift in Sources */,
+				0AC66FBF1AC5C22C003C818C /* CreatePostReviewAndSubmitStepViewController.swift in Sources */,
 				0A4C495B1AC501C000D164E2 /* SearchHomeViewController.swift in Sources */,
 				0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */,
-				0AAC2E361AC4580900B60B47 /* CreatePostStepTwoViewController.swift in Sources */,
+				0AAC2E361AC4580900B60B47 /* CreatePostDescribeStepViewController.swift in Sources */,
 				0AEC37101AE4A677005F99A7 /* ImageViewController.swift in Sources */,
+				0A1A318B1AF406F100853A30 /* CreatePostFindersFeeStepViewController.swift in Sources */,
 				0A1C41451AE0555D00270347 /* SearchDetailsViewController.swift in Sources */,
-				0AC66FBD1AC5C1CA003C818C /* CreatePostStepThreeViewController.swift in Sources */,
+				0AC66FBD1AC5C1CA003C818C /* CreatePostPhotosStepViewController.swift in Sources */,
 				0A60E1C51AC8ED2B003887C5 /* PJPost.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
