@@ -14,7 +14,6 @@ class HomeViewController: UIViewController {
     
     
     @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var postButton: UIButton!
  
     @IBAction func unwindToHome (segue : UIStoryboardSegue) {
         NSLog("SearchPosts seque from segue id: \(segue.identifier)")
@@ -24,8 +23,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        searchButton.setTitle("Search   \u{f002}",forState: UIControlState.Normal)
-        postButton.setTitle("Post   \u{f067}", forState: UIControlState.Normal)
+        searchButton.setTitle("Go Do It   \u{f164}",forState: UIControlState.Normal)
         
     }
     
