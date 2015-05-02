@@ -12,14 +12,23 @@ class CreatePostFindersFeeStepViewController:
     UIViewController {
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
-    
     @IBOutlet weak var nextButton: UIButton!
-    
+    @IBOutlet weak var findersFeeTextField: UITextField!
     
     @IBAction func backButtonAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func nextButtonAction(sender: AnyObject) {
+        UNFINISHED_POST.fee = findersFeeTextField.text.toInt()!
+        UNFINISHED_POST?.saveEventually(nil)
+    }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        findersFeeTextField.becomeFirstResponder()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -29,7 +38,8 @@ class CreatePostFindersFeeStepViewController:
         }
         
         nextButton.setTitle("next" + "   \u{f054}", forState: UIControlState.Normal)
-        
+    
+        findersFeeTextField.text = "\(UNFINISHED_POST.fee)"
     }
     
         
