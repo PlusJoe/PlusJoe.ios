@@ -13,9 +13,14 @@ import UIKit
 class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     
+    @IBOutlet weak var menuView: UIView!
+    @IBOutlet weak var alertsButton: UIButton!
+    var lbl_card_count:UILabel?
     @IBOutlet weak var bookmarkButton: UIButton!
     @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var menuButton: UIButton!
 
+    
     @IBOutlet weak var backNavButton: UIBarButtonItem!
     
     @IBOutlet weak var searchTextField: UITextField!
@@ -24,7 +29,10 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     
     @IBOutlet weak var autocompleteTableView: UITableView!
     
+    
     var completions = [String]()
+    
+    
     
     @IBAction func backButtonAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -38,6 +46,31 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         if let font = UIFont(name: "FontAwesome", size: 20) {
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
+        
+        
+        alertsButton.setTitle("\u{f0f3}", forState: .Normal)
+        lbl_card_count = UILabel(frame: CGRectMake(23,0, 13, 13))
+        lbl_card_count!.textColor = UIColor.whiteColor()
+        lbl_card_count!.textAlignment = NSTextAlignment.Center
+        lbl_card_count!.text = "22"
+        lbl_card_count!.layer.borderWidth = 1;
+        lbl_card_count!.layer.cornerRadius = 4;
+        lbl_card_count!.layer.masksToBounds = true
+        lbl_card_count!.layer.borderColor = UIColor.clearColor().CGColor
+        lbl_card_count!.layer.shadowColor = UIColor.clearColor().CGColor
+        lbl_card_count!.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+        lbl_card_count!.layer.shadowOpacity = 0.0;
+        lbl_card_count!.backgroundColor = UIColor.redColor()
+        lbl_card_count!.font = UIFont(name: "ArialMT", size: 10)
+        menuView.addSubview(lbl_card_count!)
+        lbl_card_count!.hidden = false
+        
+        
+        
+        menuButton.setTitle("\u{f0c9}", forState: .Normal)
+
+        
+        
         searchButton.setTitle("Search   \u{f002}",forState: UIControlState.Normal)
         searchTextField.becomeFirstResponder()
 
@@ -58,6 +91,8 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         
 
     }
+    
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -108,12 +143,51 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         searchTextField.text = self.completions[indexPath.row]
     }
     
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "searchResults") {
             var searchResutsViewController = segue.destinationViewController as! SearchResultsViewController
             searchResutsViewController.searchString = searchTextField.text
         }
     }
+    
+    
+    
+    @IBAction func actionsTapped(sender: AnyObject) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        alertController.view.tintColor = UIColor(rgb: 0xff8000)
+        
+        
+
+        let showMyBookmarks = UIAlertAction(title: "my Bookmarks", style: .Default) { (_) in
+            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+            alertMessage.addAction(ok)
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+        }
+        alertController.addAction(showMyBookmarks)
+
+        
+        let showMyPosts = UIAlertAction(title: "my Posts", style: .Default) { (_) in
+            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+            alertMessage.addAction(ok)
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+        }
+        alertController.addAction(showMyPosts)
+        
+        
+        
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+        alertController.addAction(cancelAction)
+        
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+
     
 }
 

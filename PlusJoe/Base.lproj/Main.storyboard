@@ -23,6 +23,9 @@
             <string>FontAwesome</string>
             <string>FontAwesome</string>
             <string>FontAwesome</string>
+            <string>FontAwesome</string>
+            <string>FontAwesome</string>
+            <string>FontAwesome</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -144,7 +147,7 @@
                                 </constraints>
                                 <color key="barTintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="+joe" id="Q1h-cx-NXb">
+                                    <navigationItem id="Q1h-cx-NXb">
                                         <barButtonItem key="leftBarButtonItem" title="&lt;" id="e3P-17-kSF">
                                             <connections>
                                                 <action selector="backButtonAction:" destination="Uf5-hC-ZBj" id="35l-sC-kcD"/>
@@ -152,25 +155,42 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" id="VJs-6l-7uJ">
                                             <view key="customView" contentMode="scaleToFill" id="HY6-ek-Bx2">
-                                                <rect key="frame" x="451" y="5" width="80" height="33"/>
+                                                <rect key="frame" x="454" y="5" width="150" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zag-zB-jjB">
-                                                        <rect key="frame" x="50" y="0.0" width="30" height="33"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="33"/>
+                                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="20"/>
+                                                        <state key="normal" title="A">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wP8-53-pUY">
+                                                        <rect key="frame" x="82" y="0.0" width="30" height="33"/>
                                                         <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="20"/>
                                                         <state key="normal" title="+">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="BYZ-38-t0r" kind="show" id="4N0-T7-J6H"/>
+                                                            <segue destination="BYZ-38-t0r" kind="show" id="26F-zR-nRK"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1l-Xc-Qyd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="33"/>
+                                                        <rect key="frame" x="38" y="0.0" width="30" height="33"/>
                                                         <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="20"/>
                                                         <state key="normal" title="B">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5O-8M-BrM">
+                                                        <rect key="frame" x="120" y="0.0" width="30" height="33"/>
+                                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="20"/>
+                                                        <state key="normal" title="M">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="actionsTapped:" destination="Uf5-hC-ZBj" eventType="touchUpInside" id="K71-hI-l9H"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -241,10 +261,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="alertsButton" destination="zag-zB-jjB" id="Rmd-6T-CAv"/>
                         <outlet property="autocompleteTableView" destination="F5R-QV-1gj" id="GGr-dA-tay"/>
                         <outlet property="backNavButton" destination="e3P-17-kSF" id="fiD-7U-aSt"/>
                         <outlet property="bookmarkButton" destination="K1l-Xc-Qyd" id="mVw-gW-IvM"/>
-                        <outlet property="createButton" destination="zag-zB-jjB" id="pJU-kV-q3D"/>
+                        <outlet property="createButton" destination="wP8-53-pUY" id="7Wf-6K-1T4"/>
+                        <outlet property="menuButton" destination="V5O-8M-BrM" id="9AS-HT-Jy3"/>
+                        <outlet property="menuView" destination="HY6-ek-Bx2" id="GSA-Wp-6ao"/>
                         <outlet property="searchButton" destination="iMG-ys-aTF" id="e00-Qz-IeG"/>
                         <outlet property="searchTextField" destination="Spt-Zy-r2P" id="NUQ-Wq-N02"/>
                     </connections>
@@ -614,6 +637,25 @@
                                     <segue destination="vqn-qR-0zV" kind="show" identifier="postDetailsSegue" id="bLZ-0h-Vos"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WsY-WU-X2r">
+                                <rect key="frame" x="16" y="562" width="100" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="YA9-nz-fgD"/>
+                                    <constraint firstAttribute="width" constant="100" id="lzq-q2-BOW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="15"/>
+                                <state key="normal" title="bookmark">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -629,11 +671,14 @@
                             <constraint firstItem="j6A-uz-Kps" firstAttribute="trailing" secondItem="fLc-io-BM4" secondAttribute="trailingMargin" id="dfU-fW-Vjf"/>
                             <constraint firstItem="eXV-Wa-ShS" firstAttribute="leading" secondItem="fLc-io-BM4" secondAttribute="leadingMargin" id="g14-xX-Di0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TyJ-ty-Csk" secondAttribute="trailing" constant="6" id="gW5-fi-t1n"/>
+                            <constraint firstItem="WsY-WU-X2r" firstAttribute="leading" secondItem="fLc-io-BM4" secondAttribute="leadingMargin" id="mh0-jW-QP8"/>
                             <constraint firstItem="Nfk-jp-rZ2" firstAttribute="top" secondItem="TyJ-ty-Csk" secondAttribute="bottom" constant="8" id="mwC-ee-4b9"/>
+                            <constraint firstItem="Nfk-jp-rZ2" firstAttribute="top" secondItem="WsY-WU-X2r" secondAttribute="bottom" constant="8" id="p0K-kW-F02"/>
                             <constraint firstItem="j6A-uz-Kps" firstAttribute="width" secondItem="0Ir-cn-Zc3" secondAttribute="width" id="pkp-Qw-gYq"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bookmarkButton" destination="WsY-WU-X2r" id="7KR-FC-S5V"/>
                         <outlet property="detailsButton" destination="TyJ-ty-Csk" id="ewr-2B-rhG"/>
                         <outlet property="fee" destination="j6A-uz-Kps" id="u8B-vh-sfL"/>
                         <outlet property="postBody" destination="sfT-UB-DWd" id="Abw-kL-1it"/>
