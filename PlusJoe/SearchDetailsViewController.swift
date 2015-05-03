@@ -17,8 +17,9 @@ class SearchDetailsViewController : UIViewController {
 
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var fee: UILabel!
-    @IBOutlet weak var detailsButton: UIButton!
     @IBOutlet weak var bookmarkButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var detailsButton: UIButton!
     
     var post:PJPost?
     var postIndex:UInt = 0
@@ -28,8 +29,9 @@ class SearchDetailsViewController : UIViewController {
         super.viewDidLoad()
         NSLog("SearchDetailsViewController viewDidLoad")
 
-        detailsButton.setTitle("details \u{f05a}", forState: .Normal)
         bookmarkButton.setTitle("\u{f02e}   bookmark", forState: .Normal)
+        shareButton.setTitle("\u{f1e0}   share", forState: .Normal)
+        detailsButton.setTitle("details \u{f05a}", forState: .Normal)
 
     }
     

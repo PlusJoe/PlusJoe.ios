@@ -26,6 +26,7 @@
             <string>FontAwesome</string>
             <string>FontAwesome</string>
             <string>FontAwesome</string>
+            <string>FontAwesome</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -656,10 +657,30 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="att-Pm-hgI">
+                                <rect key="frame" x="124" y="562" width="80" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="UQH-LL-gue"/>
+                                    <constraint firstAttribute="height" constant="30" id="awl-ju-106"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="15"/>
+                                <state key="normal" title="share">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="j6A-uz-Kps" firstAttribute="top" secondItem="sfT-UB-DWd" secondAttribute="bottom" constant="22" id="1Qw-IU-uTu"/>
+                            <constraint firstItem="att-Pm-hgI" firstAttribute="leading" secondItem="WsY-WU-X2r" secondAttribute="trailing" constant="8" id="2RT-vF-9h1"/>
                             <constraint firstItem="j6A-uz-Kps" firstAttribute="leading" secondItem="0Ir-cn-Zc3" secondAttribute="trailing" constant="8" id="4Rz-8F-URB"/>
                             <constraint firstItem="0Ir-cn-Zc3" firstAttribute="top" secondItem="eXV-Wa-ShS" secondAttribute="bottom" constant="8" id="BHv-S1-Gsz"/>
                             <constraint firstItem="sfT-UB-DWd" firstAttribute="top" secondItem="VfJ-ZD-p7z" secondAttribute="bottom" id="EpK-1I-NNh"/>
@@ -673,6 +694,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="TyJ-ty-Csk" secondAttribute="trailing" constant="6" id="gW5-fi-t1n"/>
                             <constraint firstItem="WsY-WU-X2r" firstAttribute="leading" secondItem="fLc-io-BM4" secondAttribute="leadingMargin" id="mh0-jW-QP8"/>
                             <constraint firstItem="Nfk-jp-rZ2" firstAttribute="top" secondItem="TyJ-ty-Csk" secondAttribute="bottom" constant="8" id="mwC-ee-4b9"/>
+                            <constraint firstItem="Nfk-jp-rZ2" firstAttribute="top" secondItem="att-Pm-hgI" secondAttribute="bottom" constant="8" id="oZg-Ap-PD2"/>
                             <constraint firstItem="Nfk-jp-rZ2" firstAttribute="top" secondItem="WsY-WU-X2r" secondAttribute="bottom" constant="8" id="p0K-kW-F02"/>
                             <constraint firstItem="j6A-uz-Kps" firstAttribute="width" secondItem="0Ir-cn-Zc3" secondAttribute="width" id="pkp-Qw-gYq"/>
                         </constraints>
@@ -684,6 +706,7 @@
                         <outlet property="postBody" destination="sfT-UB-DWd" id="Abw-kL-1it"/>
                         <outlet property="postImage" destination="eXV-Wa-ShS" id="xbf-Xd-1p6"/>
                         <outlet property="price" destination="0Ir-cn-Zc3" id="Jvp-3N-Ecs"/>
+                        <outlet property="shareButton" destination="att-Pm-hgI" id="kjH-E0-N9q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2A-jX-qCS" userLabel="First Responder" sceneMemberID="firstResponder"/>

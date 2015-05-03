@@ -157,7 +157,15 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     @IBAction func actionsTapped(sender: AnyObject) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         alertController.view.tintColor = UIColor(rgb: 0xff8000)
+
         
+        let showMyAlerts = UIAlertAction(title: "my Alerts", style: .Default) { (_) in
+            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+            alertMessage.addAction(ok)
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+        }
+        alertController.addAction(showMyAlerts)
         
 
         let showMyBookmarks = UIAlertAction(title: "my Bookmarks", style: .Default) { (_) in
