@@ -16,6 +16,8 @@
 		0A1A318B1AF406F100853A30 /* CreatePostFindersFeeStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A318A1AF406F100853A30 /* CreatePostFindersFeeStepViewController.swift */; };
 		0A1C41451AE0555D00270347 /* SearchDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1C41441AE0555D00270347 /* SearchDetailsViewController.swift */; };
 		0A4C495B1AC501C000D164E2 /* SearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C495A1AC501C000D164E2 /* SearchHomeViewController.swift */; };
+		0A4C7AC01AF5D67D00C271F2 /* PJAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7ABF1AF5D67D00C271F2 /* PJAlert.swift */; };
+		0A4C7AC21AF5D93F00C271F2 /* PJChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7AC11AF5D93F00C271F2 /* PJChatMessage.swift */; };
 		0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */; };
 		0A60E1C31AC8E854003887C5 /* BaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */; };
 		0A60E1C51AC8ED2B003887C5 /* PJPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C41AC8ED2B003887C5 /* PJPost.swift */; };
@@ -67,6 +69,8 @@
 		0A1A318A1AF406F100853A30 /* CreatePostFindersFeeStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostFindersFeeStepViewController.swift; sourceTree = "<group>"; };
 		0A1C41441AE0555D00270347 /* SearchDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailsViewController.swift; sourceTree = "<group>"; };
 		0A4C495A1AC501C000D164E2 /* SearchHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchHomeViewController.swift; path = ../SearchHomeViewController.swift; sourceTree = "<group>"; };
+		0A4C7ABF1AF5D67D00C271F2 /* PJAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJAlert.swift; sourceTree = "<group>"; };
+		0A4C7AC11AF5D93F00C271F2 /* PJChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJChatMessage.swift; sourceTree = "<group>"; };
 		0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
 		0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataModel.swift; sourceTree = "<group>"; };
 		0A60E1C41AC8ED2B003887C5 /* PJPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJPost.swift; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 				0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */,
 				0A60E1C41AC8ED2B003887C5 /* PJPost.swift */,
 				0AF02E071AD5B78800792A5E /* PJHashTag.swift */,
+				0A4C7ABF1AF5D67D00C271F2 /* PJAlert.swift */,
+				0A4C7AC11AF5D93F00C271F2 /* PJChatMessage.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -403,6 +409,7 @@
 				0AF02E081AD5B78800792A5E /* PJHashTag.swift in Sources */,
 				0A60E1C31AC8E854003887C5 /* BaseDataModel.swift in Sources */,
 				0AAC2E341AC457C300B60B47 /* CreatePostBuySellStepViewController.swift in Sources */,
+				0A4C7AC21AF5D93F00C271F2 /* PJChatMessage.swift in Sources */,
 				0AEC370D1AE2B597005F99A7 /* PostDetailsViewController.swift in Sources */,
 				0AD4A2931AD8917A00539470 /* SearchResultsViewController.swift in Sources */,
 				0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */,
@@ -410,6 +417,7 @@
 				0A4C495B1AC501C000D164E2 /* SearchHomeViewController.swift in Sources */,
 				0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */,
 				0AAC2E361AC4580900B60B47 /* CreatePostDescribeStepViewController.swift in Sources */,
+				0A4C7AC01AF5D67D00C271F2 /* PJAlert.swift in Sources */,
 				0AEC37101AE4A677005F99A7 /* ImageViewController.swift in Sources */,
 				0A1A318B1AF406F100853A30 /* CreatePostFindersFeeStepViewController.swift in Sources */,
 				0A1C41451AE0555D00270347 /* SearchDetailsViewController.swift in Sources */,
