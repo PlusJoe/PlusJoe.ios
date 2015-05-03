@@ -21,6 +21,12 @@ class SearchDetailsViewController : UIViewController {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var detailsButton: UIButton!
     
+    var first = false
+    var last = false
+    
+    @IBOutlet weak var leftLabel: UILabel!
+    @IBOutlet weak var rightLabel: UILabel!
+    
     var post:PJPost?
     var postIndex:UInt = 0
 
@@ -33,6 +39,15 @@ class SearchDetailsViewController : UIViewController {
         shareButton.setTitle("\u{f1e0}   share", forState: .Normal)
         detailsButton.setTitle("details \u{f05a}", forState: .Normal)
 
+        leftLabel.text = "\u{f053}"
+        rightLabel.text = "\u{f054}"
+
+        if first == true {
+            leftLabel.hidden = true
+        }
+        if last == true {
+            rightLabel.hidden = true
+        }
     }
     
     override func viewDidAppear(animated: Bool) {

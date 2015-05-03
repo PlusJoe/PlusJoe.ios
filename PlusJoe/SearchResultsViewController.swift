@@ -12,30 +12,30 @@ import MapKit
 
 class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
-
+    
     @IBOutlet weak var backNavButton: UIBarButtonItem!
     var searchString = ""
-
+    
     @IBOutlet weak var mapView: MKMapView!
     var annotations = [MKPointAnnotation]()
     
     @IBOutlet weak var pageView: UIView!
-
+    
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var alertsButton: UIButton!
     var lbl_card_count:UILabel?
     @IBOutlet weak var menuButton: UIButton!
-
+    
     @IBOutlet weak var postView: UIView!
     
     var posts:[PJPost] = [PJPost]()
-
+    
     
     var currentPost:UInt = 0
-
+    
     var pageController:UIPageViewController!
-
+    
     
     @IBAction func backButtonAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -43,14 +43,14 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        detailsButton.enabled = false
-
+        //        detailsButton.enabled = false
+        
         // Do any additional setup after loading the view, typically from a nib.
         backNavButton.title = "\u{f053}"
         if let font = UIFont(name: "FontAwesome", size: 20) {
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
-
+        
         alertsButton.setTitle("\u{f0f3}", forState: .Normal)
         lbl_card_count = UILabel(frame: CGRectMake(23,0, 13, 13))
         lbl_card_count!.textColor = UIColor.whiteColor()
@@ -71,7 +71,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
         
         
         menuButton.setTitle("\u{f0c9}", forState: .Normal)
-
+        
         
         mapView.delegate = self
         
@@ -118,7 +118,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
                 
                 self.pageController?.dataSource = self
                 self.pageController?.view.frame = self.postView.bounds
-
+                
                 let searchDetailsViewController:SearchDetailsViewController = self.viewControllerAtIndex(0)!
                 
                 let viewControllers = [searchDetailsViewController]
@@ -132,7 +132,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
                 self.addChildViewController(self.pageController!)
                 self.pageView.addSubview(self.pageController!.view)
                 self.pageController!.didMoveToParentViewController(self)
-//                self.viewControllerAtIndex(0)
+                //                self.viewControllerAtIndex(0)
                 self.navBar.topItem?.title = "1 / \(self.posts.count)"
                 
                 
@@ -152,15 +152,15 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
         NSLog("!!!!!!!!!!!!!!!!!!!!!!! selected annotation: \(view.annotation.title)")
         currentPost = UInt(view.annotation.title!.toInt()!)
-//        resultNumber.text = "\(currentPost) of \(posts.count)"
-
+        //        resultNumber.text = "\(currentPost) of \(posts.count)"
+        
         let searchDetailsViewController:SearchDetailsViewController = self.viewControllerAtIndex(currentPost-1)!
         
         let viewControllers = [searchDetailsViewController]
         self.navBar.topItem?.title = "\(currentPost) / \(self.posts.count)"
         
         //weird, need this sleep to prevent for crashes
-//        usleep(500)
+        //        usleep(500)
         
         self.pageController?.setViewControllers(
             viewControllers,
@@ -168,16 +168,16 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
             animated: false,
             completion: { (Bool) -> Void in
                 //weird, need this sleep to prevent for crashes
-//                usleep(1)
+                //                usleep(1)
         })
-
-
+        
+        
     }
     
     
     func viewControllerAtIndex(index:UInt) -> (SearchDetailsViewController?) {
         NSLog("@@@@@@@@@@@@@@@@@@@@@@@@@@  viewControllerAtIndex: \(index)")
-
+        
         // Return the data view controller for the given index.
         if (self.posts.count == 0 || (Int(index) >= self.posts.count)) {
             return nil
@@ -185,11 +185,20 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
         
         let searchDetailsViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SearchDetailsView") as! SearchDetailsViewController
         
-
+        
         searchDetailsViewController.post = posts[Int(index)]
         searchDetailsViewController.postIndex = index
         
         searchDetailsViewController.searchResultsViewController = self
+        
+        
+        
+        if Int(index) == 0 {
+            searchDetailsViewController.first = true
+        }
+        if Int(index) == posts.count-1 {
+            searchDetailsViewController.last = true
+        }
         
         return searchDetailsViewController
     }
@@ -198,10 +207,10 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-var index = (viewController as! SearchDetailsViewController).postIndex
+        var index = (viewController as! SearchDetailsViewController).postIndex
         
         if ((index == 0) || (Int(index) == NSNotFound)) {
-        return nil
+            return nil
         }
         index--
         return viewControllerAtIndex(index)
@@ -276,6 +285,6 @@ var index = (viewController as! SearchDetailsViewController).postIndex
         self.presentViewController(alertController, animated: true, completion: nil)
         
     }
-
+    
     
 }
