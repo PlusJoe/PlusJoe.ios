@@ -29,6 +29,8 @@
             <string>FontAwesome</string>
             <string>FontAwesome</string>
             <string>FontAwesome</string>
+            <string>FontAwesome</string>
+            <string>FontAwesome</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -522,10 +524,49 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0D-je-6cY">
+                                <rect key="frame" x="16" y="562" width="80" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="9ko-wb-ciR"/>
+                                    <constraint firstAttribute="width" constant="80" id="Z6U-V6-mfv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="15"/>
+                                <state key="normal" title="buy">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHq-sw-5fN">
+                                <rect key="frame" x="104" y="562" width="80" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LZV-iD-hfJ"/>
+                                    <constraint firstAttribute="width" constant="80" id="xAb-Mh-iHK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="15"/>
+                                <state key="normal" title="share">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vaa-ad-ZsB" firstAttribute="trailing" secondItem="G9G-y9-H9f" secondAttribute="trailingMargin" id="1j1-OM-5gb"/>
+                            <constraint firstItem="ZHq-sw-5fN" firstAttribute="leading" secondItem="K0D-je-6cY" secondAttribute="trailing" constant="8" id="4jb-2V-Afi"/>
                             <constraint firstItem="Tbr-Dj-mQk" firstAttribute="top" secondItem="vaa-ad-ZsB" secondAttribute="bottom" constant="8" id="5mO-HA-byq"/>
                             <constraint firstItem="i7W-HD-gMA" firstAttribute="leading" secondItem="G9G-y9-H9f" secondAttribute="leadingMargin" id="6Fe-5g-dJE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TxB-JS-28p" secondAttribute="trailing" constant="-16" id="7Fp-0x-nTC"/>
@@ -537,18 +578,22 @@
                             <constraint firstItem="TxB-JS-28p" firstAttribute="leading" secondItem="ciV-yr-eZ1" secondAttribute="trailing" constant="8" id="PdU-Ts-wyB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6Ck-Y4-Fpv" secondAttribute="trailing" constant="-16" id="QFE-UY-4Pe"/>
                             <constraint firstItem="ciV-yr-eZ1" firstAttribute="top" secondItem="6Ck-Y4-Fpv" secondAttribute="bottom" constant="8" id="QSO-0C-vlH"/>
+                            <constraint firstItem="K0D-je-6cY" firstAttribute="leading" secondItem="G9G-y9-H9f" secondAttribute="leadingMargin" id="R8J-6P-gcx"/>
                             <constraint firstItem="6Ck-Y4-Fpv" firstAttribute="leading" secondItem="G9G-y9-H9f" secondAttribute="leadingMargin" constant="-16" id="Rrk-ug-NHj"/>
                             <constraint firstItem="Tbr-Dj-mQk" firstAttribute="trailing" secondItem="G9G-y9-H9f" secondAttribute="trailingMargin" id="ZqV-z6-aDD"/>
                             <constraint firstItem="Yhv-sb-HK8" firstAttribute="leading" secondItem="G9G-y9-H9f" secondAttribute="leadingMargin" constant="-16" id="blE-Cz-Zam"/>
+                            <constraint firstItem="yIr-MX-qL7" firstAttribute="top" secondItem="ZHq-sw-5fN" secondAttribute="bottom" constant="8" id="d3D-VU-O0c"/>
                             <constraint firstItem="Yhv-sb-HK8" firstAttribute="top" secondItem="EmU-3I-c5H" secondAttribute="bottom" id="d6Z-RH-15M"/>
                             <constraint firstItem="TxB-JS-28p" firstAttribute="top" secondItem="6Ck-Y4-Fpv" secondAttribute="bottom" constant="8" id="ibs-ds-GQp"/>
                             <constraint firstItem="6Ck-Y4-Fpv" firstAttribute="top" secondItem="Yhv-sb-HK8" secondAttribute="bottom" id="jEk-qp-53K"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Yhv-sb-HK8" secondAttribute="trailing" constant="-16" id="m5S-ff-4C9"/>
+                            <constraint firstItem="yIr-MX-qL7" firstAttribute="top" secondItem="K0D-je-6cY" secondAttribute="bottom" constant="8" id="ybt-RK-zB4"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="alertsButton" destination="5lT-GU-9XT" id="mU8-IN-1aO"/>
                         <outlet property="backNavButton" destination="vY9-s9-Y33" id="1aM-JS-8K1"/>
+                        <outlet property="buyButton" destination="K0D-je-6cY" id="5xy-Gz-vjK"/>
                         <outlet property="chatButton" destination="Tbr-Dj-mQk" id="vgn-LX-fCG"/>
                         <outlet property="fee" destination="TxB-JS-28p" id="Tuc-Xm-h9V"/>
                         <outlet property="imagesView" destination="6Ck-Y4-Fpv" id="LY1-Jc-pKr"/>
@@ -557,6 +602,7 @@
                         <outlet property="navBar" destination="Yhv-sb-HK8" id="XMc-ue-HqD"/>
                         <outlet property="postBody" destination="vaa-ad-ZsB" id="PZi-It-JCg"/>
                         <outlet property="price" destination="i7W-HD-gMA" id="Glq-lq-Zfx"/>
+                        <outlet property="shareButton" destination="ZHq-sw-5fN" id="wwa-Ad-w2Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3h6-ZM-R9f" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -26,6 +26,8 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var fee: UILabel!
     @IBOutlet weak var postBody: UILabel!
+    @IBOutlet weak var buyButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var chatButton: UIButton!
     
 //    var images = [NSData]()
@@ -70,9 +72,14 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         
         menuButton.setTitle("\u{f0c9}", forState: .Normal)
 
-        
+        buyButton.setTitle("\u{f155}   buy", forState: .Normal)
+        shareButton.setTitle("\u{f1e0}   share", forState: .Normal)
         chatButton.setTitle(" 3 new \u{f086}", forState: UIControlState.Normal)
 
+        if post?.sell == false {
+            buyButton.hidden = true
+        }
+        
         postBody.text = post?.body
         price.text = "$\((post?.price)!)"
         fee.text = "$\((post?.fee)!)"
