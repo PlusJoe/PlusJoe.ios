@@ -12,14 +12,15 @@ import UIKit
 
 class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var createButton: UIBarButtonItem!
     
+    @IBOutlet weak var bookmarkButton: UIButton!
+    @IBOutlet weak var createButton: UIButton!
+
     @IBOutlet weak var backNavButton: UIBarButtonItem!
     
     @IBOutlet weak var searchTextField: UITextField!
 
     @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var bookmarkButton: UIButton!
     
     @IBOutlet weak var autocompleteTableView: UITableView!
     
@@ -34,14 +35,13 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         backNavButton.title = "\u{f053}"
-        createButton.title = "\u{f067}"
         if let font = UIFont(name: "FontAwesome", size: 20) {
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
-            createButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
         searchButton.setTitle("Search   \u{f002}",forState: UIControlState.Normal)
         searchTextField.becomeFirstResponder()
 
+        createButton.setTitle("\u{f067}", forState: .Normal)
         bookmarkButton.setTitle("\u{f097}",forState: UIControlState.Normal)
        
         let notificationCenter = NSNotificationCenter.defaultCenter()

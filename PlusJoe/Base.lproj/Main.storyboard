@@ -22,6 +22,7 @@
             <string>FontAwesome</string>
             <string>FontAwesome</string>
             <string>FontAwesome</string>
+            <string>FontAwesome</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -149,10 +150,31 @@
                                                 <action selector="backButtonAction:" destination="Uf5-hC-ZBj" id="35l-sC-kcD"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="+" id="jzT-Uz-uny">
-                                            <connections>
-                                                <segue destination="BYZ-38-t0r" kind="show" id="2YP-7n-VBg"/>
-                                            </connections>
+                                        <barButtonItem key="rightBarButtonItem" id="VJs-6l-7uJ">
+                                            <view key="customView" contentMode="scaleToFill" id="HY6-ek-Bx2">
+                                                <rect key="frame" x="451" y="5" width="80" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zag-zB-jjB">
+                                                        <rect key="frame" x="50" y="0.0" width="30" height="33"/>
+                                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="20"/>
+                                                        <state key="normal" title="+">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="BYZ-38-t0r" kind="show" id="4N0-T7-J6H"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1l-Xc-Qyd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="33"/>
+                                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="20"/>
+                                                        <state key="normal" title="B">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -179,10 +201,10 @@
                                     <segue destination="LoE-Pl-xOk" kind="show" identifier="searchResults" id="oRN-Gw-Hyn"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for something" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="Spt-Zy-r2P">
-                                <rect key="frame" x="16" y="71" width="540" height="50"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for #hashtags" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="Spt-Zy-r2P">
+                                <rect key="frame" x="16" y="71" width="568" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="b39-rx-77R"/>
+                                    <constraint firstAttribute="height" constant="50" id="4m6-0F-VQk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -200,44 +222,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jN9-sy-NNN">
-                                <rect key="frame" x="557" y="68" width="43" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="AxV-9A-bVb"/>
-                                    <constraint firstAttribute="width" constant="43" id="nwb-vj-mOr"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="32"/>
-                                <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="BM">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eeK-I6-bOG" firstAttribute="leading" secondItem="ikI-Rm-PiP" secondAttribute="leadingMargin" constant="-16" id="0eb-Wg-R8p"/>
                             <constraint firstItem="F5R-QV-1gj" firstAttribute="leading" secondItem="ikI-Rm-PiP" secondAttribute="leadingMargin" id="0sP-R3-KUX"/>
-                            <constraint firstItem="jN9-sy-NNN" firstAttribute="leading" secondItem="Spt-Zy-r2P" secondAttribute="trailing" constant="1" id="BMo-rm-9J6"/>
-                            <constraint firstItem="jN9-sy-NNN" firstAttribute="leading" secondItem="Spt-Zy-r2P" secondAttribute="trailing" constant="1" id="Lpi-Xw-K3h"/>
+                            <constraint firstItem="Spt-Zy-r2P" firstAttribute="trailing" secondItem="ikI-Rm-PiP" secondAttribute="trailingMargin" id="H6n-XK-Xxe"/>
+                            <constraint firstItem="Spt-Zy-r2P" firstAttribute="top" secondItem="eeK-I6-bOG" secondAttribute="bottom" constant="7" id="Khm-rM-QpH"/>
                             <constraint firstItem="iMG-ys-aTF" firstAttribute="trailing" secondItem="ikI-Rm-PiP" secondAttribute="trailingMargin" id="Qnc-80-J5S"/>
                             <constraint firstAttribute="centerY" secondItem="iMG-ys-aTF" secondAttribute="centerY" id="TlI-Hn-Zhr"/>
-                            <constraint firstItem="jN9-sy-NNN" firstAttribute="top" secondItem="eeK-I6-bOG" secondAttribute="bottom" constant="4" id="UfW-x9-6Xx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jN9-sy-NNN" secondAttribute="trailing" constant="-16" id="VCD-Eo-omv"/>
-                            <constraint firstItem="Spt-Zy-r2P" firstAttribute="leading" secondItem="ikI-Rm-PiP" secondAttribute="leadingMargin" id="b6g-MV-1UK"/>
+                            <constraint firstItem="F5R-QV-1gj" firstAttribute="top" secondItem="Spt-Zy-r2P" secondAttribute="bottom" constant="8" id="aHm-ZV-aZU"/>
+                            <constraint firstItem="Spt-Zy-r2P" firstAttribute="leading" secondItem="ikI-Rm-PiP" secondAttribute="leadingMargin" id="avV-IC-XSN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eeK-I6-bOG" secondAttribute="trailing" constant="-16" id="mm7-cq-aL0"/>
                             <constraint firstItem="iMG-ys-aTF" firstAttribute="leading" secondItem="ikI-Rm-PiP" secondAttribute="leadingMargin" id="pvd-ca-ZfT"/>
                             <constraint firstItem="F5R-QV-1gj" firstAttribute="trailing" secondItem="ikI-Rm-PiP" secondAttribute="trailingMargin" id="rFF-sO-muZ"/>
                             <constraint firstItem="iMG-ys-aTF" firstAttribute="top" secondItem="F5R-QV-1gj" secondAttribute="bottom" constant="8" id="sWU-9w-2Sk"/>
-                            <constraint firstItem="Spt-Zy-r2P" firstAttribute="top" secondItem="eeK-I6-bOG" secondAttribute="bottom" constant="7" id="tqL-io-14I"/>
                             <constraint firstItem="eeK-I6-bOG" firstAttribute="top" secondItem="Mez-Vv-1wJ" secondAttribute="bottom" id="yoE-AP-dQx"/>
-                            <constraint firstItem="F5R-QV-1gj" firstAttribute="top" secondItem="Spt-Zy-r2P" secondAttribute="bottom" constant="8" id="zFM-4r-pt6"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="autocompleteTableView" destination="F5R-QV-1gj" id="GGr-dA-tay"/>
                         <outlet property="backNavButton" destination="e3P-17-kSF" id="fiD-7U-aSt"/>
-                        <outlet property="bookmarkButton" destination="jN9-sy-NNN" id="bg6-fO-vOJ"/>
-                        <outlet property="createButton" destination="jzT-Uz-uny" id="AQg-Ih-wjV"/>
+                        <outlet property="bookmarkButton" destination="K1l-Xc-Qyd" id="mVw-gW-IvM"/>
+                        <outlet property="createButton" destination="zag-zB-jjB" id="pJU-kV-q3D"/>
                         <outlet property="searchButton" destination="iMG-ys-aTF" id="e00-Qz-IeG"/>
                         <outlet property="searchTextField" destination="Spt-Zy-r2P" id="NUQ-Wq-N02"/>
                     </connections>
@@ -277,6 +284,17 @@
                                                 <rect key="frame" x="454" y="5" width="80" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSe-g1-AOO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="30" id="0pu-gu-61z"/>
+                                                            <constraint firstAttribute="height" constant="32" id="lVG-RK-j9Q"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="20"/>
+                                                        <state key="normal" title="A">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVQ-bN-oYx">
                                                         <rect key="frame" x="50" y="0.0" width="30" height="32"/>
                                                         <constraints>
@@ -290,17 +308,6 @@
                                                         <connections>
                                                             <action selector="actionsTapped:" destination="LoE-Pl-xOk" eventType="touchUpInside" id="AVP-Ze-jFs"/>
                                                         </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSe-g1-AOO">
-                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="32"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="30" id="0pu-gu-61z"/>
-                                                            <constraint firstAttribute="height" constant="32" id="lVG-RK-j9Q"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="20"/>
-                                                        <state key="normal" title="A">
-                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
