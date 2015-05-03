@@ -178,10 +178,9 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
 
         
         let showMyPosts = UIAlertAction(title: "my Posts", style: .Default) { (_) in
-            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
-            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
-            alertMessage.addAction(ok)
-            self.presentViewController(alertMessage, animated: true, completion: nil)
+
+            
+            
         }
         alertController.addAction(showMyPosts)
         
