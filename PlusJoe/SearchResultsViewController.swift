@@ -259,14 +259,23 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
             }
             alertController.addAction(twoAction)
         }
-        
-        let threeAction = UIAlertAction(title: "Share & earn finders fee", style: .Default) { (_) in
+
+        let bookmarkAction = UIAlertAction(title: "Bookmark #hashtags", style: .Default) { (_) in
             let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
             alertMessage.addAction(ok)
             self.presentViewController(alertMessage, animated: true, completion: nil)
         }
-        alertController.addAction(threeAction)
+        alertController.addAction(bookmarkAction)
+
+        
+        let shareAction = UIAlertAction(title: "Share & earn finders fee", style: .Default) { (_) in
+            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+            alertMessage.addAction(ok)
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+        }
+        alertController.addAction(shareAction)
         
         
         //        let fourAction = UIAlertAction(title: "Contact this person", style: .Default) { (_) in

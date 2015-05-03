@@ -32,7 +32,7 @@ class PJChatMessage: PFObject, PFSubclassing {
     
     @NSManaged var body: String // no more then 140 chars
     @NSManaged var participants: [String] // always 2 participants
-    @NSManaged var createdBy: String // must match one of the artcipants
+    @NSManaged var createdBy: String // must match one of the partcipants
 
     
 }
