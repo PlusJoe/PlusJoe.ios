@@ -18,6 +18,7 @@
 		0A4C495B1AC501C000D164E2 /* SearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C495A1AC501C000D164E2 /* SearchHomeViewController.swift */; };
 		0A4C7AC01AF5D67D00C271F2 /* PJAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7ABF1AF5D67D00C271F2 /* PJAlert.swift */; };
 		0A4C7AC21AF5D93F00C271F2 /* PJChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7AC11AF5D93F00C271F2 /* PJChatMessage.swift */; };
+		0A4C7AC41AF6E76500C271F2 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7AC31AF6E76500C271F2 /* ChatViewController.swift */; };
 		0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */; };
 		0A60E1C31AC8E854003887C5 /* BaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */; };
 		0A60E1C51AC8ED2B003887C5 /* PJPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C41AC8ED2B003887C5 /* PJPost.swift */; };
@@ -71,6 +72,7 @@
 		0A4C495A1AC501C000D164E2 /* SearchHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchHomeViewController.swift; path = ../SearchHomeViewController.swift; sourceTree = "<group>"; };
 		0A4C7ABF1AF5D67D00C271F2 /* PJAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJAlert.swift; sourceTree = "<group>"; };
 		0A4C7AC11AF5D93F00C271F2 /* PJChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJChatMessage.swift; sourceTree = "<group>"; };
+		0A4C7AC31AF6E76500C271F2 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
 		0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataModel.swift; sourceTree = "<group>"; };
 		0A60E1C41AC8ED2B003887C5 /* PJPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJPost.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				0A60E1C11AC8E7CF003887C5 /* CreatePost */,
 				0AF02E061AD446D800792A5E /* SearchPost */,
 				0AEC370E1AE4A61E005F99A7 /* PostDetails */,
+				0A4C7AC31AF6E76500C271F2 /* ChatViewController.swift */,
 				0AEAFBD21AC0E2F900800121 /* Main.storyboard */,
 				0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */,
 				0AEAFBD51AC0E2F900800121 /* Images.xcassets */,
@@ -422,6 +425,7 @@
 				0A1A318B1AF406F100853A30 /* CreatePostFindersFeeStepViewController.swift in Sources */,
 				0A1C41451AE0555D00270347 /* SearchDetailsViewController.swift in Sources */,
 				0AC66FBD1AC5C1CA003C818C /* CreatePostPhotosStepViewController.swift in Sources */,
+				0A4C7AC41AF6E76500C271F2 /* ChatViewController.swift in Sources */,
 				0A60E1C51AC8ED2B003887C5 /* PJPost.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
