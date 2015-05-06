@@ -244,6 +244,14 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         }
         alertController.addAction(threeAction)
 
+        let chatAction = UIAlertAction(title: "Chat", style: .Default) { (_) in
+            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+            alertMessage.addAction(ok)
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+        }
+        alertController.addAction(chatAction)
+
         
 //        let fourAction = UIAlertAction(title: "Contact this person", style: .Default) { (_) in
 //            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)

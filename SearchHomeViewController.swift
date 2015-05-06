@@ -10,18 +10,12 @@ import Foundation
 
 import UIKit
 
-class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
-    
-    @IBOutlet weak var menuView: UIView!
-    @IBOutlet weak var alertsButton: UIButton!
-    var lbl_card_count:UILabel?
-    @IBOutlet weak var bookmarkButton: UIButton!
-    @IBOutlet weak var createButton: UIButton!
-    @IBOutlet weak var menuButton: UIButton!
-
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    
     
     @IBOutlet weak var searchTextField: UITextField!
 
@@ -43,39 +37,19 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         backNavButton.title = "\u{f053}"
+        menuButton.title = "\u{f0c9}"
         if let font = UIFont(name: "FontAwesome", size: 20) {
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+            menuButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
         
         
-        alertsButton.setTitle("\u{f0f3}", forState: .Normal)
-        lbl_card_count = UILabel(frame: CGRectMake(23,0, 13, 13))
-        lbl_card_count!.textColor = UIColor.whiteColor()
-        lbl_card_count!.textAlignment = NSTextAlignment.Center
-        lbl_card_count!.text = "22"
-        lbl_card_count!.layer.borderWidth = 1;
-        lbl_card_count!.layer.cornerRadius = 4;
-        lbl_card_count!.layer.masksToBounds = true
-        lbl_card_count!.layer.borderColor = UIColor.clearColor().CGColor
-        lbl_card_count!.layer.shadowColor = UIColor.clearColor().CGColor
-        lbl_card_count!.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-        lbl_card_count!.layer.shadowOpacity = 0.0;
-        lbl_card_count!.backgroundColor = UIColor.redColor()
-        lbl_card_count!.font = UIFont(name: "ArialMT", size: 10)
-        menuView.addSubview(lbl_card_count!)
-        lbl_card_count!.hidden = false
-        
-        
-        
-        menuButton.setTitle("\u{f0c9}", forState: .Normal)
 
         
         
         searchButton.setTitle("Search   \u{f002}",forState: UIControlState.Normal)
         searchTextField.becomeFirstResponder()
 
-        createButton.setTitle("\u{f067}", forState: .Normal)
-        bookmarkButton.setTitle("\u{f097}",forState: UIControlState.Normal)
        
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(
@@ -154,47 +128,24 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     
     
     
-    @IBAction func actionsTapped(sender: AnyObject) {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        alertController.view.tintColor = UIColor(rgb: 0xff8000)
+    @IBAction func menuTapped(sender: AnyObject) {
+        
+        let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("MenuSearchHome") as! MenuSearchHomeViewController
+        popoverVC.modalPresentationStyle = .Popover
+        popoverVC.preferredContentSize = CGSizeMake(250, 230)
+        
+        
+        let popoverPresentationViewController = popoverVC.popoverPresentationController
+        popoverPresentationViewController?.permittedArrowDirections = .Up
 
-        
-        let showMyAlerts = UIAlertAction(title: "my Alerts", style: .Default) { (_) in
-            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
-            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
-            alertMessage.addAction(ok)
-            self.presentViewController(alertMessage, animated: true, completion: nil)
-        }
-        alertController.addAction(showMyAlerts)
-        
-
-        let showMyBookmarks = UIAlertAction(title: "my Bookmarks", style: .Default) { (_) in
-            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
-            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
-            alertMessage.addAction(ok)
-            self.presentViewController(alertMessage, animated: true, completion: nil)
-        }
-        alertController.addAction(showMyBookmarks)
-
-        
-        let showMyPosts = UIAlertAction(title: "my Posts", style: .Default) { (_) in
-
-            
-            
-        }
-        alertController.addAction(showMyPosts)
-        
-        
-        
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
-        alertController.addAction(cancelAction)
-        
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
+        popoverPresentationViewController?.delegate = self
+        popoverPresentationViewController?.barButtonItem            = menuButton
+        presentViewController(popoverVC, animated: true, completion: nil)
         
     }
 
-    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
+    }
 }
 

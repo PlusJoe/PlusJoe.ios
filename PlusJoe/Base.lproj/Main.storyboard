@@ -32,6 +32,7 @@
             <string>FontAwesome</string>
             <string>FontAwesome</string>
             <string>FontAwesome</string>
+            <string>FontAwesome</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -159,48 +160,10 @@
                                                 <action selector="backButtonAction:" destination="Uf5-hC-ZBj" id="35l-sC-kcD"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" id="VJs-6l-7uJ">
-                                            <view key="customView" contentMode="scaleToFill" id="HY6-ek-Bx2">
-                                                <rect key="frame" x="454" y="5" width="150" height="33"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zag-zB-jjB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="33"/>
-                                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="20"/>
-                                                        <state key="normal" title="A">
-                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wP8-53-pUY">
-                                                        <rect key="frame" x="82" y="0.0" width="30" height="33"/>
-                                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="20"/>
-                                                        <state key="normal" title="+">
-                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                        <connections>
-                                                            <segue destination="BYZ-38-t0r" kind="show" id="26F-zR-nRK"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1l-Xc-Qyd">
-                                                        <rect key="frame" x="38" y="0.0" width="30" height="33"/>
-                                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="20"/>
-                                                        <state key="normal" title="B">
-                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5O-8M-BrM">
-                                                        <rect key="frame" x="120" y="0.0" width="30" height="33"/>
-                                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="20"/>
-                                                        <state key="normal" title="M">
-                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="actionsTapped:" destination="Uf5-hC-ZBj" eventType="touchUpInside" id="K71-hI-l9H"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            </view>
+                                        <barButtonItem key="rightBarButtonItem" title="M" id="C6k-KK-f5m">
+                                            <connections>
+                                                <action selector="menuTapped:" destination="Uf5-hC-ZBj" id="gM9-Og-pzU"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -267,13 +230,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="alertsButton" destination="zag-zB-jjB" id="Rmd-6T-CAv"/>
                         <outlet property="autocompleteTableView" destination="F5R-QV-1gj" id="GGr-dA-tay"/>
                         <outlet property="backNavButton" destination="e3P-17-kSF" id="fiD-7U-aSt"/>
-                        <outlet property="bookmarkButton" destination="K1l-Xc-Qyd" id="mVw-gW-IvM"/>
-                        <outlet property="createButton" destination="wP8-53-pUY" id="7Wf-6K-1T4"/>
-                        <outlet property="menuButton" destination="V5O-8M-BrM" id="9AS-HT-Jy3"/>
-                        <outlet property="menuView" destination="HY6-ek-Bx2" id="GSA-Wp-6ao"/>
+                        <outlet property="menuButton" destination="C6k-KK-f5m" id="L6U-Rr-k67"/>
                         <outlet property="searchButton" destination="iMG-ys-aTF" id="e00-Qz-IeG"/>
                         <outlet property="searchTextField" destination="Spt-Zy-r2P" id="NUQ-Wq-N02"/>
                     </connections>
@@ -281,6 +240,108 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U6A-vG-Rao" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="376" y="1073"/>
+        </scene>
+        <!--Menu Search Home View Controller-->
+        <scene sceneID="bq1-uf-hFI">
+            <objects>
+                <viewController storyboardIdentifier="MenuSearchHome" id="s49-cQ-YJT" customClass="MenuSearchHomeViewController" customModule="PlusJoe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FA7-3L-Ck2"/>
+                        <viewControllerLayoutGuide type="bottom" id="WJ9-mn-MXB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xjy-F0-H7i">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foR-sO-Onh">
+                                <rect key="frame" x="16" y="28" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="qo3-Aw-uq6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
+                                <state key="normal" title="my alerts">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC3-l6-KNE">
+                                <rect key="frame" x="16" y="66" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="II2-D5-mR3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
+                                <state key="normal" title="my bookmarks">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2iY-Fc-ll8">
+                                <rect key="frame" x="16" y="142" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="fIU-FB-UjF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
+                                <state key="normal" title="my posts">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBs-Ke-Duh">
+                                <rect key="frame" x="16" y="180" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="fEs-0F-SFa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
+                                <state key="normal" title="my chats">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6Z-Zd-DVd">
+                                <rect key="frame" x="16" y="104" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="UI2-KU-NTD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
+                                <state key="normal" title="create new post">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="cgd-iz-mUg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="T6Z-Zd-DVd" firstAttribute="top" secondItem="aC3-l6-KNE" secondAttribute="bottom" constant="8" id="5gc-iP-4cb"/>
+                            <constraint firstItem="foR-sO-Onh" firstAttribute="trailing" secondItem="Xjy-F0-H7i" secondAttribute="trailingMargin" id="FHo-TL-xs6"/>
+                            <constraint firstItem="hBs-Ke-Duh" firstAttribute="top" secondItem="2iY-Fc-ll8" secondAttribute="bottom" constant="8" id="Giw-Pm-veN"/>
+                            <constraint firstItem="2iY-Fc-ll8" firstAttribute="top" secondItem="T6Z-Zd-DVd" secondAttribute="bottom" constant="8" id="HmF-zK-JdU"/>
+                            <constraint firstItem="T6Z-Zd-DVd" firstAttribute="leading" secondItem="Xjy-F0-H7i" secondAttribute="leadingMargin" id="I1j-as-CRw"/>
+                            <constraint firstItem="2iY-Fc-ll8" firstAttribute="trailing" secondItem="Xjy-F0-H7i" secondAttribute="trailingMargin" id="Uqy-ud-Fl4"/>
+                            <constraint firstItem="foR-sO-Onh" firstAttribute="leading" secondItem="Xjy-F0-H7i" secondAttribute="leadingMargin" id="X5U-JJ-EFu"/>
+                            <constraint firstItem="foR-sO-Onh" firstAttribute="top" secondItem="FA7-3L-Ck2" secondAttribute="bottom" constant="8" id="ZGB-ki-NL5"/>
+                            <constraint firstItem="2iY-Fc-ll8" firstAttribute="leading" secondItem="Xjy-F0-H7i" secondAttribute="leadingMargin" id="h4i-T3-cJ2"/>
+                            <constraint firstItem="hBs-Ke-Duh" firstAttribute="trailing" secondItem="Xjy-F0-H7i" secondAttribute="trailingMargin" id="hFO-om-Iee"/>
+                            <constraint firstItem="aC3-l6-KNE" firstAttribute="top" secondItem="foR-sO-Onh" secondAttribute="bottom" constant="8" id="k88-JD-x8C"/>
+                            <constraint firstItem="hBs-Ke-Duh" firstAttribute="leading" secondItem="Xjy-F0-H7i" secondAttribute="leadingMargin" id="nPg-sX-TQI"/>
+                            <constraint firstItem="aC3-l6-KNE" firstAttribute="leading" secondItem="Xjy-F0-H7i" secondAttribute="leadingMargin" id="pKv-1t-iCq"/>
+                            <constraint firstItem="aC3-l6-KNE" firstAttribute="trailing" secondItem="Xjy-F0-H7i" secondAttribute="trailingMargin" id="sbs-wY-uoT"/>
+                            <constraint firstItem="T6Z-Zd-DVd" firstAttribute="trailing" secondItem="Xjy-F0-H7i" secondAttribute="trailingMargin" id="v5T-za-dnY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="alerts" destination="foR-sO-Onh" id="Fal-nv-pN7"/>
+                        <outlet property="bookmarks" destination="aC3-l6-KNE" id="Aj7-Bz-gmp"/>
+                        <outlet property="createNewPost" destination="T6Z-Zd-DVd" id="Ykz-th-Kh1"/>
+                        <outlet property="myChats" destination="hBs-Ke-Duh" id="gjw-r4-3I5"/>
+                        <outlet property="myPosts" destination="2iY-Fc-ll8" id="CQU-Q9-5kt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wd4-u4-geW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="376" y="1774"/>
         </scene>
         <!--Search Results View Controller-->
         <scene sceneID="6Og-pg-PEU">
