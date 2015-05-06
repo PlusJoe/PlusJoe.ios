@@ -35,9 +35,6 @@ class SearchDetailsViewController : UIViewController {
         super.viewDidLoad()
         NSLog("SearchDetailsViewController viewDidLoad")
 
-        bookmarkButton.setTitle("\u{f02e}   bookmark", forState: .Normal)
-        shareButton.setTitle("\u{f1e0}   share", forState: .Normal)
-        detailsButton.setTitle("details \u{f05a}", forState: .Normal)
 
         leftLabel.text = "\u{f053}"
         rightLabel.text = "\u{f054}"

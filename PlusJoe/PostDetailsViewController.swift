@@ -11,14 +11,11 @@ import MapKit
 
 
 
-class PostDetailsViewController : UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate  {
+class PostDetailsViewController : UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIPopoverPresentationControllerDelegate  {
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var navBar: UINavigationBar!
-    @IBOutlet weak var menuView: UIView!
-    @IBOutlet weak var alertsButton: UIButton!
-    var lbl_card_count:UILabel?
-    @IBOutlet weak var menuButton: UIButton!
     
     var post:PJPost? 
 
@@ -26,8 +23,6 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var fee: UILabel!
     @IBOutlet weak var postBody: UILabel!
-    @IBOutlet weak var buyButton: UIButton!
-    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var chatButton: UIButton!
     
 //    var images = [NSData]()
@@ -45,40 +40,16 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         backNavButton.title = "\u{f053}"
+        menuButton.title = "\u{f0c9}"
         if let font = UIFont(name: "FontAwesome", size: 20) {
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+            menuButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
     
         self.navBar.topItem?.title = postNumberText
 
-        alertsButton.setTitle("\u{f0f3}", forState: .Normal)
-        lbl_card_count = UILabel(frame: CGRectMake(23,0, 13, 13))
-        lbl_card_count!.textColor = UIColor.whiteColor()
-        lbl_card_count!.textAlignment = NSTextAlignment.Center
-        lbl_card_count!.text = "22"
-        lbl_card_count!.layer.borderWidth = 1;
-        lbl_card_count!.layer.cornerRadius = 4;
-        lbl_card_count!.layer.masksToBounds = true
-        lbl_card_count!.layer.borderColor = UIColor.clearColor().CGColor
-        lbl_card_count!.layer.shadowColor = UIColor.clearColor().CGColor
-        lbl_card_count!.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-        lbl_card_count!.layer.shadowOpacity = 0.0;
-        lbl_card_count!.backgroundColor = UIColor.redColor()
-        lbl_card_count!.font = UIFont(name: "ArialMT", size: 10)
-        menuView.addSubview(lbl_card_count!)
-        lbl_card_count!.hidden = false
-        
-        
-        
-        menuButton.setTitle("\u{f0c9}", forState: .Normal)
 
-        buyButton.setTitle("\u{f155}   buy", forState: .Normal)
-        shareButton.setTitle("\u{f1e0}   share", forState: .Normal)
         chatButton.setTitle(" 3 new \u{f086}", forState: UIControlState.Normal)
-
-        if post?.sell == false {
-            buyButton.hidden = true
-        }
         
         postBody.text = post?.body
         price.text = "$\((post?.price)!)"
@@ -206,6 +177,30 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         return 0
     }
 
+    
+    @IBAction func menuTapped(sender: AnyObject) {
+        
+        let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("MenuPostDetails") as! MenuPostDetailsViewController
+        popoverVC.modalPresentationStyle = .Popover
+        popoverVC.preferredContentSize = CGSizeMake(350, 300)
+        
+        
+        let popoverPresentationViewController = popoverVC.popoverPresentationController
+        popoverPresentationViewController?.permittedArrowDirections = .Up
+        
+        popoverPresentationViewController?.delegate = self
+        popoverPresentationViewController?.barButtonItem            = menuButton
+        presentViewController(popoverVC, animated: true, completion: nil)
+        
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
+    }
+
+    
+    
+    
 
     @IBAction func actionsTapped(sender: AnyObject) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
@@ -253,14 +248,6 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         alertController.addAction(chatAction)
 
         
-//        let fourAction = UIAlertAction(title: "Contact this person", style: .Default) { (_) in
-//            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
-//            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
-//            alertMessage.addAction(ok)
-//            self.presentViewController(alertMessage, animated: true, completion: nil)
-//        }
-//        alertController.addAction(fourAction)
-
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
         alertController.addAction(cancelAction)

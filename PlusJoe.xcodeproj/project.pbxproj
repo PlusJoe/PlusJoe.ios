@@ -20,6 +20,7 @@
 		0A4C7AC21AF5D93F00C271F2 /* PJChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7AC11AF5D93F00C271F2 /* PJChatMessage.swift */; };
 		0A4C7AC41AF6E76500C271F2 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7AC31AF6E76500C271F2 /* ChatViewController.swift */; };
 		0A4C7AC61AF99C3700C271F2 /* MenuSearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7AC51AF99C3700C271F2 /* MenuSearchHomeViewController.swift */; };
+		0A4C7AC81AF9C17700C271F2 /* MenuPostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7AC71AF9C17700C271F2 /* MenuPostDetailsViewController.swift */; };
 		0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */; };
 		0A60E1C31AC8E854003887C5 /* BaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */; };
 		0A60E1C51AC8ED2B003887C5 /* PJPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C41AC8ED2B003887C5 /* PJPost.swift */; };
@@ -75,6 +76,7 @@
 		0A4C7AC11AF5D93F00C271F2 /* PJChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJChatMessage.swift; sourceTree = "<group>"; };
 		0A4C7AC31AF6E76500C271F2 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		0A4C7AC51AF99C3700C271F2 /* MenuSearchHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSearchHomeViewController.swift; sourceTree = "<group>"; };
+		0A4C7AC71AF9C17700C271F2 /* MenuPostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuPostDetailsViewController.swift; sourceTree = "<group>"; };
 		0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
 		0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataModel.swift; sourceTree = "<group>"; };
 		0A60E1C41AC8ED2B003887C5 /* PJPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJPost.swift; sourceTree = "<group>"; };
@@ -211,7 +213,6 @@
 				0A60E1C01AC8E7B4003887C5 /* Model */,
 				0A60E1C11AC8E7CF003887C5 /* CreatePost */,
 				0AF02E061AD446D800792A5E /* SearchPost */,
-				0AEC370E1AE4A61E005F99A7 /* PostDetails */,
 				0A4C7AC31AF6E76500C271F2 /* ChatViewController.swift */,
 				0AEAFBD21AC0E2F900800121 /* Main.storyboard */,
 				0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */,
@@ -279,15 +280,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		0AEC370E1AE4A61E005F99A7 /* PostDetails */ = {
-			isa = PBXGroup;
-			children = (
-				0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */,
-				0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */,
-			);
-			name = PostDetails;
-			sourceTree = "<group>";
-		};
 		0AF02E061AD446D800792A5E /* SearchPost */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +287,9 @@
 				0A4C7AC51AF99C3700C271F2 /* MenuSearchHomeViewController.swift */,
 				0AD4A2921AD8917A00539470 /* SearchResultsViewController.swift */,
 				0A1C41441AE0555D00270347 /* SearchDetailsViewController.swift */,
+				0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */,
+				0A4C7AC71AF9C17700C271F2 /* MenuPostDetailsViewController.swift */,
+				0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */,
 			);
 			name = SearchPost;
 			sourceTree = "<group>";
@@ -422,6 +417,7 @@
 				0AC66FBF1AC5C22C003C818C /* CreatePostReviewAndSubmitStepViewController.swift in Sources */,
 				0A4C495B1AC501C000D164E2 /* SearchHomeViewController.swift in Sources */,
 				0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */,
+				0A4C7AC81AF9C17700C271F2 /* MenuPostDetailsViewController.swift in Sources */,
 				0AAC2E361AC4580900B60B47 /* CreatePostDescribeStepViewController.swift in Sources */,
 				0A4C7AC01AF5D67D00C271F2 /* PJAlert.swift in Sources */,
 				0AEC37101AE4A677005F99A7 /* ImageViewController.swift in Sources */,
