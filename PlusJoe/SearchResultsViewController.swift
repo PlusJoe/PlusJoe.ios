@@ -16,7 +16,9 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     @IBOutlet weak var backNavButton: UIBarButtonItem!
     var searchString = ""
     
-    @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var alertButton: UIButton!
+    @IBOutlet weak var alertsCountLabel: UILabel!
+    @IBOutlet weak var menuButton: UIButton!
 
     @IBOutlet weak var mapView: MKMapView!
     var annotations = [MKPointAnnotation]()
@@ -45,12 +47,11 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
         
         // Do any additional setup after loading the view, typically from a nib.
         backNavButton.title = "\u{f053}"
-        menuButton.title = "\u{f0c9}"
+        menuButton.setTitle("\u{f0c9}", forState: .Normal)
+        alertButton.setTitle("\u{f0a2}", forState: .Normal)
         if let font = UIFont(name: "FontAwesome", size: 20) {
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
-            menuButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
-        
         
         
         mapView.delegate = self
@@ -215,14 +216,15 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
         
         let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("MenuPostDetails") as! MenuPostDetailsViewController
         popoverVC.modalPresentationStyle = .Popover
-        popoverVC.preferredContentSize = CGSizeMake(350, 300)
+        popoverVC.preferredContentSize = CGSizeMake(300, 250)
         
         
         let popoverPresentationViewController = popoverVC.popoverPresentationController
-        popoverPresentationViewController?.permittedArrowDirections = .Up
+        popoverPresentationViewController?.permittedArrowDirections = .Any
         
         popoverPresentationViewController?.delegate = self
-        popoverPresentationViewController?.barButtonItem            = menuButton
+        popoverPresentationViewController?.sourceView =             menuButton
+        popoverPresentationViewController?.sourceRect =             menuButton.bounds
         presentViewController(popoverVC, animated: true, completion: nil)
         
     }

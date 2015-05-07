@@ -14,8 +14,10 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
-    @IBOutlet weak var menuButton: UIBarButtonItem!
-    
+
+    @IBOutlet weak var alertButton: UIButton!
+    @IBOutlet weak var alertsCountLabel: UILabel!
+    @IBOutlet weak var menuButton: UIButton!
     
     @IBOutlet weak var searchTextField: UITextField!
 
@@ -37,14 +39,12 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         backNavButton.title = "\u{f053}"
-        menuButton.title = "\u{f0c9}"
+        menuButton.setTitle("\u{f0c9}", forState: .Normal)
+        alertButton.setTitle("\u{f0a2}", forState: .Normal)
         if let font = UIFont(name: "FontAwesome", size: 20) {
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
-            menuButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
         
-        
-
         
         
         searchButton.setTitle("Search   \u{f002}",forState: UIControlState.Normal)
@@ -79,6 +79,8 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
             presentViewController(alertMessage, animated: true, completion: nil)
         }
 
+        alertsCountLabel.text = String(29)
+        alertsCountLabel.hidden = false
     }
     
     func textFieldTextChanged(sender : AnyObject) {
@@ -132,14 +134,14 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         
         let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("MenuSearchHome") as! MenuSearchHomeViewController
         popoverVC.modalPresentationStyle = .Popover
-        popoverVC.preferredContentSize = CGSizeMake(250, 230)
+        popoverVC.preferredContentSize = CGSizeMake(200, 180)
         
         
         let popoverPresentationViewController = popoverVC.popoverPresentationController
-        popoverPresentationViewController?.permittedArrowDirections = .Up
-
+        popoverPresentationViewController?.permittedArrowDirections = UIPopoverArrowDirection.Any
         popoverPresentationViewController?.delegate = self
-        popoverPresentationViewController?.barButtonItem            = menuButton
+        popoverPresentationViewController?.sourceView =             menuButton
+        popoverPresentationViewController?.sourceRect =             menuButton.bounds
         presentViewController(popoverVC, animated: true, completion: nil)
         
     }
