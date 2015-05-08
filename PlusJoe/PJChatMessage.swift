@@ -39,7 +39,6 @@ class PJChatMessage: PFObject, PFSubclassing {
         succeeded:(results:[PJChatMessage]) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
-            
             let query = PJChatMessage.query()
             // Interested in locations near user.
             query!.whereKey("conversation", equalTo: conversation)

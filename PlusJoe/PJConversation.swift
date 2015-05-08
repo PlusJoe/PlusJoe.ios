@@ -29,10 +29,8 @@ class PJConversation: PFObject, PFSubclassing {
     class func findOrCreateConversation(
         post: PJPost,
         participant1: String,
-        participant2: String,
-        succeeded:(result:PJConversation) -> (),
-        failed:(error: NSError!) -> ()
-        ) -> () {
+        participant2: String
+        ) -> (PJConversation) {
             
             let query = PJConversation.query()
             // Interested in locations near user.
@@ -40,32 +38,20 @@ class PJConversation: PFObject, PFSubclassing {
             query!.whereKey("participants", containsAllObjectsInArray: [participant1, participant2])
             
             
-            query!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
-                if error == nil {
-                    if objects?.count > 0 {
-                        // return first found object
-                        succeeded(result:(objects as! [PJConversation])[0])
-                    } else {
-                        // otherwise create one
-                        var conversation = PJConversation(className: PJConversation.parseClassName())
-                        conversation.post = post
-                        conversation.participants = [participant1, participant2]
-                        conversation.saveInBackgroundWithBlock {
-                            (success: Bool, error: NSError?) -> Void in
-                            if (success) {
-                                // The object has been saved.
-                                succeeded(result:conversation)
-                            } else {
-                                // There was a problem, check error.description
-                                failed(error: error)
-                            }
-                        }
-                    }
-                } else {
-                    // Log details of the failure
-                    failed(error: error)
-                }
-            })
+            let conversations:[PJConversation]! = query!.findObjects() as! [PJConversation]
+            
+            if conversations?.count > 0 {
+                // return first found object
+                return conversations[0]
+            } else {
+                // otherwise create one
+                var conversation = PJConversation(className: PJConversation.parseClassName())
+                conversation.post = post
+                conversation.participants = [participant1, participant2]
+                conversation.save()
+                return conversation
+            }
     }
+    
     
 }

@@ -19,25 +19,25 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var navBar: UINavigationBar!
     
-    var post:PJPost? 
-
+    var post:PJPost?
+    
     @IBOutlet weak var imagesView: UIView!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var fee: UILabel!
     @IBOutlet weak var postBody: UILabel!
     @IBOutlet weak var chatButton: UIButton!
     
-//    var images = [NSData]()
+    //    var images = [NSData]()
     var imageViewControllers = [ImageViewController]()
     
     var postNumberText = ""
     
     var pageController:UIPageViewController!
-
+    
     @IBAction func backButtonAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -47,10 +47,10 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         if let font = UIFont(name: "FontAwesome", size: 20) {
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
-    
+        
         self.navBar.topItem?.title = postNumberText
-
-
+        
+        
         chatButton.setTitle("chat \u{f086}", forState: UIControlState.Normal)
         
         postBody.text = post?.body
@@ -67,7 +67,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         
         
         
-
+        
         if let imageFile = post?.image1file.getData() {
             addImageToView(UIImage(data: imageFile)!)
         }
@@ -80,8 +80,8 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         if let imageFile = post?.image4file.getData() {
             addImageToView(UIImage(data: imageFile)!)
         }
-
-
+        
+        
         
         
         let mapView = MKMapView()//frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 200))
@@ -100,7 +100,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         
         let mapOptions:MKMapSnapshotOptions  = MKMapSnapshotOptions()
         mapOptions.region = region
-//        mapOptions.scale = self.imagesView.scale
+        //        mapOptions.scale = self.imagesView.scale
         mapOptions.size = CGSize(width: self.imagesView.bounds.width, height: self.imagesView.bounds.height)
         let snapshotter:MKMapSnapshotter  = MKMapSnapshotter(options: mapOptions)
         snapshotter.startWithCompletionHandler { (snapshot:MKMapSnapshot!, error:NSError!) -> Void in
@@ -132,7 +132,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         
         
     }
-
+    
     
     private func addImageToView(image:UIImage) -> () {
         let imageViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("ImageDetailsView") as! ImageViewController
@@ -141,7 +141,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         self.imageViewControllers.append(imageViewController)
     }
     
-
+    
     func viewControllerAtIndex(index:UInt) -> (ImageViewController?) {
         return imageViewControllers[Int(index)]
     }
@@ -169,7 +169,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         }
         return viewControllerAtIndex(index)
     }
-
+    
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
         return imageViewControllers.count
@@ -178,14 +178,14 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
         return 0
     }
-
+    
     
     @IBAction func menuTapped(sender: AnyObject) {
         let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("MenuPostDetails") as! MenuPostDetailsViewController
         popoverVC.modalPresentationStyle = .Popover
         popoverVC.preferredContentSize = CGSizeMake(300, 250)
         popoverVC.post = post
-
+        
         
         let popoverPresentationViewController = popoverVC.popoverPresentationController
         popoverPresentationViewController?.permittedArrowDirections = .Any
@@ -200,5 +200,20 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None
     }
-
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "chatSegue") {
+            
+            let conversation = PJConversation.findOrCreateConversation(post!,
+                participant1: DEVICE_UUID,
+                participant2: self.post!.createdBy)
+            
+            var chatViewController = segue.destinationViewController as! ChatViewController
+            chatViewController.conversation = conversation
+            
+        }
+    }
+    
+    
 }

@@ -20,11 +20,12 @@ class ChatViewController: UIViewController, UITextViewDelegate/*, UITableViewDel
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var tableView: UITableView!
+    
+    // conversation should always be passed from chid controller
+    var conversation:PJConversation?
+    
     var chatMessages:[PJChatMessage] = [PJChatMessage]()
-    
-    // parent post should always be passed from chid controller
-    var post:PFObject?
-    
+
     
 
     @IBAction func backButtonAction(sender: AnyObject) {
@@ -53,6 +54,18 @@ class ChatViewController: UIViewController, UITextViewDelegate/*, UITableViewDel
 
         sendButton.setTitle("\u{f1d8}", forState: .Normal)
         
+        
+        PJChatMessage.loadAllChatMessages(conversation!,
+            succeeded: { (results) -> () in
+                self.chatMessages = results
+        }) { (error) -> () in
+            let alertMessage = UIAlertController(title: nil, message: "Error.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+            alertMessage.addAction(ok)
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+        }                
     }
 
     func textViewDidChange(textView: UITextView) {
