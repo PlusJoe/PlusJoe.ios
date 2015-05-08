@@ -45,6 +45,8 @@ class SearchDetailsViewController : UIViewController {
         if last == true {
             rightLabel.hidden = true
         }
+        
+        detailsButton.setTitle("details   \u{f05a}", forState: .Normal)
     }
     
     override func viewDidAppear(animated: Bool) {

@@ -34,5 +34,32 @@ class PJChatMessage: PFObject, PFSubclassing {
     @NSManaged var participants: [String] // always 2 participants
     @NSManaged var createdBy: String // must match one of the partcipants
 
+
+    
+    class func loadAllChatMessages(
+        post: PJPost,
+        participant1: String,
+        participant2: String,
+        succeeded:(results:[PJChatMessage]) -> (),
+        failed:(error: NSError!) -> ()
+        ) -> () {
+            
+            let queryChat = PJChatMessage.query()
+            // Interested in locations near user.
+            queryChat!.whereKey("post", equalTo: post)
+            queryChat!.whereKey("participants", containsAllObjectsInArray: [participant1, participant2])
+            queryChat!.orderByDescending("createdAt")
+
+            
+            queryChat!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+                if error == nil {
+                    succeeded(results: objects as! [PJChatMessage])
+                } else {
+                    // Log details of the failure
+                    failed(error: error)
+                }
+            })
+    }
+
     
 }

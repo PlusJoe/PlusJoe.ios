@@ -20,7 +20,7 @@ class MenuSearchHomeViewController: UIViewController {
         bookmarks.setTitle("\u{f097}", forState: UIControlState.Normal)
         createNewPost.setTitle("\u{f0fe}", forState: UIControlState.Normal)
         myPosts.setTitle("\u{f0c5}", forState: UIControlState.Normal)
-        
-        
     }
+    
+    
 }

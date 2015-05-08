@@ -51,7 +51,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         self.navBar.topItem?.title = postNumberText
 
 
-        chatButton.setTitle(" 3 new \u{f086}", forState: UIControlState.Normal)
+        chatButton.setTitle("chat \u{f086}", forState: UIControlState.Normal)
         
         postBody.text = post?.body
         price.text = "$\((post?.price)!)"
@@ -184,7 +184,8 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("MenuPostDetails") as! MenuPostDetailsViewController
         popoverVC.modalPresentationStyle = .Popover
         popoverVC.preferredContentSize = CGSizeMake(300, 250)
-        
+        popoverVC.post = post
+
         
         let popoverPresentationViewController = popoverVC.popoverPresentationController
         popoverPresentationViewController?.permittedArrowDirections = .Any
@@ -200,63 +201,4 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         return .None
     }
 
-    
-    
-    
-
-    @IBAction func actionsTapped(sender: AnyObject) {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        alertController.view.tintColor = UIColor(rgb: 0xff8000)
-        
-        let oneAction = UIAlertAction(title: "Flag as Inapropriate", style: .Default) { (_) in
-            let alertMessage = UIAlertController(title: nil, message: "Are you sure?", preferredStyle: UIAlertControllerStyle.Alert)
-            let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in })
-            let ok = UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
-                self.post?.inappropriate = true
-                self.post?.save()
-                self.dismissViewControllerAnimated(true, completion: nil)
-            })
-            alertMessage.addAction(cancel)
-            alertMessage.addAction(ok)
-            self.presentViewController(alertMessage, animated: true, completion: nil)
-        }
-        alertController.addAction(oneAction)
-
-        
-        if post?.sell == true { // this menu should only be available for the sell posts
-            let twoAction = UIAlertAction(title: "Buy it", style: .Default) { (_) in
-                let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
-                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
-                alertMessage.addAction(ok)
-                self.presentViewController(alertMessage, animated: true, completion: nil)
-            }
-            alertController.addAction(twoAction)
-        }
-        
-        let threeAction = UIAlertAction(title: "Share & earn finders fee", style: .Default) { (_) in
-            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
-            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
-            alertMessage.addAction(ok)
-            self.presentViewController(alertMessage, animated: true, completion: nil)
-        }
-        alertController.addAction(threeAction)
-
-        let chatAction = UIAlertAction(title: "Chat", style: .Default) { (_) in
-            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
-            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
-            alertMessage.addAction(ok)
-            self.presentViewController(alertMessage, animated: true, completion: nil)
-        }
-        alertController.addAction(chatAction)
-
-        
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
-        alertController.addAction(cancelAction)
-
-
-        self.presentViewController(alertController, animated: true, completion: nil)
-
-    }
-    
 }

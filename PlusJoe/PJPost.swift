@@ -69,6 +69,7 @@ class PJPost: PFObject, PFSubclassing {
         return newPost
     }
     
+    
     class func search(
         location: PFGeoPoint,
         searchText: String,
@@ -91,51 +92,6 @@ class PJPost: PFObject, PFSubclassing {
             if searchText != "" {
                 queryTag!.whereKey("tag", equalTo: searchText)
             }
-            queryTag!.includeKey("post")
-//            // Limit what could be a lot of points.
-//            queryTag!.limit = 100
-            // Final list of objects
-            //                self.postsNearMe =
-            
-            queryTag!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
-                if error == nil {
-                    // The find succeeded.
-                    // Do something with the found objects
-                    var posts = [PJPost]()
-                    var postsSet:Set<String> = Set<String>()
-                    NSLog("results hash: \(objects!.count)")
-                    for hashTag in objects as! [PJHashTag] {
-                        if !postsSet.contains(hashTag.post.objectId!) {
-                            posts.append(hashTag.post)
-                            postsSet.insert(hashTag.post.objectId!) // is it strictly to avoid duplicates
-                        }
-                    }
-                    NSLog("results post: \(posts.count)")
-                    NSLog("results set : \(postsSet.count)")
-                    
-                    succeeded(results: posts)
-                } else {
-                    // Log details of the failure
-                    failed(error: error)
-                }
-            })
-    }
-
-
-    class func myPosts(
-        succeeded:(results:[PJPost]) -> (),
-        failed:(error: NSError!) -> ()
-        ) -> () {
-            
-            let queryPost = PJPost.query()
-            queryPost!.whereKey("active", equalTo:true)
-            queryPost!.whereKey("archived", equalTo:false)
-            queryPost!.whereKey("inappropriate", notEqualTo:true)
-            queryPost!.whereKey("createdBy", equalTo: DEVICE_UUID)
-            
-            
-            let queryTag = PJHashTag.query()
-            queryTag!.whereKey("post", matchesQuery:queryPost!)
             queryTag!.includeKey("post")
 //            // Limit what could be a lot of points.
 //            queryTag!.limit = 100

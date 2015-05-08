@@ -49,6 +49,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
         backNavButton.title = "\u{f053}"
         menuButton.setTitle("\u{f0c9}", forState: .Normal)
         alertButton.setTitle("\u{f0a2}", forState: .Normal)
+        
         if let font = UIFont(name: "FontAwesome", size: 20) {
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
@@ -217,6 +218,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
         let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("MenuPostDetails") as! MenuPostDetailsViewController
         popoverVC.modalPresentationStyle = .Popover
         popoverVC.preferredContentSize = CGSizeMake(300, 250)
+        popoverVC.post = self.posts[Int(self.currentPost)-1]
         
         
         let popoverPresentationViewController = popoverVC.popoverPresentationController
