@@ -24,6 +24,8 @@ class ChatViewController: UIViewController, UITextViewDelegate/*, UITableViewDel
     
     // parent post should always be passed from chid controller
     var post:PFObject?
+    
+    
 
     @IBAction func backButtonAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)

@@ -24,6 +24,7 @@
 		0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */; };
 		0A60E1C31AC8E854003887C5 /* BaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */; };
 		0A60E1C51AC8ED2B003887C5 /* PJPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C41AC8ED2B003887C5 /* PJPost.swift */; };
+		0A8BF12E1AFC3EDC0058AE38 /* PJConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */; };
 		0AAC2E341AC457C300B60B47 /* CreatePostBuySellStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC2E331AC457C300B60B47 /* CreatePostBuySellStepViewController.swift */; };
 		0AAC2E361AC4580900B60B47 /* CreatePostDescribeStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC2E351AC4580900B60B47 /* CreatePostDescribeStepViewController.swift */; };
 		0AC50CA41AC42AC90087F5D8 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AC50CA31AC42AC90087F5D8 /* fontawesome-webfont.ttf */; };
@@ -80,6 +81,7 @@
 		0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
 		0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataModel.swift; sourceTree = "<group>"; };
 		0A60E1C41AC8ED2B003887C5 /* PJPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJPost.swift; sourceTree = "<group>"; };
+		0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJConversation.swift; sourceTree = "<group>"; };
 		0AAC2E331AC457C300B60B47 /* CreatePostBuySellStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostBuySellStepViewController.swift; sourceTree = "<group>"; };
 		0AAC2E351AC4580900B60B47 /* CreatePostDescribeStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostDescribeStepViewController.swift; sourceTree = "<group>"; };
 		0AC50CA31AC42AC90087F5D8 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fontawesome-webfont.ttf"; path = "PlusJoe/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				0A60E1C41AC8ED2B003887C5 /* PJPost.swift */,
 				0AF02E071AD5B78800792A5E /* PJHashTag.swift */,
 				0A4C7ABF1AF5D67D00C271F2 /* PJAlert.swift */,
+				0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */,
 				0A4C7AC11AF5D93F00C271F2 /* PJChatMessage.swift */,
 			);
 			name = Model;
@@ -417,6 +420,7 @@
 				0AC66FBF1AC5C22C003C818C /* CreatePostReviewAndSubmitStepViewController.swift in Sources */,
 				0A4C495B1AC501C000D164E2 /* SearchHomeViewController.swift in Sources */,
 				0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */,
+				0A8BF12E1AFC3EDC0058AE38 /* PJConversation.swift in Sources */,
 				0A4C7AC81AF9C17700C271F2 /* MenuPostDetailsViewController.swift in Sources */,
 				0AAC2E361AC4580900B60B47 /* CreatePostDescribeStepViewController.swift in Sources */,
 				0A4C7AC01AF5D67D00C271F2 /* PJAlert.swift in Sources */,

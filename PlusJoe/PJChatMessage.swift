@@ -28,30 +28,25 @@ class PJChatMessage: PFObject, PFSubclassing {
         }
     }
 
-    @NSManaged var post: PJPost
-    
+    @NSManaged var conversation: PJConversation
     @NSManaged var body: String // no more then 140 chars
-    @NSManaged var participants: [String] // always 2 participants
-    @NSManaged var createdBy: String // must match one of the partcipants
+    @NSManaged var createdBy: String // must match one of the partcipants in conversation
 
 
     
     class func loadAllChatMessages(
-        post: PJPost,
-        participant1: String,
-        participant2: String,
+        conversation: PJConversation,
         succeeded:(results:[PJChatMessage]) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
             
-            let queryChat = PJChatMessage.query()
+            let query = PJChatMessage.query()
             // Interested in locations near user.
-            queryChat!.whereKey("post", equalTo: post)
-            queryChat!.whereKey("participants", containsAllObjectsInArray: [participant1, participant2])
-            queryChat!.orderByDescending("createdAt")
+            query!.whereKey("conversation", equalTo: conversation)
+            query!.orderByDescending("createdAt")
 
             
-            queryChat!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+            query!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
                     succeeded(results: objects as! [PJChatMessage])
                 } else {
@@ -60,6 +55,5 @@ class PJChatMessage: PFObject, PFSubclassing {
                 }
             })
     }
-
     
 }
