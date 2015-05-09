@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ChatViewController: UIViewController, UITextViewDelegate/*, UITableViewDelegate, UITableViewDataSource*/ {
+class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
     
@@ -47,6 +47,13 @@ class ChatViewController: UIViewController, UITextViewDelegate/*, UITableViewDel
         }
         
         
+        self.tableView.delegate      =   self
+        self.tableView.dataSource    =   self
+        
+        self.tableView.estimatedRowHeight = 100.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+        
         chatMessageBody.becomeFirstResponder()
         chatMessageBody.text = ""
         countLabel.text = "+" + String(140)
@@ -58,9 +65,21 @@ class ChatViewController: UIViewController, UITextViewDelegate/*, UITableViewDel
         sendButton.setTitle("\u{f1d8}", forState: .Normal)
         
         
+    }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.retrieveAllMessages()
+    }
+    
+    func retrieveAllMessages() -> Void {
         PJChatMessage.loadAllChatMessages(conversation!,
             succeeded: { (results) -> () in
                 self.chatMessages = results
+                self.tableView.reloadData()
+                
             }) { (error) -> () in
                 let alertMessage = UIAlertController(title: nil, message: "Error.", preferredStyle: UIAlertControllerStyle.Alert)
                 let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
@@ -70,6 +89,8 @@ class ChatViewController: UIViewController, UITextViewDelegate/*, UITableViewDel
                 self.presentViewController(alertMessage, animated: true, completion: nil)
         }
     }
+    
+    
     
     func textViewDidChange(textView: UITextView) {
         //        NSLog("text changed: \(textView.text)")
@@ -101,23 +122,49 @@ class ChatViewController: UIViewController, UITextViewDelegate/*, UITableViewDel
             alertMessage.addAction(ok)
             presentViewController(alertMessage, animated: true, completion: nil)
         } else {
-                PJChatMessage.createChatMessage(conversation!,
-                    body: chatMessageBody.text,
-                    createdBy: DEVICE_UUID,
-                    success: { (result) -> () in
-                        
-                        
+            PJChatMessage.createChatMessage(conversation!,
+                body: chatMessageBody.text,
+                createdBy: DEVICE_UUID,
+                success: { (result) -> () in
+                    self.chatMessages.insert(result, atIndex: 0)
                 }, failed: { (error) -> () in
                     let alertMessage = UIAlertController(title: "Error", message: "Failed replying. Try again later.", preferredStyle: UIAlertControllerStyle.Alert)
                     let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
                     alertMessage.addAction(ok)
                     self.presentViewController(alertMessage, animated: true, completion: nil)
-                })
+            })
             
             
         }
     }
     
     
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        NSLog("there are \(chatMessages.count) chat messages")
+        return self.chatMessages.count
+    }
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell:ChatTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("chat_cell") as! ChatTableViewCell
+        let chatMessage = chatMessages[indexPath.row]
+        
+        let df = NSDateFormatter()
+        df.dateFormat = "MM-dd-yyyy hh:mm a"
+        cell.postedAt.text = String(format: "%@", df.stringFromDate(chatMessage.createdAt!))
+        
+        NSLog("Rendering ReplyPost")
+        cell.body.text = chatMessage.body
+        
+        if chatMessage.createdBy == DEVICE_UUID {
+            cell.postedAt.text = "I said - \(cell.postedAt.text!)"
+        } else {
+            cell.postedAt.text = "replied to me - \(cell.postedAt.text!)"
+        }
+        
+        
+        return cell
+    }
     
 }
