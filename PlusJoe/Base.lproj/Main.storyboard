@@ -928,7 +928,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vkt-EO-q7e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2698" y="2317"/>
+            <point key="canvasLocation" x="3086" y="1868"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="UzZ-qC-oCa">
@@ -1040,6 +1040,7 @@
                                 </state>
                                 <connections>
                                     <action selector="chat:" destination="4P2-nA-X20" eventType="touchUpInside" id="lXW-gF-EPt"/>
+                                    <segue destination="Pwa-CV-Z39" kind="show" identifier="chatSegue" id="P5r-Tb-Vsu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XA5-Ol-1gB">
@@ -1111,7 +1112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fOU-S2-HCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2698" y="365"/>
+            <point key="canvasLocation" x="3078" y="352"/>
         </scene>
         <!--Search Details View Controller-->
         <scene sceneID="ZFr-oL-UuD">
@@ -1937,5 +1938,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="twF-fP-rG2"/>
+        <segue reference="P5r-Tb-Vsu"/>
     </inferredMetricsTieBreakers>
 </document>

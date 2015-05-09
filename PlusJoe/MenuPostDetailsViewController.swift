@@ -65,10 +65,25 @@ class MenuPostDetailsViewController: UIViewController {
     }
     
     @IBAction func chat(sender: AnyObject) {
-        let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
-        let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
-        alertMessage.addAction(ok)
-        self.presentViewController(alertMessage, animated: true, completion: nil)
+//        let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
+//        let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+//        alertMessage.addAction(ok)
+//        self.presentViewController(alertMessage, animated: true, completion: nil)
     }
+
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "chatSegue") {
+            
+            let conversation = PJConversation.findOrCreateConversation(post!,
+                participant1: DEVICE_UUID,
+                participant2: self.post!.createdBy)
+            
+            var chatViewController = segue.destinationViewController as! ChatViewController
+            chatViewController.conversation = conversation
+            
+        }
+    }
+
     
 }
