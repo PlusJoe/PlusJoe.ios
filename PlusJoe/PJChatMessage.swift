@@ -27,12 +27,12 @@ class PJChatMessage: PFObject, PFSubclassing {
             self.registerSubclass()
         }
     }
-
+    
     @NSManaged var conversation: PJConversation
     @NSManaged var body: String // no more then 140 chars
     @NSManaged var createdBy: String // must match one of the partcipants in conversation
-
-
+    
+    
     
     class func loadAllChatMessages(
         conversation: PJConversation,
@@ -43,7 +43,7 @@ class PJChatMessage: PFObject, PFSubclassing {
             // Interested in locations near user.
             query!.whereKey("conversation", equalTo: conversation)
             query!.orderByDescending("createdAt")
-
+            
             
             query!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
@@ -53,6 +53,33 @@ class PJChatMessage: PFObject, PFSubclassing {
                     failed(error: error)
                 }
             })
+    }
+    
+    
+    class func createChatMessage(
+        conversation:PJConversation,
+        body:String,
+        createdBy:String,
+        success:(result: PJChatMessage) -> (),
+        failed:(error: NSError!) -> ()
+        ) -> () {
+            let chatMessage = PJChatMessage(className: PJChatMessage.parseClassName())
+            chatMessage.conversation = conversation
+            chatMessage.body = body
+            chatMessage.createdBy = createdBy
+            chatMessage.saveInBackgroundWithBlock { (succeeded:Bool, error:NSError?) -> Void in
+                if error == nil {
+                    let alert = PJAlert(className: PJAlert.parseClassName())
+                    alert.chatMessage = chatMessage
+                    alert.read = false
+                    alert.target = (conversation.participants[0] == DEVICE_UUID) ? conversation.participants[1] : conversation.participants[0]
+                    alert.saveEventually({ (succeeded:Bool, error:NSError?) -> Void in })
+                    success(result: chatMessage)
+                } else {
+                    // Log details of the failure
+                    failed(error: error)
+                }
+            }
     }
     
 }

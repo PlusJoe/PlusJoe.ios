@@ -36,7 +36,7 @@ class PJAlert: PFObject, PFSubclassing {
         }
     }
 
-    @NSManaged var post: PJPost
+//    @NSManaged var post: PJPost
     @NSManaged var chatMessage: PJChatMessage
     @NSManaged var target: String
     @NSManaged var read: Bool
