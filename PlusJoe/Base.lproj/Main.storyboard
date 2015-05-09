@@ -233,6 +233,9 @@
                                                         <state key="normal" title="A">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="C54-4h-swo" kind="show" id="3Yw-da-VVc"/>
+                                                        </connections>
                                                     </button>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryh-id-J1i">
                                                         <rect key="frame" x="76" y="-1" width="18" height="17"/>
@@ -300,6 +303,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U6A-vG-Rao" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="376" y="1073"/>
+        </scene>
+        <!--Alerts View Controller-->
+        <scene sceneID="ueN-9k-LLx">
+            <objects>
+                <viewController id="C54-4h-swo" customClass="AlertsViewController" customModule="PlusJoe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xdn-el-q4Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="6lc-yU-KFB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ELu-8t-eG4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rll-FU-Suk">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dUg-Ww-lbi"/>
+                                </constraints>
+                                <color key="barTintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem id="1Hf-JZ-dGX">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="gP3-si-fgy">
+                                            <connections>
+                                                <action selector="backButtonAction:" destination="C54-4h-swo" id="7HE-fF-cA6"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rll-FU-Suk" secondAttribute="trailing" constant="-16" id="YFO-Vc-N10"/>
+                            <constraint firstItem="Rll-FU-Suk" firstAttribute="leading" secondItem="ELu-8t-eG4" secondAttribute="leadingMargin" constant="-16" id="kgp-K0-n44"/>
+                            <constraint firstItem="Rll-FU-Suk" firstAttribute="top" secondItem="Xdn-el-q4Y" secondAttribute="bottom" id="uFR-7x-dce"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backNavButton" destination="gP3-si-fgy" id="v2E-Ns-vH2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FOA-Yx-SaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="376" y="2089"/>
         </scene>
         <!--Menu Search Home View Controller-->
         <scene sceneID="bq1-uf-hFI">
@@ -465,6 +512,9 @@
                                                         <state key="normal" title="A">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="C54-4h-swo" kind="show" id="twF-fP-rG2"/>
+                                                        </connections>
                                                     </button>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wv1-HT-lSU">
                                                         <rect key="frame" x="76" y="-1" width="18" height="17"/>
@@ -622,6 +672,9 @@
                                                         <state key="normal" title="A">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="C54-4h-swo" kind="show" id="lfm-c7-2pO"/>
+                                                        </connections>
                                                     </button>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPr-XJ-uOV">
                                                         <rect key="frame" x="76" y="-1" width="18" height="17"/>
@@ -1882,4 +1935,7 @@
     <resources>
         <image name="photo" width="97" height="88"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="twF-fP-rG2"/>
+    </inferredMetricsTieBreakers>
 </document>

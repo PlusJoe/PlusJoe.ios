@@ -26,6 +26,7 @@
 		0A60E1C51AC8ED2B003887C5 /* PJPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C41AC8ED2B003887C5 /* PJPost.swift */; };
 		0A8BF12E1AFC3EDC0058AE38 /* PJConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */; };
 		0A8BF1311AFD40EA0058AE38 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF1301AFD40EA0058AE38 /* ChatTableViewCell.swift */; };
+		0A8BF1331AFDB4E10058AE38 /* AlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF1321AFDB4E10058AE38 /* AlertsViewController.swift */; };
 		0AAC2E341AC457C300B60B47 /* CreatePostBuySellStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC2E331AC457C300B60B47 /* CreatePostBuySellStepViewController.swift */; };
 		0AAC2E361AC4580900B60B47 /* CreatePostDescribeStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC2E351AC4580900B60B47 /* CreatePostDescribeStepViewController.swift */; };
 		0AC50CA41AC42AC90087F5D8 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AC50CA31AC42AC90087F5D8 /* fontawesome-webfont.ttf */; };
@@ -84,6 +85,7 @@
 		0A60E1C41AC8ED2B003887C5 /* PJPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJPost.swift; sourceTree = "<group>"; };
 		0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJConversation.swift; sourceTree = "<group>"; };
 		0A8BF1301AFD40EA0058AE38 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		0A8BF1321AFDB4E10058AE38 /* AlertsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsViewController.swift; sourceTree = "<group>"; };
 		0AAC2E331AC457C300B60B47 /* CreatePostBuySellStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostBuySellStepViewController.swift; sourceTree = "<group>"; };
 		0AAC2E351AC4580900B60B47 /* CreatePostDescribeStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostDescribeStepViewController.swift; sourceTree = "<group>"; };
 		0AC50CA31AC42AC90087F5D8 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fontawesome-webfont.ttf"; path = "PlusJoe/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				0A60E1C11AC8E7CF003887C5 /* CreatePost */,
 				0AF02E061AD446D800792A5E /* SearchPost */,
 				0A8BF12F1AFD40B70058AE38 /* Chat */,
+				0A8BF1321AFDB4E10058AE38 /* AlertsViewController.swift */,
 				0AEAFBD21AC0E2F900800121 /* Main.storyboard */,
 				0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */,
 				0AEAFBD51AC0E2F900800121 /* Images.xcassets */,
@@ -435,6 +438,7 @@
 				0A8BF12E1AFC3EDC0058AE38 /* PJConversation.swift in Sources */,
 				0A4C7AC81AF9C17700C271F2 /* MenuPostDetailsViewController.swift in Sources */,
 				0AAC2E361AC4580900B60B47 /* CreatePostDescribeStepViewController.swift in Sources */,
+				0A8BF1331AFDB4E10058AE38 /* AlertsViewController.swift in Sources */,
 				0A4C7AC01AF5D67D00C271F2 /* PJAlert.swift in Sources */,
 				0AEC37101AE4A677005F99A7 /* ImageViewController.swift in Sources */,
 				0A1A318B1AF406F100853A30 /* CreatePostFindersFeeStepViewController.swift in Sources */,
