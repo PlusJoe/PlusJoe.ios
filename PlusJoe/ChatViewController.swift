@@ -9,6 +9,7 @@
 import Foundation
 
 class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
+    var timer:NSTimer?
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
     
@@ -63,16 +64,47 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         
         
         sendButton.setTitle("\u{f1d8}", forState: .Normal)
-        
-        
+
     }
     
+
+    func retrieveNewMessages() -> Void {
+        PJChatMessage.loadNewChatMessages(
+            chatMessages.count == 0 ? conversation!.createdAt! : chatMessages[0].createdAt!,
+            conversation: conversation!,
+            succeeded: { (results) -> () in
+                if results.count > 0 {
+                    for var index = results.count-1; index >= 0; --index {
+                        self.chatMessages.insert(results[index], atIndex: 0)
+                    }
+                    self.tableView.reloadData()
+                    self.tableView.reloadInputViews()
+                }
+            }) { (error) -> () in
+                let alertMessage = UIAlertController(title: nil, message: "Error.", preferredStyle: UIAlertControllerStyle.Alert)
+                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                })
+                alertMessage.addAction(ok)
+                self.presentViewController(alertMessage, animated: true, completion: nil)
+        }
+    }
+
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         self.retrieveAllMessages()
+
+        timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("retrieveNewMessages"), userInfo: nil, repeats: true)
+
     }
+
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        timer?.invalidate()
+    }
+
     
     func retrieveAllMessages() -> Void {
         PJChatMessage.loadAllChatMessages(conversation!,
@@ -126,7 +158,8 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
                 body: chatMessageBody.text,
                 createdBy: DEVICE_UUID,
                 success: { (result) -> () in
-                    self.chatMessages.insert(result, atIndex: 0)
+//                    self.chatMessages.insert(result, atIndex: 0)
+                    self.chatMessageBody.text = ""
                 }, failed: { (error) -> () in
                     let alertMessage = UIAlertController(title: "Error", message: "Failed replying. Try again later.", preferredStyle: UIAlertControllerStyle.Alert)
                     let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})

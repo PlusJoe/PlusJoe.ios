@@ -55,6 +55,28 @@ class PJChatMessage: PFObject, PFSubclassing {
             })
     }
     
+    class func loadNewChatMessages(
+        since: NSDate,
+        conversation: PJConversation,
+        succeeded:(results:[PJChatMessage]) -> (),
+        failed:(error: NSError!) -> ()
+        ) -> () {
+            let query = PJChatMessage.query()
+            // Interested in locations near user.
+            query!.whereKey("conversation", equalTo: conversation)
+            query!.whereKey("createdAt", greaterThan: since)
+            query!.orderByDescending("createdAt")
+            
+            
+            query!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+                if error == nil {
+                    succeeded(results: objects as! [PJChatMessage])
+                } else {
+                    // Log details of the failure
+                    failed(error: error)
+                }
+            })
+    }
     
     class func createChatMessage(
         conversation:PJConversation,
