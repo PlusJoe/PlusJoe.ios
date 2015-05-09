@@ -38,6 +38,22 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        PJAlert.loadUnreadAlerts({ (alerts) -> () in
+            if alerts.count == 0 {
+                self.alertsCountLabel.hidden = true
+            } else {
+                self.alertsCountLabel.text = String(alerts.count)
+                self.alertsCountLabel.hidden = false
+            }
+            }, failed: { (error) -> () in
+                self.alertsCountLabel.hidden = true
+        })
+        
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
