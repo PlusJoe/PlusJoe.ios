@@ -73,7 +73,7 @@ class PJChatMessage: PFObject, PFSubclassing {
                     alert.chatMessage = chatMessage
                     alert.read = false
                     alert.target = (conversation.participants[0] == DEVICE_UUID) ? conversation.participants[1] : conversation.participants[0]
-                    alert.saveEventually({ (succeeded:Bool, error:NSError?) -> Void in })
+                    alert.saveInBackgroundWithBlock({ (succeeded:Bool, error:NSError?) -> Void in })
                     success(result: chatMessage)
                 } else {
                     // Log details of the failure
