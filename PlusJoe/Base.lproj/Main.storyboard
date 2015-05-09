@@ -330,7 +330,7 @@
                                     <constraint firstAttribute="height" constant="38" id="EXl-km-Ouw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
-                                <state key="normal" title="P">
+                                <state key="normal" title="A">
                                     <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -369,10 +369,10 @@
                                 <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Posts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75E-CC-DPR">
-                                <rect key="frame" x="479" y="128" width="72" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Activity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75E-CC-DPR">
+                                <rect key="frame" x="466" y="128" width="85" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="72" id="A6j-zz-w0q"/>
+                                    <constraint firstAttribute="width" constant="85" id="A6j-zz-w0q"/>
                                     <constraint firstAttribute="height" constant="21" id="Wsa-mC-TQs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -402,7 +402,7 @@
                     <connections>
                         <outlet property="bookmarks" destination="aC3-l6-KNE" id="Aj7-Bz-gmp"/>
                         <outlet property="createNewPost" destination="T6Z-Zd-DVd" id="Ykz-th-Kh1"/>
-                        <outlet property="myPosts" destination="2iY-Fc-ll8" id="CQU-Q9-5kt"/>
+                        <outlet property="myActivity" destination="2iY-Fc-ll8" id="Why-R0-FyH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wd4-u4-geW" userLabel="First Responder" sceneMemberID="firstResponder"/>
