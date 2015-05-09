@@ -43,10 +43,21 @@ class PJChatMessage: PFObject, PFSubclassing {
             // Interested in locations near user.
             query!.whereKey("conversation", equalTo: conversation)
             query!.orderByDescending("createdAt")
-            
-            
             query!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
+                    //make all alerts read
+                    for chatMessage in objects as! [PJChatMessage] {
+                        let alertsQuery = PJAlert.query()
+                        alertsQuery!.whereKey("chatMessage", equalTo: chatMessage)
+                        alertsQuery!.whereKey("target", equalTo: DEVICE_UUID)
+                        alertsQuery!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+                            for alert in objects as! [PJAlert] {
+                                alert.read = true
+                                alert.saveInBackgroundWithBlock({ (succeeds: Bool, error:NSError?) -> Void in})
+                            }
+                        })
+                    }
+                    
                     succeeded(results: objects as! [PJChatMessage])
                 } else {
                     // Log details of the failure

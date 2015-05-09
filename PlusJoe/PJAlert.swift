@@ -35,10 +35,27 @@ class PJAlert: PFObject, PFSubclassing {
             self.registerSubclass()
         }
     }
-
-//    @NSManaged var post: PJPost
+    
+    //    @NSManaged var post: PJPost
     @NSManaged var chatMessage: PJChatMessage
     @NSManaged var target: String
     @NSManaged var read: Bool
-
+    
+    
+    class func loadUnreadAlerts(
+        succeeded:(alerts:[PJAlert]) -> (),
+        failed:(error: NSError!) -> ()
+        ) -> () {
+            let alertsQuery = PJAlert.query()
+            alertsQuery!.whereKey("read", equalTo: false)
+            alertsQuery!.whereKey("target", equalTo: DEVICE_UUID)
+            alertsQuery!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+                if error == nil {
+                    succeeded(alerts: objects as! [PJAlert])
+                } else {
+                    // Log details of the failure
+                    failed(error: error)
+                }
+            })
+    }
 }
