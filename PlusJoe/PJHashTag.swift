@@ -9,22 +9,12 @@
 import Foundation
 import Parse
 
-class PJHashTag: PFObject, PFSubclassing {
-    override class func initialize() {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0;
-        }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
-        }
-    }
+let PJHASHTAG:PJHashTag = PJHashTag()
+class PJHashTag: BaseDataModel {
+    let CLASS_NAME = "HashTags"
     
-    static func parseClassName() -> String {
-        return "HashTags"
-    }
-    
-    @NSManaged var post: PJPost
-    @NSManaged var tag: String
+    let post = "post"
+    let tag = "tag" //: String
 
     
     class func autoComplete(

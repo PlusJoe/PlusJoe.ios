@@ -17,23 +17,13 @@
 import Foundation
 import Parse
 
-class PJChatMessage: PFObject, PFSubclassing {
-    override class func initialize() {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0;
-        }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
-        }
-    }
+let PJCHATMESSAGE:PJChatMessage = PJChatMessage()
+class PJChatMessage: BaseDataModel {
+    let CLASS_NAME = "ChatMessages"
     
-    static func parseClassName() -> String {
-        return "ChatMessages"
-    }
-    
-    @NSManaged var conversation: PJConversation
-    @NSManaged var body: String // no more then 140 chars
-    @NSManaged var createdBy: String // must match one of the partcipants in conversation
+    let conversation = "conversation" //: PJConversation
+    let body = "body" //: String // no more then 140 chars
+    let createdBy = "createdBy" //: String // must match one of the partcipants in conversation
     
     
     

@@ -10,64 +10,53 @@ import Foundation
 import Parse
 
 
-class PJPost: PFObject, PFSubclassing {
-    override class func initialize() {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0;
-        }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
-        }
-    }
-    
-    static func parseClassName() -> String {
-        return "Posts"
-    }
+let PJPOST:PJPost = PJPost()
+
+class PJPost: BaseDataModel {
+    let CLASS_NAME = "Posts"
     
     
-    @NSManaged var createdBy: String //uuid
-    @NSManaged var sell: Bool // if it's false, it's not a sell, it's a buy
-    @NSManaged var thing: Bool // if it's false, it's not a thing, it's a service
-    @NSManaged var body: String
-    //    @NSManaged var words: [String]!
-    //    @NSManaged var hashtags: [PJHashTag]!
-    @NSManaged var price: Int
-    @NSManaged var fee: Int
-    @NSManaged var location: PFGeoPoint
-    @NSManaged var active: Bool
-    @NSManaged var archived: Bool
-    @NSManaged var inappropriate: Bool
+    let createdBy = "createdBy" //uuid
+    let sell = "sell" //: Bool // if it's false, it's not a sell, it's a buy
+    let thing = "thing" //: Bool // if it's false, it's not a thing, it's a service
+    let body =  "body" //: String
+    let price =  "price" //: Int
+    let fee = "fee" //: Int
+    let location = "location" //: PFGeoPoint
+    let active = "active" //: Bool
+    let archived = "archived" //: Bool
+    let inappropriate = "inappropriate" //: Bool
     
-    @NSManaged var image1file: PFFile
-    @NSManaged var image2file: PFFile
-    @NSManaged var image3file: PFFile
-    @NSManaged var image4file: PFFile
+    let image1file = "image1file" //: PFFile
+    let image2file = "image2file" //: PFFile
+    let image3file = "image3file" //: PFFile
+    let image4file = "image4file" //: PFFile
     
     
     
-    class func getUnfinishedPost() -> (PJPost?) {
-        let query = PJPost.query()
+    class func getUnfinishedPost() -> (PFObject?) {
+        let query = PFQuery(className:PJPOST.CLASS_NAME)
         // Interested in locations near user.
-        query!.whereKey("active", equalTo: false)
-        query!.whereKey("archived", equalTo: false)
-        query!.whereKey("createdBy", equalTo: DEVICE_UUID)
-        return query!.getFirstObject() as? PJPost
+        query.whereKey(PJPOST.active, equalTo: false)
+        query.whereKey(PJPOST.archived, equalTo: false)
+        query.whereKey(PJPOST.createdBy, equalTo: DEVICE_UUID)
+        return query.getFirstObject()
     }
     
-    class func createUnfinishedPost() -> (PJPost) {
-        let newPost = PJPost(className: PJPost.parseClassName())
-        newPost.location = CURRENT_LOCATION!
-        newPost.createdBy = DEVICE_UUID
-        newPost.sell = true
-        newPost.thing = true
-        newPost.active = false
-        newPost.archived = false
-        newPost.body = ""
-        newPost.fee = 0
-        newPost.image1file = PFFile(name:"blank.png", data:NSData())
-        newPost.image2file = PFFile(name:"blank.png", data:NSData())
-        newPost.image3file = PFFile(name:"blank.png", data:NSData())
-        newPost.image4file = PFFile(name:"blank.png", data:NSData())
+    class func createUnfinishedPost() -> (PFObject) {
+        let newPost = PFObject(className: PJPOST.CLASS_NAME)
+        newPost[PJPOST.location] = CURRENT_LOCATION!
+        newPost[PJPOST.createdBy] = DEVICE_UUID
+        newPost[PJPOST.sell] = true
+        newPost[PJPOST.thing] = true
+        newPost[PJPOST.active] = false
+        newPost[PJPOST.archived] = false
+        newPost[PJPOST.body] = ""
+        newPost[PJPOST.fee] = 0
+        newPost[PJPOST.image1file] = PFFile(name:"blank.png", data:NSData())
+        newPost[PJPOST.image2file] = PFFile(name:"blank.png", data:NSData())
+        newPost[PJPOST.image3file] = PFFile(name:"blank.png", data:NSData())
+        newPost[PJPOST.image4file] = PFFile(name:"blank.png", data:NSData())
         newPost.save()
         return newPost
     }
@@ -76,40 +65,40 @@ class PJPost: PFObject, PFSubclassing {
     class func search(
         location: PFGeoPoint,
         searchText: String,
-        succeeded:(results:[PJPost]) -> (),
+        succeeded:(results:[PFObject]) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
-            
-            let queryPost = PJPost.query()
+
+            let queryPost = PFQuery(className:PJPOST.CLASS_NAME)
             // Interested in locations near user.
-            queryPost!.whereKey("location", nearGeoPoint:location)
-            queryPost!.whereKey("active", equalTo:true)
-            queryPost!.whereKey("archived", equalTo:false)
-            queryPost!.whereKey("inappropriate", notEqualTo:true)
-            queryPost!.whereKey("createdBy", notEqualTo: DEVICE_UUID)  
+            queryPost.whereKey(PJPOST.location, nearGeoPoint:location)
+            queryPost.whereKey(PJPOST.active, equalTo:true)
+            queryPost.whereKey(PJPOST.archived, equalTo:false)
+            queryPost.whereKey(PJPOST.inappropriate, notEqualTo:true)
+            queryPost.whereKey(PJPOST.createdBy, notEqualTo: DEVICE_UUID)
             NSLog("Searching for string \(searchText)")
             
             
-            let queryTag = PJHashTag.query()
-            queryTag!.whereKey("post", matchesQuery:queryPost!)
+            let queryTag =  PFQuery(className:PJHASHTAG.CLASS_NAME)
+            queryTag.whereKey(PJHASHTAG.post, matchesQuery:queryPost)
             if searchText != "" {
-                queryTag!.whereKey("tag", equalTo: searchText)
+                queryTag.whereKey(PJHASHTAG.tag, equalTo: searchText)
             }
-            queryTag!.includeKey("post")
+            queryTag.includeKey(PJHASHTAG.post)
 //            // Limit what could be a lot of points.
 //            queryTag!.limit = 100
             // Final list of objects
             //                self.postsNearMe =
             
-            queryTag!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+            queryTag.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
                     // The find succeeded.
                     // Do something with the found objects
-                    var posts = [PJPost]()
+                    var posts = [PFObject]()
                     var postsSet:Set<String> = Set<String>()
                     NSLog("results hash: \(objects!.count)")
-                    for hashTag in objects as! [PJHashTag] {
-                        if !postsSet.contains(hashTag.post.objectId!) {
+                    for hashTag in objects as! [PFObject] {
+                        if !postsSet.contains(hashTag[PJHASHTAG.post].objectId) {
                             posts.append(hashTag.post)
                             postsSet.insert(hashTag.post.objectId!) // is it strictly to avoid duplicates
                         }

@@ -25,24 +25,13 @@
 import Foundation
 import Parse
 
-class PJAlert: PFObject, PFSubclassing {
-    override class func initialize() {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0;
-        }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
-        }
-    }
+let PJALERT:PJAlert = PJAlert()
+class PJAlert: BaseDataModel {
+    let CLASS_NAME = "Alerts"
     
-    static func parseClassName() -> String {
-        return "Alerts"
-    }
-    
-    //    @NSManaged var post: PJPost
-    @NSManaged var chatMessage: PJChatMessage
-    @NSManaged var target: String
-    @NSManaged var read: Bool
+    let chatMessage = "chatMessage" //: PJChatMessage
+    let target = "target" //: String
+    let read = "read" //: Bool
     
     
     class func loadUnreadAlerts(

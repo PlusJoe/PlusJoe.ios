@@ -9,22 +9,12 @@
 import Foundation
 import Parse
 
-class PJConversation: PFObject, PFSubclassing {
-    override class func initialize() {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0;
-        }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
-        }
-    }
+let PJCONVERSATION:PJConversation = PJConversation()
+class PJConversation: BaseDataModel {
+    let CLASS_NAME = "Conversations"
     
-    static func parseClassName() -> String {
-        return "Conversations"
-    }
-    
-    @NSManaged var post: PJPost
-    @NSManaged var participants: [String] // always 2 participants
+    let post = "post" //: PJPost
+    let participants = "participants" //: [String] // always 2 participants
     
     
     
