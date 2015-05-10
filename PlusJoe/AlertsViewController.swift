@@ -71,7 +71,8 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         df.dateFormat = "MM-dd-yyyy hh:mm a"
         cell.postedAt.text = String(format: "%@", df.stringFromDate(alert.createdAt!))
         
-        cell.body.text = alert.chatMessage.body
+        
+        cell.body.text = alert.chatMessage["body"]! as? String //yakes, the nested properties do not work in Parse
         
         cell.postedAt.text = "\(cell.postedAt.text!)"
         
