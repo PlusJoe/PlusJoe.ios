@@ -80,4 +80,26 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
 
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        //        NSLog("prepareForSegue \(segue.identifier!)")
+        if segue.identifier == "show_post" {
+            let postDetailsViewController:PostDetailsViewController = segue.destinationViewController as! PostDetailsViewController
+
+            let indexPath = self.tableView.indexPathForSelectedRow()!
+            NSLog("indexpath row1: \(indexPath.row)")
+            var alert:PJAlert = self.alerts[indexPath.row]
+            
+            var chatMessage:PJChatMessage = (alert.chatMessage) as PJChatMessage
+
+            var conversation:PJConversation = (chatMessage.conversation) as PJConversation
+            conversation.fetch()
+            var post: PJPost = conversation["post"] as! PJPost
+            post.fetch()
+            
+            postDetailsViewController.conversation = conversation
+            postDetailsViewController.post = post
+        }
+    }
 }

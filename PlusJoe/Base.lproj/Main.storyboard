@@ -371,6 +371,7 @@
                                         <connections>
                                             <outlet property="body" destination="R5S-VR-kyd" id="vH3-U1-DG4"/>
                                             <outlet property="postedAt" destination="Ogo-pZ-H3l" id="QId-uK-NXG"/>
+                                            <segue destination="vqn-qR-0zV" kind="show" identifier="show_post" id="fjX-3f-ZFG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -394,7 +395,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FOA-Yx-SaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="376" y="2089"/>
+            <point key="canvasLocation" x="1896" y="1937"/>
         </scene>
         <!--Menu Search Home View Controller-->
         <scene sceneID="bq1-uf-hFI">
@@ -1985,7 +1986,8 @@
         <image name="photo" width="97" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="twF-fP-rG2"/>
+        <segue reference="fjX-3f-ZFG"/>
+        <segue reference="lfm-c7-2pO"/>
         <segue reference="P5r-Tb-Vsu"/>
     </inferredMetricsTieBreakers>
 </document>

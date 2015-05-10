@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 //let FLURRY_API_KEY = ""
 //let PARSE_APP_ID = ""

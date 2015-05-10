@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Parse
 
 class CreatePostPhotosStepViewController:
     UIViewController,

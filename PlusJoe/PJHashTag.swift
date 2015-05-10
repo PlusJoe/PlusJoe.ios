@@ -7,17 +7,20 @@
 //
 
 import Foundation
+import Parse
 
 class PJHashTag: PFObject, PFSubclassing {
-    static func parseClassName() -> String {
-        return "HashTags"
-    }
-    
     override class func initialize() {
-        var onceToken : dispatch_once_t = 0;
-        dispatch_once(&onceToken) {
+        struct Static {
+            static var onceToken : dispatch_once_t = 0;
+        }
+        dispatch_once(&Static.onceToken) {
             self.registerSubclass()
         }
+    }
+    
+    static func parseClassName() -> String {
+        return "HashTags"
     }
     
     @NSManaged var post: PJPost
