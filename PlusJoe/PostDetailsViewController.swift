@@ -20,6 +20,8 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     @IBOutlet weak var navBar: UINavigationBar!
     
     var post:PJPost?
+    // if conversation is passed from child controller, then use it for initiating the chat
+    var conversation:PJConversation?
     
     @IBOutlet weak var imagesView: UIView!
     @IBOutlet weak var price: UILabel!
@@ -40,11 +42,11 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        PJAlert.loadUnreadAlerts({ (alerts) -> () in
-            if alerts.count == 0 {
+        PJAlert.loadUnreadAlertsCount({ (alertsCount) -> () in
+            if alertsCount == 0 {
                 self.alertsCountLabel.hidden = true
             } else {
-                self.alertsCountLabel.text = String(alerts.count)
+                self.alertsCountLabel.text = String(alertsCount)
                 self.alertsCountLabel.hidden = false
             }
             }, failed: { (error) -> () in
@@ -220,14 +222,17 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "chatSegue") {
-            
+
+            var chatViewController = segue.destinationViewController as! ChatViewController
+
+            if self.conversation == nil {
             let conversation = PJConversation.findOrCreateConversation(post!,
                 participant1: DEVICE_UUID,
                 participant2: self.post!.createdBy)
-            
-            var chatViewController = segue.destinationViewController as! ChatViewController
-            chatViewController.conversation = conversation
-            
+                chatViewController.conversation = conversation
+            } else {
+                chatViewController.conversation = self.conversation
+            }
         }
     }
     

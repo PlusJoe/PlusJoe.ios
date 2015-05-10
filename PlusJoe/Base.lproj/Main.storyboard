@@ -323,7 +323,7 @@
                                 </constraints>
                                 <color key="barTintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem id="1Hf-JZ-dGX">
+                                    <navigationItem title="New Alerts" id="1Hf-JZ-dGX">
                                         <barButtonItem key="leftBarButtonItem" title="&lt;" id="gP3-si-fgy">
                                             <connections>
                                                 <action selector="backButtonAction:" destination="C54-4h-swo" id="7HE-fF-cA6"/>
@@ -332,16 +332,64 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="H6p-r6-yrg">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alert_cell" rowHeight="137" id="Ev5-Gm-U11" customClass="AlertTableViewCell" customModule="PlusJoe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ev5-Gm-U11" id="c9N-gO-ycW">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogo-pZ-H3l">
+                                                    <rect key="frame" x="8" y="8" width="584" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="AQN-6T-vmK"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5S-VR-kyd">
+                                                    <rect key="frame" x="8" y="37" width="584" height="92"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
+                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="R5S-VR-kyd" firstAttribute="top" secondItem="Ogo-pZ-H3l" secondAttribute="bottom" constant="8" id="L8p-GL-8to"/>
+                                                <constraint firstItem="R5S-VR-kyd" firstAttribute="trailing" secondItem="c9N-gO-ycW" secondAttribute="trailingMargin" id="aFc-sy-s0J"/>
+                                                <constraint firstItem="Ogo-pZ-H3l" firstAttribute="trailing" secondItem="c9N-gO-ycW" secondAttribute="trailingMargin" id="bU9-h4-fv4"/>
+                                                <constraint firstItem="Ogo-pZ-H3l" firstAttribute="top" secondItem="c9N-gO-ycW" secondAttribute="topMargin" id="c3L-Uf-qjn"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="R5S-VR-kyd" secondAttribute="bottom" constant="-0.5" id="dcn-s8-tLP"/>
+                                                <constraint firstItem="Ogo-pZ-H3l" firstAttribute="leading" secondItem="c9N-gO-ycW" secondAttribute="leadingMargin" id="gBQ-Ar-aJC"/>
+                                                <constraint firstItem="R5S-VR-kyd" firstAttribute="leading" secondItem="c9N-gO-ycW" secondAttribute="leadingMargin" id="iSf-JM-pjg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="body" destination="R5S-VR-kyd" id="vH3-U1-DG4"/>
+                                            <outlet property="postedAt" destination="Ogo-pZ-H3l" id="QId-uK-NXG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6lc-yU-KFB" firstAttribute="top" secondItem="H6p-r6-yrg" secondAttribute="bottom" id="4rE-lz-BTA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="H6p-r6-yrg" secondAttribute="trailing" constant="-16" id="Ila-4m-Znr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rll-FU-Suk" secondAttribute="trailing" constant="-16" id="YFO-Vc-N10"/>
+                            <constraint firstItem="H6p-r6-yrg" firstAttribute="leading" secondItem="ELu-8t-eG4" secondAttribute="leadingMargin" constant="-16" id="ie2-Ir-f2J"/>
                             <constraint firstItem="Rll-FU-Suk" firstAttribute="leading" secondItem="ELu-8t-eG4" secondAttribute="leadingMargin" constant="-16" id="kgp-K0-n44"/>
                             <constraint firstItem="Rll-FU-Suk" firstAttribute="top" secondItem="Xdn-el-q4Y" secondAttribute="bottom" id="uFR-7x-dce"/>
+                            <constraint firstItem="H6p-r6-yrg" firstAttribute="top" secondItem="Rll-FU-Suk" secondAttribute="bottom" id="znr-cZ-bJK"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backNavButton" destination="gP3-si-fgy" id="v2E-Ns-vH2"/>
+                        <outlet property="tableView" destination="H6p-r6-yrg" id="RIW-lR-wTT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FOA-Yx-SaU" userLabel="First Responder" sceneMemberID="firstResponder"/>

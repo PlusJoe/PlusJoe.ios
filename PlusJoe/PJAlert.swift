@@ -49,6 +49,8 @@ class PJAlert: PFObject, PFSubclassing {
             let alertsQuery = PJAlert.query()
             alertsQuery!.whereKey("read", equalTo: false)
             alertsQuery!.whereKey("target", equalTo: DEVICE_UUID)
+            alertsQuery!.includeKey("chatMessage")
+
             alertsQuery!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
                     succeeded(alerts: objects as! [PJAlert])
@@ -58,4 +60,22 @@ class PJAlert: PFObject, PFSubclassing {
                 }
             })
     }
+    
+    class func loadUnreadAlertsCount(
+        succeeded:(alertsCount:Int) -> (),
+        failed:(error: NSError!) -> ()
+        ) -> () {
+            let alertsQuery = PJAlert.query()
+            alertsQuery!.whereKey("read", equalTo: false)
+            alertsQuery!.whereKey("target", equalTo: DEVICE_UUID)
+            alertsQuery!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+                if error == nil {
+                    succeeded(alertsCount: objects!.count)
+                } else {
+                    // Log details of the failure
+                    failed(error: error)
+                }
+            })
+    }
+
 }

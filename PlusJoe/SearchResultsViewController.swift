@@ -44,11 +44,11 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        PJAlert.loadUnreadAlerts({ (alerts) -> () in
-            if alerts.count == 0 {
+        PJAlert.loadUnreadAlertsCount({ (alertsCount) -> () in
+            if alertsCount == 0 {
                 self.alertsCountLabel.hidden = true
             } else {
-                self.alertsCountLabel.text = String(alerts.count)
+                self.alertsCountLabel.text = String(alertsCount)
                 self.alertsCountLabel.hidden = false
             }
             }, failed: { (error) -> () in

@@ -11,6 +11,8 @@ import Foundation
 class MenuPostDetailsViewController: UIViewController {
     
     var post:PJPost?
+    // if conversation is passed from child controller, then use it for initiating the chat
+    var conversation:PJConversation?
 
     
     @IBOutlet weak var flagInapproproate: UIButton!
@@ -75,13 +77,16 @@ class MenuPostDetailsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "chatSegue") {
             
-            let conversation = PJConversation.findOrCreateConversation(post!,
-                participant1: DEVICE_UUID,
-                participant2: self.post!.createdBy)
-            
             var chatViewController = segue.destinationViewController as! ChatViewController
-            chatViewController.conversation = conversation
             
+            if self.conversation == nil {
+                let conversation = PJConversation.findOrCreateConversation(post!,
+                    participant1: DEVICE_UUID,
+                    participant2: self.post!.createdBy)
+                chatViewController.conversation = conversation
+            } else {
+                chatViewController.conversation = self.conversation
+            }
         }
     }
 
