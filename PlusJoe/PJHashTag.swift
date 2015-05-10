@@ -23,24 +23,24 @@ class PJHashTag: BaseDataModel {
         succeeded:(results:[String]) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
-            let queryPost = PJPost.query()
+            let queryPost = PFQuery(className:PJPOST.CLASS_NAME)
             // Interested in locations near user.
-            queryPost!.whereKey("location", nearGeoPoint:location)
-            queryPost!.whereKey("active", equalTo:true)
-            queryPost!.whereKey("archived", equalTo:false)
-            //            query!.whereKey("createdBy", notEqualTo: DEVICE_UUID)  //TODO: uncomment
+            queryPost.whereKey(PJPOST.location, nearGeoPoint:location)
+            queryPost.whereKey(PJPOST.active, equalTo:true)
+            queryPost.whereKey(PJPOST.archived, equalTo:false)
+            //            query.whereKey(PJPOST.createdBy, notEqualTo: DEVICE_UUID)  //TODO: uncomment
             NSLog("Searching for string \(searchText)")
 
             
-            let queryTag = PJHashTag.query()
-            queryTag!.whereKey("post", matchesQuery:queryPost!)
-            queryTag!.whereKey("tag", hasPrefix: searchText)
+            let queryTag = PFQuery(className:PJHASHTAG.CLASS_NAME)
+            queryTag.whereKey(PJHASHTAG.post, matchesQuery:queryPost)
+            queryTag.whereKey(PJHASHTAG.tag, hasPrefix: searchText)
             // Limit what could be a lot of points.
-            queryTag!.limit = 100
+            queryTag.limit = 100
             // Final list of objects
             //                self.postsNearMe =
             
-            queryTag!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+            queryTag.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
                     // The find succeeded.
                     // Do something with the found objects
@@ -63,8 +63,6 @@ class PJHashTag: BaseDataModel {
                     failed(error: error)
                 }
             })
-            
     }
 
-    
 }

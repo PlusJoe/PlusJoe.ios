@@ -23,24 +23,24 @@ class PJConversation: BaseDataModel {
         post: PJPost,
         participant1: String,
         participant2: String
-        ) -> (PJConversation) {
+        ) -> (PFObject) {
             
-            let query = PJConversation.query()
+            let query = PFQuery(className:PJCONVERSATION.CLASS_NAME)
             // Interested in locations near user.
-            query!.whereKey("post", equalTo: post)
-            query!.whereKey("participants", containsAllObjectsInArray: [participant1, participant2])
+            query.whereKey(PJCONVERSATION.post, equalTo: post)
+            query.whereKey(PJCONVERSATION.participants, containsAllObjectsInArray: [participant1, participant2])
             
             
-            let conversations:[PJConversation]! = query!.findObjects() as! [PJConversation]
+            let conversations:[PFObject]? = query.findObjects() as! [PFObject]?
             
-            if conversations?.count > 0 {
+            if conversations!.count > 0 {
                 // return first found object
-                return conversations[0]
+                return conversations![0]
             } else {
                 // otherwise create one
-                var conversation = PJConversation(className: PJConversation.parseClassName())
-                conversation.post = post
-                conversation.participants = [participant1, participant2]
+                var conversation = PFObject(className: PJCONVERSATION.CLASS_NAME)
+                conversation[PJCONVERSATION.post] = post
+                conversation[PJCONVERSATION.participants] = [participant1, participant2]
                 conversation.save()
                 return conversation
             }
