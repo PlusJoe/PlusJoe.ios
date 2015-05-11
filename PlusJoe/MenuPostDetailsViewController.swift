@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import Parse
 
 class MenuPostDetailsViewController: UIViewController {
     
-    var post:PJPost?
+    var post:PFObject?
     // if conversation is passed from child controller, then use it for initiating the chat
-    var conversation:PJConversation?
+    var conversation:PFObject?
 
     
     @IBOutlet weak var flagInapproproate: UIButton!
@@ -43,7 +44,7 @@ class MenuPostDetailsViewController: UIViewController {
         let alertMessage = UIAlertController(title: nil, message: "Are you sure?", preferredStyle: UIAlertControllerStyle.Alert)
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in })
         let ok = UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
-            self.post?.inappropriate = true
+            self.post?[PJPOST.inappropriate] = true
             self.post?.save()
             self.dismissViewControllerAnimated(true, completion: nil)
         })
@@ -82,7 +83,7 @@ class MenuPostDetailsViewController: UIViewController {
             if self.conversation == nil {
                 let conversation = PJConversation.findOrCreateConversation(post!,
                     participant1: DEVICE_UUID,
-                    participant2: self.post!.createdBy)
+                    participant2: self.post![PJPOST.createdBy] as! String)
                 chatViewController.conversation = conversation
             } else {
                 chatViewController.conversation = self.conversation

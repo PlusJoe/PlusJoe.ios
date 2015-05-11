@@ -20,7 +20,7 @@ class PJConversation: BaseDataModel {
     
     
     class func findOrCreateConversation(
-        post: PJPost,
+        post: PFObject,
         participant1: String,
         participant2: String
         ) -> (PFObject) {

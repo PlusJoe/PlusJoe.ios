@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 
 class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
     var timer:NSTimer?
@@ -23,9 +24,9 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
     @IBOutlet weak var tableView: UITableView!
     
     // conversation should always be passed from chid controller
-    var conversation:PJConversation?
+    var conversation:PFObject?
     
-    var chatMessages:[PJChatMessage] = [PJChatMessage]()
+    var chatMessages:[PFObject] = [PFObject]()
     
     
     
