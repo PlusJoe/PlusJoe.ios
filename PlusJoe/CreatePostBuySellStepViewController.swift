@@ -72,13 +72,13 @@ class CreatePostBuySellStepViewController: UIViewController {
     }
     
     func populateButtons() -> () {
-        if UNFINISHED_POST?.sell == true {
+        if UNFINISHED_POST?[PJPOST.sell] as! Bool == true {
             sellButtonAction(self)
         } else {
             buyButtonAction(self)
         }
         
-        if UNFINISHED_POST?.thing == true {
+        if UNFINISHED_POST?[PJPOST.thing] as! Bool == true {
             thingButtonAction(self)
         } else {
             serviceButtonAction(self)
@@ -97,7 +97,7 @@ class CreatePostBuySellStepViewController: UIViewController {
         thingButton.hidden = false
         serviceButton.hidden = false
         
-        UNFINISHED_POST?.sell = true
+        UNFINISHED_POST?[PJPOST.sell] = true
         UNFINISHED_POST?.saveEventually(nil)
     }
     
@@ -113,7 +113,7 @@ class CreatePostBuySellStepViewController: UIViewController {
         thingButton.hidden = false
         serviceButton.hidden = false
         
-        UNFINISHED_POST?.sell = false
+        UNFINISHED_POST?[PJPOST.sell] = false
         UNFINISHED_POST?.saveEventually(nil)
     }
     
@@ -125,7 +125,7 @@ class CreatePostBuySellStepViewController: UIViewController {
         thingButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         serviceButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
         
-        UNFINISHED_POST?.thing = true
+        UNFINISHED_POST?[PJPOST.thing] = true
         UNFINISHED_POST?.saveEventually(nil)
         
         nextButton.hidden = false
@@ -139,7 +139,7 @@ class CreatePostBuySellStepViewController: UIViewController {
         serviceButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         thingButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
         
-        UNFINISHED_POST?.thing = false
+        UNFINISHED_POST?[PJPOST.thing] = false
         UNFINISHED_POST?.saveEventually(nil)
         
         nextButton.hidden = false
