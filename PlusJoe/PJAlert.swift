@@ -35,17 +35,17 @@ class PJAlert: BaseDataModel {
     
     
     class func loadUnreadAlerts(
-        succeeded:(alerts:[PJAlert]) -> (),
+        succeeded:(alerts:[PFObject]) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
-            let alertsQuery = PJAlert.query()
-            alertsQuery!.includeKey("chatMessage.conversation.post")
-            alertsQuery!.whereKey("read", equalTo: false)
-            alertsQuery!.whereKey("target", equalTo: DEVICE_UUID)
+            let alertsQuery = PFQuery(className:PJALERT.CLASS_NAME)
+            alertsQuery.includeKey("chatMessage.conversation.post")
+            alertsQuery.whereKey(PJALERT.read, equalTo: false)
+            alertsQuery.whereKey(PJALERT.target, equalTo: DEVICE_UUID)
 
-            alertsQuery!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+            alertsQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
-                    succeeded(alerts: objects as! [PJAlert])
+                    succeeded(alerts: objects as! [PFObject])
                 } else {
                     // Log details of the failure
                     failed(error: error)
@@ -57,10 +57,10 @@ class PJAlert: BaseDataModel {
         succeeded:(alertsCount:Int) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
-            let alertsQuery = PJAlert.query()
-            alertsQuery!.whereKey("read", equalTo: false)
-            alertsQuery!.whereKey("target", equalTo: DEVICE_UUID)
-            alertsQuery!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+            let alertsQuery = PFQuery(className:PJALERT.CLASS_NAME)
+            alertsQuery.whereKey(PJALERT.read, equalTo: false)
+            alertsQuery.whereKey(PJALERT.target, equalTo: DEVICE_UUID)
+            alertsQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
                     succeeded(alertsCount: objects!.count)
                 } else {
