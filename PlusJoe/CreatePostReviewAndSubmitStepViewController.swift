@@ -8,6 +8,7 @@
 
 import Foundation
 import MapKit
+import Parse
 
 class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
@@ -53,17 +54,17 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
         cells.append(UITableViewCell())
         let label1 = UILabel()
         label1.font = UIFont(name: "Helvetica-Bold", size: 18)
-        if UNFINISHED_POST?.sell == false && UNFINISHED_POST?.thing == false {
-            label1.text = "You wish to hire a service for $\(UNFINISHED_POST!.price)"
+        if (UNFINISHED_POST?[PJPOST.sell] as! Bool) == false && (UNFINISHED_POST?[PJPOST.thing] as! Bool) == false {
+            label1.text = "You wish to hire a service for $\(UNFINISHED_POST![PJPOST.price] as! Int)"
         } else
-        if UNFINISHED_POST?.sell == false && UNFINISHED_POST?.thing == true {
-            label1.text = "You wish to buy something for $\(UNFINISHED_POST!.price)"
+        if (UNFINISHED_POST?[PJPOST.sell] as! Bool) == false && (UNFINISHED_POST?[PJPOST.thing] as! Bool) == true {
+            label1.text = "You wish to buy something for $\(UNFINISHED_POST![PJPOST.price] as! Int)"
         } else
-        if UNFINISHED_POST?.sell == true && UNFINISHED_POST?.thing == false {
-            label1.text = "You wish to offer a service for $\(UNFINISHED_POST!.price)"
+        if (UNFINISHED_POST?[PJPOST.sell] as! Bool) == true && (UNFINISHED_POST?[PJPOST.thing] as! Bool) == false {
+            label1.text = "You wish to offer a service for $\(UNFINISHED_POST![PJPOST.price] as! Int)"
         } else
-        if UNFINISHED_POST?.sell == true && UNFINISHED_POST?.thing == true {
-            label1.text = "You wish to sell something for $\(UNFINISHED_POST!.price)"
+        if (UNFINISHED_POST?[PJPOST.sell] as! Bool) == true && (UNFINISHED_POST?[PJPOST.thing] as! Bool) == true {
+            label1.text = "You wish to sell something for $\(UNFINISHED_POST![PJPOST.price] as! Int)"
         }
         label1.numberOfLines = 0
         cells.last!.addSubview(label1)
@@ -71,13 +72,11 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
 
         
         
-        
-        
-        if UNFINISHED_POST!.fee > 0 {
+        if UNFINISHED_POST![PJPOST.fee] as! Int > 0 {
             cells.append(UITableViewCell())
             let labelFee = UILabel()
             labelFee.font = UIFont(name: "Helvetica-Bold", size: 14)
-            labelFee.text = "If someone helps you to acheive your goal, you will pay the finder's fee of $\(UNFINISHED_POST.fee)"
+            labelFee.text = "If someone helps you to acheive your goal, you will pay the finder's fee of $\(UNFINISHED_POST![PJPOST.fee] as! Int)"
             labelFee.numberOfLines = 0
             cells.last!.addSubview(labelFee)
             embedConstrainst(cells.last!, childView: labelFee)
@@ -103,11 +102,11 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
         label3.text = ""
         label3.numberOfLines = 0
         label3.font = UIFont(name: "Helvetica-Bold", size: 12)
-        let query = PJHashTag.query()
-        query!.whereKey("post", equalTo:UNFINISHED_POST!)
-        let hashTags:[PJHashTag] = query!.findObjects() as! [PJHashTag]
+        let query = PFQuery(className:PJHASHTAG.CLASS_NAME)
+        query.whereKey(PJHASHTAG.post, equalTo:UNFINISHED_POST!)
+        let hashTags = query.findObjects() as! [PFObject]
         for var index = 0; index < hashTags.count; ++index {
-            label3.text = label3.text! + hashTags[index].tag
+            label3.text = label3.text! + (hashTags[index][PJHASHTAG.tag] as! String)
             if index < (hashTags.count)-1  {
                 label3.text = label3.text! + ", "
             }
@@ -123,7 +122,7 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
         postBody.numberOfLines = 0
         postBody.text = ""
         postBody.font = UIFont(name: "American TypeWriter", size: 18)
-        postBody.text = postBody.text! + (UNFINISHED_POST?.body)!
+        postBody.text = postBody.text! + (UNFINISHED_POST?[PJPOST.body] as! String)
         cells.last!.addSubview(postBody)
         cells.last!.layer.cornerRadius=5
         cells.last!.layer.borderWidth=1
@@ -134,7 +133,7 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
         
         
 
-        if let imageFile = UNFINISHED_POST?.image1file.getData() {
+        if let imageFile = (UNFINISHED_POST?[PJPOST.image1file] as! PFFile).getData() {
             cells.append(UITableViewCell())
             let label4 = UILabel()
             label4.font = UIFont(name: "Helvetica Neue", size: 12)
@@ -162,7 +161,7 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
         }
         
         
-        if let imageFile = UNFINISHED_POST?.image2file.getData() {
+        if let imageFile = (UNFINISHED_POST?[PJPOST.image2file] as! PFFile).getData() {
             cells.append(UITableViewCell())
             let image = UIImageView()
             image.image = UIImage(data: imageFile)
@@ -173,7 +172,7 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
             cells.last!.addSubview(image)
             embedConstrainst(cells.last!, childView: image)
         }
-        if let imageFile = UNFINISHED_POST?.image3file.getData() {
+        if let imageFile = (UNFINISHED_POST?[PJPOST.image3file] as! PFFile).getData() {
             cells.append(UITableViewCell())
             let image = UIImageView()
             image.image = UIImage(data: imageFile)
@@ -184,7 +183,7 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
             cells.last!.addSubview(image)
             embedConstrainst(cells.last!, childView: image)
         }
-        if let imageFile = UNFINISHED_POST?.image4file.getData() {
+        if let imageFile = (UNFINISHED_POST?[PJPOST.image4file] as! PFFile).getData() {
             cells.append(UITableViewCell())
             let image = UIImageView()
             image.image = UIImage(data: imageFile)
@@ -216,8 +215,8 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
         mapView.scrollEnabled = false
         
         let mylocation = CLLocationCoordinate2D(
-            latitude: (UNFINISHED_POST?.location.latitude)!,
-            longitude: (UNFINISHED_POST?.location.longitude)!
+            latitude:  ((UNFINISHED_POST?[PJPOST.location] as! PFGeoPoint).latitude),
+            longitude: ((UNFINISHED_POST?[PJPOST.location] as! PFGeoPoint).longitude)
         )
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegion(center: mylocation, span: span)
@@ -307,7 +306,7 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
     }
 
     @IBAction func finishPost(sender: AnyObject) {
-        UNFINISHED_POST?.active = true
+        UNFINISHED_POST?[PJPOST.active] = true
         UNFINISHED_POST?.save()
         UNFINISHED_POST = nil
     }

@@ -42,7 +42,7 @@ class CreatePostDescribeStepViewController: UIViewController, UITextViewDelegate
             alertMessage.addAction(ok)
             presentViewController(alertMessage, animated: true, completion: nil)
         } else {
-            UNFINISHED_POST?.body = postBody.text
+            UNFINISHED_POST?[PJPOST.body] = postBody.text
             UNFINISHED_POST?.saveEventually(nil)
         }
     
@@ -59,7 +59,7 @@ class CreatePostDescribeStepViewController: UIViewController, UITextViewDelegate
         nextButton.setTitle("next" + "   \u{f054}", forState: UIControlState.Normal)
         
         postBody.becomeFirstResponder()
-        postBody.text = UNFINISHED_POST?.body
+        postBody.text = UNFINISHED_POST?[PJPOST.body] as! String
         postBody.delegate = self
         
         countLabel.text = "+" + String(140 - count(postBody.text))

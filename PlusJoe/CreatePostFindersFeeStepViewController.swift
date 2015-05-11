@@ -20,7 +20,7 @@ class CreatePostFindersFeeStepViewController:
     }
     
     @IBAction func nextButtonAction(sender: AnyObject) {
-        UNFINISHED_POST.fee = findersFeeTextField.text.toInt()!
+        UNFINISHED_POST[PJPOST.fee] = findersFeeTextField.text.toInt()!
         UNFINISHED_POST?.saveEventually(nil)
     }
     
@@ -39,7 +39,7 @@ class CreatePostFindersFeeStepViewController:
         
         nextButton.setTitle("next" + "   \u{f054}", forState: UIControlState.Normal)
     
-        findersFeeTextField.text = "\(UNFINISHED_POST.fee)"
+        findersFeeTextField.text = "\(UNFINISHED_POST?[PJPOST.fee])"
     }
     
         

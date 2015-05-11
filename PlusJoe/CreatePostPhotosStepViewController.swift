@@ -65,22 +65,22 @@ class CreatePostPhotosStepViewController:
     
     
     func reloadImageViews() {
-        if let imageFile1 = UNFINISHED_POST?.image1file.getData() {
+        if let imageFile1 = (UNFINISHED_POST?[PJPOST.image1file] as! PFFile).getData() {
             imageOne.image = UIImage(data: imageFile1)
         } else {
             imageOne.image = UIImage()
         }
-        if let imageFile2 = UNFINISHED_POST?.image2file.getData() {
+        if let imageFile2 = (UNFINISHED_POST?[PJPOST.image2file] as! PFFile).getData() {
             imageTwo.image = UIImage(data: imageFile2)
         } else {
             imageTwo.image = UIImage()
         }
-        if let imageFile3 = UNFINISHED_POST?.image3file.getData() {
+        if let imageFile3 = (UNFINISHED_POST?[PJPOST.image3file] as! PFFile).getData() {
             imageThree.image = UIImage(data: imageFile3)
         } else {
             imageThree.image = UIImage()
         }
-        if let imageFile4 = UNFINISHED_POST?.image4file.getData() {
+        if let imageFile4 = (UNFINISHED_POST?[PJPOST.image4file] as! PFFile).getData() {
             imageFour.image = UIImage(data: imageFile4)
         } else {
             imageFour.image = UIImage()
@@ -104,10 +104,10 @@ class CreatePostPhotosStepViewController:
     }
 
     func showHidePhotoButtons() -> () {
-        if(UNFINISHED_POST?.image1file.name.rangeOfString("blank.png") == nil
-            && UNFINISHED_POST?.image2file.name.rangeOfString("blank.png") == nil
-            && UNFINISHED_POST?.image3file.name.rangeOfString("blank.png") == nil
-            && UNFINISHED_POST?.image4file.name.rangeOfString("blank.png") == nil) {
+        if((UNFINISHED_POST?[PJPOST.image1file] as! PFFile).name.rangeOfString("blank.png") == nil
+            && (UNFINISHED_POST?[PJPOST.image2file] as! PFFile).name.rangeOfString("blank.png") == nil
+            && (UNFINISHED_POST?[PJPOST.image3file] as! PFFile).name.rangeOfString("blank.png") == nil
+            && (UNFINISHED_POST?[PJPOST.image4file] as! PFFile).name.rangeOfString("blank.png") == nil) {
                 takePhotoButton.hidden = true
                 pickPhotoFromLibraryButton.hidden = true
         } else {
@@ -119,19 +119,19 @@ class CreatePostPhotosStepViewController:
     
     func image1tapped(sender: UITapGestureRecognizer) {
         NSLog("image1 tapped")
-        if UNFINISHED_POST?.image1file.name.rangeOfString("blank.png") != nil {
+        if (UNFINISHED_POST?[PJPOST.image1file] as! PFFile).name.rangeOfString("blank.png") != nil {
             return
         }
         let alertMessage = UIAlertController(title: nil, message: "Delete photo?", preferredStyle: UIAlertControllerStyle.Alert)
         let cancel = UIAlertAction(title: "Cancel", style: .Default, handler: { (action) -> Void in})
         let ok =     UIAlertAction(title: "OK",     style: .Default, handler: { (action) -> Void in
-            let file2 = UNFINISHED_POST?.image2file
-            let file3 = UNFINISHED_POST?.image3file
-            let file4 = UNFINISHED_POST?.image4file
-            UNFINISHED_POST?.image1file = file2!
-            UNFINISHED_POST?.image2file = file3!
-            UNFINISHED_POST?.image3file = file4!
-            UNFINISHED_POST?.image4file = PFFile(name:"blank.png", data:NSData())
+            let file2 = UNFINISHED_POST?[PJPOST.image2file] as! PFFile
+            let file3 = UNFINISHED_POST?[PJPOST.image3file] as! PFFile
+            let file4 = UNFINISHED_POST?[PJPOST.image4file] as! PFFile
+            UNFINISHED_POST?[PJPOST.image1file] = file2
+            UNFINISHED_POST?[PJPOST.image2file] = file3
+            UNFINISHED_POST?[PJPOST.image3file] = file4
+            UNFINISHED_POST?[PJPOST.image4file] = PFFile(name:"blank.png", data:NSData())
             var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
             actInd.center = self.view.center
             actInd.hidesWhenStopped = true
@@ -151,19 +151,21 @@ class CreatePostPhotosStepViewController:
         presentViewController(alertMessage, animated: true, completion: nil)
         
     }
+    
+    
     func image2tapped(sender: UITapGestureRecognizer) {
         NSLog("image2 tapped")
-        if UNFINISHED_POST?.image2file.name.rangeOfString("blank.png") != nil {
+        if (UNFINISHED_POST?[PJPOST.image2file] as! PFFile).name.rangeOfString("blank.png") != nil {
             return
         }
         let alertMessage = UIAlertController(title: nil, message: "Delete photo?", preferredStyle: UIAlertControllerStyle.Alert)
         let cancel = UIAlertAction(title: "Cancel", style: .Default, handler: { (action) -> Void in})
         let ok =     UIAlertAction(title: "OK",     style: .Default, handler: { (action) -> Void in
-            let file3 = UNFINISHED_POST?.image3file
-            let file4 = UNFINISHED_POST?.image4file
-            UNFINISHED_POST?.image2file = file3!
-            UNFINISHED_POST?.image3file = file4!
-            UNFINISHED_POST?.image4file = PFFile(name:"blank.png", data:NSData())
+            let file3 = UNFINISHED_POST?[PJPOST.image3file] as! PFFile
+            let file4 = UNFINISHED_POST?[PJPOST.image4file] as! PFFile
+            UNFINISHED_POST?[PJPOST.image2file] = file3
+            UNFINISHED_POST?[PJPOST.image3file] = file4
+            UNFINISHED_POST?[PJPOST.image4file] = PFFile(name:"blank.png", data:NSData())
             var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
             actInd.center = self.view.center
             actInd.hidesWhenStopped = true
@@ -185,15 +187,15 @@ class CreatePostPhotosStepViewController:
     
     func image3tapped(sender: UITapGestureRecognizer) {
         NSLog("image3 tapped")
-        if UNFINISHED_POST?.image3file.name.rangeOfString("blank.png") != nil {
+        if (UNFINISHED_POST?[PJPOST.image3file] as! PFFile).name.rangeOfString("blank.png") != nil {
             return
         }
         let alertMessage = UIAlertController(title: nil, message: "Delete photo?", preferredStyle: UIAlertControllerStyle.Alert)
         let cancel = UIAlertAction(title: "Cancel", style: .Default, handler: { (action) -> Void in})
         let ok =     UIAlertAction(title: "OK",     style: .Default, handler: { (action) -> Void in
-            let file4 = UNFINISHED_POST?.image4file
-            UNFINISHED_POST?.image3file = file4!
-            UNFINISHED_POST?.image4file = PFFile(name:"blank.png", data:NSData())
+            let file4 = UNFINISHED_POST?[PJPOST.image4file] as! PFFile
+            UNFINISHED_POST?[PJPOST.image3file] = file4
+            UNFINISHED_POST?[PJPOST.image4file] = PFFile(name:"blank.png", data:NSData())
             var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
             actInd.center = self.view.center
             actInd.hidesWhenStopped = true
@@ -215,13 +217,13 @@ class CreatePostPhotosStepViewController:
     
     func image4tapped(sender: UITapGestureRecognizer) {
         NSLog("image4 tapped")
-        if UNFINISHED_POST?.image4file.name.rangeOfString("blank.png") != nil {
+        if (UNFINISHED_POST?[PJPOST.image4file] as! PFFile).name.rangeOfString("blank.png") != nil {
             return
         }
         let alertMessage = UIAlertController(title: nil, message: "Delete photo?", preferredStyle: UIAlertControllerStyle.Alert)
         let cancel = UIAlertAction(title: "Cancel", style: .Default, handler: { (action) -> Void in})
         let ok =     UIAlertAction(title: "OK",     style: .Default, handler: { (action) -> Void in
-            UNFINISHED_POST?.image4file = PFFile(name:"blank.png", data:NSData())
+            UNFINISHED_POST?[PJPOST.image4file] = PFFile(name:"blank.png", data:NSData())
             var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
             actInd.center = self.view.center
             actInd.hidesWhenStopped = true
@@ -241,6 +243,7 @@ class CreatePostPhotosStepViewController:
         presentViewController(alertMessage, animated: true, completion: nil)
     }
     
+    
     //MARK: Delegates
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         var chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
@@ -248,18 +251,18 @@ class CreatePostPhotosStepViewController:
         chosenImage.resize(500) { (resizedImage, data) -> () in
             let imageFile = PFFile(name:"image.png", data:data)
 
-            if UNFINISHED_POST?.image1file.name.rangeOfString("blank.png") != nil {
+            if (UNFINISHED_POST?[PJPOST.image1file] as! PFFile).name.rangeOfString("blank.png") != nil {
                 self.imageOne.image = resizedImage
-                UNFINISHED_POST?.image1file = imageFile
-            } else if UNFINISHED_POST?.image2file.name.rangeOfString("blank.png") != nil {
+                UNFINISHED_POST?[PJPOST.image1file] = imageFile
+            } else if (UNFINISHED_POST?[PJPOST.image2file] as! PFFile).name.rangeOfString("blank.png") != nil {
                 self.imageTwo.image = resizedImage
-                UNFINISHED_POST?.image2file = imageFile
-            } else if UNFINISHED_POST?.image3file.name.rangeOfString("blank.png") != nil {
+                UNFINISHED_POST?[PJPOST.image2file] = imageFile
+            } else if (UNFINISHED_POST?[PJPOST.image3file] as! PFFile).name.rangeOfString("blank.png") != nil {
                 self.imageThree.image = resizedImage
-                UNFINISHED_POST?.image3file = imageFile
-            } else if UNFINISHED_POST?.image4file.name.rangeOfString("blank.png") != nil {
+                UNFINISHED_POST?[PJPOST.image3file] = imageFile
+            } else if (UNFINISHED_POST?[PJPOST.image4file] as! PFFile).name.rangeOfString("blank.png") != nil {
                 self.imageFour.image = resizedImage
-                UNFINISHED_POST?.image4file = imageFile
+                UNFINISHED_POST?[PJPOST.image4file] = imageFile
             }
             
             UNFINISHED_POST?.saveInBackgroundWithBlock(nil)
