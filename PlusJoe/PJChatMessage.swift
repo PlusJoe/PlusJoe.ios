@@ -29,17 +29,17 @@ class PJChatMessage: BaseDataModel {
     
     class func loadAllChatMessages(
         conversation: PJConversation,
-        succeeded:(results:[PJChatMessage]) -> (),
+        succeeded:(results:[PFObject]) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
-            let query = PJChatMessage.query()
+            let query = PFQuery(className:PJCHATMESSAGE.CLASS_NAME)
             // Interested in locations near user.
-            query!.whereKey("conversation", equalTo: conversation)
-            query!.orderByDescending("createdAt")
-            query!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+            query.whereKey(PJCHATMESSAGE.conversation, equalTo: conversation)
+            query.orderByDescending("createdAt")
+            query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
-                    self.markAlertsRead(objects as! [PJChatMessage])
-                    succeeded(results: objects as! [PJChatMessage])
+                    self.markAlertsRead(objects as! [PFObject])
+                    succeeded(results: objects as! [PFObject])
                 } else {
                     // Log details of the failure
                     failed(error: error)
@@ -51,20 +51,20 @@ class PJChatMessage: BaseDataModel {
     class func loadNewChatMessages(
         since: NSDate,
         conversation: PJConversation,
-        succeeded:(results:[PJChatMessage]) -> (),
+        succeeded:(results:[PFObject]) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
-            let query = PJChatMessage.query()
+            let query = PFQuery(className:PJCHATMESSAGE.CLASS_NAME)
             // Interested in locations near user.
-            query!.whereKey("conversation", equalTo: conversation)
-            query!.whereKey("createdAt", greaterThan: since)
-            query!.orderByDescending("createdAt")
+            query.whereKey(PJCHATMESSAGE.conversation, equalTo: conversation)
+            query.whereKey("createdAt", greaterThan: since)
+            query.orderByDescending("createdAt")
             
             
-            query!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+            query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
-                    self.markAlertsRead(objects as! [PJChatMessage])
-                    succeeded(results: objects as! [PJChatMessage])
+                    self.markAlertsRead(objects as! [PFObject])
+                    succeeded(results: objects as! [PFObject])
                 } else {
                     // Log details of the failure
                     failed(error: error)
@@ -73,14 +73,14 @@ class PJChatMessage: BaseDataModel {
     }
     
     
-    class func markAlertsRead(chatMessages:[PJChatMessage]) -> () {
+    class func markAlertsRead(chatMessages:[PFObject]) -> () {
         for chatMessage in chatMessages {
-            let alertsQuery = PJAlert.query()
-            alertsQuery!.whereKey("chatMessage", equalTo: chatMessage)
-            alertsQuery!.whereKey("target", equalTo: DEVICE_UUID)
-            alertsQuery!.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
-                for alert in objects as! [PJAlert] {
-                    alert.read = true
+            let alertsQuery = PFQuery(className:PJALERT.CLASS_NAME)
+            alertsQuery.whereKey(PJALERT.chatMessage, equalTo: chatMessage)
+            alertsQuery.whereKey(PJALERT.target, equalTo: DEVICE_UUID)
+            alertsQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+                for alert in objects as! [PFObject] {
+                    alert[PJALERT.read] = true
                     alert.saveInBackgroundWithBlock({ (succeeds: Bool, error:NSError?) -> Void in})
                 }
             })
@@ -89,22 +89,26 @@ class PJChatMessage: BaseDataModel {
     
     
     class func createChatMessage(
-        conversation:PJConversation,
+        conversation:PFObject,
         body:String,
         createdBy:String,
-        success:(result: PJChatMessage) -> (),
+        success:(result: PFObject) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
-            let chatMessage = PJChatMessage(className: PJChatMessage.parseClassName())
-            chatMessage.conversation = conversation
-            chatMessage.body = body
-            chatMessage.createdBy = createdBy
+            let chatMessage = PFObject(className: PJCHATMESSAGE.CLASS_NAME)
+            chatMessage[PJCHATMESSAGE.conversation] = conversation
+            chatMessage[PJCHATMESSAGE.body] = body
+            chatMessage["createdBy"] = createdBy
             chatMessage.saveInBackgroundWithBlock { (succeeded:Bool, error:NSError?) -> Void in
                 if error == nil {
-                    let alert = PJAlert(className: PJAlert.parseClassName())
-                    alert.chatMessage = chatMessage
-                    alert.read = false
-                    alert.target = (conversation.participants[0] == DEVICE_UUID) ? conversation.participants[1] : conversation.participants[0]
+                    let alert = PFObject(className: PJALERT.CLASS_NAME)
+                    alert[PJALERT.chatMessage] = chatMessage
+                    alert[PJALERT.read] = false
+                    if (conversation[PJCONVERSATION.participants] as! [String])[0] == DEVICE_UUID {
+                        alert[PJALERT.target] = (conversation[PJCONVERSATION.participants] as! [String])[1]
+                    } else {
+                        alert[PJALERT.target] = (conversation[PJCONVERSATION.participants] as! [String])[0]
+                    }
                     alert.saveInBackgroundWithBlock({ (succeeded:Bool, error:NSError?) -> Void in })
                     success(result: chatMessage)
                 } else {
