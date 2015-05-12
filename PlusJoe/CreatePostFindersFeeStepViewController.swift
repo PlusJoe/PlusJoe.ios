@@ -39,7 +39,7 @@ class CreatePostFindersFeeStepViewController:
         
         nextButton.setTitle("next" + "   \u{f054}", forState: UIControlState.Normal)
     
-        findersFeeTextField.text = "\(UNFINISHED_POST?[PJPOST.fee])"
+        findersFeeTextField.text = "\((UNFINISHED_POST?[PJPOST.fee])!)"
     }
     
         
