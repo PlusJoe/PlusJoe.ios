@@ -46,11 +46,11 @@ class PJHashTag: BaseDataModel {
                     // Do something with the found objects
                     
                     NSLog("results: \(objects!.count)")
-                    let alltags = (objects as! [PJHashTag]).map{$0.tag}
+                    let alltags = (objects as! [PFObject]).map{$0[PJHASHTAG.tag]!}
                     var hashTags:Set<String> = Set<String>()
                     var orderedResults:[String] = [String]()
                     for tag in alltags {
-                        hashTags.insert(tag)
+                        hashTags.insert(tag as! String)
                     }
                     for tag in sorted(hashTags) {
                         orderedResults.append(tag)

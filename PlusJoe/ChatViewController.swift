@@ -70,8 +70,13 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
     
 
     func retrieveNewMessages() -> Void {
+        
+        let conversationDate = conversation!.createdAt
+        let firstChatMessageDate = chatMessages[0].createdAt
+//        NSLog("conversationDate: \(conversationDate)")
+//        NSLog("first chat message date: \(firstChatMessageDate)")
         PJChatMessage.loadNewChatMessages(
-            chatMessages.count == 0 ? conversation!["createdAt"] as! NSDate : chatMessages[0]["createdAt"] as! NSDate,
+            (chatMessages.count == 0 ? conversation!.createdAt : chatMessages[0].createdAt)!,
             conversation: conversation!,
             succeeded: { (results) -> () in
                 if results.count > 0 {

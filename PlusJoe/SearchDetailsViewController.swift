@@ -58,8 +58,8 @@ class SearchDetailsViewController : UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         postBody.text = post?[PJPOST.body] as? String
-        price.text = "$\((post?[PJPOST.price] as? String)!)"
-        fee.text = "$\((post?[PJPOST.fee] as? String)!)"
+        price.text = "$\((post?[PJPOST.price] as? Int)!)"
+        fee.text = "$\((post?[PJPOST.fee] as? Int)!)"
         
         
         
