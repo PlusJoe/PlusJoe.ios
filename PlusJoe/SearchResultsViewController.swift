@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MapKit
+import Parse
 
 class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIPopoverPresentationControllerDelegate {
     
@@ -29,7 +30,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     
     @IBOutlet weak var postView: UIView!
     
-    var posts:[PJPost] = [PJPost]()
+    var posts:[PFObject] = [PFObject]()
     
     
     var currentPost:UInt = 0
@@ -90,7 +91,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
                 
                 for var index = 0; index < self.posts.count; ++index {
                     let annotation = MKPointAnnotation()
-                    let location = self.posts[index].location
+                    let location = self.posts[index][PJPOST.location] as! PFGeoPoint
                     annotation.coordinate =
                         CLLocationCoordinate2D(latitude: CLLocationDegrees(location.latitude), longitude: CLLocationDegrees(location.longitude))
                     annotation.title = "\(index + 1)"
@@ -264,7 +265,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
             let alertMessage = UIAlertController(title: nil, message: "Are you sure?", preferredStyle: UIAlertControllerStyle.Alert)
             let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in })
             let ok = UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
-                self.posts[Int(self.currentPost)-1].inappropriate = true
+                self.posts[Int(self.currentPost)-1][PJPOST.inappropriate] = true
                 self.posts[Int(self.currentPost)-1].save()
                 self.dismissViewControllerAnimated(true, completion: nil)
             })
@@ -275,7 +276,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
         alertController.addAction(oneAction)
         
         
-        if self.posts[Int(self.currentPost)-1].sell == true { // this menu should only be available for the sell posts
+        if self.posts[Int(self.currentPost)-1][PJPOST.sell] as! Bool == true { // this menu should only be available for the sell posts
             let twoAction = UIAlertAction(title: "Buy it", style: .Default) { (_) in
                 let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
                 let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })

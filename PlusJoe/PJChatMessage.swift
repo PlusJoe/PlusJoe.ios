@@ -28,7 +28,7 @@ class PJChatMessage: BaseDataModel {
     
     
     class func loadAllChatMessages(
-        conversation: PJConversation,
+        conversation: PFObject,
         succeeded:(results:[PFObject]) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
@@ -50,7 +50,7 @@ class PJChatMessage: BaseDataModel {
     
     class func loadNewChatMessages(
         since: NSDate,
-        conversation: PJConversation,
+        conversation: PFObject,
         succeeded:(results:[PFObject]) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {

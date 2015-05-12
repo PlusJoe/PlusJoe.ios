@@ -8,7 +8,7 @@
 
 import Foundation
 import MapKit
-
+import Parse
 
 
 class PostDetailsViewController : UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIPopoverPresentationControllerDelegate  {
@@ -19,9 +19,9 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var navBar: UINavigationBar!
     
-    var post:PJPost?
+    var post:PFObject?
     // if conversation is passed from child controller, then use it for initiating the chat
-    var conversation:PJConversation?
+    var conversation:PFObject?
     
     @IBOutlet weak var imagesView: UIView!
     @IBOutlet weak var price: UILabel!
@@ -71,9 +71,9 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         
         chatButton.setTitle("chat \u{f086}", forState: UIControlState.Normal)
         
-        postBody.text = post?.body
-        price.text = "$\((post?.price)!)"
-        fee.text = "$\((post?.fee)!)"
+        postBody.text = post?[PJPOST.body] as? String
+        price.text = "$\((post?[PJPOST.price] as? Int)!)"
+        fee.text = "$\((post?[PJPOST.fee] as? Int)!)"
         
         
         // set pagination
@@ -85,17 +85,16 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         
         
         
-        
-        if let imageFile = post?.image1file.getData() {
+        if let imageFile = (post?[PJPOST.image1file] as! PFFile).getData() {
             addImageToView(UIImage(data: imageFile)!)
         }
-        if let imageFile = post?.image2file.getData() {
+        if let imageFile = (post?[PJPOST.image2file] as! PFFile).getData() {
             addImageToView(UIImage(data: imageFile)!)
         }
-        if let imageFile = post?.image3file.getData() {
+        if let imageFile = (post?[PJPOST.image3file] as! PFFile).getData() {
             addImageToView(UIImage(data: imageFile)!)
         }
-        if let imageFile = post?.image4file.getData() {
+        if let imageFile = (post?[PJPOST.image4file] as! PFFile).getData() {
             addImageToView(UIImage(data: imageFile)!)
         }
         
@@ -108,8 +107,8 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         mapView.scrollEnabled = false
         
         let mylocation = CLLocationCoordinate2D(
-            latitude: (post?.location.latitude)!,
-            longitude: (post?.location.longitude)!
+            latitude: (post?[PJPOST.location] as! PFGeoPoint).latitude,
+            longitude: (post?[PJPOST.location] as! PFGeoPoint).longitude
         )
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegion(center: mylocation, span: span)
@@ -228,7 +227,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
             if self.conversation == nil {
             let conversation = PJConversation.findOrCreateConversation(post!,
                 participant1: DEVICE_UUID,
-                participant2: self.post!.createdBy)
+                participant2: self.post?[PJPOST.createdBy] as! String)
                 chatViewController.conversation = conversation
             } else {
                 chatViewController.conversation = self.conversation

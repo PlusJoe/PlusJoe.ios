@@ -98,9 +98,9 @@ class PJPost: BaseDataModel {
                     var postsSet:Set<String> = Set<String>()
                     NSLog("results hash: \(objects!.count)")
                     for hashTag in objects as! [PFObject] {
-                        if !postsSet.contains(hashTag[PJHASHTAG.post].objectId) {
-                            posts.append(hashTag.post)
-                            postsSet.insert(hashTag.post.objectId!) // is it strictly to avoid duplicates
+                        if !postsSet.contains((hashTag[PJHASHTAG.post] as! PFObject).objectId!) {
+                            posts.append(hashTag[PJHASHTAG.post] as! PFObject)
+                            postsSet.insert((hashTag[PJHASHTAG.post] as! PFObject).objectId!) // is it strictly to avoid duplicates
                         }
                     }
                     NSLog("results post: \(posts.count)")

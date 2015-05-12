@@ -71,7 +71,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
 
     func retrieveNewMessages() -> Void {
         PJChatMessage.loadNewChatMessages(
-            chatMessages.count == 0 ? conversation!.createdAt! : chatMessages[0].createdAt!,
+            chatMessages.count == 0 ? conversation!["createdAt"] as! NSDate : chatMessages[0]["createdAt"] as! NSDate,
             conversation: conversation!,
             succeeded: { (results) -> () in
                 if results.count > 0 {
@@ -189,9 +189,9 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         cell.postedAt.text = String(format: "%@", df.stringFromDate(chatMessage.createdAt!))
         
         NSLog("Rendering ReplyPost")
-        cell.body.text = chatMessage.body
+        cell.body.text = chatMessage[PJCHATMESSAGE.body] as? String
         
-        if chatMessage.createdBy == DEVICE_UUID {
+        if chatMessage[PJCHATMESSAGE.createdBy] as! String == DEVICE_UUID {
             cell.postedAt.text = "I said - \(cell.postedAt.text!)"
         } else {
             cell.postedAt.text = "replied to me - \(cell.postedAt.text!)"

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 
 class SearchDetailsViewController : UIViewController {
     
@@ -27,7 +28,7 @@ class SearchDetailsViewController : UIViewController {
     @IBOutlet weak var leftLabel: UILabel!
     @IBOutlet weak var rightLabel: UILabel!
     
-    var post:PJPost?
+    var post:PFObject?
     var postIndex:UInt = 0
 
     
@@ -56,13 +57,13 @@ class SearchDetailsViewController : UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        postBody.text = post?.body
-        price.text = "$\((post?.price)!)"
-        fee.text = "$\((post?.fee)!)"
+        postBody.text = post?[PJPOST.body] as? String
+        price.text = "$\((post?[PJPOST.price] as? String)!)"
+        fee.text = "$\((post?[PJPOST.fee] as? String)!)"
         
         
         
-        post?.image1file.getDataInBackgroundWithBlock({ (imageFile:NSData?, error:NSError?) -> Void in
+        (post?[PJPOST.image1file] as! PFFile).getDataInBackgroundWithBlock({ (imageFile:NSData?, error:NSError?) -> Void in
             if error == nil {
                 if imageFile != nil {
                 self.postImage.image = UIImage(data: imageFile!)

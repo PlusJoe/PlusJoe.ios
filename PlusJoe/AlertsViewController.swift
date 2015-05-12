@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import Parse
 
 class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var alerts:[PJAlert] = [PJAlert]()
+    var alerts:[PFObject] = [PFObject]()
 
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
@@ -65,17 +66,18 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:AlertTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("alert_cell") as! AlertTableViewCell
-        let alert = alerts[indexPath.row]
+        
+        let alert:PFObject = alerts[indexPath.row]
+        let chatMessage:PFObject = alert[PJALERT.chatMessage] as! PFObject
         
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy hh:mm a"
         cell.postedAt.text = String(format: "%@", df.stringFromDate(alert.createdAt!))
         
         
-        cell.body.text = alert.chatMessage["body"]! as? String //yakes, the nested properties do not work in Parse
+        cell.body.text = chatMessage[PJCHATMESSAGE.body] as? String
         
         cell.postedAt.text = "\(cell.postedAt.text!)"
-        
         
         return cell
     }
@@ -89,14 +91,10 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
             let indexPath = self.tableView.indexPathForSelectedRow()!
             NSLog("indexpath row1: \(indexPath.row)")
-            var alert:PJAlert = self.alerts[indexPath.row]
-            
-            var chatMessage:PJChatMessage = (alert.chatMessage) as PJChatMessage
-
-            var conversation:PJConversation = (chatMessage.conversation) as PJConversation
-            conversation.fetch()
-            var post: PJPost = conversation["post"] as! PJPost
-            post.fetch()
+            let alert:PFObject = self.alerts[indexPath.row]
+            let chatMessage:PFObject = alert[PJALERT.chatMessage] as! PFObject
+            let conversation:PFObject = chatMessage[PJCHATMESSAGE.conversation] as! PFObject
+            let post:PFObject = conversation[PJCONVERSATION.post] as! PFObject
             
             postDetailsViewController.conversation = conversation
             postDetailsViewController.post = post
