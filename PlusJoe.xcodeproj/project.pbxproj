@@ -35,6 +35,7 @@
 		0AC66FBF1AC5C22C003C818C /* CreatePostReviewAndSubmitStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC66FBE1AC5C22C003C818C /* CreatePostReviewAndSubmitStepViewController.swift */; };
 		0AD4A2931AD8917A00539470 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4A2921AD8917A00539470 /* SearchResultsViewController.swift */; };
 		0AE782561B024C34008678B8 /* MyActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE782551B024C34008678B8 /* MyActivitiesViewController.swift */; };
+		0AE782581B02D702008678B8 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE782571B02D702008678B8 /* ActivityTableViewCell.swift */; };
 		0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */; };
 		0AEAFBD41AC0E2F900800121 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD21AC0E2F900800121 /* Main.storyboard */; };
 		0AEAFBD61AC0E2F900800121 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD51AC0E2F900800121 /* Images.xcassets */; };
@@ -97,6 +98,7 @@
 		0AD4A2921AD8917A00539470 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		0AE6D3CD1AC2F6F90098011F /* PlusJoe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlusJoe-Bridging-Header.h"; sourceTree = "<group>"; };
 		0AE782551B024C34008678B8 /* MyActivitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyActivitiesViewController.swift; sourceTree = "<group>"; };
+		0AE782571B02D702008678B8 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		0AEAFBC91AC0E2F900800121 /* PlusJoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusJoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEAFBCD1AC0E2F900800121 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				0AE782551B024C34008678B8 /* MyActivitiesViewController.swift */,
+				0AE782571B02D702008678B8 /* ActivityTableViewCell.swift */,
 			);
 			name = MyActivities;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				0AC66FBF1AC5C22C003C818C /* CreatePostReviewAndSubmitStepViewController.swift in Sources */,
 				0A4C495B1AC501C000D164E2 /* SearchHomeViewController.swift in Sources */,
 				0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */,
+				0AE782581B02D702008678B8 /* ActivityTableViewCell.swift in Sources */,
 				0A8BF12E1AFC3EDC0058AE38 /* PJConversation.swift in Sources */,
 				0A4C7AC81AF9C17700C271F2 /* MenuPostDetailsViewController.swift in Sources */,
 				0AAC2E361AC4580900B60B47 /* CreatePostDescribeStepViewController.swift in Sources */,

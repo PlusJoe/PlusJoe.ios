@@ -10,6 +10,7 @@ import Foundation
 import Parse
 
 let PJCONVERSATION:PJConversation = PJConversation()
+
 class PJConversation: BaseDataModel {
     let CLASS_NAME = "Conversations"
     
@@ -45,6 +46,26 @@ class PJConversation: BaseDataModel {
                 return conversation
             }
     }
+ 
     
+    class func loadConversationsImPartOf(
+        succeeded:(conversations:[PFObject]) -> (),
+        failed:(error: NSError!) -> ()
+        ) -> () {
+            let conversationQuery = PFQuery(className:PJCONVERSATION.CLASS_NAME)
+            conversationQuery.includeKey("post")
+            conversationQuery.whereKey(PJCONVERSATION.participants, equalTo: DEVICE_UUID)
+            conversationQuery.orderByDescending("updatedAt")
+            
+            conversationQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+                if error == nil {
+                    succeeded(conversations: objects as! [PFObject])
+                } else {
+                    // Log details of the failure
+                    failed(error: error)
+                }
+            })
+    }
+
     
 }

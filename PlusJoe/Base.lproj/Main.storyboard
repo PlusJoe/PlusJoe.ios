@@ -1997,7 +1997,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alert_cell" rowHeight="137" id="YjD-Hf-HEJ" customClass="AlertTableViewCell" customModule="PlusJoe" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="activity_cell" rowHeight="137" id="YjD-Hf-HEJ" customClass="ActivityTableViewCell" customModule="PlusJoe">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YjD-Hf-HEJ" id="G3F-pG-E7u">
@@ -2062,7 +2062,7 @@
                     </view>
                     <connections>
                         <outlet property="backNavButton" destination="n2q-zs-d9b" id="QZO-hp-4PR"/>
-                        <outlet property="noAlertsLabel" destination="XHj-dW-98Z" id="SMe-iC-1sO"/>
+                        <outlet property="noActivitiesLabel" destination="XHj-dW-98Z" id="0WF-vW-1P2"/>
                         <outlet property="tableView" destination="cp3-MM-qvU" id="QUn-kD-Dul"/>
                     </connections>
                 </viewController>

@@ -87,7 +87,7 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.body.text = chatMessage[PJCHATMESSAGE.body] as? String
         
-        cell.postedAt.text = "\(cell.postedAt.text!)"
+//        cell.postedAt.text = "\(cell.postedAt.text!)"
         
         return cell
     }

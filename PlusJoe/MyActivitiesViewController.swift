@@ -11,10 +11,10 @@ import Parse
 
 class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var noAlertsLabel: UILabel!
+    @IBOutlet weak var noActivitiesLabel: UILabel!
     
     
-    var alerts:[PFObject] = [PFObject]()
+    var conversations:[PFObject] = [PFObject]()
     
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
@@ -40,19 +40,19 @@ class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITable
         self.tableView.estimatedRowHeight = 100.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
-        retrieveUnreadAlerts()
+        retrieveMyActivities()
     }
     
-    func retrieveUnreadAlerts() -> Void {
-        PJAlert.loadUnreadAlerts({ (alerts) -> () in
-            if alerts.count > 0 {
-                self.alerts = alerts
+    func retrieveMyActivities() -> Void {
+        PJConversation.loadConversationsImPartOf({ (conversations) -> () in
+            if conversations.count > 0 {
+                self.conversations = conversations
                 self.tableView.reloadData()
                 self.tableView.reloadInputViews()
-                self.noAlertsLabel.hidden = true
+                self.noActivitiesLabel.hidden = true
                 self.tableView.hidden = false
             } else {
-                self.noAlertsLabel.hidden = false
+                self.noActivitiesLabel.hidden = false
                 self.tableView.hidden = true
             }
             
@@ -68,25 +68,25 @@ class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITable
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        NSLog("there are \(alerts.count) unread alerts")
-        return self.alerts.count
+        NSLog("there are \(conversations.count) conversations I'm part of")
+        return self.conversations.count
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:AlertTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("alert_cell") as! AlertTableViewCell
+        var cell:ActivityTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("activity_cell") as! ActivityTableViewCell
         
-        let alert:PFObject = alerts[indexPath.row]
-        let chatMessage:PFObject = alert[PJALERT.chatMessage] as! PFObject
+        let conversation:PFObject = conversations[indexPath.row]
+        let post:PFObject = conversation[PJCONVERSATION.post] as! PFObject
         
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy hh:mm a"
-        cell.postedAt.text = String(format: "%@", df.stringFromDate(alert.createdAt!))
+        cell.postedAt.text = String(format: "%@", df.stringFromDate(conversation.updatedAt!))
         
         
-        cell.body.text = chatMessage[PJCHATMESSAGE.body] as? String
+        cell.body.text = post[PJPOST.body] as? String
         
-        cell.postedAt.text = "\(cell.postedAt.text!)"
+//        cell.postedAt.text = "\(cell.postedAt.text!)"
         
         return cell
     }
@@ -100,12 +100,10 @@ class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITable
             
             let indexPath = self.tableView.indexPathForSelectedRow()!
             NSLog("indexpath row1: \(indexPath.row)")
-            let alert:PFObject = self.alerts[indexPath.row]
-            let chatMessage:PFObject = alert[PJALERT.chatMessage] as! PFObject
-            let conversation:PFObject = chatMessage[PJCHATMESSAGE.conversation] as! PFObject
+            let conversation:PFObject = self.conversations[indexPath.row]
             let post:PFObject = conversation[PJCONVERSATION.post] as! PFObject
             
-            postDetailsViewController.titleText = "Alert: check Chat"
+            postDetailsViewController.titleText = "I'm a participant of"
             postDetailsViewController.conversation = conversation
             postDetailsViewController.post = post
             
