@@ -407,7 +407,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FOA-Yx-SaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1772" y="2273"/>
+            <point key="canvasLocation" x="1896" y="2321"/>
         </scene>
         <!--Menu Search Home View Controller-->
         <scene sceneID="bq1-uf-hFI">
@@ -518,7 +518,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wd4-u4-geW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28" y="-848"/>
+            <point key="canvasLocation" x="322" y="-558"/>
         </scene>
         <!--Search Results View Controller-->
         <scene sceneID="6Og-pg-PEU">
@@ -992,7 +992,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vkt-EO-q7e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3117" y="2273"/>
+            <point key="canvasLocation" x="3439" y="2321"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="UzZ-qC-oCa">
@@ -1476,7 +1476,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1204" y="-309"/>
+            <point key="canvasLocation" x="1588" y="-997"/>
         </scene>
         <!--Create Post Describe Step View Controller-->
         <scene sceneID="91s-kg-tSt">
@@ -1574,7 +1574,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iak-xL-cnT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1973" y="-309"/>
+            <point key="canvasLocation" x="2357" y="-997"/>
         </scene>
         <!--Create Post Photos Step View Controller-->
         <scene sceneID="TLt-jO-UAe">
@@ -1771,7 +1771,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQO-zB-vvs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2661" y="-309"/>
+            <point key="canvasLocation" x="3045" y="-997"/>
         </scene>
         <!--Create Post Finders Fee Step View Controller-->
         <scene sceneID="8Un-mv-iED">
@@ -1880,7 +1880,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5o-bC-NbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3415" y="-309"/>
+            <point key="canvasLocation" x="3799" y="-997"/>
         </scene>
         <!--Create Post Review And Submit Step View Controller-->
         <scene sceneID="BXz-EG-XIX">
@@ -1963,7 +1963,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4D1-ad-ly6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="fqb-au-uUD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4159" y="-309"/>
+            <point key="canvasLocation" x="4543" y="-997"/>
         </scene>
         <!--My Activities View Controller-->
         <scene sceneID="f0u-tU-lmO">
@@ -2032,6 +2032,7 @@
                                         <connections>
                                             <outlet property="body" destination="mSP-ya-OQ0" id="aB8-lK-Cki"/>
                                             <outlet property="postedAt" destination="fl5-9g-Yrt" id="TEE-dd-9q0"/>
+                                            <segue destination="vqn-qR-0zV" kind="show" identifier="show_post" id="e8G-DT-VfW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2068,14 +2069,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eSr-TM-eKW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1204" y="-1344"/>
+            <point key="canvasLocation" x="1588" y="-60"/>
         </scene>
     </scenes>
     <resources>
         <image name="photo" width="97" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fjX-3f-ZFG"/>
+        <segue reference="e8G-DT-VfW"/>
         <segue reference="lfm-c7-2pO"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -103,7 +103,7 @@ class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITable
             let conversation:PFObject = self.conversations[indexPath.row]
             let post:PFObject = conversation[PJCONVERSATION.post] as! PFObject
             
-            postDetailsViewController.titleText = "I'm a participant of"
+            postDetailsViewController.titleText = "I'm a active in"
             postDetailsViewController.conversation = conversation
             postDetailsViewController.post = post
             
