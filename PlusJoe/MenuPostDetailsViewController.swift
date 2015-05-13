@@ -21,7 +21,7 @@ class MenuPostDetailsViewController: UIViewController {
     @IBOutlet weak var buyItLabel: UIButton!
     @IBOutlet weak var bookmark: UIButton!
     @IBOutlet weak var shareAndEarn: UIButton!
-    @IBOutlet weak var chat: UIButton!
+//    @IBOutlet weak var chat: UIButton!
     
     
     override func viewDidLoad() {
@@ -30,7 +30,7 @@ class MenuPostDetailsViewController: UIViewController {
         buyIt.setTitle("\u{f155}", forState: UIControlState.Normal)
         bookmark.setTitle("\u{f097}", forState: UIControlState.Normal)
         shareAndEarn.setTitle("\u{f0d6}", forState: UIControlState.Normal)
-        chat.setTitle("\u{f0e6}", forState: UIControlState.Normal)
+//        chat.setTitle("\u{f0e6}", forState: UIControlState.Normal)
     }
     
     @IBAction func buyIt(sender: AnyObject) {

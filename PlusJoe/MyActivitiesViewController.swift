@@ -1,31 +1,30 @@
 //
-//  AlertsViewController.swift
+//  MyActivitiesViewController.swift
 //  PlusJoe
 //
-//  Created by D on 5/8/15.
+//  Created by D on 5/12/15.
 //  Copyright (c) 2015 PlusJoe. All rights reserved.
 //
 
 import Foundation
 import Parse
 
-class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noAlertsLabel: UILabel!
     
     
     var alerts:[PFObject] = [PFObject]()
-
+    
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
-
+    
     
     @IBAction func backButtonAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,7 +39,7 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         self.tableView.estimatedRowHeight = 100.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
-
+        
         retrieveUnreadAlerts()
     }
     
@@ -57,16 +56,16 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.tableView.hidden = true
             }
             
-        }, failed: { (error) -> () in
-            let alertMessage = UIAlertController(title: nil, message: "Error.", preferredStyle: UIAlertControllerStyle.Alert)
-            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-                self.dismissViewControllerAnimated(true, completion: nil)
-            })
-            alertMessage.addAction(ok)
-            self.presentViewController(alertMessage, animated: true, completion: nil)
+            }, failed: { (error) -> () in
+                let alertMessage = UIAlertController(title: nil, message: "Error.", preferredStyle: UIAlertControllerStyle.Alert)
+                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                })
+                alertMessage.addAction(ok)
+                self.presentViewController(alertMessage, animated: true, completion: nil)
         })
     }
-
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         NSLog("there are \(alerts.count) unread alerts")
@@ -91,14 +90,14 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return cell
     }
-
+    
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         //        NSLog("prepareForSegue \(segue.identifier!)")
         if segue.identifier == "show_post" {
             let postDetailsViewController:PostDetailsViewController = segue.destinationViewController as! PostDetailsViewController
-
+            
             let indexPath = self.tableView.indexPathForSelectedRow()!
             NSLog("indexpath row1: \(indexPath.row)")
             let alert:PFObject = self.alerts[indexPath.row]

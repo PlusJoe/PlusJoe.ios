@@ -32,7 +32,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     //    var images = [NSData]()
     var imageViewControllers = [ImageViewController]()
     
-    var postNumberText = ""
+    var titleText = ""
     
     var pageController:UIPageViewController!
     
@@ -66,7 +66,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
         
-        self.navBar.topItem?.title = postNumberText
+        self.navBar.topItem?.title = titleText
         
         
         chatButton.setTitle("chat \u{f086}", forState: UIControlState.Normal)
@@ -200,7 +200,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     @IBAction func menuTapped(sender: AnyObject) {
         let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("MenuPostDetails") as! MenuPostDetailsViewController
         popoverVC.modalPresentationStyle = .Popover
-        popoverVC.preferredContentSize = CGSizeMake(300, 250)
+        popoverVC.preferredContentSize = CGSizeMake(300, 220)
         popoverVC.post = post
         
         

@@ -234,7 +234,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
         
         let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("MenuPostDetails") as! MenuPostDetailsViewController
         popoverVC.modalPresentationStyle = .Popover
-        popoverVC.preferredContentSize = CGSizeMake(300, 250)
+        popoverVC.preferredContentSize = CGSizeMake(300, 220)
         popoverVC.post = self.posts[Int(self.currentPost)-1]
         
         
