@@ -16,6 +16,8 @@ class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITable
     
     
     var conversations:[PFObject] = [PFObject]()
+    var myPosts:[PFObject] = [PFObject]()
+    
     
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
@@ -42,6 +44,7 @@ class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITable
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         retrieveMyActivities()
+        retreiveMyPosts()
     }
     
     func retrieveMyActivities() -> Void {
@@ -68,26 +71,64 @@ class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     
+    func retreiveMyPosts() -> Void {
+        PJPost.loadMyPosts({ (posts) -> () in
+            if posts.count > 0 {
+                self.myPosts = posts
+                self.tableView.reloadData()
+                self.tableView.reloadInputViews()
+                self.noActivitiesLabel.hidden = true
+                self.tableView.hidden = false
+            } else {
+                self.noActivitiesLabel.hidden = false
+                self.tableView.hidden = true
+            }
+            
+            }, failed: { (error) -> () in
+                let alertMessage = UIAlertController(title: nil, message: "Error.", preferredStyle: UIAlertControllerStyle.Alert)
+                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                })
+                alertMessage.addAction(ok)
+                self.presentViewController(alertMessage, animated: true, completion: nil)
+        })
+    }
+    
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        NSLog("there are \(conversations.count) conversations I'm part of")
-        return self.conversations.count
+        if(segmentedControl.selectedSegmentIndex == 0) {
+            NSLog("there are \(conversations.count) conversations I'm part of")
+            return self.conversations.count
+        } else if(segmentedControl.selectedSegmentIndex == 1) {
+            NSLog("there are \(myPosts.count) my posts")
+            return self.myPosts.count
+        } else {
+            return 0 // this will never be reached anyways
+        }
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:ActivityTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("activity_cell") as! ActivityTableViewCell
         
-        let conversation:PFObject = conversations[indexPath.row]
-        let post:PFObject = conversation[PJCONVERSATION.post] as! PFObject
-        
-        let df = NSDateFormatter()
-        df.dateFormat = "MM-dd-yyyy hh:mm a"
-        cell.postedAt.text = String(format: "%@", df.stringFromDate(conversation.updatedAt!))
-        
-        
-        cell.body.text = post[PJPOST.body] as? String
-        
-//        cell.postedAt.text = "\(cell.postedAt.text!)"
+        if(segmentedControl.selectedSegmentIndex == 0) {
+            let conversation:PFObject = conversations[indexPath.row]
+            let post:PFObject = conversation[PJCONVERSATION.post] as! PFObject
+            
+            let df = NSDateFormatter()
+            df.dateFormat = "MM-dd-yyyy hh:mm a"
+            cell.postedAt.text = String(format: "%@", df.stringFromDate(conversation.updatedAt!))
+            
+            cell.body.text = post[PJPOST.body] as? String
+        } else if(segmentedControl.selectedSegmentIndex == 1) {
+            let post:PFObject = myPosts[indexPath.row]
+            
+            let df = NSDateFormatter()
+            df.dateFormat = "MM-dd-yyyy hh:mm a"
+            cell.postedAt.text = String(format: "%@", df.stringFromDate(post.updatedAt!))
+            
+            cell.body.text = post[PJPOST.body] as? String
+        }
         
         return cell
     }
@@ -112,13 +153,8 @@ class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func segmentChanged(sender: AnyObject) {
-        if(segmentedControl.selectedSegmentIndex == 0)
-        {
-         
-        }
-        else if(segmentedControl.selectedSegmentIndex == 1)
-        {
-         
-        }
+        NSLog("selected segment: \(segmentedControl.selectedSegmentIndex)")
+        self.tableView.reloadData()
+        self.tableView.reloadInputViews()
     }
 }

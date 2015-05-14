@@ -113,5 +113,25 @@ class PJPost: BaseDataModel {
                 }
             })
     }
+
+    
+    class func loadMyPosts(
+        succeeded:(posts:[PFObject]) -> (),
+        failed:(error: NSError!) -> ()
+        ) -> () {
+            let postQuery = PFQuery(className:PJPOST.CLASS_NAME)
+            postQuery.whereKey(PJPOST.createdBy, equalTo: DEVICE_UUID)
+            postQuery.orderByDescending("updatedAt")
+            
+            postQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+                if error == nil {
+                    succeeded(posts: objects as! [PFObject])
+                } else {
+                    // Log details of the failure
+                    failed(error: error)
+                }
+            })
+    }
+
     
 }
