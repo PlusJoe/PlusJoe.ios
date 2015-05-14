@@ -10,6 +10,7 @@ import Foundation
 import Parse
 
 class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noActivitiesLabel: UILabel!
     
@@ -103,10 +104,21 @@ class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITable
             let conversation:PFObject = self.conversations[indexPath.row]
             let post:PFObject = conversation[PJCONVERSATION.post] as! PFObject
             
-            postDetailsViewController.titleText = "I'm a active in"
+            postDetailsViewController.titleText = "I'm a chatting in"
             postDetailsViewController.conversation = conversation
             postDetailsViewController.post = post
             
+        }
+    }
+    
+    @IBAction func segmentChanged(sender: AnyObject) {
+        if(segmentedControl.selectedSegmentIndex == 0)
+        {
+         
+        }
+        else if(segmentedControl.selectedSegmentIndex == 1)
+        {
+         
         }
     }
 }
