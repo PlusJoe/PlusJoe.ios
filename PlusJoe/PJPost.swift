@@ -121,6 +121,9 @@ class PJPost: BaseDataModel {
         ) -> () {
             let postQuery = PFQuery(className:PJPOST.CLASS_NAME)
             postQuery.whereKey(PJPOST.createdBy, equalTo: DEVICE_UUID)
+            postQuery.whereKey(PJPOST.active, equalTo:true)
+            postQuery.whereKey(PJPOST.archived, equalTo:false)
+            postQuery.whereKey(PJPOST.inappropriate, notEqualTo:true)
             postQuery.orderByDescending("updatedAt")
             
             postQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in

@@ -142,12 +142,20 @@ class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITable
             
             let indexPath = self.tableView.indexPathForSelectedRow()!
             NSLog("indexpath row1: \(indexPath.row)")
-            let conversation:PFObject = self.conversations[indexPath.row]
-            let post:PFObject = conversation[PJCONVERSATION.post] as! PFObject
             
-            postDetailsViewController.titleText = "I'm a chatting in"
-            postDetailsViewController.conversation = conversation
-            postDetailsViewController.post = post
+            if(segmentedControl.selectedSegmentIndex == 0) {
+                let conversation:PFObject = self.conversations[indexPath.row]
+                let post:PFObject = conversation[PJCONVERSATION.post] as! PFObject
+                
+                postDetailsViewController.titleText = "I'm a chatting in"
+                postDetailsViewController.conversation = conversation
+                postDetailsViewController.post = post
+            } else if(segmentedControl.selectedSegmentIndex == 1) {
+                let post:PFObject = self.myPosts[indexPath.row]
+                
+                postDetailsViewController.titleText = "I posted"
+                postDetailsViewController.post = post
+            }
             
         }
     }
