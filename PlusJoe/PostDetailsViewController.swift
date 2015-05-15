@@ -70,6 +70,12 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         
         
         chatButton.setTitle("chat \u{f086}", forState: UIControlState.Normal)
+
+        // looking at my own post
+        if post?[PJPOST.createdBy] as! String == DEVICE_UUID {
+            chatButton.hidden = true
+//            menuButton.hidden = true
+        }
         
         postBody.text = post?[PJPOST.body] as? String
         price.text = "$\((post?[PJPOST.price] as? Int)!)"
@@ -198,20 +204,39 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     
     
     @IBAction func menuTapped(sender: AnyObject) {
-        let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("MenuPostDetails") as! MenuPostDetailsViewController
-        popoverVC.modalPresentationStyle = .Popover
-        popoverVC.preferredContentSize = CGSizeMake(300, 220)
-        popoverVC.post = post
         
         
-        let popoverPresentationViewController = popoverVC.popoverPresentationController
-        popoverPresentationViewController?.permittedArrowDirections = .Any
-        
-        popoverPresentationViewController?.delegate = self
-        popoverPresentationViewController?.sourceView =             menuButton
-        popoverPresentationViewController?.sourceRect =             menuButton.bounds
-        presentViewController(popoverVC, animated: true, completion: nil)
-        
+        // looking at my own post
+        if post?[PJPOST.createdBy] as! String == DEVICE_UUID {
+            let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("Menu2PostDetails") as! Menu2PostDetailsViewController
+            popoverVC.modalPresentationStyle = .Popover
+            popoverVC.preferredContentSize = CGSizeMake(300, 50)
+            popoverVC.post = post
+            
+            
+            let popoverPresentationViewController = popoverVC.popoverPresentationController
+            popoverPresentationViewController?.permittedArrowDirections = .Any
+            
+            popoverPresentationViewController?.delegate = self
+            popoverPresentationViewController?.sourceView =             menuButton
+            popoverPresentationViewController?.sourceRect =             menuButton.bounds
+            presentViewController(popoverVC, animated: true, completion: nil)
+
+        } else {
+            let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("MenuPostDetails") as! MenuPostDetailsViewController
+            popoverVC.modalPresentationStyle = .Popover
+            popoverVC.preferredContentSize = CGSizeMake(300, 220)
+            popoverVC.post = post
+            
+            
+            let popoverPresentationViewController = popoverVC.popoverPresentationController
+            popoverPresentationViewController?.permittedArrowDirections = .Any
+            
+            popoverPresentationViewController?.delegate = self
+            popoverPresentationViewController?.sourceView =             menuButton
+            popoverPresentationViewController?.sourceRect =             menuButton.bounds
+            presentViewController(popoverVC, animated: true, completion: nil)
+        }
     }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {

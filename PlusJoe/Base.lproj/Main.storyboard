@@ -33,6 +33,7 @@
             <string>FontAwesome</string>
             <string>FontAwesome</string>
             <string>FontAwesome</string>
+            <string>FontAwesome</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -1145,7 +1146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fOU-S2-HCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1772" y="3116"/>
+            <point key="canvasLocation" x="1896" y="3118"/>
         </scene>
         <!--Search Details View Controller-->
         <scene sceneID="ZFr-oL-UuD">
@@ -2087,6 +2088,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eSr-TM-eKW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1588" y="-60"/>
+        </scene>
+        <!--Menu2 Post Details View Controller-->
+        <scene sceneID="ZGe-KR-szh">
+            <objects>
+                <viewController storyboardIdentifier="Menu2PostDetails" id="bY1-uj-Ckt" customClass="Menu2PostDetailsViewController" customModule="PlusJoe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jqh-bY-jHB"/>
+                        <viewControllerLayoutGuide type="bottom" id="lhw-Ti-aPJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="meV-Gb-SLd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete Post" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77o-Kf-Wfb">
+                                <rect key="frame" x="447" y="28" width="104" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="104" id="aBV-L1-2Jh"/>
+                                    <constraint firstAttribute="height" constant="21" id="ovq-MI-K8q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4I-zo-fmq">
+                                <rect key="frame" x="16" y="20" width="568" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="TQ1-5v-wFS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
+                                <state key="normal" title="D">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteIt:" destination="bY1-uj-Ckt" eventType="touchUpInside" id="XEK-OC-0oP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="77o-Kf-Wfb" firstAttribute="top" secondItem="Jqh-bY-jHB" secondAttribute="bottom" constant="8" id="KlB-vp-MoJ"/>
+                            <constraint firstItem="Q4I-zo-fmq" firstAttribute="leading" secondItem="meV-Gb-SLd" secondAttribute="leadingMargin" id="dgs-kk-FUb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="77o-Kf-Wfb" secondAttribute="trailing" constant="33" id="eeG-yJ-UtD"/>
+                            <constraint firstItem="Q4I-zo-fmq" firstAttribute="top" secondItem="Jqh-bY-jHB" secondAttribute="bottom" id="oxS-C9-zH3"/>
+                            <constraint firstItem="Q4I-zo-fmq" firstAttribute="trailing" secondItem="meV-Gb-SLd" secondAttribute="trailingMargin" id="w9P-tg-FXY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="delete" destination="Q4I-zo-fmq" id="7iF-Jf-rLv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bzM-tz-pEp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1896" y="3836"/>
         </scene>
     </scenes>
     <resources>

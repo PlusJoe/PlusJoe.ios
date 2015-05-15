@@ -31,6 +31,7 @@ class MenuPostDetailsViewController: UIViewController {
         bookmark.setTitle("\u{f097}", forState: UIControlState.Normal)
         shareAndEarn.setTitle("\u{f0d6}", forState: UIControlState.Normal)
 //        chat.setTitle("\u{f0e6}", forState: UIControlState.Normal)
+        
     }
     
     @IBAction func buyIt(sender: AnyObject) {

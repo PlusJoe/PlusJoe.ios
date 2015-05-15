@@ -24,7 +24,10 @@ class PJConversation: BaseDataModel {
         post: PFObject,
         participant1: String,
         participant2: String
-        ) -> (PFObject) {
+        ) -> (PFObject?) {
+            if participant1 == participant2 {
+                return nil
+            }
             
             let query = PFQuery(className:PJCONVERSATION.CLASS_NAME)
             // Interested in locations near user.
