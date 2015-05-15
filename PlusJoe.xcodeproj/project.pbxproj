@@ -37,6 +37,7 @@
 		0AE782561B024C34008678B8 /* MyActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE782551B024C34008678B8 /* MyActivitiesViewController.swift */; };
 		0AE782581B02D702008678B8 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE782571B02D702008678B8 /* ActivityTableViewCell.swift */; };
 		0AE7825A1B053A23008678B8 /* Menu2PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE782591B053A23008678B8 /* Menu2PostDetailsViewController.swift */; };
+		0AE7825C1B0597E4008678B8 /* PJBookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE7825B1B0597E4008678B8 /* PJBookmark.swift */; };
 		0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */; };
 		0AEAFBD41AC0E2F900800121 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD21AC0E2F900800121 /* Main.storyboard */; };
 		0AEAFBD61AC0E2F900800121 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD51AC0E2F900800121 /* Images.xcassets */; };
@@ -101,6 +102,7 @@
 		0AE782551B024C34008678B8 /* MyActivitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyActivitiesViewController.swift; sourceTree = "<group>"; };
 		0AE782571B02D702008678B8 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		0AE782591B053A23008678B8 /* Menu2PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu2PostDetailsViewController.swift; sourceTree = "<group>"; };
+		0AE7825B1B0597E4008678B8 /* PJBookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJBookmark.swift; sourceTree = "<group>"; };
 		0AEAFBC91AC0E2F900800121 /* PlusJoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusJoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEAFBCD1AC0E2F900800121 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */,
 				0A4C7AC11AF5D93F00C271F2 /* PJChatMessage.swift */,
 				0A4C7ABF1AF5D67D00C271F2 /* PJAlert.swift */,
+				0AE7825B1B0597E4008678B8 /* PJBookmark.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				0AEC37101AE4A677005F99A7 /* ImageViewController.swift in Sources */,
 				0A1A318B1AF406F100853A30 /* CreatePostFindersFeeStepViewController.swift in Sources */,
 				0A1C41451AE0555D00270347 /* SearchDetailsViewController.swift in Sources */,
+				0AE7825C1B0597E4008678B8 /* PJBookmark.swift in Sources */,
 				0AC66FBD1AC5C1CA003C818C /* CreatePostPhotosStepViewController.swift in Sources */,
 				0A4C7AC41AF6E76500C271F2 /* ChatViewController.swift in Sources */,
 				0A4C7AC61AF99C3700C271F2 /* MenuSearchHomeViewController.swift in Sources */,
