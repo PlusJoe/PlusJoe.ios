@@ -14,15 +14,16 @@ class PJBookmark: BaseDataModel {
     let CLASS_NAME = "Bookmarks"
     
     let tag = "tag" //: String
-    let owner = "owner" //: String
-    
+    let createdBy = "createdBy" //uuid
+    let location = "location" //: PFGeoPoint
+
     
     class func loadUMyBookmarks(
         succeeded:(bookmarks:[PFObject]) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
             let bookmarksQuery = PFQuery(className:PJBOOKMARK.CLASS_NAME)
-            bookmarksQuery.whereKey(PJBOOKMARK.owner, equalTo: DEVICE_UUID)
+            bookmarksQuery.whereKey(PJBOOKMARK.createdBy, equalTo: DEVICE_UUID)
             
             bookmarksQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
