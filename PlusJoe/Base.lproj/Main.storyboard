@@ -1015,21 +1015,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flag as Inapropriate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lW8-AL-pyO">
-                                <rect key="frame" x="398" y="74" width="153" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="I7Z-4J-jp6"/>
-                                    <constraint firstAttribute="width" constant="153" id="wFv-UT-OAS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy it" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33L-SF-YNS">
                                 <rect key="frame" x="507" y="28" width="44" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="52v-5F-vYx"/>
                                     <constraint firstAttribute="height" constant="21" id="Mp2-Uj-YZo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flag as Inapropriate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lW8-AL-pyO">
+                                <rect key="frame" x="398" y="74" width="153" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="I7Z-4J-jp6"/>
+                                    <constraint firstAttribute="width" constant="153" id="wFv-UT-OAS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1139,7 +1139,7 @@
                     <connections>
                         <outlet property="bookmark" destination="sgU-iH-ous" id="FVO-LI-IjD"/>
                         <outlet property="buyIt" destination="XA5-Ol-1gB" id="h24-sg-q2n"/>
-                        <outlet property="buyItLabel" destination="XA5-Ol-1gB" id="FMG-Kp-Ppv"/>
+                        <outlet property="buyItLabel" destination="33L-SF-YNS" id="CHc-vT-8nA"/>
                         <outlet property="flagInapproproate" destination="hhd-u2-dDI" id="bhg-xu-WCh"/>
                         <outlet property="shareAndEarn" destination="qJV-0i-YhW" id="eZk-sG-wxO"/>
                     </connections>

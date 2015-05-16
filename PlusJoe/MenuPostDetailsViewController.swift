@@ -18,10 +18,9 @@ class MenuPostDetailsViewController: UIViewController {
     
     @IBOutlet weak var flagInapproproate: UIButton!
     @IBOutlet weak var buyIt: UIButton!
-    @IBOutlet weak var buyItLabel: UIButton!
+    @IBOutlet weak var buyItLabel: UILabel!
     @IBOutlet weak var bookmark: UIButton!
     @IBOutlet weak var shareAndEarn: UIButton!
-//    @IBOutlet weak var chat: UIButton!
     
     
     override func viewDidLoad() {
@@ -30,8 +29,13 @@ class MenuPostDetailsViewController: UIViewController {
         buyIt.setTitle("\u{f155}", forState: UIControlState.Normal)
         bookmark.setTitle("\u{f097}", forState: UIControlState.Normal)
         shareAndEarn.setTitle("\u{f0d6}", forState: UIControlState.Normal)
-//        chat.setTitle("\u{f0e6}", forState: UIControlState.Normal)
         
+        //disable buy button for posts that can't be bought
+        if post![PJPOST.sell] as! Bool == false {
+            buyIt.enabled = false
+            buyIt.setTitleColor(UIColor.grayColor(), forState: .Normal)
+            buyItLabel.textColor = UIColor.grayColor()
+        }
     }
     
     @IBAction func buyIt(sender: AnyObject) {
