@@ -519,7 +519,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wd4-u4-geW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="322" y="-558"/>
+            <point key="canvasLocation" x="376" y="-622"/>
         </scene>
         <!--Search Results View Controller-->
         <scene sceneID="6Og-pg-PEU">
@@ -1477,7 +1477,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1588" y="-997"/>
+            <point key="canvasLocation" x="1588" y="-1829"/>
         </scene>
         <!--Create Post Describe Step View Controller-->
         <scene sceneID="91s-kg-tSt">
@@ -1575,7 +1575,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iak-xL-cnT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2357" y="-997"/>
+            <point key="canvasLocation" x="2357" y="-1829"/>
         </scene>
         <!--Create Post Photos Step View Controller-->
         <scene sceneID="TLt-jO-UAe">
@@ -1772,7 +1772,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQO-zB-vvs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3045" y="-997"/>
+            <point key="canvasLocation" x="3045" y="-1829"/>
         </scene>
         <!--Create Post Finders Fee Step View Controller-->
         <scene sceneID="8Un-mv-iED">
@@ -1881,7 +1881,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5o-bC-NbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3799" y="-997"/>
+            <point key="canvasLocation" x="3799" y="-1829"/>
         </scene>
         <!--Create Post Review And Submit Step View Controller-->
         <scene sceneID="BXz-EG-XIX">
@@ -1964,7 +1964,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4D1-ad-ly6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="fqb-au-uUD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4543" y="-997"/>
+            <point key="canvasLocation" x="4543" y="-1829"/>
         </scene>
         <!--My Activities View Controller-->
         <scene sceneID="f0u-tU-lmO">
@@ -1985,17 +1985,33 @@
                                 </constraints>
                                 <color key="barTintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="My Activity" id="wyM-5H-pqP">
+                                    <navigationItem id="wyM-5H-pqP">
+                                        <nil key="title"/>
                                         <barButtonItem key="leftBarButtonItem" title="&lt;" id="n2q-zs-d9b">
                                             <connections>
                                                 <action selector="backButtonAction:" destination="slJ-b4-0dn" id="6z9-xH-fd1"/>
                                             </connections>
                                         </barButtonItem>
+                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="VQA-9y-PSY">
+                                            <rect key="frame" x="200" y="8" width="201" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="201" id="NYb-UA-7ex"/>
+                                                <constraint firstAttribute="height" constant="28" id="UA9-N4-ii6"/>
+                                            </constraints>
+                                            <segments>
+                                                <segment title="I'm chatting in"/>
+                                                <segment title="I posted"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="segmentChanged:" destination="slJ-b4-0dn" eventType="valueChanged" id="7wx-kh-HWR"/>
+                                            </connections>
+                                        </segmentedControl>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cp3-MM-qvU">
-                                <rect key="frame" x="0.0" y="100" width="600" height="500"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="activity_cell" rowHeight="137" id="YjD-Hf-HEJ" customClass="ActivityTableViewCell" customModule="PlusJoe">
@@ -2048,20 +2064,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VQA-9y-PSY">
-                                <rect key="frame" x="200" y="64" width="201" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="201" id="NYb-UA-7ex"/>
-                                    <constraint firstAttribute="height" constant="28" id="UA9-N4-ii6"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="I'm chatting in"/>
-                                    <segment title="I posted"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentChanged:" destination="slJ-b4-0dn" eventType="valueChanged" id="7wx-kh-HWR"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -2069,13 +2071,11 @@
                             <constraint firstAttribute="centerY" secondItem="XHj-dW-98Z" secondAttribute="centerY" id="MEA-fs-fgk"/>
                             <constraint firstItem="0Kz-76-hfo" firstAttribute="top" secondItem="cp3-MM-qvU" secondAttribute="bottom" id="Pax-WA-jrE"/>
                             <constraint firstItem="5tw-zL-uVb" firstAttribute="top" secondItem="C1l-T9-nNb" secondAttribute="bottom" id="TQC-s0-dSR"/>
-                            <constraint firstItem="VQA-9y-PSY" firstAttribute="top" secondItem="5tw-zL-uVb" secondAttribute="bottom" id="Txj-J7-pzr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5tw-zL-uVb" secondAttribute="trailing" constant="-16" id="VZy-gF-duy"/>
                             <constraint firstItem="cp3-MM-qvU" firstAttribute="leading" secondItem="AEb-3E-q3v" secondAttribute="leadingMargin" constant="-16" id="WCK-rq-vAS"/>
                             <constraint firstItem="5tw-zL-uVb" firstAttribute="leading" secondItem="AEb-3E-q3v" secondAttribute="leadingMargin" constant="-16" id="Xd7-YR-II3"/>
-                            <constraint firstAttribute="centerX" secondItem="VQA-9y-PSY" secondAttribute="centerX" id="jbe-L8-QoP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cp3-MM-qvU" secondAttribute="trailing" constant="-16" id="khu-Sn-mjE"/>
-                            <constraint firstItem="cp3-MM-qvU" firstAttribute="top" secondItem="5tw-zL-uVb" secondAttribute="bottom" constant="36" id="pgD-KJ-JvS"/>
+                            <constraint firstItem="cp3-MM-qvU" firstAttribute="top" secondItem="5tw-zL-uVb" secondAttribute="bottom" id="pgD-KJ-JvS"/>
                         </constraints>
                     </view>
                     <connections>

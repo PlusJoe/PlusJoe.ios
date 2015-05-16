@@ -24,6 +24,8 @@
 		0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */; };
 		0A60E1C31AC8E854003887C5 /* BaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */; };
 		0A60E1C51AC8ED2B003887C5 /* PJPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C41AC8ED2B003887C5 /* PJPost.swift */; };
+		0A63D7981B06685100AD70F1 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63D7971B06685100AD70F1 /* BookmarksViewController.swift */; };
+		0A63D79A1B06689E00AD70F1 /* BookmarksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63D7991B06689E00AD70F1 /* BookmarksTableViewCell.swift */; };
 		0A8BF12E1AFC3EDC0058AE38 /* PJConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */; };
 		0A8BF1311AFD40EA0058AE38 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF1301AFD40EA0058AE38 /* ChatTableViewCell.swift */; };
 		0A8BF1331AFDB4E10058AE38 /* AlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF1321AFDB4E10058AE38 /* AlertsViewController.swift */; };
@@ -88,6 +90,8 @@
 		0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
 		0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataModel.swift; sourceTree = "<group>"; };
 		0A60E1C41AC8ED2B003887C5 /* PJPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJPost.swift; sourceTree = "<group>"; };
+		0A63D7971B06685100AD70F1 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		0A63D7991B06689E00AD70F1 /* BookmarksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksTableViewCell.swift; sourceTree = "<group>"; };
 		0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJConversation.swift; sourceTree = "<group>"; };
 		0A8BF1301AFD40EA0058AE38 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		0A8BF1321AFDB4E10058AE38 /* AlertsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +210,15 @@
 			name = CreatePost;
 			sourceTree = "<group>";
 		};
+		0A63D7961B06681400AD70F1 /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				0A63D7971B06685100AD70F1 /* BookmarksViewController.swift */,
+				0A63D7991B06689E00AD70F1 /* BookmarksTableViewCell.swift */,
+			);
+			name = Bookmarks;
+			sourceTree = "<group>";
+		};
 		0A8BF12F1AFD40B70058AE38 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,13 +228,13 @@
 			name = Chat;
 			sourceTree = "<group>";
 		};
-		0A8BF1361AFED2AD0058AE38 /* Alert */ = {
+		0A8BF1361AFED2AD0058AE38 /* Alerts */ = {
 			isa = PBXGroup;
 			children = (
 				0A8BF1321AFDB4E10058AE38 /* AlertsViewController.swift */,
 				0A8BF1341AFED29D0058AE38 /* AlertTableViewCell.swift */,
 			);
-			name = Alert;
+			name = Alerts;
 			sourceTree = "<group>";
 		};
 		0AE782541B024C0D008678B8 /* MyActivities */ = {
@@ -260,8 +273,9 @@
 				0A60E1C11AC8E7CF003887C5 /* CreatePost */,
 				0AF02E061AD446D800792A5E /* SearchPost */,
 				0A8BF12F1AFD40B70058AE38 /* Chat */,
-				0A8BF1361AFED2AD0058AE38 /* Alert */,
+				0A8BF1361AFED2AD0058AE38 /* Alerts */,
 				0AE782541B024C0D008678B8 /* MyActivities */,
+				0A63D7961B06681400AD70F1 /* Bookmarks */,
 				0AEAFBD21AC0E2F900800121 /* Main.storyboard */,
 				0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */,
 				0AEAFBD51AC0E2F900800121 /* Images.xcassets */,
@@ -467,12 +481,14 @@
 				0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */,
 				0AC66FBF1AC5C22C003C818C /* CreatePostReviewAndSubmitStepViewController.swift in Sources */,
 				0A4C495B1AC501C000D164E2 /* SearchHomeViewController.swift in Sources */,
+				0A63D79A1B06689E00AD70F1 /* BookmarksTableViewCell.swift in Sources */,
 				0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */,
 				0AE782581B02D702008678B8 /* ActivityTableViewCell.swift in Sources */,
 				0A8BF12E1AFC3EDC0058AE38 /* PJConversation.swift in Sources */,
 				0A4C7AC81AF9C17700C271F2 /* MenuPostDetailsViewController.swift in Sources */,
 				0AAC2E361AC4580900B60B47 /* CreatePostDescribeStepViewController.swift in Sources */,
 				0AE7825A1B053A23008678B8 /* Menu2PostDetailsViewController.swift in Sources */,
+				0A63D7981B06685100AD70F1 /* BookmarksViewController.swift in Sources */,
 				0AE782561B024C34008678B8 /* MyActivitiesViewController.swift in Sources */,
 				0A8BF1331AFDB4E10058AE38 /* AlertsViewController.swift in Sources */,
 				0A4C7AC01AF5D67D00C271F2 /* PJAlert.swift in Sources */,

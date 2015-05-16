@@ -40,21 +40,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        PJAlert.loadUnreadAlertsCount({ (alertsCount) -> () in
-            if alertsCount == 0 {
-                self.alertsCountLabel.hidden = true
-            } else {
-                self.alertsCountLabel.text = String(alertsCount)
-                self.alertsCountLabel.hidden = false
-            }
-            }, failed: { (error) -> () in
-                self.alertsCountLabel.hidden = true
-        })
-        
-    }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,11 +56,11 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         
         
         chatButton.setTitle("chat \u{f086}", forState: UIControlState.Normal)
-
+        
         // looking at my own post
-        if post?[PJPOST.createdBy] as! String == DEVICE_UUID {
+        if post?[PJPOST.createdBy] as! String == DEVICE_UUID && conversation == nil {
             chatButton.hidden = true
-//            menuButton.hidden = true
+            //            menuButton.hidden = true
         }
         
         postBody.text = post?[PJPOST.body] as? String
@@ -157,6 +143,25 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     }
     
     
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        PJAlert.loadUnreadAlertsCount({ (alertsCount) -> () in
+            if alertsCount == 0 {
+                self.alertsCountLabel.hidden = true
+            } else {
+                self.alertsCountLabel.text = String(alertsCount)
+                self.alertsCountLabel.hidden = false
+            }
+            }, failed: { (error) -> () in
+                self.alertsCountLabel.hidden = true
+        })
+        
+    }
+    
+    
+    
+    
     private func addImageToView(image:UIImage) -> () {
         let imageViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("ImageDetailsView") as! ImageViewController
         imageViewController.image  = image
@@ -207,7 +212,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         
         
         // looking at my own post
-        if post?[PJPOST.createdBy] as! String == DEVICE_UUID {
+        if post?[PJPOST.createdBy] as! String == DEVICE_UUID && conversation == nil {
             let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("Menu2PostDetails") as! Menu2PostDetailsViewController
             popoverVC.modalPresentationStyle = .Popover
             popoverVC.preferredContentSize = CGSizeMake(300, 50)
@@ -221,7 +226,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
             popoverPresentationViewController?.sourceView =             menuButton
             popoverPresentationViewController?.sourceRect =             menuButton.bounds
             presentViewController(popoverVC, animated: true, completion: nil)
-
+            
         } else {
             let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("MenuPostDetails") as! MenuPostDetailsViewController
             popoverVC.modalPresentationStyle = .Popover
@@ -246,13 +251,13 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "chatSegue") {
-
+            
             var chatViewController = segue.destinationViewController as! ChatViewController
-
+            
             if self.conversation == nil {
-            let conversation = PJConversation.findOrCreateConversation(post!,
-                participant1: DEVICE_UUID,
-                participant2: self.post?[PJPOST.createdBy] as! String)
+                let conversation = PJConversation.findOrCreateConversation(post!,
+                    participant1: DEVICE_UUID,
+                    participant2: self.post?[PJPOST.createdBy] as! String)
                 chatViewController.conversation = conversation
             } else {
                 chatViewController.conversation = self.conversation
