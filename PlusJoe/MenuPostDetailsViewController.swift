@@ -58,7 +58,16 @@ class MenuPostDetailsViewController: UIViewController {
         self.presentViewController(alertMessage, animated: true, completion: nil)
     }
     
+    
+    
     @IBAction func bookmarkHashtags(sender: AnyObject) {
+        
+        
+        
+//        let newBookmark = PFObject(className: PJBOOKMARK.CLASS_NAME)
+//        newBookmark[
+//        
+        
         let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
         let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
         alertMessage.addAction(ok)
