@@ -54,8 +54,7 @@ class PJHashTag: BaseDataModel {
                     }
                     for tag in sorted(hashTags) {
                         orderedResults.append(tag)
-                    }
-                    
+                    }                    
                     
                     succeeded(results: orderedResults)
                 } else {
@@ -79,8 +78,6 @@ class PJHashTag: BaseDataModel {
                     // Log details of the failure
                     failed(error: error)
                 }
-                
             }
     }
-    
 }

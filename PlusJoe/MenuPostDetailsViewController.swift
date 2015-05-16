@@ -63,13 +63,9 @@ class MenuPostDetailsViewController: UIViewController {
     @IBAction func bookmarkHashtags(sender: AnyObject) {
         PJHashTag.loadTagsForPost(post!,
             succeeded: { (hashTags) -> () in
-                var tagsString = "Following tags are bookmarked:\n"
+                var tagsString = "Following tags will be bookmarked:\n"
                 for hashTag in hashTags {
-                    let bookmark = PFObject(className: PJBOOKMARK.CLASS_NAME)
-                    bookmark[PJBOOKMARK.location] = CURRENT_LOCATION!
-                    bookmark[PJBOOKMARK.createdBy] = DEVICE_UUID
-                    bookmark[PJBOOKMARK.tag] = hashTag[PJHASHTAG.tag] as! String
-                    bookmark.saveInBackgroundWithBlock({ (succeeds: Bool, error:NSError?) -> Void in})
+                    PJBookmark.createOrUpdateBookmark(hashTag[PJHASHTAG.tag] as! String)
                     tagsString += "#" + (hashTag[PJHASHTAG.tag] as! String) + "\n"
                 }
                 tagsString += "You will be notified when someone creates a new post in your area with one of these tags."
