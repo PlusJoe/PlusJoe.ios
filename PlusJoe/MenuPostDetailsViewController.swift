@@ -61,19 +61,33 @@ class MenuPostDetailsViewController: UIViewController {
     
     
     @IBAction func bookmarkHashtags(sender: AnyObject) {
-        
-        
-        
-//        let newBookmark = PFObject(className: PJBOOKMARK.CLASS_NAME)
-//        newBookmark[
-//        
-        
-        let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
-        let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
-        alertMessage.addAction(ok)
-        self.presentViewController(alertMessage, animated: true, completion: nil)
+        PJHashTag.loadTagsForPost(post!,
+            succeeded: { (hashTags) -> () in
+                var tagsString = "Following tags are bookmarked:\n"
+                for hashTag in hashTags {
+                    let bookmark = PFObject(className: PJBOOKMARK.CLASS_NAME)
+                    bookmark[PJBOOKMARK.location] = CURRENT_LOCATION!
+                    bookmark[PJBOOKMARK.createdBy] = DEVICE_UUID
+                    bookmark[PJBOOKMARK.tag] = hashTag[PJHASHTAG.tag] as! String
+                    bookmark.saveInBackgroundWithBlock({ (succeeds: Bool, error:NSError?) -> Void in})
+                    tagsString += "#" + (hashTag[PJHASHTAG.tag] as! String) + "\n"
+                }
+                tagsString += "You will be notified when someone creates a new post in your area with one of these tags."
+                let alertMessage = UIAlertController(title: nil, message: tagsString, preferredStyle: UIAlertControllerStyle.Alert)
+                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+                alertMessage.addAction(ok)
+                self.presentViewController(alertMessage, animated: true, completion: nil)
+                
+            }) { (error) -> () in
+                let alertMessage = UIAlertController(title: nil, message: "Error loading #hashtags.", preferredStyle: UIAlertControllerStyle.Alert)
+                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+                alertMessage.addAction(ok)
+                self.presentViewController(alertMessage, animated: true, completion: nil)
+        }
     }
 
+    
+    
     @IBAction func shareAndEarn(sender: AnyObject) {
         let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
         let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
