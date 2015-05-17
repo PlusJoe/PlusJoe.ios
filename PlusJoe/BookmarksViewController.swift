@@ -83,15 +83,33 @@ class BookrmarksViewController: UIViewController, UITableViewDelegate, UITableVi
         df.dateFormat = "MM-dd-yyyy"
         cell.postedAt.text = String(format: "%@", df.stringFromDate(bookmark.createdAt!))
         
-        
         cell.hashTag.text = bookmark[PJBOOKMARK.tag] as? String
-
         cell.deleteButton.setTitle("\u{f1f8}", forState: UIControlState.Normal)
         
-        
+        cell.deleteButton.tag = indexPath.row
+        cell.deleteButton.addTarget(self, action: "deleteBookmarkAction:", forControlEvents: UIControlEvents.TouchUpInside)
         
         return cell
     }
+    
+    func deleteBookmarkAction(sender:UIButton!) {
+        let deleteButton:UIButton = sender as UIButton!
+        let buttonRow:Int = sender.tag
+        NSLog("button clicked: \(buttonRow)")
+        let bookmarkObject = bookmarks[buttonRow]
+
         
+        let alertMessage = UIAlertController(title: nil, message: "Are you sure you want to delete bookmark?", preferredStyle: UIAlertControllerStyle.Alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in })
+        let ok = UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
+            bookmarkObject.delete()
+            self.bookmarks.removeAtIndex(buttonRow)
+            self.tableView.reloadData()
+        })
+        alertMessage.addAction(cancel)
+        alertMessage.addAction(ok)
+        self.presentViewController(alertMessage, animated: true, completion: nil)
+        
+    }
 
 }
