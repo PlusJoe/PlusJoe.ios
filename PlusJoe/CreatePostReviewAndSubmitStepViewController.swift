@@ -103,21 +103,13 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
         label3.numberOfLines = 0
         label3.font = UIFont(name: "Helvetica-Bold", size: 12)
         
-        PJHashTag.loadTagsForPost(UNFINISHED_POST!,
-            succeeded: { (hashTags) -> () in
-                for var index = 0; index < hashTags.count; ++index {
-                    label3.text = label3.text! + (hashTags[index][PJHASHTAG.tag] as! String)
-                    if index < (hashTags.count)-1  {
-                        label3.text = label3.text! + ", "
-                    }
-                }
-            }) { (error) -> () in
-                let alertMessage = UIAlertController(title: nil, message: "Error loading #hashtags.", preferredStyle: UIAlertControllerStyle.Alert)
-                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
-                alertMessage.addAction(ok)
-                self.presentViewController(alertMessage, animated: true, completion: nil)
+        let hashTags = PJHashTag.loadTagsForPost(UNFINISHED_POST!)
+        for var index = 0; index < hashTags.count; ++index {
+            label3.text = label3.text! + (hashTags[index][PJHASHTAG.tag] as! String)
+            if index < (hashTags.count)-1  {
+                label3.text = label3.text! + ", "
+            }
         }
-        
         cells.last!.addSubview(label3)
         embedConstrainst(cells.last!, childView: label3)
 

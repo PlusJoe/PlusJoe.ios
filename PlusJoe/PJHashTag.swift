@@ -63,21 +63,11 @@ class PJHashTag: BaseDataModel {
                 }
             })
     }
-
-    class func loadTagsForPost(
-        post:PFObject,
-        succeeded:(hashTags:[PFObject]) -> (),
-        failed:(error: NSError!) -> ()
-        ) -> () {
-            let query = PFQuery(className:PJHASHTAG.CLASS_NAME)
-            query.whereKey(PJHASHTAG.post, equalTo:post)
-            query.findObjectsInBackgroundWithBlock { (objects:[AnyObject]?, error: NSError?) -> Void in
-                if error == nil {
-                    succeeded(hashTags: objects as! [PFObject])
-                } else {
-                    // Log details of the failure
-                    failed(error: error)
-                }
-            }
+    
+    class func loadTagsForPost(post:PFObject)-> ([PFObject]) {
+        let query = PFQuery(className:PJHASHTAG.CLASS_NAME)
+        query.whereKey(PJHASHTAG.post, equalTo:post)
+        query.orderByAscending(PJHASHTAG.tag)
+        return query.findObjects() as! [PFObject]
     }
 }

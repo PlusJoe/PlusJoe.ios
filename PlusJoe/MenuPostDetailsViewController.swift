@@ -61,25 +61,19 @@ class MenuPostDetailsViewController: UIViewController {
     
     
     @IBAction func bookmarkHashtags(sender: AnyObject) {
-        PJHashTag.loadTagsForPost(post!,
-            succeeded: { (hashTags) -> () in
-                var tagsString = "Following tags will be bookmarked:\n"
-                for hashTag in hashTags {
-                    PJBookmark.createOrUpdateBookmark(hashTag[PJHASHTAG.tag] as! String)
-                    tagsString += "#" + (hashTag[PJHASHTAG.tag] as! String) + "\n"
-                }
-                tagsString += "You will be notified when someone creates a new post in your area with one of these tags."
-                let alertMessage = UIAlertController(title: nil, message: tagsString, preferredStyle: UIAlertControllerStyle.Alert)
-                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
-                alertMessage.addAction(ok)
-                self.presentViewController(alertMessage, animated: true, completion: nil)
-                
-            }) { (error) -> () in
-                let alertMessage = UIAlertController(title: nil, message: "Error loading #hashtags.", preferredStyle: UIAlertControllerStyle.Alert)
-                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
-                alertMessage.addAction(ok)
-                self.presentViewController(alertMessage, animated: true, completion: nil)
+        let hashTags = PJHashTag.loadTagsForPost(post!)
+        
+        var tagsString = "Following tags will be bookmarked:\n"
+        for hashTag in hashTags {
+            PJBookmark.createOrUpdateBookmark(hashTag[PJHASHTAG.tag] as! String)
+            tagsString += "#" + (hashTag[PJHASHTAG.tag] as! String) + "\n"
         }
+        tagsString += "You will be notified when someone creates a new post in your area with one of these tags."
+        let alertMessage = UIAlertController(title: nil, message: tagsString, preferredStyle: UIAlertControllerStyle.Alert)
+        let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+        alertMessage.addAction(ok)
+        self.presentViewController(alertMessage, animated: true, completion: nil)
+
     }
 
     
