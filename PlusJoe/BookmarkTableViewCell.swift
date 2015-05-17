@@ -8,7 +8,10 @@
 
 import Foundation
 
-class BookmarksTableViewCell: UITableViewCell {
+class BookmarkTableViewCell: UITableViewCell {
     @IBOutlet weak var postedAt: UILabel!
-    @IBOutlet weak var body: UILabel!
+    @IBOutlet weak var hashTag: UILabel!
+    
+    @IBOutlet weak var deleteButton: UIButton!
+    
 }

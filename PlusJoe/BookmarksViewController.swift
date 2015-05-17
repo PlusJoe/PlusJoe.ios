@@ -15,7 +15,7 @@ class BookrmarksViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var noBookmarksLabel: UILabel!
     
     
-    var alerts:[PFObject] = [PFObject]()
+    var bookmarks:[PFObject] = [PFObject]()
     
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
@@ -45,9 +45,9 @@ class BookrmarksViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func retrieveUnreadAlerts() -> Void {
-        PJAlert.loadUnreadAlerts({ (alerts) -> () in
-            if alerts.count > 0 {
-                self.alerts = alerts
+        PJBookmark.loadUMyBookmarks({ (bookmarks) -> () in
+            if bookmarks.count > 0 {
+                self.bookmarks = bookmarks
                 self.tableView.reloadData()
                 self.tableView.reloadInputViews()
                 self.noBookmarksLabel.hidden = true
@@ -56,60 +56,42 @@ class BookrmarksViewController: UIViewController, UITableViewDelegate, UITableVi
                 self.noBookmarksLabel.hidden = false
                 self.tableView.hidden = true
             }
-            
-            }, failed: { (error) -> () in
-                let alertMessage = UIAlertController(title: nil, message: "Error.", preferredStyle: UIAlertControllerStyle.Alert)
-                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                })
-                alertMessage.addAction(ok)
-                self.presentViewController(alertMessage, animated: true, completion: nil)
+            },
+        failed: { (error) -> () in
+            let alertMessage = UIAlertController(title: nil, message: "Error loading Bookmarks.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+            alertMessage.addAction(ok)
+            self.presentViewController(alertMessage, animated: true, completion: nil)
         })
     }
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        NSLog("there are \(alerts.count) unread alerts")
-        return self.alerts.count
+        NSLog("there are \(bookmarks.count) bookmarks")
+        return self.bookmarks.count
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:AlertTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("alert_cell") as! AlertTableViewCell
+        var cell:BookmarkTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("bookmark_cell") as! BookmarkTableViewCell
         
-        let alert:PFObject = alerts[indexPath.row]
-        let chatMessage:PFObject = alert[PJALERT.chatMessage] as! PFObject
+        let bookmark:PFObject = bookmarks[indexPath.row]
         
         let df = NSDateFormatter()
-        df.dateFormat = "MM-dd-yyyy hh:mm a"
-        cell.postedAt.text = String(format: "%@", df.stringFromDate(alert.createdAt!))
+        df.dateFormat = "MM-dd-yyyy"
+        cell.postedAt.text = String(format: "%@", df.stringFromDate(bookmark.createdAt!))
         
         
-        cell.body.text = chatMessage[PJCHATMESSAGE.body] as? String
+        cell.hashTag.text = bookmark[PJBOOKMARK.tag] as? String
+
+        cell.deleteButton.setTitle("\u{f1f8}", forState: UIControlState.Normal)
         
-        //        cell.postedAt.text = "\(cell.postedAt.text!)"
+        
         
         return cell
     }
-    
-    
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        //        NSLog("prepareForSegue \(segue.identifier!)")
-        if segue.identifier == "show_post" {
-            let postDetailsViewController:PostDetailsViewController = segue.destinationViewController as! PostDetailsViewController
-            
-            let indexPath = self.tableView.indexPathForSelectedRow()!
-            NSLog("indexpath row1: \(indexPath.row)")
-            let alert:PFObject = self.alerts[indexPath.row]
-            let chatMessage:PFObject = alert[PJALERT.chatMessage] as! PFObject
-            let conversation:PFObject = chatMessage[PJCHATMESSAGE.conversation] as! PFObject
-            let post:PFObject = conversation[PJCONVERSATION.post] as! PFObject
-            
-            postDetailsViewController.titleText = "Alert: check Chat"
-            postDetailsViewController.conversation = conversation
-            postDetailsViewController.post = post
-            
-        }
-    }
+        
+
 }

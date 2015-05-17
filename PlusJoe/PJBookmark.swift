@@ -24,6 +24,7 @@ class PJBookmark: BaseDataModel {
         ) -> () {
             let bookmarksQuery = PFQuery(className:PJBOOKMARK.CLASS_NAME)
             bookmarksQuery.whereKey(PJBOOKMARK.createdBy, equalTo: DEVICE_UUID)
+            bookmarksQuery.orderByAscending(PJBOOKMARK.tag)
             bookmarksQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
                     succeeded(bookmarks: objects as! [PFObject])
