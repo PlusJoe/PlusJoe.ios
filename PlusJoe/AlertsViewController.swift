@@ -79,15 +79,16 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let alert:PFObject = alerts[indexPath.row]
         let chatMessage:PFObject = alert[PJALERT.chatMessage] as! PFObject
+        let conversation:PFObject = chatMessage[PJCHATMESSAGE.conversation] as! PFObject
+        let post:PFObject = conversation[PJCONVERSATION.post] as! PFObject
         
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy hh:mm a"
-        cell.postedAt.text = String(format: "%@", df.stringFromDate(alert.createdAt!))
+        cell.postedAt.text = String(format: "%@", df.stringFromDate(post.createdAt!))
+        cell.postBody.text = post[PJPOST.body] as? String
         
-        
-        cell.body.text = chatMessage[PJCHATMESSAGE.body] as? String
-        
-//        cell.postedAt.text = "\(cell.postedAt.text!)"
+        cell.chattedAt.text = String(format: "%@", df.stringFromDate(chatMessage.createdAt!))
+        cell.lastChatBody.text = chatMessage[PJCHATMESSAGE.body] as? String
         
         return cell
     }

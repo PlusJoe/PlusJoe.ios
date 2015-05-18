@@ -11,5 +11,7 @@ import Foundation
 
 class AlertTableViewCell: UITableViewCell {
     @IBOutlet weak var postedAt: UILabel!
-    @IBOutlet weak var body: UILabel!
+    @IBOutlet weak var postBody: UILabel!
+    @IBOutlet weak var chattedAt: UILabel!
+    @IBOutlet weak var lastChatBody: UILabel!
 }

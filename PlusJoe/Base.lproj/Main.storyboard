@@ -333,45 +333,60 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="H6p-r6-yrg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="154" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="H6p-r6-yrg">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alert_cell" rowHeight="137" id="Ev5-Gm-U11" customClass="AlertTableViewCell" customModule="PlusJoe" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alert_cell" rowHeight="154" id="Ev5-Gm-U11" customClass="AlertTableViewCell" customModule="PlusJoe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ev5-Gm-U11" id="c9N-gO-ycW">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogo-pZ-H3l">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Date Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogo-pZ-H3l">
                                                     <rect key="frame" x="8" y="8" width="584" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="AQN-6T-vmK"/>
+                                                        <constraint firstAttribute="height" constant="21" id="yZW-qa-qEY"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5S-VR-kyd">
-                                                    <rect key="frame" x="8" y="37" width="584" height="92"/>
-                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="post body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5S-VR-kyd">
+                                                    <rect key="frame" x="8" y="37" width="584" height="30"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
+                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Chat Date Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ic-oY-2Cw">
+                                                    <rect key="frame" x="46" y="75" width="546" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="2c4-UQ-fjT"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="last chat body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEC-xj-iAH">
+                                                    <rect key="frame" x="46" y="104" width="546" height="25"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
                                                     <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="R5S-VR-kyd" firstAttribute="top" secondItem="Ogo-pZ-H3l" secondAttribute="bottom" constant="8" id="L8p-GL-8to"/>
-                                                <constraint firstItem="R5S-VR-kyd" firstAttribute="trailing" secondItem="c9N-gO-ycW" secondAttribute="trailingMargin" id="aFc-sy-s0J"/>
-                                                <constraint firstItem="Ogo-pZ-H3l" firstAttribute="trailing" secondItem="c9N-gO-ycW" secondAttribute="trailingMargin" id="bU9-h4-fv4"/>
-                                                <constraint firstItem="Ogo-pZ-H3l" firstAttribute="top" secondItem="c9N-gO-ycW" secondAttribute="topMargin" id="c3L-Uf-qjn"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="R5S-VR-kyd" secondAttribute="bottom" constant="-0.5" id="dcn-s8-tLP"/>
-                                                <constraint firstItem="Ogo-pZ-H3l" firstAttribute="leading" secondItem="c9N-gO-ycW" secondAttribute="leadingMargin" id="gBQ-Ar-aJC"/>
-                                                <constraint firstItem="R5S-VR-kyd" firstAttribute="leading" secondItem="c9N-gO-ycW" secondAttribute="leadingMargin" id="iSf-JM-pjg"/>
+                                                <constraint firstItem="0Ic-oY-2Cw" firstAttribute="trailing" secondItem="c9N-gO-ycW" secondAttribute="trailingMargin" id="OLs-Xa-qZW"/>
+                                                <constraint firstItem="0Ic-oY-2Cw" firstAttribute="leading" secondItem="c9N-gO-ycW" secondAttribute="leadingMargin" constant="38" id="hu8-K2-1Hh"/>
+                                                <constraint firstItem="Ogo-pZ-H3l" firstAttribute="trailing" secondItem="c9N-gO-ycW" secondAttribute="trailingMargin" id="m2d-PQ-bc7"/>
+                                                <constraint firstItem="Ogo-pZ-H3l" firstAttribute="leading" secondItem="c9N-gO-ycW" secondAttribute="leadingMargin" id="mU8-If-YIj"/>
+                                                <constraint firstItem="Ogo-pZ-H3l" firstAttribute="top" secondItem="c9N-gO-ycW" secondAttribute="topMargin" id="nYA-od-qxZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="body" destination="R5S-VR-kyd" id="vH3-U1-DG4"/>
-                                            <outlet property="postedAt" destination="Ogo-pZ-H3l" id="QId-uK-NXG"/>
+                                            <outlet property="chattedAt" destination="0Ic-oY-2Cw" id="cJF-DS-7aZ"/>
+                                            <outlet property="lastChatBody" destination="uEC-xj-iAH" id="Ce5-h1-Wws"/>
+                                            <outlet property="postBody" destination="R5S-VR-kyd" id="GAm-sB-QOo"/>
+                                            <outlet property="postedAt" destination="Ogo-pZ-H3l" id="hJf-BS-sU8"/>
                                             <segue destination="vqn-qR-0zV" kind="show" identifier="show_post" id="fjX-3f-ZFG"/>
                                         </connections>
                                     </tableViewCell>
@@ -1997,15 +2012,15 @@
                                             </connections>
                                         </barButtonItem>
                                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="VQA-9y-PSY">
-                                            <rect key="frame" x="200" y="8" width="201" height="29"/>
+                                            <rect key="frame" x="229" y="7" width="143" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="201" id="NYb-UA-7ex"/>
                                                 <constraint firstAttribute="height" constant="28" id="UA9-N4-ii6"/>
                                             </constraints>
                                             <segments>
-                                                <segment title="I'm chatting in"/>
-                                                <segment title="I posted"/>
+                                                <segment title="My Alerts"/>
+                                                <segment title="My Posts"/>
                                             </segments>
                                             <connections>
                                                 <action selector="segmentChanged:" destination="slJ-b4-0dn" eventType="valueChanged" id="7wx-kh-HWR"/>
