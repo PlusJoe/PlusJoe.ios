@@ -137,4 +137,12 @@ class PJPost: BaseDataModel {
     }
 
     
+    class func notifyBookmarksAboutNewPost(post:PFObject) {
+        // load all hashtags of the post
+        //   for each hashtg, load all bookmarks with in 100 miles radius
+        //     for each bookmark, create conversation, chat message and alert
+        
+        
+    }
+    
 }

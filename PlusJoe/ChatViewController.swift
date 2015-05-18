@@ -72,7 +72,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
     func retrieveNewMessages() -> Void {
         
         let conversationDate = conversation!.createdAt
-        let firstChatMessageDate = chatMessages[0].createdAt
+//        let firstChatMessageDate = chatMessages[0].createdAt
 //        NSLog("conversationDate: \(conversationDate)")
 //        NSLog("first chat message date: \(firstChatMessageDate)")
         PJChatMessage.loadNewChatMessages(

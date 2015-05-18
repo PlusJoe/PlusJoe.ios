@@ -307,6 +307,7 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
     @IBAction func finishPost(sender: AnyObject) {
         UNFINISHED_POST?[PJPOST.active] = true
         UNFINISHED_POST?.save()
+        PJPost.notifyBookmarksAboutNewPost(UNFINISHED_POST!)
         UNFINISHED_POST = nil
     }
 }
