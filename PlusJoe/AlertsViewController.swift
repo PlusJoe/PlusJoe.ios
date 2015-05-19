@@ -121,7 +121,7 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let conversation:PFObject = chatMessage[PJCHATMESSAGE.conversation] as! PFObject
             let post:PFObject = conversation[PJCONVERSATION.post] as! PFObject
             
-            postDetailsViewController.titleText = "Alert: check Chat"
+            postDetailsViewController.titleText = "Alert"
             postDetailsViewController.conversation = conversation
             postDetailsViewController.post = post
             

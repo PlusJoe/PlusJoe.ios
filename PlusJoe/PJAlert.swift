@@ -34,6 +34,26 @@ class PJAlert: BaseDataModel {
     let read = "read" //: Bool
     
     
+    class func loadMyAlerts(
+        succeeded:(alerts:[PFObject]) -> (),
+        failed:(error: NSError!) -> ()
+        ) -> () {
+            let alertsQuery = PFQuery(className:PJALERT.CLASS_NAME)
+            alertsQuery.includeKey("chatMessage.conversation.post")
+//            alertsQuery.whereKey(PJALERT.read, equalTo: false)
+            alertsQuery.whereKey(PJALERT.target, equalTo: DEVICE_UUID)
+            
+            alertsQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+                if error == nil {
+                    succeeded(alerts: objects as! [PFObject])
+                } else {
+                    // Log details of the failure
+                    failed(error: error)
+                }
+            })
+    }
+
+    
     class func loadUnreadAlerts(
         succeeded:(alerts:[PFObject]) -> (),
         failed:(error: NSError!) -> ()

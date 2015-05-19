@@ -15,7 +15,7 @@ class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var noActivitiesLabel: UILabel!
     
     
-    var conversations:[PFObject] = [PFObject]()
+    var myAlerts:[PFObject] = [PFObject]()
     var myPosts:[PFObject] = [PFObject]()
     
     
@@ -43,14 +43,14 @@ class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITable
         self.tableView.estimatedRowHeight = 100.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
-        retrieveMyActivities()
+        retrieveMyAlerts()
         retreiveMyPosts()
     }
     
-    func retrieveMyActivities() -> Void {
-        PJConversation.loadConversationsImPartOf({ (conversations) -> () in
-            if conversations.count > 0 {
-                self.conversations = conversations
+    func retrieveMyAlerts() -> Void {
+        PJAlert.loadMyAlerts({ (alerts) -> () in
+            if alerts.count > 0 {
+                self.myAlerts = alerts
                 self.tableView.reloadData()
                 self.tableView.reloadInputViews()
                 self.noActivitiesLabel.hidden = true
@@ -61,7 +61,7 @@ class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITable
             }
             
             }, failed: { (error) -> () in
-                let alertMessage = UIAlertController(title: nil, message: "Error.", preferredStyle: UIAlertControllerStyle.Alert)
+                let alertMessage = UIAlertController(title: nil, message: "Error loading myAlerts.", preferredStyle: UIAlertControllerStyle.Alert)
                 let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
                     self.dismissViewControllerAnimated(true, completion: nil)
                 })
@@ -97,8 +97,8 @@ class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(segmentedControl.selectedSegmentIndex == 0) {
-            NSLog("there are \(conversations.count) conversations I'm part of")
-            return self.conversations.count
+            NSLog("there are \(myAlerts.count) conversations I'm part of")
+            return self.myAlerts.count
         } else if(segmentedControl.selectedSegmentIndex == 1) {
             NSLog("there are \(myPosts.count) my posts")
             return self.myPosts.count
@@ -109,18 +109,40 @@ class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITable
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:ActivityTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("activity_cell") as! ActivityTableViewCell
-        
         if(segmentedControl.selectedSegmentIndex == 0) {
-            let conversation:PFObject = conversations[indexPath.row]
+            var cell:MyAlertTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("myalert_cell") as! MyAlertTableViewCell
+            
+            let alert:PFObject = myAlerts[indexPath.row]
+            let chatMessage:PFObject = alert[PJALERT.chatMessage] as! PFObject
+            let conversation:PFObject = chatMessage[PJCHATMESSAGE.conversation] as! PFObject
             let post:PFObject = conversation[PJCONVERSATION.post] as! PFObject
+            
             
             let df = NSDateFormatter()
             df.dateFormat = "MM-dd-yyyy hh:mm a"
-            cell.postedAt.text = String(format: "%@", df.stringFromDate(conversation.updatedAt!))
+            cell.postedAt.text = String(format: "%@", df.stringFromDate(post.createdAt!))
+            if post[PJPOST.createdBy] as! String == DEVICE_UUID {
+                cell.postedAt.text = "Created by me on \(cell.postedAt.text!)"
+            } else {
+                cell.postedAt.text = "Someone created on \(cell.postedAt.text!)"
+            }
             
-            cell.body.text = post[PJPOST.body] as? String
+            cell.postBody.text = post[PJPOST.body] as? String
+            
+            cell.chattedAt.text = String(format: "%@", df.stringFromDate(chatMessage.createdAt!))
+            if chatMessage[PJCHATMESSAGE.createdBy] as! String == DEVICE_UUID {
+                cell.chattedAt.text = "Replied by me on \(cell.chattedAt.text!)"
+            } else {
+                cell.chattedAt.text = "Someone replied on \(cell.chattedAt.text!)"
+            }
+            
+            cell.lastChatBody.text = chatMessage[PJCHATMESSAGE.body] as? String
+            return cell
+            
         } else if(segmentedControl.selectedSegmentIndex == 1) {
+            var cell:MyPostTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("mypost_cell") as! MyPostTableViewCell
+
+            
             let post:PFObject = myPosts[indexPath.row]
             
             let df = NSDateFormatter()
@@ -128,26 +150,32 @@ class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITable
             cell.postedAt.text = String(format: "%@", df.stringFromDate(post.updatedAt!))
             
             cell.body.text = post[PJPOST.body] as? String
+
+            return cell
         }
-        
-        return cell
+        // it will never reach here
+        return UITableViewCell()
     }
     
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         //        NSLog("prepareForSegue \(segue.identifier!)")
-        if segue.identifier == "show_post" {
+        if segue.identifier == "show_mypost" || segue.identifier == "show_myalert" {
             let postDetailsViewController:PostDetailsViewController = segue.destinationViewController as! PostDetailsViewController
             
             let indexPath = self.tableView.indexPathForSelectedRow()!
             NSLog("indexpath row1: \(indexPath.row)")
             
             if(segmentedControl.selectedSegmentIndex == 0) {
-                let conversation:PFObject = self.conversations[indexPath.row]
+                let alert:PFObject = self.myAlerts[indexPath.row]
+                alert[PJALERT.read] = true
+                alert.saveInBackgroundWithBlock(nil)
+                let chatMessage:PFObject = alert[PJALERT.chatMessage] as! PFObject
+                let conversation:PFObject = chatMessage[PJCHATMESSAGE.conversation] as! PFObject
                 let post:PFObject = conversation[PJCONVERSATION.post] as! PFObject
                 
-                postDetailsViewController.titleText = "I'm a chatting in"
+                postDetailsViewController.titleText = "I'm Alerted"
                 postDetailsViewController.conversation = conversation
                 postDetailsViewController.post = post
             } else if(segmentedControl.selectedSegmentIndex == 1) {
