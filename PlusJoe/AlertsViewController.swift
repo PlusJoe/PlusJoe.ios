@@ -85,9 +85,21 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy hh:mm a"
         cell.postedAt.text = String(format: "%@", df.stringFromDate(post.createdAt!))
+        if post[PJPOST.createdBy] as! String == DEVICE_UUID {
+            cell.postedAt.text = "Created by me on \(cell.postedAt.text!)"
+        } else {
+            cell.postedAt.text = "Someone created on \(cell.postedAt.text!)"
+        }
+        
         cell.postBody.text = post[PJPOST.body] as? String
         
         cell.chattedAt.text = String(format: "%@", df.stringFromDate(chatMessage.createdAt!))
+        if chatMessage[PJCHATMESSAGE.createdBy] as! String == DEVICE_UUID {
+            cell.chattedAt.text = "Replied by me on \(cell.chattedAt.text!)"
+        } else {
+            cell.chattedAt.text = "Someone replied on \(cell.chattedAt.text!)"
+        }
+        
         cell.lastChatBody.text = chatMessage[PJCHATMESSAGE.body] as? String
         
         return cell
@@ -103,6 +115,8 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let indexPath = self.tableView.indexPathForSelectedRow()!
             NSLog("indexpath row1: \(indexPath.row)")
             let alert:PFObject = self.alerts[indexPath.row]
+            alert[PJALERT.read] = true
+            alert.saveInBackgroundWithBlock(nil)
             let chatMessage:PFObject = alert[PJALERT.chatMessage] as! PFObject
             let conversation:PFObject = chatMessage[PJCHATMESSAGE.conversation] as! PFObject
             let post:PFObject = conversation[PJCONVERSATION.post] as! PFObject
