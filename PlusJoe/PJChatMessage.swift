@@ -8,10 +8,8 @@
 
 //There are only 2 parties in any given chat.
 //Each chat message contains an array of both parrites, who participates in the chat, so it can always be queried on both array values.
-//We query chat always by post it belongs to and both parties in the array
+//We query chat always by post it belongs to through conversation and both parties in the array
 
-
-//To determine all my conversations, select all chat messages that contain my id and have attribute of the first message
 
 
 import Foundation

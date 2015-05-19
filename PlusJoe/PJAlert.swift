@@ -15,8 +15,8 @@
 //
 //
 //Really just one type of alert, when there is some new chat message. Here is some logic to acheive it:
-//* replying to new post, always create a conversation first, and a first message of a chat becomes the post itself, there is no separate conversation abstraction, the chat itself will compose the conversation, the first essage of the chat will be marked as such, so it can be queried for number to determine number of conversations.
-//* when a bookmark match is detected, it has to create a conversation and a chat message that matches the post body.
+//* replying to new post, always create a conversation first
+//* when a bookmark match is detected, it has to create a conversation and a chat message (with alert)
 //
 //As such, alert should always contain a reference to a chat message.
 
