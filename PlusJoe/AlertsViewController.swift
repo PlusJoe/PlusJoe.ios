@@ -38,7 +38,7 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.delegate      =   self
         self.tableView.dataSource    =   self
         
-        self.tableView.estimatedRowHeight = 100.0
+        self.tableView.estimatedRowHeight = 200.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
 
         retrieveUnreadAlerts()
