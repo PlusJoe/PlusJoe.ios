@@ -65,8 +65,8 @@ class MenuPostDetailsViewController: UIViewController {
         
         var tagsString = "Following tags will be bookmarked:\n"
         for hashTag in hashTags {
-            PJBookmark.createOrUpdateBookmark(hashTag[PJHASHTAG.tag] as! String)
-            tagsString += "#" + (hashTag[PJHASHTAG.tag] as! String) + "\n"
+            PJBookmark.createOrUpdateBookmark(hashTag[PJHASHTAG.hashTag] as! String)
+            tagsString += "#" + (hashTag[PJHASHTAG.hashTag] as! String) + "\n"
         }
         tagsString += "You will be notified when someone creates a new post in your area with one of these tags."
         let alertMessage = UIAlertController(title: nil, message: tagsString, preferredStyle: UIAlertControllerStyle.Alert)

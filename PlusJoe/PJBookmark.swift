@@ -13,7 +13,7 @@ let PJBOOKMARK:PJBookmark = PJBookmark()
 class PJBookmark: BaseDataModel {
     let CLASS_NAME = "Bookmarks"
     
-    let tag = "tag" //: String
+    let hashTag = "hashTag" //: String
     let createdBy = "createdBy" //uuid
     let location = "location" //: PFGeoPoint
 
@@ -24,7 +24,7 @@ class PJBookmark: BaseDataModel {
         ) -> () {
             let bookmarksQuery = PFQuery(className:PJBOOKMARK.CLASS_NAME)
             bookmarksQuery.whereKey(PJBOOKMARK.createdBy, equalTo: DEVICE_UUID)
-            bookmarksQuery.orderByAscending(PJBOOKMARK.tag)
+            bookmarksQuery.orderByAscending(PJBOOKMARK.hashTag)
             bookmarksQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
                     succeeded(bookmarks: objects as! [PFObject])
@@ -41,7 +41,7 @@ class PJBookmark: BaseDataModel {
 
         let bookmarksQuery = PFQuery(className:PJBOOKMARK.CLASS_NAME)
         bookmarksQuery.whereKey(PJBOOKMARK.createdBy, equalTo: DEVICE_UUID)
-        bookmarksQuery.whereKey(PJBOOKMARK.tag, equalTo: hashTag)
+        bookmarksQuery.whereKey(PJBOOKMARK.hashTag, equalTo: hashTag)
         bookmarksQuery.getFirstObjectInBackgroundWithBlock { (object:PFObject?, error:NSError?) -> Void in
             if error != nil || object == nil {
                 // Log details of the failure
@@ -50,7 +50,7 @@ class PJBookmark: BaseDataModel {
                 NSLog("creating new bookmar: \(hashTag)")
                 bookmark[PJBOOKMARK.location] = CURRENT_LOCATION!
                 bookmark[PJBOOKMARK.createdBy] = DEVICE_UUID
-                bookmark[PJBOOKMARK.tag] = hashTag
+                bookmark[PJBOOKMARK.hashTag] = hashTag
             } else {
                 // lets update existing object
                 NSLog("updating bookmar: \(hashTag)")

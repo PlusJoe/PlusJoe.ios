@@ -83,7 +83,7 @@ class BookrmarksViewController: UIViewController, UITableViewDelegate, UITableVi
         df.dateFormat = "MM-dd-yyyy"
         cell.postedAt.text = String(format: "%@", df.stringFromDate(bookmark.createdAt!))
         
-        cell.hashTag.text = bookmark[PJBOOKMARK.tag] as? String
+        cell.hashTag.text = bookmark[PJBOOKMARK.hashTag] as? String
         cell.deleteButton.setTitle("\u{f1f8}", forState: UIControlState.Normal)
         
         cell.deleteButton.tag = indexPath.row

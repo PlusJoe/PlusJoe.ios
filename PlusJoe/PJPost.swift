@@ -82,7 +82,7 @@ class PJPost: BaseDataModel {
             let queryTag =  PFQuery(className:PJHASHTAG.CLASS_NAME)
             queryTag.whereKey(PJHASHTAG.post, matchesQuery:queryPost)
             if searchText != "" {
-                queryTag.whereKey(PJHASHTAG.tag, equalTo: searchText)
+                queryTag.whereKey(PJHASHTAG.hashTag, equalTo: searchText)
             }
             queryTag.includeKey(PJHASHTAG.post)
 //            // Limit what could be a lot of points.
@@ -149,7 +149,24 @@ class PJPost: BaseDataModel {
         PJHashTag.loadTagsForPostInBackground(post,
             succeeded: { (hashTags) -> () in
                 NSLog("found \(hashTags.count) hashTags to notify")
-                
+                for hashTag in hashTags {
+                    NSLog("notifying about \(hashTag[PJHASHTAG.hashTag]!) hashtag")
+                    
+                    let bookmarksQuery = PFQuery(className:PJBOOKMARK.CLASS_NAME)
+                    bookmarksQuery.whereKey(PJBOOKMARK.location, nearGeoPoint:post[PJPOST.location] as! PFGeoPoint)
+                    bookmarksQuery.whereKey(PJBOOKMARK.createdBy, notEqualTo: DEVICE_UUID)
+                    bookmarksQuery.whereKey(PJBOOKMARK.hashTag, equalTo: hashTag)
+                    bookmarksQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+                        if error == nil {
+//                            succeeded(bookmarks: objects as! [PFObject])
+                        } else {
+                            // Log details of the failure
+                            failed(error: error)
+                        }
+                    })
+
+                    
+                }
             }) { (error) -> () in
                 failed(error: error!)
         }

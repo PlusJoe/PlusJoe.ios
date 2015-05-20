@@ -14,7 +14,7 @@ class PJHashTag: BaseDataModel {
     let CLASS_NAME = "HashTags"
     
     let post = "post"
-    let tag = "tag" //: String
+    let hashTag = "hashTag" //: String
 
     
     class func autoComplete(
@@ -34,7 +34,7 @@ class PJHashTag: BaseDataModel {
             
             let queryTag = PFQuery(className:PJHASHTAG.CLASS_NAME)
             queryTag.whereKey(PJHASHTAG.post, matchesQuery:queryPost)
-            queryTag.whereKey(PJHASHTAG.tag, hasPrefix: searchText)
+            queryTag.whereKey(PJHASHTAG.hashTag, hasPrefix: searchText)
             // Limit what could be a lot of points.
             queryTag.limit = 100
             // Final list of objects
@@ -46,7 +46,7 @@ class PJHashTag: BaseDataModel {
                     // Do something with the found objects
                     
                     NSLog("results: \(objects!.count)")
-                    let alltags = (objects as! [PFObject]).map{$0[PJHASHTAG.tag]!}
+                    let alltags = (objects as! [PFObject]).map{$0[PJHASHTAG.hashTag]!}
                     var hashTags:Set<String> = Set<String>()
                     var orderedResults:[String] = [String]()
                     for tag in alltags {
@@ -67,7 +67,7 @@ class PJHashTag: BaseDataModel {
     class func loadTagsForPost(post:PFObject)-> ([PFObject]) {
         let query = PFQuery(className:PJHASHTAG.CLASS_NAME)
         query.whereKey(PJHASHTAG.post, equalTo:post)
-        query.orderByAscending(PJHASHTAG.tag)
+        query.orderByAscending(PJHASHTAG.hashTag)
         return query.findObjects() as! [PFObject]
     }
     
@@ -77,7 +77,7 @@ class PJHashTag: BaseDataModel {
         ) {
         let query = PFQuery(className:PJHASHTAG.CLASS_NAME)
         query.whereKey(PJHASHTAG.post, equalTo:post)
-        query.orderByAscending(PJHASHTAG.tag)
+        query.orderByAscending(PJHASHTAG.hashTag)
          query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
                 succeeded(hashTags: objects as! [PFObject])

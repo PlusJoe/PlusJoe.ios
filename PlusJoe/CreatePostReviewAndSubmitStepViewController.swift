@@ -105,7 +105,7 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
         
         let hashTags = PJHashTag.loadTagsForPost(UNFINISHED_POST!)
         for var index = 0; index < hashTags.count; ++index {
-            label3.text = label3.text! + (hashTags[index][PJHASHTAG.tag] as! String)
+            label3.text = label3.text! + (hashTags[index][PJHASHTAG.hashTag] as! String)
             if index < (hashTags.count)-1  {
                 label3.text = label3.text! + ", "
             }
