@@ -87,7 +87,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
                     self.tableView.reloadInputViews()
                 }
             }) { (error) -> () in
-                let alertMessage = UIAlertController(title: nil, message: "Error.", preferredStyle: UIAlertControllerStyle.Alert)
+                let alertMessage = UIAlertController(title: nil, message: "Error retreiving new messages.", preferredStyle: UIAlertControllerStyle.Alert)
                 let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
                     self.dismissViewControllerAnimated(true, completion: nil)
                 })
@@ -119,7 +119,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
                 self.tableView.reloadData()
                 
             }) { (error) -> () in
-                let alertMessage = UIAlertController(title: nil, message: "Error.", preferredStyle: UIAlertControllerStyle.Alert)
+                let alertMessage = UIAlertController(title: nil, message: "Error retreiving all messages.", preferredStyle: UIAlertControllerStyle.Alert)
                 let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
                     self.dismissViewControllerAnimated(true, completion: nil)
                 })

@@ -137,11 +137,22 @@ class PJPost: BaseDataModel {
     }
 
     
-    class func notifyBookmarksAboutNewPost(post:PFObject) {
+    class func notifyBookmarksAboutNewPost(post:PFObject,
+        succeeded:() -> (),
+        failed:(error: NSError!) -> ()
+        ) {
         // load all hashtags of the post
         //   for each hashtg, load all bookmarks with in 100 miles radius
         //     for each bookmark, create conversation, chat message and alert
         
+        NSLog("Notifyng bookmarks after creating new post...")
+        PJHashTag.loadTagsForPostInBackground(post,
+            succeeded: { (hashTags) -> () in
+                NSLog("found \(hashTags.count) hashTags to notify")
+                
+            }) { (error) -> () in
+                failed(error: error!)
+        }
         
     }
     

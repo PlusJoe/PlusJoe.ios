@@ -305,9 +305,31 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
     }
 
     @IBAction func finishPost(sender: AnyObject) {
+        var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+        actInd.center = self.view.center
+        actInd.hidesWhenStopped = true
+        actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+        self.view.addSubview(actInd)
+        self.view.backgroundColor = UIColor.grayColor()
+        actInd.startAnimating()
+
+        
         UNFINISHED_POST?[PJPOST.active] = true
         UNFINISHED_POST?.save()
-        PJPost.notifyBookmarksAboutNewPost(UNFINISHED_POST!)
-        UNFINISHED_POST = nil
+        
+        
+        PJPost.notifyBookmarksAboutNewPost(UNFINISHED_POST!,
+            succeeded: { () -> () in
+                actInd.stopAnimating()
+                UNFINISHED_POST = nil
+            }) { (error) -> () in
+                actInd.stopAnimating()
+                let alertMessage = UIAlertController(title: nil, message: "Error.", preferredStyle: UIAlertControllerStyle.Alert)
+                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                })
+                alertMessage.addAction(ok)
+                self.presentViewController(alertMessage, animated: true, completion: nil)
+        }
     }
 }
