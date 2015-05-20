@@ -21,14 +21,14 @@ class PJConversation: BaseDataModel {
     
     
     class func findOrCreateConversation(
-        post: PFObject,
-        participant1: String,
+        post: PFObject, // participant1 always comes from the post
         participant2: String
         ) -> (PFObject?) {
+            let participant1 = post[PJPOST.createdBy] as! String
             if participant1 == participant2 {
                 return nil
             }
-            
+
             let query = PFQuery(className:PJCONVERSATION.CLASS_NAME)
             // Interested in locations near user.
             query.whereKey(PJCONVERSATION.post, equalTo: post)

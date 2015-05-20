@@ -321,7 +321,6 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
         PJPost.notifyBookmarksAboutNewPost(UNFINISHED_POST!,
             succeeded: { () -> () in
                 actInd.stopAnimating()
-                UNFINISHED_POST = nil
             }) { (error) -> () in
                 actInd.stopAnimating()
                 let alertMessage = UIAlertController(title: nil, message: "Error.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -331,5 +330,7 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
                 alertMessage.addAction(ok)
                 self.presentViewController(alertMessage, animated: true, completion: nil)
         }
+        UNFINISHED_POST = nil
+
     }
 }

@@ -160,7 +160,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
             alertMessage.addAction(ok)
             presentViewController(alertMessage, animated: true, completion: nil)
         } else {
-            PJChatMessage.createChatMessage(conversation!,
+            PJChatMessage.createChatMessageAndAlert(conversation!,
                 body: chatMessageBody.text,
                 createdBy: DEVICE_UUID,
                 success: { (result) -> () in

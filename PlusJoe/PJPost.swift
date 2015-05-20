@@ -155,10 +155,23 @@ class PJPost: BaseDataModel {
                     let bookmarksQuery = PFQuery(className:PJBOOKMARK.CLASS_NAME)
                     bookmarksQuery.whereKey(PJBOOKMARK.location, nearGeoPoint:post[PJPOST.location] as! PFGeoPoint)
                     bookmarksQuery.whereKey(PJBOOKMARK.createdBy, notEqualTo: DEVICE_UUID)
-                    bookmarksQuery.whereKey(PJBOOKMARK.hashTag, equalTo: hashTag)
+                    bookmarksQuery.whereKey(PJBOOKMARK.hashTag, equalTo: hashTag[PJHASHTAG.hashTag]!)
                     bookmarksQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                         if error == nil {
-//                            succeeded(bookmarks: objects as! [PFObject])
+                            NSLog("there are \((objects?.count)!) bookmarks to notify about new post")
+                            for bookmark in objects as! [PFObject] {
+                                let conversation = PJConversation.findOrCreateConversation(post, participant2: bookmark[PJBOOKMARK.createdBy] as! String)
+                                PJChatMessage.createChatMessageAndAlert(
+                                    conversation!,
+                                    body: "Here is a new post matching one of your bookmarks.",
+                                    createdBy: post[PJPOST.createdBy] as! String,
+                                    success: { (result) -> () in
+                                        succeeded()
+                                }, failed: { (error) -> () in
+                                    failed(error: error)
+                                })
+                                
+                            }
                         } else {
                             // Log details of the failure
                             failed(error: error)

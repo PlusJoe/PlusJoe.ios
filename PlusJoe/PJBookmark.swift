@@ -36,7 +36,10 @@ class PJBookmark: BaseDataModel {
     }
  
     
-    class func createOrUpdateBookmark(hashTag:String) -> () {
+    class func createOrUpdateBookmark(hashTag:String,
+        succeeded:(succeeds: Bool) -> (),
+        failed:(error: NSError!) -> ()
+        ) -> () {
         var bookmark = PFObject(className: PJBOOKMARK.CLASS_NAME)
 
         let bookmarksQuery = PFQuery(className:PJBOOKMARK.CLASS_NAME)
@@ -57,7 +60,13 @@ class PJBookmark: BaseDataModel {
                 bookmark = object!
                 bookmark[PJBOOKMARK.location] = CURRENT_LOCATION!
             }
-            bookmark.saveInBackgroundWithBlock({ (succeeds: Bool, error:NSError?) -> Void in})
+            bookmark.saveInBackgroundWithBlock({ (succeeds: Bool, error:NSError?) -> Void in
+                if error == nil {
+                    succeeded(succeeds: succeeds)
+                } else {
+                    failed(error: error)
+                }
+            })
         }
         
     }

@@ -86,7 +86,7 @@ class PJChatMessage: BaseDataModel {
     }
     
     
-    class func createChatMessage(
+    class func createChatMessageAndAlert(
         conversation:PFObject,
         body:String,
         createdBy:String,
@@ -96,13 +96,13 @@ class PJChatMessage: BaseDataModel {
             let chatMessage = PFObject(className: PJCHATMESSAGE.CLASS_NAME)
             chatMessage[PJCHATMESSAGE.conversation] = conversation
             chatMessage[PJCHATMESSAGE.body] = body
-            chatMessage["createdBy"] = createdBy
+            chatMessage[PJCHATMESSAGE.createdBy] = createdBy
             chatMessage.saveInBackgroundWithBlock { (succeeded:Bool, error:NSError?) -> Void in
                 if error == nil {
                     let alert = PFObject(className: PJALERT.CLASS_NAME)
                     alert[PJALERT.chatMessage] = chatMessage
                     alert[PJALERT.read] = false
-                    if (conversation[PJCONVERSATION.participants] as! [String])[0] == DEVICE_UUID {
+                    if (conversation[PJCONVERSATION.participants] as! [String])[0] == createdBy {
                         alert[PJALERT.target] = (conversation[PJCONVERSATION.participants] as! [String])[1]
                     } else {
                         alert[PJALERT.target] = (conversation[PJCONVERSATION.participants] as! [String])[0]

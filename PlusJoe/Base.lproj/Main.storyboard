@@ -35,6 +35,7 @@
             <string>FontAwesome</string>
             <string>FontAwesome</string>
             <string>FontAwesome</string>
+            <string>FontAwesome</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -2033,7 +2034,7 @@
                                             </connections>
                                         </barButtonItem>
                                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="VQA-9y-PSY">
-                                            <rect key="frame" x="229" y="7" width="143" height="31"/>
+                                            <rect key="frame" x="228.5" y="6.5" width="143" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="My Alerts"/>
@@ -2272,7 +2273,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="avi-Vl-YDf">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="105" width="600" height="495"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookmark_cell" rowHeight="84" id="ygv-N0-WZ1" customClass="BookmarkTableViewCell" customModule="PlusJoe">
@@ -2332,22 +2333,62 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CJR-ZK-ahu">
+                                <rect key="frame" x="16" y="67" width="491" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="VnO-61-yhV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KX7-jn-c01">
+                                <rect key="frame" x="515" y="67" width="69" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="3vZ-iv-INe"/>
+                                    <constraint firstAttribute="width" constant="69" id="4MR-tf-ffa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="15"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addNewBookmark:" destination="yex-1n-u64" eventType="touchUpInside" id="xlh-rk-5ju"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="avi-Vl-YDf" firstAttribute="top" secondItem="Z2h-6f-Yjq" secondAttribute="bottom" id="1EX-wv-OhH"/>
+                            <constraint firstItem="avi-Vl-YDf" firstAttribute="top" secondItem="Z2h-6f-Yjq" secondAttribute="bottom" constant="41" id="1EX-wv-OhH"/>
                             <constraint firstAttribute="centerX" secondItem="TqY-2k-Kw9" secondAttribute="centerX" id="3ZD-Ol-JAd"/>
                             <constraint firstItem="Z2h-6f-Yjq" firstAttribute="leading" secondItem="YsJ-DA-0hG" secondAttribute="leadingMargin" constant="-16" id="54e-AX-BoG"/>
                             <constraint firstItem="Z2h-6f-Yjq" firstAttribute="top" secondItem="EkT-SB-yGk" secondAttribute="bottom" id="6MP-kI-ZFc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Z2h-6f-Yjq" secondAttribute="trailing" constant="-16" id="8rN-4p-ZPn"/>
+                            <constraint firstItem="avi-Vl-YDf" firstAttribute="top" secondItem="KX7-jn-c01" secondAttribute="bottom" constant="8" id="AP2-Pn-9yY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="avi-Vl-YDf" secondAttribute="trailing" constant="-16" id="Ctz-Sc-BJg"/>
                             <constraint firstItem="D8R-MH-Q9U" firstAttribute="top" secondItem="avi-Vl-YDf" secondAttribute="bottom" id="D4O-1d-qsR"/>
+                            <constraint firstItem="KX7-jn-c01" firstAttribute="top" secondItem="Z2h-6f-Yjq" secondAttribute="bottom" constant="3" id="HOO-BS-Enk"/>
+                            <constraint firstItem="KX7-jn-c01" firstAttribute="leading" secondItem="CJR-ZK-ahu" secondAttribute="trailing" constant="8" id="Hi8-0V-ffK"/>
+                            <constraint firstItem="CJR-ZK-ahu" firstAttribute="top" secondItem="Z2h-6f-Yjq" secondAttribute="bottom" constant="3" id="VyP-nB-W60"/>
+                            <constraint firstItem="KX7-jn-c01" firstAttribute="trailing" secondItem="YsJ-DA-0hG" secondAttribute="trailingMargin" id="Yws-kL-qXz"/>
+                            <constraint firstItem="KX7-jn-c01" firstAttribute="leading" secondItem="CJR-ZK-ahu" secondAttribute="trailing" constant="8" id="ZuG-G3-GQ3"/>
+                            <constraint firstItem="avi-Vl-YDf" firstAttribute="top" secondItem="CJR-ZK-ahu" secondAttribute="bottom" constant="8" id="ioC-2H-5kq"/>
+                            <constraint firstItem="CJR-ZK-ahu" firstAttribute="leading" secondItem="YsJ-DA-0hG" secondAttribute="leadingMargin" id="m8M-pQ-x7R"/>
                             <constraint firstAttribute="centerY" secondItem="TqY-2k-Kw9" secondAttribute="centerY" id="tje-y9-99I"/>
                             <constraint firstItem="avi-Vl-YDf" firstAttribute="leading" secondItem="YsJ-DA-0hG" secondAttribute="leadingMargin" constant="-16" id="wtN-CV-AzA"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addNewBookmarkButton" destination="KX7-jn-c01" id="FMQ-yD-hEV"/>
                         <outlet property="backNavButton" destination="laz-Jz-qZR" id="kCn-FU-3bW"/>
+                        <outlet property="newBookmark" destination="CJR-ZK-ahu" id="1md-4d-MfY"/>
                         <outlet property="noBookmarksLabel" destination="TqY-2k-Kw9" id="Sdv-Qc-heL"/>
                         <outlet property="tableView" destination="avi-Vl-YDf" id="1RK-kt-F8e"/>
                     </connections>
@@ -2361,7 +2402,7 @@
         <image name="photo" width="97" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e8G-DT-VfW"/>
         <segue reference="lfm-c7-2pO"/>
+        <segue reference="bLZ-0h-Vos"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,7 +14,7 @@ class MenuPostDetailsViewController: UIViewController {
     var post:PFObject?
     // if conversation is passed from child controller, then use it for initiating the chat
     var conversation:PFObject?
-
+    
     
     @IBOutlet weak var flagInapproproate: UIButton!
     @IBOutlet weak var buyIt: UIButton!
@@ -65,7 +65,14 @@ class MenuPostDetailsViewController: UIViewController {
         
         var tagsString = "Following tags will be bookmarked:\n"
         for hashTag in hashTags {
-            PJBookmark.createOrUpdateBookmark(hashTag[PJHASHTAG.hashTag] as! String)
+            PJBookmark.createOrUpdateBookmark(hashTag[PJHASHTAG.hashTag] as! String,
+                succeeded: { (succeeds) -> () in
+                    
+                },
+                failed: { (error) -> () in
+            })
+            
+            
             tagsString += "#" + (hashTag[PJHASHTAG.hashTag] as! String) + "\n"
         }
         tagsString += "You will be notified when someone creates a new post in your area with one of these tags."
@@ -73,9 +80,9 @@ class MenuPostDetailsViewController: UIViewController {
         let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
         alertMessage.addAction(ok)
         self.presentViewController(alertMessage, animated: true, completion: nil)
-
+        
     }
-
+    
     
     
     @IBAction func shareAndEarn(sender: AnyObject) {
@@ -86,12 +93,12 @@ class MenuPostDetailsViewController: UIViewController {
     }
     
     @IBAction func chat(sender: AnyObject) {
-//        let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
-//        let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
-//        alertMessage.addAction(ok)
-//        self.presentViewController(alertMessage, animated: true, completion: nil)
+        //        let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
+        //        let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+        //        alertMessage.addAction(ok)
+        //        self.presentViewController(alertMessage, animated: true, completion: nil)
     }
-
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "chatSegue") {
@@ -100,14 +107,13 @@ class MenuPostDetailsViewController: UIViewController {
             
             if self.conversation == nil {
                 let conversation = PJConversation.findOrCreateConversation(post!,
-                    participant1: DEVICE_UUID,
-                    participant2: self.post![PJPOST.createdBy] as! String)
+                    participant2: DEVICE_UUID)
                 chatViewController.conversation = conversation
             } else {
                 chatViewController.conversation = self.conversation
             }
         }
     }
-
+    
     
 }

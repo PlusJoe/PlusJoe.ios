@@ -256,8 +256,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
             
             if self.conversation == nil {
                 let conversation = PJConversation.findOrCreateConversation(post!,
-                    participant1: DEVICE_UUID,
-                    participant2: self.post?[PJPOST.createdBy] as! String)
+                    participant2: DEVICE_UUID)
                 chatViewController.conversation = conversation
             } else {
                 chatViewController.conversation = self.conversation

@@ -11,8 +11,10 @@ import Parse
 
 class BookrmarksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var newBookmark: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noBookmarksLabel: UILabel!
+    @IBOutlet weak var addNewBookmarkButton: UIButton!
     
     
     var bookmarks:[PFObject] = [PFObject]()
@@ -41,10 +43,13 @@ class BookrmarksViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableView.estimatedRowHeight = 100.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
-        retrieveUnreadAlerts()
+        addNewBookmarkButton.setTitle("Add \u{f097}", forState: .Normal)
+        
+        
+        retrieveBookmarks()
     }
     
-    func retrieveUnreadAlerts() -> Void {
+    func retrieveBookmarks() -> Void {
         PJBookmark.loadUMyBookmarks({ (bookmarks) -> () in
             if bookmarks.count > 0 {
                 self.bookmarks = bookmarks
@@ -57,13 +62,13 @@ class BookrmarksViewController: UIViewController, UITableViewDelegate, UITableVi
                 self.tableView.hidden = true
             }
             },
-        failed: { (error) -> () in
-            let alertMessage = UIAlertController(title: nil, message: "Error loading Bookmarks.", preferredStyle: UIAlertControllerStyle.Alert)
-            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-                self.dismissViewControllerAnimated(true, completion: nil)
-            })
-            alertMessage.addAction(ok)
-            self.presentViewController(alertMessage, animated: true, completion: nil)
+            failed: { (error) -> () in
+                let alertMessage = UIAlertController(title: nil, message: "Error loading Bookmarks.", preferredStyle: UIAlertControllerStyle.Alert)
+                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                })
+                alertMessage.addAction(ok)
+                self.presentViewController(alertMessage, animated: true, completion: nil)
         })
     }
     
@@ -97,7 +102,7 @@ class BookrmarksViewController: UIViewController, UITableViewDelegate, UITableVi
         let buttonRow:Int = sender.tag
         NSLog("button clicked: \(buttonRow)")
         let bookmarkObject = bookmarks[buttonRow]
-
+        
         
         let alertMessage = UIAlertController(title: nil, message: "Are you sure you want to delete bookmark?", preferredStyle: UIAlertControllerStyle.Alert)
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in })
@@ -111,5 +116,18 @@ class BookrmarksViewController: UIViewController, UITableViewDelegate, UITableVi
         self.presentViewController(alertMessage, animated: true, completion: nil)
         
     }
-
+    
+    @IBAction func addNewBookmark(sender: AnyObject) {
+        if newBookmark.text.isEmpty {
+            return
+        }
+        PJBookmark.createOrUpdateBookmark(newBookmark.text,
+            succeeded: { (succeeds) -> () in
+                self.retrieveBookmarks()
+            }) { (error) -> () in
+                self.retrieveBookmarks()
+        }
+        
+        newBookmark.text! = ""
+    }
 }
