@@ -25,6 +25,28 @@ let USER_DEFAULTS = NSUserDefaults.standardUserDefaults()
 var CURRENT_LOCATION:PFGeoPoint! = nil // the app will only work if the current location can be detected
 
 var UNFINISHED_POST:PFObject! = nil // we use this to store intermidiary post object
+var UNREAD_ALERTS_COUNT = 0
+
+
+func GET_ALERTS() -> Void{
+    UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+    PJAlert.loadUnreadAlertsCount({ (alertsCount) -> () in
+        UNREAD_ALERTS_COUNT = alertsCount
+        NSLog("There are \(alertsCount) unread alerts")
+        
+        if  alertsCount > 0 {
+            var localNotification:UILocalNotification = UILocalNotification()
+            localNotification.alertAction = "Alerts"
+            localNotification.alertBody = "There are \(alertsCount) unread alerts."
+            localNotification.fireDate = NSDate(timeIntervalSinceNow: 1)
+            UIApplication.sharedApplication().applicationIconBadgeNumber = alertsCount
+            UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        }
+        },
+        failed: { (error) -> () in
+            NSLog("Error retreiveing alerts in background: %@ %@", error, error.userInfo!)
+    })
+}
 
 
 func roundMoney(number: Double) -> Double {
@@ -176,6 +198,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    
+
+    
+    
+    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        NSLog("fetching in background");
+        completionHandler(UIBackgroundFetchResult.NewData)        
+        GET_ALERTS()
+        
+    }
+    
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        NSLog("received local notification")
+        application.applicationIconBadgeNumber = UNREAD_ALERTS_COUNT
+//        NSLog("tabBarController is nil:\(tabBarController == nil)")
+//        if tabBarController != nil {
+//            let tabArray = self.tabBarController?.tabBar.items as NSArray!
+//            let tabItem = tabArray.objectAtIndex(2) as! UITabBarItem
+//            if  unreadAlertsCount > 0 {
+//                tabItem.badgeValue = "\(unreadAlertsCount)"
+//            } else {
+//                tabItem.badgeValue = nil
+//            }
+//        }
+        
+        //        var alert = UIAlertView()
+        //        alert.title = "Alert"
+        //        alert.message = notification.alertBody
+        //        alert.addButtonWithTitle("Dismiss")
+        //        alert.show()
+    }
+    
+    
 }
 
 

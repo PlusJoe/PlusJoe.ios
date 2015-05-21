@@ -79,17 +79,14 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
             presentViewController(alertMessage, animated: true, completion: nil)
         }
 
+        GET_ALERTS()
         
-        PJAlert.loadUnreadAlertsCount({ (alertsCount) -> () in
-            if alertsCount == 0 {
+            if UNREAD_ALERTS_COUNT == 0 {
                 self.alertsCountLabel.hidden = true
             } else {
-                self.alertsCountLabel.text = String(alertsCount)
+                self.alertsCountLabel.text = String(UNREAD_ALERTS_COUNT)
                 self.alertsCountLabel.hidden = false
             }
-        }, failed: { (error) -> () in
-        self.alertsCountLabel.hidden = true
-        })
     }
     
     func textFieldTextChanged(sender : AnyObject) {
