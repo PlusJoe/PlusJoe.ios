@@ -42,6 +42,8 @@ class PJAlert: BaseDataModel {
             alertsQuery.includeKey("chatMessage.conversation.post")
 //            alertsQuery.whereKey(PJALERT.read, equalTo: false)
             alertsQuery.whereKey(PJALERT.target, equalTo: DEVICE_UUID)
+            alertsQuery.orderByDescending("createdAt")
+
             
             alertsQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
@@ -62,6 +64,7 @@ class PJAlert: BaseDataModel {
             alertsQuery.includeKey("chatMessage.conversation.post")
             alertsQuery.whereKey(PJALERT.read, equalTo: false)
             alertsQuery.whereKey(PJALERT.target, equalTo: DEVICE_UUID)
+            alertsQuery.orderByDescending("createdAt")
 
             alertsQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
