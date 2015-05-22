@@ -38,8 +38,6 @@
             <string>FontAwesome</string>
             <string>FontAwesome</string>
             <string>FontAwesome</string>
-            <string>FontAwesome</string>
-            <string>FontAwesome</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -924,6 +922,7 @@
                         <outlet property="alertButton" destination="Rjg-qP-opr" id="tzb-dP-1e1"/>
                         <outlet property="alertsCountLabel" destination="WPr-XJ-uOV" id="6rG-wc-9fe"/>
                         <outlet property="backNavButton" destination="vY9-s9-Y33" id="1aM-JS-8K1"/>
+                        <outlet property="buyButton" destination="GKx-Ez-r8n" id="WYz-3f-MWL"/>
                         <outlet property="chatButton" destination="Tbr-Dj-mQk" id="vgn-LX-fCG"/>
                         <outlet property="fee" destination="TxB-JS-28p" id="Tuc-Xm-h9V"/>
                         <outlet property="imagesView" destination="6Ck-Y4-Fpv" id="LY1-Jc-pKr"/>
@@ -931,6 +930,7 @@
                         <outlet property="navBar" destination="Yhv-sb-HK8" id="XMc-ue-HqD"/>
                         <outlet property="postBody" destination="vaa-ad-ZsB" id="PZi-It-JCg"/>
                         <outlet property="price" destination="i7W-HD-gMA" id="Glq-lq-Zfx"/>
+                        <outlet property="shareButton" destination="b1a-pP-1aw" id="SW0-ZM-UAM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3h6-ZM-R9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1318,48 +1318,6 @@
                                 <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPf-Of-67L">
-                                <rect key="frame" x="16" y="562" width="80" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="eBc-LA-3BQ"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="gKY-kv-RSN"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="igC-VO-efk"/>
-                                    <constraint firstAttribute="height" constant="30" id="myo-UM-39p"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="15"/>
-                                <state key="normal" title="share">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRT-Qo-k0W">
-                                <rect key="frame" x="260" y="562" width="80" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="KZM-dC-6Oy"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="OOP-p1-ksX"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="cZf-cf-t7A"/>
-                                    <constraint firstAttribute="height" constant="30" id="piu-yc-3CU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="15"/>
-                                <state key="normal" title="buy">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1369,10 +1327,8 @@
                             <constraint firstItem="0Ir-cn-Zc3" firstAttribute="top" secondItem="eXV-Wa-ShS" secondAttribute="bottom" constant="8" id="BHv-S1-Gsz"/>
                             <constraint firstItem="sfT-UB-DWd" firstAttribute="top" secondItem="VfJ-ZD-p7z" secondAttribute="bottom" id="EpK-1I-NNh"/>
                             <constraint firstItem="z9E-pB-oex" firstAttribute="top" secondItem="VfJ-ZD-p7z" secondAttribute="bottom" constant="50" id="FB1-BO-dQq"/>
-                            <constraint firstItem="GPf-Of-67L" firstAttribute="leading" secondItem="fLc-io-BM4" secondAttribute="leadingMargin" id="GjV-Ha-8vI"/>
                             <constraint firstItem="0Ir-cn-Zc3" firstAttribute="leading" secondItem="fLc-io-BM4" secondAttribute="leadingMargin" id="I7Z-dX-Z7F"/>
                             <constraint firstItem="j6A-uz-Kps" firstAttribute="leading" secondItem="0Ir-cn-Zc3" secondAttribute="trailing" constant="8" id="Mjf-mN-yzf"/>
-                            <constraint firstItem="Nfk-jp-rZ2" firstAttribute="top" secondItem="GPf-Of-67L" secondAttribute="bottom" constant="8" id="Sj1-dB-Ix8"/>
                             <constraint firstItem="6j4-tc-qxM" firstAttribute="top" secondItem="VfJ-ZD-p7z" secondAttribute="bottom" constant="50" id="Svq-bk-e71"/>
                             <constraint firstItem="sfT-UB-DWd" firstAttribute="leading" secondItem="eXV-Wa-ShS" secondAttribute="trailing" constant="8" id="U2S-2e-Nyh"/>
                             <constraint firstItem="eXV-Wa-ShS" firstAttribute="top" secondItem="VfJ-ZD-p7z" secondAttribute="bottom" id="aim-Yh-89o"/>
@@ -1380,9 +1336,7 @@
                             <constraint firstItem="j6A-uz-Kps" firstAttribute="trailing" secondItem="fLc-io-BM4" secondAttribute="trailingMargin" id="dfU-fW-Vjf"/>
                             <constraint firstItem="eXV-Wa-ShS" firstAttribute="leading" secondItem="fLc-io-BM4" secondAttribute="leadingMargin" id="g14-xX-Di0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TyJ-ty-Csk" secondAttribute="trailing" constant="6" id="gW5-fi-t1n"/>
-                            <constraint firstItem="Nfk-jp-rZ2" firstAttribute="top" secondItem="IRT-Qo-k0W" secondAttribute="bottom" constant="8" id="jpH-2I-QCX"/>
                             <constraint firstItem="Nfk-jp-rZ2" firstAttribute="top" secondItem="TyJ-ty-Csk" secondAttribute="bottom" constant="8" id="mwC-ee-4b9"/>
-                            <constraint firstAttribute="centerX" secondItem="IRT-Qo-k0W" secondAttribute="centerX" id="ndI-Jg-7zj"/>
                             <constraint firstItem="j6A-uz-Kps" firstAttribute="width" secondItem="0Ir-cn-Zc3" secondAttribute="width" id="pkp-Qw-gYq"/>
                             <constraint firstItem="z9E-pB-oex" firstAttribute="leading" secondItem="fLc-io-BM4" secondAttribute="leadingMargin" id="wFU-ze-YHb"/>
                         </constraints>

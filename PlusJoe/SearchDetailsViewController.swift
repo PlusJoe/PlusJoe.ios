@@ -18,8 +18,6 @@ class SearchDetailsViewController : UIViewController {
 
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var fee: UILabel!
-    @IBOutlet weak var bookmarkButton: UIButton!
-    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var detailsButton: UIButton!
     
     var first = false
@@ -48,6 +46,7 @@ class SearchDetailsViewController : UIViewController {
         }
         
         detailsButton.setTitle("details   \u{f05a}", forState: .Normal)
+
     }
     
     override func viewDidAppear(animated: Bool) {

@@ -27,6 +27,8 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var fee: UILabel!
     @IBOutlet weak var postBody: UILabel!
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var chatButton: UIButton!
     
     //    var images = [NSData]()
@@ -54,14 +56,25 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         
         self.navBar.topItem?.title = titleText
         
-        
+        shareButton.setTitle("share   \u{f0d6}", forState: .Normal)
+        buyButton.setTitle("buy   \u{f155}", forState: .Normal)
         chatButton.setTitle("chat \u{f086}", forState: UIControlState.Normal)
         
         // looking at my own post
         if post?[PJPOST.createdBy] as! String == DEVICE_UUID && conversation == nil {
             chatButton.hidden = true
             //            menuButton.hidden = true
+            buyButton.enabled = false
+            buyButton.backgroundColor = UIColor.grayColor()
         }
+        
+        //disable buy button for posts that can't be bought
+        if post![PJPOST.sell] as! Bool == false {
+            buyButton.enabled = false
+            buyButton.backgroundColor = UIColor.grayColor()
+        }
+
+        
         
         postBody.text = post?[PJPOST.body] as? String
         price.text = "$\((post?[PJPOST.price] as? Int)!)"
