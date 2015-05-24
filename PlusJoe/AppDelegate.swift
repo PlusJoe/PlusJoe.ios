@@ -9,9 +9,9 @@
 import UIKit
 import Parse
 
-//let FLURRY_API_KEY = ""
-//let PARSE_APP_ID = ""
-//let PARSE_CLIENT_KEY = ""
+let FLURRY_API_KEY = "SHP3N5P9KFXPBT6BHY9G"
+let PARSE_APP_ID = "2VdZroRZXm1voBa03m3F1cgkwgV5AFgJel1dYsVf"
+let PARSE_CLIENT_KEY = "GUtWFcyuOVxCYSA1vMs0XDSWpTHKpbb1DhEweAy0"
 
 
 

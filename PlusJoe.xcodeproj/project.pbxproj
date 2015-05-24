@@ -24,6 +24,8 @@
 		0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */; };
 		0A60E1C31AC8E854003887C5 /* BaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */; };
 		0A60E1C51AC8ED2B003887C5 /* PJPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C41AC8ED2B003887C5 /* PJPost.swift */; };
+		0A62AD361B10D8CD00C55E67 /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A62AD351B10D8CD00C55E67 /* Stripe.framework */; };
+		0A62AD381B10D95100C55E67 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A62AD371B10D95100C55E67 /* PassKit.framework */; };
 		0A63D7981B06685100AD70F1 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63D7971B06685100AD70F1 /* BookmarksViewController.swift */; };
 		0A63D79A1B06689E00AD70F1 /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63D7991B06689E00AD70F1 /* BookmarkTableViewCell.swift */; };
 		0A63D79C1B0AC26500AD70F1 /* MyAlertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63D79B1B0AC26500AD70F1 /* MyAlertTableViewCell.swift */; };
@@ -91,6 +93,8 @@
 		0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
 		0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataModel.swift; sourceTree = "<group>"; };
 		0A60E1C41AC8ED2B003887C5 /* PJPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJPost.swift; sourceTree = "<group>"; };
+		0A62AD351B10D8CD00C55E67 /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stripe.framework; path = PlusJoe/Stripe.framework; sourceTree = "<group>"; };
+		0A62AD371B10D95100C55E67 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		0A63D7971B06685100AD70F1 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		0A63D7991B06689E00AD70F1 /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewCell.swift; sourceTree = "<group>"; };
 		0A63D79B1B0AC26500AD70F1 /* MyAlertTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAlertTableViewCell.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A62AD381B10D95100C55E67 /* PassKit.framework in Frameworks */,
 				0A2D0E3B1AFEF3F7009AD9D9 /* ParseUI.framework in Frameworks */,
 				0AEAFC1A1AC1C9E100800121 /* libsqlite3.dylib in Frameworks */,
 				0A2D0E351AFEF3DD009AD9D9 /* ParseCrashReporting.framework in Frameworks */,
@@ -151,6 +156,7 @@
 				0AEAFC1E1AC1CEAF00800121 /* libFlurry_6.2.0.a in Frameworks */,
 				0AEAFC101AC1C9A900800121 /* QuartzCore.framework in Frameworks */,
 				0A2D0E311AFEF3C8009AD9D9 /* Bolts.framework in Frameworks */,
+				0A62AD361B10D8CD00C55E67 /* Stripe.framework in Frameworks */,
 				0AEAFC0E1AC1C9A000800121 /* MobileCoreServices.framework in Frameworks */,
 				0AEAFC0C1AC1C99500800121 /* CoreLocation.framework in Frameworks */,
 				0A2D0E331AFEF3D4009AD9D9 /* Parse.framework in Frameworks */,
@@ -327,6 +333,8 @@
 		0AEAFC1B1AC1CA1600800121 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0A62AD371B10D95100C55E67 /* PassKit.framework */,
+				0A62AD351B10D8CD00C55E67 /* Stripe.framework */,
 				0AF801811ACD7D27009CAB14 /* MapKit.framework */,
 				0A1031B91AC99B8100D2BC6C /* parse-library-1.7.2 */,
 				0AEAFBF11AC1C48800800121 /* Flurry */,
