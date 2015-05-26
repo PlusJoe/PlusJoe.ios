@@ -45,7 +45,7 @@ class FollowingHashTagsViewController: UIViewController, UITableViewDelegate, UI
         
         addNewFollowingButton.setTitle("Add \u{f02b}", forState: .Normal)
         
-        
+        newFollowing.becomeFirstResponder()
         retrieveFollowings()
     }
     

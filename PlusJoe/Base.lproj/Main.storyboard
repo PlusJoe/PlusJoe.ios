@@ -711,7 +711,7 @@
                                     <constraint firstAttribute="height" constant="21" id="kiq-tZ-mK5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finders fee" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciV-yr-eZ1">
@@ -821,12 +821,12 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7W-HD-gMA">
-                                <rect key="frame" x="16" y="352" width="343" height="21"/>
+                                <rect key="frame" x="0.0" y="352" width="389" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="bUx-b2-AlW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKx-Ez-r8n">
@@ -896,12 +896,12 @@
                             <constraint firstItem="vaa-ad-ZsB" firstAttribute="trailing" secondItem="G9G-y9-H9f" secondAttribute="trailingMargin" id="1j1-OM-5gb"/>
                             <constraint firstItem="yIr-MX-qL7" firstAttribute="top" secondItem="GKx-Ez-r8n" secondAttribute="bottom" constant="8" id="25o-Kr-iSB"/>
                             <constraint firstItem="Tbr-Dj-mQk" firstAttribute="top" secondItem="vaa-ad-ZsB" secondAttribute="bottom" constant="8" id="5mO-HA-byq"/>
-                            <constraint firstItem="i7W-HD-gMA" firstAttribute="leading" secondItem="G9G-y9-H9f" secondAttribute="leadingMargin" id="6Fe-5g-dJE"/>
+                            <constraint firstItem="i7W-HD-gMA" firstAttribute="leading" secondItem="G9G-y9-H9f" secondAttribute="leadingMargin" constant="-16" id="6Fe-5g-dJE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TxB-JS-28p" secondAttribute="trailing" constant="-16" id="7Fp-0x-nTC"/>
                             <constraint firstItem="vaa-ad-ZsB" firstAttribute="top" secondItem="ciV-yr-eZ1" secondAttribute="bottom" constant="8" id="AQl-V3-KuY"/>
                             <constraint firstAttribute="centerX" secondItem="GKx-Ez-r8n" secondAttribute="centerX" id="Bj0-o8-7ng"/>
                             <constraint firstItem="i7W-HD-gMA" firstAttribute="top" secondItem="6Ck-Y4-Fpv" secondAttribute="bottom" constant="8" id="Cnh-Pk-KIT"/>
-                            <constraint firstItem="ciV-yr-eZ1" firstAttribute="leading" secondItem="i7W-HD-gMA" secondAttribute="trailing" constant="44" id="ETq-cZ-SH8"/>
+                            <constraint firstItem="ciV-yr-eZ1" firstAttribute="leading" secondItem="i7W-HD-gMA" secondAttribute="trailing" constant="14" id="ETq-cZ-SH8"/>
                             <constraint firstItem="yIr-MX-qL7" firstAttribute="top" secondItem="Tbr-Dj-mQk" secondAttribute="bottom" constant="8" id="EVx-5s-hRM"/>
                             <constraint firstItem="vaa-ad-ZsB" firstAttribute="leading" secondItem="G9G-y9-H9f" secondAttribute="leadingMargin" id="J50-GR-A2n"/>
                             <constraint firstItem="TxB-JS-28p" firstAttribute="leading" secondItem="ciV-yr-eZ1" secondAttribute="trailing" constant="8" id="PdU-Ts-wyB"/>
@@ -1255,7 +1255,7 @@
                                     <constraint firstAttribute="height" constant="21" id="cN9-OV-i32"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ir-cn-Zc3">
@@ -1264,7 +1264,7 @@
                                     <constraint firstAttribute="height" constant="50" id="GBF-XU-PSW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="35"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TyJ-ty-Csk">
@@ -2323,7 +2323,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="avi-Vl-YDf">
-                                <rect key="frame" x="0.0" y="105" width="600" height="495"/>
+                                <rect key="frame" x="0.0" y="105" width="600" height="281"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="following_cell" rowHeight="84" id="ygv-N0-WZ1" customClass="FollowingHashTagsTableViewCell" customModule="PlusJoe">
@@ -2423,7 +2423,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Z2h-6f-Yjq" secondAttribute="trailing" constant="-16" id="8rN-4p-ZPn"/>
                             <constraint firstItem="avi-Vl-YDf" firstAttribute="top" secondItem="KX7-jn-c01" secondAttribute="bottom" constant="8" id="AP2-Pn-9yY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="avi-Vl-YDf" secondAttribute="trailing" constant="-16" id="Ctz-Sc-BJg"/>
-                            <constraint firstItem="D8R-MH-Q9U" firstAttribute="top" secondItem="avi-Vl-YDf" secondAttribute="bottom" id="D4O-1d-qsR"/>
+                            <constraint firstItem="D8R-MH-Q9U" firstAttribute="top" secondItem="avi-Vl-YDf" secondAttribute="bottom" constant="214" id="D4O-1d-qsR"/>
                             <constraint firstItem="KX7-jn-c01" firstAttribute="top" secondItem="Z2h-6f-Yjq" secondAttribute="bottom" constant="3" id="HOO-BS-Enk"/>
                             <constraint firstItem="KX7-jn-c01" firstAttribute="leading" secondItem="CJR-ZK-ahu" secondAttribute="trailing" constant="8" id="Hi8-0V-ffK"/>
                             <constraint firstItem="CJR-ZK-ahu" firstAttribute="top" secondItem="Z2h-6f-Yjq" secondAttribute="bottom" constant="3" id="VyP-nB-W60"/>
@@ -2452,7 +2452,7 @@
         <image name="photo" width="97" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3Yw-da-VVc"/>
+        <segue reference="lfm-c7-2pO"/>
         <segue reference="bLZ-0h-Vos"/>
     </inferredMetricsTieBreakers>
 </document>
