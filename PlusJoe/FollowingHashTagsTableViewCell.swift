@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BookmarkTableViewCell: UITableViewCell {
+class FollowingHashTagsTableViewCell: UITableViewCell {
     @IBOutlet weak var postedAt: UILabel!
     @IBOutlet weak var hashTag: UILabel!
     

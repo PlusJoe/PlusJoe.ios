@@ -343,7 +343,7 @@
                                     <constraint firstAttribute="width" constant="105" id="DsM-PQ-tFn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="H6p-r6-yrg">
@@ -458,7 +458,7 @@
                                     <constraint firstAttribute="height" constant="38" id="20m-LM-UPZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
-                                <state key="normal" title="B">
+                                <state key="normal" title="T">
                                     <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -480,11 +480,11 @@
                                     <segue destination="slJ-b4-0dn" kind="show" id="5Y3-ay-J8C"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmarks" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3k-CM-3M7">
-                                <rect key="frame" x="463" y="82" width="88" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow Tags" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3k-CM-3M7">
+                                <rect key="frame" x="460" y="82" width="91" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="2ZC-K8-FuK"/>
-                                    <constraint firstAttribute="width" constant="88" id="w2I-zD-jKg"/>
+                                    <constraint firstAttribute="width" constant="91" id="w2I-zD-jKg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -549,8 +549,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bookmarks" destination="aC3-l6-KNE" id="Aj7-Bz-gmp"/>
                         <outlet property="createNewPost" destination="T6Z-Zd-DVd" id="Ykz-th-Kh1"/>
+                        <outlet property="followings" destination="aC3-l6-KNE" id="OmI-3q-xQL"/>
                         <outlet property="myActivity" destination="2iY-Fc-ll8" id="Why-R0-FyH"/>
                     </connections>
                 </viewController>
@@ -2066,7 +2066,7 @@
                                     <constraint firstAttribute="width" constant="113" id="CTU-BK-LXj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5tw-zL-uVb">
@@ -2284,10 +2284,10 @@
             </objects>
             <point key="canvasLocation" x="1896" y="3836"/>
         </scene>
-        <!--Bookrmarks View Controller-->
+        <!--Following Hash Tags View Controller-->
         <scene sceneID="Ei6-Gh-9aa">
             <objects>
-                <viewController id="yex-1n-u64" customClass="BookrmarksViewController" customModule="PlusJoe" sceneMemberID="viewController">
+                <viewController id="yex-1n-u64" customClass="FollowingHashTagsViewController" customModule="PlusJoe" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EkT-SB-yGk"/>
                         <viewControllerLayoutGuide type="bottom" id="D8R-MH-Q9U"/>
@@ -2303,7 +2303,7 @@
                                 </constraints>
                                 <color key="barTintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="My Bookmarks" id="qaP-fu-HVe">
+                                    <navigationItem title="I'm following tags" id="qaP-fu-HVe">
                                         <barButtonItem key="leftBarButtonItem" title="&lt;" id="laz-Jz-qZR">
                                             <connections>
                                                 <action selector="backButtonAction:" destination="yex-1n-u64" id="BUy-1S-WwI"/>
@@ -2312,21 +2312,21 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="no Bookmarks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqY-2k-Kw9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="no Tags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqY-2k-Kw9">
                                 <rect key="frame" x="231" y="290" width="139" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="6hh-et-7Od"/>
                                     <constraint firstAttribute="width" constant="139" id="6tb-Lz-t3T"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="avi-Vl-YDf">
                                 <rect key="frame" x="0.0" y="105" width="600" height="495"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookmark_cell" rowHeight="84" id="ygv-N0-WZ1" customClass="BookmarkTableViewCell" customModule="PlusJoe">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="following_cell" rowHeight="84" id="ygv-N0-WZ1" customClass="FollowingHashTagsTableViewCell" customModule="PlusJoe">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ygv-N0-WZ1" id="mt9-ob-bXV">
@@ -2436,10 +2436,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addNewBookmarkButton" destination="KX7-jn-c01" id="FMQ-yD-hEV"/>
+                        <outlet property="addNewFollowingButton" destination="KX7-jn-c01" id="XDc-Qu-JOV"/>
                         <outlet property="backNavButton" destination="laz-Jz-qZR" id="kCn-FU-3bW"/>
-                        <outlet property="newBookmark" destination="CJR-ZK-ahu" id="1md-4d-MfY"/>
-                        <outlet property="noBookmarksLabel" destination="TqY-2k-Kw9" id="Sdv-Qc-heL"/>
+                        <outlet property="newFollowing" destination="CJR-ZK-ahu" id="9GI-83-lly"/>
+                        <outlet property="noFollowingsLabel" destination="TqY-2k-Kw9" id="r6b-Fa-vKu"/>
                         <outlet property="tableView" destination="avi-Vl-YDf" id="1RK-kt-F8e"/>
                     </connections>
                 </viewController>
@@ -2452,7 +2452,7 @@
         <image name="photo" width="97" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lfm-c7-2pO"/>
+        <segue reference="3Yw-da-VVc"/>
         <segue reference="bLZ-0h-Vos"/>
     </inferredMetricsTieBreakers>
 </document>

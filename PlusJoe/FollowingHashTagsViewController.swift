@@ -9,15 +9,15 @@
 import Foundation
 import Parse
 
-class BookrmarksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FollowingHashTagsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var newBookmark: UITextField!
+    @IBOutlet weak var newFollowing: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var noBookmarksLabel: UILabel!
-    @IBOutlet weak var addNewBookmarkButton: UIButton!
+    @IBOutlet weak var noFollowingsLabel: UILabel!
+    @IBOutlet weak var addNewFollowingButton: UIButton!
     
     
-    var bookmarks:[PFObject] = [PFObject]()
+    var followings:[PFObject] = [PFObject]()
     
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
@@ -43,22 +43,22 @@ class BookrmarksViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableView.estimatedRowHeight = 100.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
-        addNewBookmarkButton.setTitle("Add \u{f097}", forState: .Normal)
+        addNewFollowingButton.setTitle("Add \u{f02b}", forState: .Normal)
         
         
-        retrieveBookmarks()
+        retrieveFollowings()
     }
     
-    func retrieveBookmarks() -> Void {
-        PJBookmark.loadUMyBookmarks({ (bookmarks) -> () in
-            if bookmarks.count > 0 {
-                self.bookmarks = bookmarks
+    func retrieveFollowings() -> Void {
+        PJFollowing.loadHashTagsImFollowing({ (hashTags) -> () in
+            if hashTags.count > 0 {
+                self.followings = hashTags
                 self.tableView.reloadData()
                 self.tableView.reloadInputViews()
-                self.noBookmarksLabel.hidden = true
+                self.noFollowingsLabel.hidden = true
                 self.tableView.hidden = false
             } else {
-                self.noBookmarksLabel.hidden = false
+                self.noFollowingsLabel.hidden = false
                 self.tableView.hidden = true
             }
             },
@@ -74,41 +74,41 @@ class BookrmarksViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        NSLog("there are \(bookmarks.count) bookmarks")
-        return self.bookmarks.count
+        NSLog("there are \(followings.count) followings")
+        return self.followings.count
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:BookmarkTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("bookmark_cell") as! BookmarkTableViewCell
+        var cell:FollowingHashTagsTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("following_cell") as! FollowingHashTagsTableViewCell
         
-        let bookmark:PFObject = bookmarks[indexPath.row]
+        let following:PFObject = followings[indexPath.row]
         
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy"
-        cell.postedAt.text = String(format: "%@", df.stringFromDate(bookmark.createdAt!))
+        cell.postedAt.text = String(format: "%@", df.stringFromDate(following.createdAt!))
         
-        cell.hashTag.text = bookmark[PJBOOKMARK.hashTag] as? String
+        cell.hashTag.text = following[PJFOLLOWING.hashTag] as? String
         cell.deleteButton.setTitle("\u{f1f8}", forState: UIControlState.Normal)
         
         cell.deleteButton.tag = indexPath.row
-        cell.deleteButton.addTarget(self, action: "deleteBookmarkAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        cell.deleteButton.addTarget(self, action: "deleteFollowingAction:", forControlEvents: UIControlEvents.TouchUpInside)
         
         return cell
     }
     
-    func deleteBookmarkAction(sender:UIButton!) {
+    func deleteFollowingAction(sender:UIButton!) {
         let deleteButton:UIButton = sender as UIButton!
         let buttonRow:Int = sender.tag
         NSLog("button clicked: \(buttonRow)")
-        let bookmarkObject = bookmarks[buttonRow]
+        let bookmarkObject = followings[buttonRow]
         
         
-        let alertMessage = UIAlertController(title: nil, message: "Are you sure you want to delete bookmark?", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertMessage = UIAlertController(title: nil, message: "Are you sure you want to delete a hashtag your are following?", preferredStyle: UIAlertControllerStyle.Alert)
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in })
         let ok = UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
             bookmarkObject.delete()
-            self.bookmarks.removeAtIndex(buttonRow)
+            self.followings.removeAtIndex(buttonRow)
             self.tableView.reloadData()
         })
         alertMessage.addAction(cancel)
@@ -118,16 +118,16 @@ class BookrmarksViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func addNewBookmark(sender: AnyObject) {
-        if newBookmark.text.isEmpty {
+        if newFollowing.text.isEmpty {
             return
         }
-        PJBookmark.createOrUpdateBookmark(newBookmark.text,
+        PJFollowing.createOrUpdateTagsImFollowing(newFollowing.text,
             succeeded: { (succeeds) -> () in
-                self.retrieveBookmarks()
+                self.retrieveFollowings()
             }) { (error) -> () in
-                self.retrieveBookmarks()
+                self.retrieveFollowings()
         }
         
-        newBookmark.text! = ""
+        newFollowing.text! = ""
     }
 }

@@ -65,7 +65,7 @@ class MenuPostDetailsViewController: UIViewController {
         
         var tagsString = "Following tags will be bookmarked:\n"
         for hashTag in hashTags {
-            PJBookmark.createOrUpdateBookmark(hashTag[PJHASHTAG.hashTag] as! String,
+            PJFollowing.createOrUpdateTagsImFollowing(hashTag[PJHASHTAG.hashTag] as! String,
                 succeeded: { (succeeds) -> () in
                     
                 },

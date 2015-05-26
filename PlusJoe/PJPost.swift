@@ -152,15 +152,15 @@ class PJPost: BaseDataModel {
                 for hashTag in hashTags {
                     NSLog("notifying about \(hashTag[PJHASHTAG.hashTag]!) hashtag")
                     
-                    let bookmarksQuery = PFQuery(className:PJBOOKMARK.CLASS_NAME)
-                    bookmarksQuery.whereKey(PJBOOKMARK.location, nearGeoPoint:post[PJPOST.location] as! PFGeoPoint)
-                    bookmarksQuery.whereKey(PJBOOKMARK.createdBy, notEqualTo: DEVICE_UUID)
-                    bookmarksQuery.whereKey(PJBOOKMARK.hashTag, equalTo: hashTag[PJHASHTAG.hashTag]!)
-                    bookmarksQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+                    let query = PFQuery(className:PJFOLLOWING.CLASS_NAME)
+                    query.whereKey(PJFOLLOWING.location, nearGeoPoint:post[PJPOST.location] as! PFGeoPoint)
+                    query.whereKey(PJFOLLOWING.createdBy, notEqualTo: DEVICE_UUID)
+                    query.whereKey(PJFOLLOWING.hashTag, equalTo: hashTag[PJHASHTAG.hashTag]!)
+                    query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                         if error == nil {
-                            NSLog("there are \((objects?.count)!) bookmarks to notify about new post")
+                            NSLog("there are \((objects?.count)!) followings to notify about new post")
                             for bookmark in objects as! [PFObject] {
-                                let conversation = PJConversation.findOrCreateConversation(post, participant2: bookmark[PJBOOKMARK.createdBy] as! String)
+                                let conversation = PJConversation.findOrCreateConversation(post, participant2: bookmark[PJFOLLOWING.createdBy] as! String)
                                 PJChatMessage.createChatMessageAndAlert(
                                     conversation!,
                                     body: "Here is a new post matching one of your bookmarks.",

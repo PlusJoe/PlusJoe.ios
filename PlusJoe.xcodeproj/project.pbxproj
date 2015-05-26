@@ -26,8 +26,8 @@
 		0A60E1C51AC8ED2B003887C5 /* PJPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C41AC8ED2B003887C5 /* PJPost.swift */; };
 		0A62AD361B10D8CD00C55E67 /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A62AD351B10D8CD00C55E67 /* Stripe.framework */; };
 		0A62AD381B10D95100C55E67 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A62AD371B10D95100C55E67 /* PassKit.framework */; };
-		0A63D7981B06685100AD70F1 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63D7971B06685100AD70F1 /* BookmarksViewController.swift */; };
-		0A63D79A1B06689E00AD70F1 /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63D7991B06689E00AD70F1 /* BookmarkTableViewCell.swift */; };
+		0A63D7981B06685100AD70F1 /* FollowingHashTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63D7971B06685100AD70F1 /* FollowingHashTagsViewController.swift */; };
+		0A63D79A1B06689E00AD70F1 /* FollowingHashTagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63D7991B06689E00AD70F1 /* FollowingHashTagsTableViewCell.swift */; };
 		0A63D79C1B0AC26500AD70F1 /* MyAlertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63D79B1B0AC26500AD70F1 /* MyAlertTableViewCell.swift */; };
 		0A8BF12E1AFC3EDC0058AE38 /* PJConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */; };
 		0A8BF1311AFD40EA0058AE38 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF1301AFD40EA0058AE38 /* ChatTableViewCell.swift */; };
@@ -42,7 +42,7 @@
 		0AE782561B024C34008678B8 /* MyActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE782551B024C34008678B8 /* MyActivitiesViewController.swift */; };
 		0AE782581B02D702008678B8 /* MyPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE782571B02D702008678B8 /* MyPostTableViewCell.swift */; };
 		0AE7825A1B053A23008678B8 /* Menu2PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE782591B053A23008678B8 /* Menu2PostDetailsViewController.swift */; };
-		0AE7825C1B0597E4008678B8 /* PJBookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE7825B1B0597E4008678B8 /* PJBookmark.swift */; };
+		0AE7825C1B0597E4008678B8 /* PJFollowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE7825B1B0597E4008678B8 /* PJFollowing.swift */; };
 		0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */; };
 		0AEAFBD41AC0E2F900800121 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD21AC0E2F900800121 /* Main.storyboard */; };
 		0AEAFBD61AC0E2F900800121 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD51AC0E2F900800121 /* Images.xcassets */; };
@@ -95,8 +95,8 @@
 		0A60E1C41AC8ED2B003887C5 /* PJPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJPost.swift; sourceTree = "<group>"; };
 		0A62AD351B10D8CD00C55E67 /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stripe.framework; path = PlusJoe/Stripe.framework; sourceTree = "<group>"; };
 		0A62AD371B10D95100C55E67 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
-		0A63D7971B06685100AD70F1 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
-		0A63D7991B06689E00AD70F1 /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewCell.swift; sourceTree = "<group>"; };
+		0A63D7971B06685100AD70F1 /* FollowingHashTagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingHashTagsViewController.swift; sourceTree = "<group>"; };
+		0A63D7991B06689E00AD70F1 /* FollowingHashTagsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingHashTagsTableViewCell.swift; sourceTree = "<group>"; };
 		0A63D79B1B0AC26500AD70F1 /* MyAlertTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAlertTableViewCell.swift; sourceTree = "<group>"; };
 		0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJConversation.swift; sourceTree = "<group>"; };
 		0A8BF1301AFD40EA0058AE38 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 		0AE782551B024C34008678B8 /* MyActivitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyActivitiesViewController.swift; sourceTree = "<group>"; };
 		0AE782571B02D702008678B8 /* MyPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostTableViewCell.swift; sourceTree = "<group>"; };
 		0AE782591B053A23008678B8 /* Menu2PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu2PostDetailsViewController.swift; sourceTree = "<group>"; };
-		0AE7825B1B0597E4008678B8 /* PJBookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJBookmark.swift; sourceTree = "<group>"; };
+		0AE7825B1B0597E4008678B8 /* PJFollowing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJFollowing.swift; sourceTree = "<group>"; };
 		0AEAFBC91AC0E2F900800121 /* PlusJoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusJoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEAFBCD1AC0E2F900800121 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 				0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */,
 				0A4C7AC11AF5D93F00C271F2 /* PJChatMessage.swift */,
 				0A4C7ABF1AF5D67D00C271F2 /* PJAlert.swift */,
-				0AE7825B1B0597E4008678B8 /* PJBookmark.swift */,
+				0AE7825B1B0597E4008678B8 /* PJFollowing.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -218,13 +218,13 @@
 			name = CreatePost;
 			sourceTree = "<group>";
 		};
-		0A63D7961B06681400AD70F1 /* Bookmarks */ = {
+		0A63D7961B06681400AD70F1 /* FollowingHashTags */ = {
 			isa = PBXGroup;
 			children = (
-				0A63D7971B06685100AD70F1 /* BookmarksViewController.swift */,
-				0A63D7991B06689E00AD70F1 /* BookmarkTableViewCell.swift */,
+				0A63D7971B06685100AD70F1 /* FollowingHashTagsViewController.swift */,
+				0A63D7991B06689E00AD70F1 /* FollowingHashTagsTableViewCell.swift */,
 			);
-			name = Bookmarks;
+			name = FollowingHashTags;
 			sourceTree = "<group>";
 		};
 		0A8BF12F1AFD40B70058AE38 /* Chat */ = {
@@ -284,7 +284,7 @@
 				0A8BF12F1AFD40B70058AE38 /* Chat */,
 				0A8BF1361AFED2AD0058AE38 /* Alerts */,
 				0AE782541B024C0D008678B8 /* MyActivities */,
-				0A63D7961B06681400AD70F1 /* Bookmarks */,
+				0A63D7961B06681400AD70F1 /* FollowingHashTags */,
 				0AEAFBD21AC0E2F900800121 /* Main.storyboard */,
 				0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */,
 				0AEAFBD51AC0E2F900800121 /* Images.xcassets */,
@@ -492,7 +492,7 @@
 				0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */,
 				0AC66FBF1AC5C22C003C818C /* CreatePostReviewAndSubmitStepViewController.swift in Sources */,
 				0A4C495B1AC501C000D164E2 /* SearchHomeViewController.swift in Sources */,
-				0A63D79A1B06689E00AD70F1 /* BookmarkTableViewCell.swift in Sources */,
+				0A63D79A1B06689E00AD70F1 /* FollowingHashTagsTableViewCell.swift in Sources */,
 				0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */,
 				0AE782581B02D702008678B8 /* MyPostTableViewCell.swift in Sources */,
 				0A63D79C1B0AC26500AD70F1 /* MyAlertTableViewCell.swift in Sources */,
@@ -500,14 +500,14 @@
 				0A4C7AC81AF9C17700C271F2 /* MenuPostDetailsViewController.swift in Sources */,
 				0AAC2E361AC4580900B60B47 /* CreatePostDescribeStepViewController.swift in Sources */,
 				0AE7825A1B053A23008678B8 /* Menu2PostDetailsViewController.swift in Sources */,
-				0A63D7981B06685100AD70F1 /* BookmarksViewController.swift in Sources */,
+				0A63D7981B06685100AD70F1 /* FollowingHashTagsViewController.swift in Sources */,
 				0AE782561B024C34008678B8 /* MyActivitiesViewController.swift in Sources */,
 				0A8BF1331AFDB4E10058AE38 /* AlertsViewController.swift in Sources */,
 				0A4C7AC01AF5D67D00C271F2 /* PJAlert.swift in Sources */,
 				0AEC37101AE4A677005F99A7 /* ImageViewController.swift in Sources */,
 				0A1A318B1AF406F100853A30 /* CreatePostFindersFeeStepViewController.swift in Sources */,
 				0A1C41451AE0555D00270347 /* SearchDetailsViewController.swift in Sources */,
-				0AE7825C1B0597E4008678B8 /* PJBookmark.swift in Sources */,
+				0AE7825C1B0597E4008678B8 /* PJFollowing.swift in Sources */,
 				0AC66FBD1AC5C1CA003C818C /* CreatePostPhotosStepViewController.swift in Sources */,
 				0A4C7AC41AF6E76500C271F2 /* ChatViewController.swift in Sources */,
 				0A4C7AC61AF99C3700C271F2 /* MenuSearchHomeViewController.swift in Sources */,
