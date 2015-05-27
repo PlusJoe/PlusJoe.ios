@@ -8,6 +8,7 @@
 
 import Foundation
 import Parse
+import Stripe
 
 class MenuPostDetailsViewController: UIViewController {
     
@@ -39,10 +40,27 @@ class MenuPostDetailsViewController: UIViewController {
     }
     
     @IBAction func buyIt(sender: AnyObject) {
-        let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
-        let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
-        alertMessage.addAction(ok)
-        self.presentViewController(alertMessage, animated: true, completion: nil)
+        
+        let request:PKPaymentRequest = Stripe.paymentRequestWithMerchantIdentifier(STRIPE_MERCHANT_ID)!
+        // Configure your request here.
+        let label = "Premium Llama Food"
+        let amount = NSDecimalNumber(string: "1.00")
+        request.paymentSummaryItems = [PKPaymentSummaryItem(label: label, amount: amount)]
+        
+        if Stripe.canSubmitPaymentRequest(request) {
+            NSLog("payment request submitted")
+            
+        } else {
+            // Show the user your own credit card form (see options 2 or 3)
+            NSLog("payment request could not be submitted")
+
+        }
+        
+        
+//        let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
+//        let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+//        alertMessage.addAction(ok)
+//        self.presentViewController(alertMessage, animated: true, completion: nil)
     }
     
     @IBAction func flagInapropriate(sender: AnyObject) {

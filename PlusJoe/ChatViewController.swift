@@ -186,24 +186,28 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:ChatTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("chat_cell") as! ChatTableViewCell
         let chatMessage = chatMessages[indexPath.row]
-        
+        var cell:UITableViewCell?
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy hh:mm a"
-        cell.postedAt.text = String(format: "%@", df.stringFromDate(chatMessage.createdAt!))
+
+        if chatMessage[PJCHATMESSAGE.createdBy] as! String == DEVICE_UUID {
+            cell = self.tableView.dequeueReusableCellWithIdentifier("chat_cell") as? ChatTableViewCell
+            (cell as? ChatTableViewCell)?.postedAt.text = String(format: "%@", df.stringFromDate(chatMessage.createdAt!))
+            (cell as? ChatTableViewCell)?.body.text = chatMessage[PJCHATMESSAGE.body] as? String
+
+        } else {
+            cell = self.tableView.dequeueReusableCellWithIdentifier("chat1_cell") as? ChatTableViewCell1
+            (cell as? ChatTableViewCell1)?.postedAt.text = String(format: "%@", df.stringFromDate(chatMessage.createdAt!))
+            (cell as? ChatTableViewCell1)?.body.text = chatMessage[PJCHATMESSAGE.body] as? String
+        }
+
         
         NSLog("Rendering ReplyPost")
-        cell.body.text = chatMessage[PJCHATMESSAGE.body] as? String
-        
-        if chatMessage[PJCHATMESSAGE.createdBy] as! String == DEVICE_UUID {
-            cell.postedAt.text = "I said - \(cell.postedAt.text!)"
-        } else {
-            cell.postedAt.text = "replied to me - \(cell.postedAt.text!)"
-        }
         
         
-        return cell
+        
+        return cell!
     }
     
 }

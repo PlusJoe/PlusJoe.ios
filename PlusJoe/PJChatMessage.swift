@@ -99,15 +99,26 @@ class PJChatMessage: BaseDataModel {
             chatMessage[PJCHATMESSAGE.createdBy] = createdBy
             chatMessage.saveInBackgroundWithBlock { (succeeded:Bool, error:NSError?) -> Void in
                 if error == nil {
-                    let alert = PFObject(className: PJALERT.CLASS_NAME)
-                    alert[PJALERT.chatMessage] = chatMessage
-                    alert[PJALERT.read] = false
+                    let alert1 = PFObject(className: PJALERT.CLASS_NAME)
+                    alert1[PJALERT.chatMessage] = chatMessage
+                    alert1[PJALERT.read] = false
                     if (conversation[PJCONVERSATION.participants] as! [String])[0] == createdBy {
-                        alert[PJALERT.target] = (conversation[PJCONVERSATION.participants] as! [String])[1]
+                        alert1[PJALERT.target] = (conversation[PJCONVERSATION.participants] as! [String])[1]
                     } else {
-                        alert[PJALERT.target] = (conversation[PJCONVERSATION.participants] as! [String])[0]
+                        alert1[PJALERT.target] = (conversation[PJCONVERSATION.participants] as! [String])[0]
                     }
-                    alert.saveInBackgroundWithBlock({ (succeeded:Bool, error:NSError?) -> Void in })
+                    alert1.saveInBackgroundWithBlock({ (succeeded:Bool, error:NSError?) -> Void in })
+
+                    let alert2 = PFObject(className: PJALERT.CLASS_NAME)
+                    alert2[PJALERT.chatMessage] = chatMessage
+                    alert2[PJALERT.read] = true
+                    if (conversation[PJCONVERSATION.participants] as! [String])[0] == createdBy {
+                        alert2[PJALERT.target] = (conversation[PJCONVERSATION.participants] as! [String])[0]
+                    } else {
+                        alert2[PJALERT.target] = (conversation[PJCONVERSATION.participants] as! [String])[1]
+                    }
+                    alert2.saveInBackgroundWithBlock({ (succeeded:Bool, error:NSError?) -> Void in })
+
                     success(result: chatMessage)
                 } else {
                     // Log details of the failure

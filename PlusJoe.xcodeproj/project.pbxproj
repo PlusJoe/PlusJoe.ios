@@ -15,6 +15,7 @@
 		0A2D0E391AFEF3F7009AD9D9 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2D0E361AFEF3F7009AD9D9 /* ParseFacebookUtils.framework */; };
 		0A2D0E3A1AFEF3F7009AD9D9 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2D0E371AFEF3F7009AD9D9 /* ParseFacebookUtilsV4.framework */; };
 		0A2D0E3B1AFEF3F7009AD9D9 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2D0E381AFEF3F7009AD9D9 /* ParseUI.framework */; };
+		0A4AC5101B16643F0037FE88 /* ChatTableViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4AC50F1B16643F0037FE88 /* ChatTableViewCell1.swift */; };
 		0A4C495B1AC501C000D164E2 /* SearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C495A1AC501C000D164E2 /* SearchHomeViewController.swift */; };
 		0A4C7AC01AF5D67D00C271F2 /* PJAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7ABF1AF5D67D00C271F2 /* PJAlert.swift */; };
 		0A4C7AC21AF5D93F00C271F2 /* PJChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7AC11AF5D93F00C271F2 /* PJChatMessage.swift */; };
@@ -84,6 +85,7 @@
 		0A2D0E361AFEF3F7009AD9D9 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		0A2D0E371AFEF3F7009AD9D9 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		0A2D0E381AFEF3F7009AD9D9 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		0A4AC50F1B16643F0037FE88 /* ChatTableViewCell1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell1.swift; sourceTree = "<group>"; };
 		0A4C495A1AC501C000D164E2 /* SearchHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchHomeViewController.swift; path = ../SearchHomeViewController.swift; sourceTree = "<group>"; };
 		0A4C7ABF1AF5D67D00C271F2 /* PJAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJAlert.swift; sourceTree = "<group>"; };
 		0A4C7AC11AF5D93F00C271F2 /* PJChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJChatMessage.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			children = (
 				0A4C7AC31AF6E76500C271F2 /* ChatViewController.swift */,
 				0A8BF1301AFD40EA0058AE38 /* ChatTableViewCell.swift */,
+				0A4AC50F1B16643F0037FE88 /* ChatTableViewCell1.swift */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				0AEC370D1AE2B597005F99A7 /* PostDetailsViewController.swift in Sources */,
 				0A8BF1311AFD40EA0058AE38 /* ChatTableViewCell.swift in Sources */,
 				0A8BF1351AFED29D0058AE38 /* AlertTableViewCell.swift in Sources */,
+				0A4AC5101B16643F0037FE88 /* ChatTableViewCell1.swift in Sources */,
 				0AD4A2931AD8917A00539470 /* SearchResultsViewController.swift in Sources */,
 				0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */,
 				0AC66FBF1AC5C22C003C818C /* CreatePostReviewAndSubmitStepViewController.swift in Sources */,
@@ -655,6 +659,10 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/parse-library-1.7.0",
 				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = PlusJoe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -684,6 +692,7 @@
 					"$(PROJECT_DIR)/parse-library-1.7.0",
 					"$(PROJECT_DIR)/parse-library-1.6.5",
 				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = STRIPE_ENABLE_APPLEPAY;
 				INFOPLIST_FILE = PlusJoe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

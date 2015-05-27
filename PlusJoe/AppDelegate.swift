@@ -14,6 +14,7 @@ let FLURRY_API_KEY = "SHP3N5P9KFXPBT6BHY9G"
 let PARSE_APP_ID = "2VdZroRZXm1voBa03m3F1cgkwgV5AFgJel1dYsVf"
 let PARSE_CLIENT_KEY = "GUtWFcyuOVxCYSA1vMs0XDSWpTHKpbb1DhEweAy0"
 let STRIPE_PUBLISHABLE_KEY = "pk_test_a8Gey5Uae2pQrcZfkqmjWaDO"
+let STRIPE_MERCHANT_ID = "merchant.com.plusjoe"
 
 
 
