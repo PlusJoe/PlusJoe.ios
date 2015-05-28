@@ -41,7 +41,7 @@ class MenuPostDetailsViewController: UIViewController {
     
     @IBAction func buyIt(sender: AnyObject) {
         
-        let request:PKPaymentRequest = Stripe.paymentRequestWithMerchantIdentifier(STRIPE_MERCHANT_ID)!
+        var request:PKPaymentRequest = Stripe.paymentRequestWithMerchantIdentifier(STRIPE_MERCHANT_ID)!
         // Configure your request here.
         let label = "Premium Llama Food"
         let amount = NSDecimalNumber(string: "1.00")
