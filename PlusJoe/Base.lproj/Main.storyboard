@@ -1171,7 +1171,7 @@
                                 <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmark #hashtags" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgQ-3f-iBe">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow #hashtags" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgQ-3f-iBe">
                                 <rect key="frame" x="388" y="120" width="163" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="163" id="Qjr-or-DaQ"/>
@@ -1192,7 +1192,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="bookmarkHashtags:" destination="4P2-nA-X20" eventType="touchUpInside" id="foD-OJ-GXS"/>
+                                    <action selector="followHashtags:" destination="4P2-nA-X20" eventType="touchUpInside" id="6Sc-u2-iXr"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share &amp; Earn Finders Fee" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zy-dI-ivi">
@@ -1273,10 +1273,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bookmark" destination="sgU-iH-ous" id="FVO-LI-IjD"/>
                         <outlet property="buyIt" destination="XA5-Ol-1gB" id="h24-sg-q2n"/>
                         <outlet property="buyItLabel" destination="33L-SF-YNS" id="CHc-vT-8nA"/>
                         <outlet property="flagInapproproate" destination="hhd-u2-dDI" id="bhg-xu-WCh"/>
+                        <outlet property="follow" destination="sgU-iH-ous" id="1cr-Wi-29c"/>
                         <outlet property="shareAndEarn" destination="qJV-0i-YhW" id="eZk-sG-wxO"/>
                     </connections>
                 </viewController>

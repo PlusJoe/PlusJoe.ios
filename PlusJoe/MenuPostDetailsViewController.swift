@@ -20,7 +20,7 @@ class MenuPostDetailsViewController: UIViewController {
     @IBOutlet weak var flagInapproproate: UIButton!
     @IBOutlet weak var buyIt: UIButton!
     @IBOutlet weak var buyItLabel: UILabel!
-    @IBOutlet weak var bookmark: UIButton!
+    @IBOutlet weak var follow: UIButton!
     @IBOutlet weak var shareAndEarn: UIButton!
     
     
@@ -28,7 +28,7 @@ class MenuPostDetailsViewController: UIViewController {
         super.viewDidLoad()
         flagInapproproate.setTitle("\u{f05e}", forState: UIControlState.Normal)
         buyIt.setTitle("\u{f155}", forState: UIControlState.Normal)
-        bookmark.setTitle("\u{f097}", forState: UIControlState.Normal)
+        follow.setTitle("\u{f02c}", forState: UIControlState.Normal)
         shareAndEarn.setTitle("\u{f0d6}", forState: UIControlState.Normal)
         
         //disable buy button for posts that can't be bought
@@ -78,10 +78,10 @@ class MenuPostDetailsViewController: UIViewController {
     
     
     
-    @IBAction func bookmarkHashtags(sender: AnyObject) {
+    @IBAction func followHashtags(sender: AnyObject) {
         let hashTags = PJHashTag.loadTagsForPost(post!)
         
-        var tagsString = "Following tags will be bookmarked:\n"
+        var tagsString = "Following tags will be followed:\n"
         for hashTag in hashTags {
             PJFollowing.createOrUpdateTagsImFollowing(hashTag[PJHASHTAG.hashTag] as! String,
                 succeeded: { (succeeds) -> () in
