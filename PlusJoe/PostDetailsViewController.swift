@@ -62,9 +62,10 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         
         // looking at my own post
         if post?[PJPOST.createdBy] as! String == DEVICE_UUID && conversation == nil {
-            chatButton.hidden = true
+            chatButton.enabled = false
             //            menuButton.hidden = true
             buyButton.enabled = false
+            chatButton.backgroundColor = UIColor.grayColor()
             buyButton.backgroundColor = UIColor.grayColor()
         }
         
