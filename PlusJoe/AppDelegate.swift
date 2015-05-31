@@ -15,6 +15,8 @@ let PARSE_APP_ID = "2VdZroRZXm1voBa03m3F1cgkwgV5AFgJel1dYsVf"
 let PARSE_CLIENT_KEY = "GUtWFcyuOVxCYSA1vMs0XDSWpTHKpbb1DhEweAy0"
 let STRIPE_PUBLISHABLE_KEY = "pk_test_a8Gey5Uae2pQrcZfkqmjWaDO"
 let STRIPE_MERCHANT_ID = "merchant.com.plusjoe"
+let SUPPORTED_PAYMENT_NETWORKS = [PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex]
+
 
 
 
@@ -255,6 +257,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // update table view programmatically http://derpturkey.com/create-a-static-uitableview-without-storyboards/
 // dynamically sizing table cells hight http://www.raywenderlich.com/87975/dynamic-table-view-cell-height-ios-8-swift
 // working with mapkit http://www.techotopia.com/index.php/Working_with_Maps_on_iOS_8_with_Swift,_MapKit_and_the_MKMapView_Class
-
+// apple pay tutorial http://www.raywenderlich.com/87300/apple-pay-tutorial
+// one more apple pay tutorial http://nshipster.com/apple-pay/
+// scanning CC with camera https://github.com/card-io/card.io-iOS-SDK
 
 
