@@ -29,6 +29,7 @@
 		0A63D7981B06685100AD70F1 /* FollowingHashTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63D7971B06685100AD70F1 /* FollowingHashTagsViewController.swift */; };
 		0A63D79A1B06689E00AD70F1 /* FollowingHashTagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63D7991B06689E00AD70F1 /* FollowingHashTagsTableViewCell.swift */; };
 		0A63D79C1B0AC26500AD70F1 /* MyAlertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63D79B1B0AC26500AD70F1 /* MyAlertTableViewCell.swift */; };
+		0A7BC6521B1BF918007AC39F /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7BC6511B1BF918007AC39F /* BuyViewController.swift */; };
 		0A8BF12E1AFC3EDC0058AE38 /* PJConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */; };
 		0A8BF1311AFD40EA0058AE38 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF1301AFD40EA0058AE38 /* ChatTableViewCell.swift */; };
 		0A8BF1331AFDB4E10058AE38 /* AlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF1321AFDB4E10058AE38 /* AlertsViewController.swift */; };
@@ -136,6 +137,7 @@
 		0A63D7971B06685100AD70F1 /* FollowingHashTagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingHashTagsViewController.swift; sourceTree = "<group>"; };
 		0A63D7991B06689E00AD70F1 /* FollowingHashTagsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingHashTagsTableViewCell.swift; sourceTree = "<group>"; };
 		0A63D79B1B0AC26500AD70F1 /* MyAlertTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAlertTableViewCell.swift; sourceTree = "<group>"; };
+		0A7BC6511B1BF918007AC39F /* BuyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJConversation.swift; sourceTree = "<group>"; };
 		0A8BF1301AFD40EA0058AE38 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		0A8BF1321AFDB4E10058AE38 /* AlertsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsViewController.swift; sourceTree = "<group>"; };
@@ -322,6 +324,14 @@
 			name = FollowingHashTags;
 			sourceTree = "<group>";
 		};
+		0A7BC6501B1BF8AE007AC39F /* BuySellWorflow */ = {
+			isa = PBXGroup;
+			children = (
+				0A7BC6511B1BF918007AC39F /* BuyViewController.swift */,
+			);
+			name = BuySellWorflow;
+			sourceTree = "<group>";
+		};
 		0A8BF12F1AFD40B70058AE38 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,6 +503,7 @@
 				0A8BF1361AFED2AD0058AE38 /* Alerts */,
 				0AE782541B024C0D008678B8 /* MyActivities */,
 				0A63D7961B06681400AD70F1 /* FollowingHashTags */,
+				0A7BC6501B1BF8AE007AC39F /* BuySellWorflow */,
 				0AEAFBD21AC0E2F900800121 /* Main.storyboard */,
 				0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */,
 				0AEAFBD51AC0E2F900800121 /* Images.xcassets */,
@@ -732,6 +743,7 @@
 				0AD856AC1B16BB5200CAEF08 /* STPCard.m in Sources */,
 				0AD8568C1B16BB5200CAEF08 /* STPAPIClient+ApplePay.m in Sources */,
 				0A63D79A1B06689E00AD70F1 /* FollowingHashTagsTableViewCell.swift in Sources */,
+				0A7BC6521B1BF918007AC39F /* BuyViewController.swift in Sources */,
 				0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */,
 				0AE782581B02D702008678B8 /* MyPostTableViewCell.swift in Sources */,
 				0AD856A61B16BB5200CAEF08 /* STPOSXCheckoutWebViewAdapter.m in Sources */,
