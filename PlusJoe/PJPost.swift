@@ -71,7 +71,7 @@ class PJPost: BaseDataModel {
 
             let queryPost = PFQuery(className:PJPOST.CLASS_NAME)
             // Interested in locations near user.
-            queryPost.whereKey(PJPOST.location, nearGeoPoint:location)
+            queryPost.whereKey(PJPOST.location, nearGeoPoint:location, withinMiles:3000)
             queryPost.whereKey(PJPOST.active, equalTo:true)
             queryPost.whereKey(PJPOST.archived, equalTo:false)
             queryPost.whereKey(PJPOST.inappropriate, notEqualTo:true)

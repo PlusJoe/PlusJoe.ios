@@ -73,12 +73,25 @@ class BuyViewController: UIViewController {
     }
 
     
+    @IBOutlet weak var buyWithApplePayButton: UIButton!
+    @IBOutlet weak var isNotAvailableLabel: UILabel!
+    @IBOutlet weak var useYourCreditCardButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         backNavButton.title = "\u{f053}"
         if let font = UIFont(name: "FontAwesome", size: 20) {
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+        }
+        
+        
+        if PKPaymentAuthorizationViewController.canMakePaymentsUsingNetworks(SUPPORTED_PAYMENT_NETWORKS) {
+            // Pay is available!
+            isNotAvailableLabel.hidden = true
+        } else {
+//            disable the button
+            buyWithApplePayButton.enabled = false
         }
     }
     
