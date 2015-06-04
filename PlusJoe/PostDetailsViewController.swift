@@ -55,7 +55,9 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         }
         
         self.navBar.topItem?.title = titleText
-        
+        self.navBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(rgb: 0x666666)]
+            
+            
         shareButton.setTitle("share   \u{f0d6}", forState: .Normal)
         buyButton.setTitle("buy   \u{f155}", forState: .Normal)
         chatButton.setTitle("chat \u{f086}", forState: UIControlState.Normal)
