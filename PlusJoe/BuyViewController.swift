@@ -11,7 +11,7 @@ import Foundation
 import Parse
 import Stripe
 
-extension BuyViewController: PKPaymentAuthorizationViewControllerDelegate {
+extension BuyViewController: PKPaymentAuthorizationViewControllerDelegate, CardIOPaymentViewControllerDelegate {
     func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController!,
         didAuthorizePayment payment: PKPayment!,
         completion: ((PKPaymentAuthorizationStatus) -> Void)!) {
@@ -93,10 +93,17 @@ class BuyViewController: UIViewController {
 //            disable the button
             buyWithApplePayButton.enabled = false
         }
+        
+        if CardIOUtilities.canReadCardWithCamera()  {
+            // Hide your "Scan Card" button, or take other appropriate action...
+            useYourCreditCardButton.enabled = true
+        } else {
+            useYourCreditCardButton.enabled = false
+        }
     }
     
     
-    @IBAction func buyIt(sender: AnyObject) {
+    @IBAction func buyItWithApplePay(sender: AnyObject) {
         
         var request:PKPaymentRequest = PKPaymentRequest()
         // Configure your request here.
@@ -136,5 +143,24 @@ class BuyViewController: UIViewController {
         //        self.presentViewController(alertMessage, animated: true, completion: nil)
     }
 
+
+    @IBAction func buyItWithCC(sender: AnyObject) {
+        var cardIOVC = CardIOPaymentViewController(paymentDelegate: self)
+        cardIOVC.modalPresentationStyle = .FormSheet
+        presentViewController(cardIOVC, animated: true, completion: nil)
+    }
+    
+    func userDidCancelPaymentViewController(paymentViewController: CardIOPaymentViewController!) {
+//        resultLabel.text = "user canceled"
+        paymentViewController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func userDidProvideCreditCardInfo(cardInfo: CardIOCreditCardInfo!, inPaymentViewController paymentViewController: CardIOPaymentViewController!) {
+        if let info = cardInfo {
+            let str = NSString(format: "Received card info.\n Number: %@\n expiry: %02lu/%lu\n cvv: %@.", info.redactedCardNumber, info.expiryMonth, info.expiryYear, info.cvv)
+//            resultLabel.text = str as String
+        }
+        paymentViewController?.dismissViewControllerAnimated(true, completion: nil)
+    }
     
 }

@@ -1172,6 +1172,9 @@
                                 <state key="normal" image="ApplePayBTN_32pt__whiteLine_textLogo_">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyItWithApplePay:" destination="L3s-3x-lro" eventType="touchUpInside" id="QLL-Mj-bDS"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alternatively, you can" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1a-Jo-B5w">
                                 <rect key="frame" x="168" y="199" width="123" height="21"/>
@@ -1192,6 +1195,9 @@
                                 <state key="normal" title="use your credit card">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyItWithCC:" destination="L3s-3x-lro" eventType="touchUpInside" id="2WH-Us-aHg"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is not available" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0y-Nv-TBC">
                                 <rect key="frame" x="265" y="137" width="70" height="21"/>

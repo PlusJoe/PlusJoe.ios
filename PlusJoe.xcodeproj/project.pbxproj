@@ -86,11 +86,11 @@
 		0AEAFBD61AC0E2F900800121 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD51AC0E2F900800121 /* Images.xcassets */; };
 		0AEAFBD91AC0E2F900800121 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD71AC0E2F900800121 /* LaunchScreen.xib */; };
 		0AEAFBE51AC0E2F900800121 /* PlusJoeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFBE41AC0E2F900800121 /* PlusJoeTests.swift */; };
-		0AEAFC061AC1C97300800121 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC051AC1C97300800121 /* AudioToolbox.framework */; };
+		0AEAFC061AC1C97300800121 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC051AC1C97300800121 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		0AEAFC081AC1C98300800121 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC071AC1C98300800121 /* CFNetwork.framework */; };
 		0AEAFC0A1AC1C98D00800121 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC091AC1C98D00800121 /* CoreGraphics.framework */; };
 		0AEAFC0C1AC1C99500800121 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC0B1AC1C99500800121 /* CoreLocation.framework */; };
-		0AEAFC0E1AC1C9A000800121 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC0D1AC1C9A000800121 /* MobileCoreServices.framework */; };
+		0AEAFC0E1AC1C9A000800121 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC0D1AC1C9A000800121 /* MobileCoreServices.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		0AEAFC101AC1C9A900800121 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC0F1AC1C9A900800121 /* QuartzCore.framework */; };
 		0AEAFC121AC1C9B100800121 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC111AC1C9B100800121 /* Security.framework */; };
 		0AEAFC161AC1C9C600800121 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC151AC1C9C600800121 /* SystemConfiguration.framework */; };
@@ -101,6 +101,9 @@
 		0AEC37101AE4A677005F99A7 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */; };
 		0AF02E081AD5B78800792A5E /* PJHashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF02E071AD5B78800792A5E /* PJHashTag.swift */; };
 		0AF801821ACD7D27009CAB14 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF801811ACD7D27009CAB14 /* MapKit.framework */; };
+		0AFB4CEF1B1F823000960E0D /* libCardIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFB4CEE1B1F823000960E0D /* libCardIO.a */; };
+		0AFB4CF11B1F829900960E0D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFB4CF01B1F829900960E0D /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0AFB4CF31B1F82B800960E0D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFB4CF21B1F82B800960E0D /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +238,17 @@
 		0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		0AF02E071AD5B78800792A5E /* PJHashTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJHashTag.swift; sourceTree = "<group>"; };
 		0AF801811ACD7D27009CAB14 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0AFB4CE61B1F823000960E0D /* CardIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIO.h; sourceTree = "<group>"; };
+		0AFB4CE71B1F823000960E0D /* CardIOCreditCardInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOCreditCardInfo.h; sourceTree = "<group>"; };
+		0AFB4CE81B1F823000960E0D /* CardIODetectionMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIODetectionMode.h; sourceTree = "<group>"; };
+		0AFB4CE91B1F823000960E0D /* CardIOPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOPaymentViewController.h; sourceTree = "<group>"; };
+		0AFB4CEA1B1F823000960E0D /* CardIOPaymentViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOPaymentViewControllerDelegate.h; sourceTree = "<group>"; };
+		0AFB4CEB1B1F823000960E0D /* CardIOUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOUtilities.h; sourceTree = "<group>"; };
+		0AFB4CEC1B1F823000960E0D /* CardIOView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOView.h; sourceTree = "<group>"; };
+		0AFB4CED1B1F823000960E0D /* CardIOViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOViewDelegate.h; sourceTree = "<group>"; };
+		0AFB4CEE1B1F823000960E0D /* libCardIO.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCardIO.a; sourceTree = "<group>"; };
+		0AFB4CF01B1F829900960E0D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0AFB4CF21B1F82B800960E0D /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,10 +256,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AFB4CF31B1F82B800960E0D /* CoreMedia.framework in Frameworks */,
+				0AFB4CF11B1F829900960E0D /* AVFoundation.framework in Frameworks */,
 				0A62AD381B10D95100C55E67 /* PassKit.framework in Frameworks */,
 				0A2D0E3B1AFEF3F7009AD9D9 /* ParseUI.framework in Frameworks */,
 				0AEAFC1A1AC1C9E100800121 /* libsqlite3.dylib in Frameworks */,
 				0AD856B11B16BB6C00CAEF08 /* Stripe.framework in Frameworks */,
+				0AFB4CEF1B1F823000960E0D /* libCardIO.a in Frameworks */,
 				0A2D0E351AFEF3DD009AD9D9 /* ParseCrashReporting.framework in Frameworks */,
 				0AEAFC181AC1C9D400800121 /* libz.dylib in Frameworks */,
 				0AEAFC161AC1C9C600800121 /* SystemConfiguration.framework in Frameworks */,
@@ -552,6 +569,9 @@
 		0AEAFC1B1AC1CA1600800121 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0AFB4CF21B1F82B800960E0D /* CoreMedia.framework */,
+				0AFB4CF01B1F829900960E0D /* AVFoundation.framework */,
+				0AFB4CE51B1F823000960E0D /* CardIO */,
 				0AD856B01B16BB6C00CAEF08 /* Stripe.framework */,
 				0AD8564D1B16BB5200CAEF08 /* Stripe */,
 				0A62AD371B10D95100C55E67 /* PassKit.framework */,
@@ -586,6 +606,22 @@
 				0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */,
 			);
 			name = SearchPost;
+			sourceTree = "<group>";
+		};
+		0AFB4CE51B1F823000960E0D /* CardIO */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB4CE61B1F823000960E0D /* CardIO.h */,
+				0AFB4CE71B1F823000960E0D /* CardIOCreditCardInfo.h */,
+				0AFB4CE81B1F823000960E0D /* CardIODetectionMode.h */,
+				0AFB4CE91B1F823000960E0D /* CardIOPaymentViewController.h */,
+				0AFB4CEA1B1F823000960E0D /* CardIOPaymentViewControllerDelegate.h */,
+				0AFB4CEB1B1F823000960E0D /* CardIOUtilities.h */,
+				0AFB4CEC1B1F823000960E0D /* CardIOView.h */,
+				0AFB4CED1B1F823000960E0D /* CardIOViewDelegate.h */,
+				0AFB4CEE1B1F823000960E0D /* libCardIO.a */,
+			);
+			path = CardIO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -921,7 +957,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PlusJoe",
+					"$(PROJECT_DIR)/CardIO",
 				);
+				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PlusJoe/PlusJoe-Bridging-Header.h";
@@ -951,7 +989,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PlusJoe",
+					"$(PROJECT_DIR)/CardIO",
 				);
+				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PlusJoe/PlusJoe-Bridging-Header.h";
