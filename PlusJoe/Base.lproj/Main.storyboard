@@ -81,7 +81,7 @@
                                     <constraint firstAttribute="height" constant="21" id="XOt-1b-T0g"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+Joe is a Social Ads Place " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9k-yu-Yh5">
@@ -90,7 +90,7 @@
                                     <constraint firstAttribute="height" constant="21" id="pDX-iR-38W"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sell/Buy Things/Services,  Search near you,  Bookmark,  Earn finders fees." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wA-n7-oEb">
@@ -99,7 +99,7 @@
                                     <constraint firstAttribute="height" constant="96" id="b2Q-cB-0Ht"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to +Joe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5y4-oe-kDp">
@@ -108,7 +108,7 @@
                                     <constraint firstAttribute="height" constant="21" id="oGd-Tp-xYM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -577,6 +577,9 @@
                                     <constraint firstAttribute="height" constant="44" id="JX9-IE-TSr"/>
                                 </constraints>
                                 <color key="barTintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="+joe1" id="Pve-Sm-Exm">
                                         <barButtonItem key="leftBarButtonItem" title="&lt;" id="DS4-Vj-o1A">
@@ -721,13 +724,13 @@
                                     <constraint firstAttribute="height" constant="21" id="iqh-TQ-eh8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaa-ad-ZsB">
                                 <rect key="frame" x="16" y="381" width="568" height="173"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhv-sb-HK8">
@@ -1411,20 +1414,12 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6A-uz-Kps">
-                                <rect key="frame" x="304" y="192" width="280" height="21"/>
+                                <rect key="frame" x="421" y="198" width="163" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="cN9-OV-i32"/>
+                                    <constraint firstAttribute="height" constant="21" id="wbW-GJ-XHX"/>
+                                    <constraint firstAttribute="width" constant="163" id="xvP-PL-M4h"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ir-cn-Zc3">
-                                <rect key="frame" x="16" y="178" width="280" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="GBF-XU-PSW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="35"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1456,7 +1451,7 @@
                                     <constraint firstAttribute="height" constant="150" id="uOS-19-6jS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6j4-tc-qxM">
@@ -1479,26 +1474,45 @@
                                 <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finders fee" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8Q-AB-y1k">
+                                <rect key="frame" x="421" y="182" width="86" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="DgJ-OE-HWE"/>
+                                    <constraint firstAttribute="width" constant="86" id="W0D-yO-4S6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ir-cn-Zc3">
+                                <rect key="frame" x="16" y="178" width="397" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="cf1-fZ-Cxb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="35"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="j6A-uz-Kps" firstAttribute="top" secondItem="sfT-UB-DWd" secondAttribute="bottom" constant="22" id="1Qw-IU-uTu"/>
-                            <constraint firstItem="j6A-uz-Kps" firstAttribute="leading" secondItem="0Ir-cn-Zc3" secondAttribute="trailing" constant="8" id="4Rz-8F-URB"/>
+                            <constraint firstItem="k8Q-AB-y1k" firstAttribute="leading" secondItem="0Ir-cn-Zc3" secondAttribute="trailing" constant="8" id="0Ob-Nh-6vB"/>
+                            <constraint firstItem="k8Q-AB-y1k" firstAttribute="top" secondItem="sfT-UB-DWd" secondAttribute="bottom" constant="12" id="73w-WB-wuW"/>
                             <constraint firstItem="6j4-tc-qxM" firstAttribute="trailing" secondItem="fLc-io-BM4" secondAttribute="trailingMargin" id="7AL-nh-QGU"/>
-                            <constraint firstItem="0Ir-cn-Zc3" firstAttribute="top" secondItem="eXV-Wa-ShS" secondAttribute="bottom" constant="8" id="BHv-S1-Gsz"/>
+                            <constraint firstItem="j6A-uz-Kps" firstAttribute="top" secondItem="sfT-UB-DWd" secondAttribute="bottom" constant="28" id="9bP-x0-pLF"/>
                             <constraint firstItem="sfT-UB-DWd" firstAttribute="top" secondItem="VfJ-ZD-p7z" secondAttribute="bottom" id="EpK-1I-NNh"/>
                             <constraint firstItem="z9E-pB-oex" firstAttribute="top" secondItem="VfJ-ZD-p7z" secondAttribute="bottom" constant="50" id="FB1-BO-dQq"/>
-                            <constraint firstItem="0Ir-cn-Zc3" firstAttribute="leading" secondItem="fLc-io-BM4" secondAttribute="leadingMargin" id="I7Z-dX-Z7F"/>
-                            <constraint firstItem="j6A-uz-Kps" firstAttribute="leading" secondItem="0Ir-cn-Zc3" secondAttribute="trailing" constant="8" id="Mjf-mN-yzf"/>
+                            <constraint firstItem="0Ir-cn-Zc3" firstAttribute="leading" secondItem="fLc-io-BM4" secondAttribute="leadingMargin" id="GpF-MA-nqq"/>
+                            <constraint firstItem="j6A-uz-Kps" firstAttribute="trailing" secondItem="fLc-io-BM4" secondAttribute="trailingMargin" id="Hjd-tY-OCB"/>
+                            <constraint firstItem="0Ir-cn-Zc3" firstAttribute="top" secondItem="sfT-UB-DWd" secondAttribute="bottom" constant="8" id="O7m-TB-L5q"/>
                             <constraint firstItem="6j4-tc-qxM" firstAttribute="top" secondItem="VfJ-ZD-p7z" secondAttribute="bottom" constant="50" id="Svq-bk-e71"/>
                             <constraint firstItem="sfT-UB-DWd" firstAttribute="leading" secondItem="eXV-Wa-ShS" secondAttribute="trailing" constant="8" id="U2S-2e-Nyh"/>
                             <constraint firstItem="eXV-Wa-ShS" firstAttribute="top" secondItem="VfJ-ZD-p7z" secondAttribute="bottom" id="aim-Yh-89o"/>
                             <constraint firstItem="sfT-UB-DWd" firstAttribute="trailing" secondItem="fLc-io-BM4" secondAttribute="trailingMargin" id="dGP-0S-kdx"/>
-                            <constraint firstItem="j6A-uz-Kps" firstAttribute="trailing" secondItem="fLc-io-BM4" secondAttribute="trailingMargin" id="dfU-fW-Vjf"/>
                             <constraint firstItem="eXV-Wa-ShS" firstAttribute="leading" secondItem="fLc-io-BM4" secondAttribute="leadingMargin" id="g14-xX-Di0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TyJ-ty-Csk" secondAttribute="trailing" constant="6" id="gW5-fi-t1n"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="k8Q-AB-y1k" secondAttribute="trailing" constant="77" id="mg9-H2-teT"/>
                             <constraint firstItem="Nfk-jp-rZ2" firstAttribute="top" secondItem="TyJ-ty-Csk" secondAttribute="bottom" constant="8" id="mwC-ee-4b9"/>
-                            <constraint firstItem="j6A-uz-Kps" firstAttribute="width" secondItem="0Ir-cn-Zc3" secondAttribute="width" id="pkp-Qw-gYq"/>
                             <constraint firstItem="z9E-pB-oex" firstAttribute="leading" secondItem="fLc-io-BM4" secondAttribute="leadingMargin" id="wFU-ze-YHb"/>
                         </constraints>
                     </view>
@@ -1571,7 +1585,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 <state key="normal" title="Thing">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -1595,7 +1609,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 <state key="normal" title="Service">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -1640,7 +1654,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 <state key="normal" title="Buy">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -1662,7 +1676,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 <state key="normal" title="Sell">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1680,8 +1694,11 @@
                                     <constraint firstAttribute="height" constant="44" id="RLK-s1-JiD"/>
                                 </constraints>
                                 <color key="barTintColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textAttributes>
                                 <items>
-                                    <navigationItem title="I want to:" id="SoY-UW-O7i">
+                                    <navigationItem title="I want to" id="SoY-UW-O7i">
                                         <barButtonItem key="leftBarButtonItem" title="&lt;" id="tz4-2n-gSx">
                                             <connections>
                                                 <action selector="backButtonAction:" destination="BYZ-38-t0r" id="QiK-tm-npv"/>
@@ -1748,6 +1765,9 @@
                                     <constraint firstAttribute="height" constant="44" id="JKd-4a-Wrd"/>
                                 </constraints>
                                 <color key="barTintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="describe it?" id="JsK-ZQ-cL8">
                                         <barButtonItem key="leftBarButtonItem" title="&lt;" id="LmJ-da-81O">
@@ -1840,7 +1860,7 @@
                                 <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                 <state key="normal" title="library">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -1860,6 +1880,9 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="8jg-6Q-mAD"/>
                                 </constraints>
                                 <color key="barTintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="any photos?" id="h7c-xw-PM9">
                                         <barButtonItem key="leftBarButtonItem" title="&lt;" id="KPa-ue-mwd">
@@ -1935,7 +1958,7 @@
                                 <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                 <state key="normal" title="photo">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -2034,6 +2057,9 @@
                                     <constraint firstAttribute="height" constant="44" id="YQg-Cl-sBH"/>
                                 </constraints>
                                 <color key="barTintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="any finder's fee?" id="61J-z8-WBB">
                                         <barButtonItem key="leftBarButtonItem" title="&lt;" id="b7r-8P-phi">
@@ -2073,6 +2099,7 @@
                                 <string key="text">Finder's fee is optional. 
 Finder's fee may speed up the process of acheiving your goal.
 Specify finder's fee ammount only if you are willing to pay it.</string>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -2091,7 +2118,7 @@ Specify finder's fee ammount only if you are willing to pay it.</string>
                                     <constraint firstAttribute="width" constant="10" id="jgU-gi-XXp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -2145,6 +2172,9 @@ Specify finder's fee ammount only if you are willing to pay it.</string>
                                     <constraint firstAttribute="height" constant="44" id="Tae-SZ-94r"/>
                                 </constraints>
                                 <color key="barTintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="preview and submit" id="Hxp-TF-mYp">
                                         <barButtonItem key="leftBarButtonItem" title="&lt;" id="WuM-X9-T2u">
@@ -2465,6 +2495,9 @@ Specify finder's fee ammount only if you are willing to pay it.</string>
                                     <constraint firstAttribute="height" constant="44" id="BSm-fU-hi6"/>
                                 </constraints>
                                 <color key="barTintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="I'm following tags" id="qaP-fu-HVe">
                                         <barButtonItem key="leftBarButtonItem" title="&lt;" id="laz-Jz-qZR">
@@ -2502,7 +2535,7 @@ Specify finder's fee ammount only if you are willing to pay it.</string>
                                                         <constraint firstAttribute="width" constant="101" id="dzc-3F-Ahu"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tag" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciC-Ac-Lfi">
@@ -2616,8 +2649,8 @@ Specify finder's fee ammount only if you are willing to pay it.</string>
         <image name="photo" width="97" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MFM-IA-fow"/>
         <segue reference="bLZ-0h-Vos"/>
+        <segue reference="MFM-IA-fow"/>
         <segue reference="lfm-c7-2pO"/>
     </inferredMetricsTieBreakers>
 </document>
