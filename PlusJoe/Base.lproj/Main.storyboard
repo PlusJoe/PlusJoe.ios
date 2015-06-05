@@ -1154,7 +1154,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQp-zI-dNM">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="gr6-SV-oiL"/>
+                                    <constraint firstAttribute="height" constant="44" id="IRc-oI-WWl"/>
                                 </constraints>
                                 <color key="barTintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
@@ -1167,11 +1167,24 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFF-f8-tSJ">
+                                <rect key="frame" x="206" y="151" width="189" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="189" id="Hca-JY-lbN"/>
+                                    <constraint firstAttribute="height" constant="30" id="l73-f0-D35"/>
+                                </constraints>
+                                <state key="normal" title="buy with credit card">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buyItWithCC:" destination="L3s-3x-lro" eventType="touchUpInside" id="2WH-Us-aHg"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rf8-5D-SaR">
                                 <rect key="frame" x="230" y="103" width="141" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="141" id="FBL-Js-SVu"/>
-                                    <constraint firstAttribute="height" constant="40" id="Vwn-kV-zzx"/>
+                                    <constraint firstAttribute="width" constant="141" id="bSV-D9-4pj"/>
+                                    <constraint firstAttribute="height" constant="40" id="cqg-nN-uF7"/>
                                 </constraints>
                                 <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="ApplePayBTN_32pt__whiteLine_textLogo_">
@@ -1181,60 +1194,22 @@
                                     <action selector="buyItWithApplePay:" destination="L3s-3x-lro" eventType="touchUpInside" id="QLL-Mj-bDS"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alternatively, you can" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1a-Jo-B5w">
-                                <rect key="frame" x="168" y="199" width="123" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="l4P-CT-nhH"/>
-                                    <constraint firstAttribute="width" constant="123" id="oXe-b1-JM7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFF-f8-tSJ">
-                                <rect key="frame" x="299" y="195" width="137" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="b1a-mm-6lN"/>
-                                    <constraint firstAttribute="width" constant="137" id="dND-Ng-Uft"/>
-                                </constraints>
-                                <state key="normal" title="use your credit card">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buyItWithCC:" destination="L3s-3x-lro" eventType="touchUpInside" id="2WH-Us-aHg"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is not available" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0y-Nv-TBC">
-                                <rect key="frame" x="265" y="137" width="70" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Dhw-go-nvG"/>
-                                    <constraint firstAttribute="width" constant="70" id="IpG-oX-yHj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xQp-zI-dNM" firstAttribute="top" secondItem="vR2-Cr-KHA" secondAttribute="bottom" id="7tH-B6-c70"/>
-                            <constraint firstAttribute="centerX" secondItem="Rf8-5D-SaR" secondAttribute="centerX" id="EYX-hZ-nnE"/>
-                            <constraint firstItem="t0y-Nv-TBC" firstAttribute="top" secondItem="xQp-zI-dNM" secondAttribute="bottom" constant="73" id="Kva-9g-ba9"/>
-                            <constraint firstAttribute="centerX" secondItem="wFF-f8-tSJ" secondAttribute="centerX" constant="-67.5" id="P3I-uX-O8K"/>
-                            <constraint firstItem="wFF-f8-tSJ" firstAttribute="top" secondItem="Rf8-5D-SaR" secondAttribute="bottom" constant="52" id="YHb-aV-ewx"/>
-                            <constraint firstAttribute="centerX" secondItem="t0y-Nv-TBC" secondAttribute="centerX" id="Z80-ZL-zXr"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xQp-zI-dNM" secondAttribute="trailing" constant="-16" id="aZz-Pl-AEo"/>
-                            <constraint firstItem="Rf8-5D-SaR" firstAttribute="top" secondItem="xQp-zI-dNM" secondAttribute="bottom" constant="39" id="c6E-za-8AU"/>
-                            <constraint firstItem="wFF-f8-tSJ" firstAttribute="leading" secondItem="C1a-Jo-B5w" secondAttribute="trailing" constant="8" id="dXY-R8-fbC"/>
-                            <constraint firstItem="C1a-Jo-B5w" firstAttribute="top" secondItem="Rf8-5D-SaR" secondAttribute="bottom" constant="56" id="f9u-ry-Ckh"/>
-                            <constraint firstItem="xQp-zI-dNM" firstAttribute="leading" secondItem="eCF-kd-avK" secondAttribute="leadingMargin" constant="-16" id="knc-MI-c67"/>
+                            <constraint firstAttribute="centerX" secondItem="Rf8-5D-SaR" secondAttribute="centerX" id="1x1-Wo-ddH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xQp-zI-dNM" secondAttribute="trailing" constant="-16" id="H82-fc-5NM"/>
+                            <constraint firstItem="Rf8-5D-SaR" firstAttribute="top" secondItem="xQp-zI-dNM" secondAttribute="bottom" constant="39" id="Pkp-ZE-JTH"/>
+                            <constraint firstItem="xQp-zI-dNM" firstAttribute="top" secondItem="vR2-Cr-KHA" secondAttribute="bottom" id="R2D-Xa-do8"/>
+                            <constraint firstItem="xQp-zI-dNM" firstAttribute="leading" secondItem="eCF-kd-avK" secondAttribute="leadingMargin" constant="-16" id="SUn-dc-y7a"/>
+                            <constraint firstItem="wFF-f8-tSJ" firstAttribute="top" secondItem="Rf8-5D-SaR" secondAttribute="bottom" constant="8" id="aIc-VO-ahU"/>
+                            <constraint firstAttribute="centerX" secondItem="wFF-f8-tSJ" secondAttribute="centerX" id="ueo-0D-6g3"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backNavButton" destination="nwF-cJ-9EJ" id="Rkr-bW-Uuz"/>
                         <outlet property="buyWithApplePayButton" destination="Rf8-5D-SaR" id="5ow-v6-GTe"/>
-                        <outlet property="isNotAvailableLabel" destination="t0y-Nv-TBC" id="Eqc-fk-Lqh"/>
-                        <outlet property="useYourCreditCardButton" destination="wFF-f8-tSJ" id="wfQ-Zg-ZIV"/>
+                        <outlet property="buyWithCreditCardButton" destination="wFF-f8-tSJ" id="KNd-EG-yFj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BAY-dl-rHH" userLabel="First Responder" sceneMemberID="firstResponder"/>

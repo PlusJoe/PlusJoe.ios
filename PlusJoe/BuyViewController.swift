@@ -74,8 +74,7 @@ class BuyViewController: UIViewController {
 
     
     @IBOutlet weak var buyWithApplePayButton: UIButton!
-    @IBOutlet weak var isNotAvailableLabel: UILabel!
-    @IBOutlet weak var useYourCreditCardButton: UIButton!
+    @IBOutlet weak var buyWithCreditCardButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,18 +87,20 @@ class BuyViewController: UIViewController {
         
         if PKPaymentAuthorizationViewController.canMakePaymentsUsingNetworks(SUPPORTED_PAYMENT_NETWORKS) {
             // Pay is available!
-            isNotAvailableLabel.hidden = true
+            buyWithCreditCardButton.hidden = true
         } else {
-//            disable the button
-            buyWithApplePayButton.enabled = false
+            buyWithApplePayButton.hidden = true
+            if !CardIOUtilities.canReadCardWithCamera()  {
+                // Hide your "Scan Card" button, or take other appropriate action...
+                let alertMessage = UIAlertController(title: nil, message: "You need at least one method of payment available. Either configure ApplePay, or enable access to PhotoCamera to be able to scan CreditCard image.", preferredStyle: UIAlertControllerStyle.Alert)
+                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                })
+                alertMessage.addAction(ok)
+                self.presentViewController(alertMessage, animated: true, completion: nil)
+            }                        
         }
         
-        if CardIOUtilities.canReadCardWithCamera()  {
-            // Hide your "Scan Card" button, or take other appropriate action...
-            useYourCreditCardButton.enabled = true
-        } else {
-            useYourCreditCardButton.enabled = false
-        }
     }
     
     
