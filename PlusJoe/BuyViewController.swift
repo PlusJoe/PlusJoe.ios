@@ -137,11 +137,6 @@ class BuyViewController: UIViewController {
             
         }
         
-        
-        //        let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
-        //        let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
-        //        alertMessage.addAction(ok)
-        //        self.presentViewController(alertMessage, animated: true, completion: nil)
     }
 
 
@@ -159,7 +154,59 @@ class BuyViewController: UIViewController {
     func userDidProvideCreditCardInfo(cardInfo: CardIOCreditCardInfo!, inPaymentViewController paymentViewController: CardIOPaymentViewController!) {
         if let info = cardInfo {
             let str = NSString(format: "Received card info.\n Number: %@\n expiry: %02lu/%lu\n cvv: %@.", info.redactedCardNumber, info.expiryMonth, info.expiryYear, info.cvv)
-//            resultLabel.text = str as String
+
+            NSLog(str as String)
+            
+            
+            
+            var card:STPCard  = STPCard()
+            card.number = info.cardNumber
+            card.expMonth = info.expiryMonth
+            card.expYear = info.expiryYear
+            card.cvc = info.cvv
+            STPAPIClient.sharedClient().createTokenWithCard(card,
+                completion: { (token:STPToken?, error:NSError?) -> Void in
+                    if (error != nil) {
+                        let alertMessage = UIAlertController(title: nil, message: "Error processing your payment. \(error!)", preferredStyle: UIAlertControllerStyle.Alert)
+                        let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                            self.dismissViewControllerAnimated(true, completion: nil)
+                        })
+                        alertMessage.addAction(ok)
+                        self.presentViewController(alertMessage, animated: true, completion: nil)
+                        
+                    } else {
+
+                        let requestInfo = [
+                            "cardToken": token!.tokenId,
+                            "price": 1.10
+                        ]
+                        
+                        PFCloud.callFunctionInBackground("purchaseItem",
+                            withParameters: requestInfo as [NSObject : AnyObject],
+                            block: { (result:AnyObject?, error:NSError?) -> Void in
+                                if (error != nil) {
+                                    let alertMessage = UIAlertController(title: nil, message: "Error processing payment.", preferredStyle: UIAlertControllerStyle.Alert)
+                                    let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+                                    alertMessage.addAction(ok)
+                                    self.presentViewController(alertMessage, animated: true, completion: nil)
+                                    
+                                    
+                                } else {
+                                    let alertMessage = UIAlertController(title: nil, message: "Payent successfull.", preferredStyle: UIAlertControllerStyle.Alert)
+                                    let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                                        self.dismissViewControllerAnimated(true, completion: nil)
+                                    })
+                                    alertMessage.addAction(ok)
+                                    self.presentViewController(alertMessage, animated: true, completion: nil)
+
+                                }
+                        })
+                        
+                    }
+            })
+            
+            
+            
         }
         paymentViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
