@@ -12,15 +12,15 @@ import UIKit
 
 class UIChatLabel: UILabel {
     
-    var topInset:       CGFloat = 2
-    var rightInset:     CGFloat = 2
-    var bottomInset:    CGFloat = 2
-    var leftInset:      CGFloat = 2
+    var topInset:       CGFloat = 3
+    var rightInset:     CGFloat = 10
+    var bottomInset:    CGFloat = 3
+    var leftInset:      CGFloat = 10
     
     override func drawTextInRect(rect: CGRect) {
         var insets: UIEdgeInsets = UIEdgeInsets(top: self.topInset, left: self.leftInset, bottom: self.bottomInset, right: self.rightInset)
         self.setNeedsLayout()
+
         return super.drawTextInRect(UIEdgeInsetsInsetRect(rect, insets))
     }
-    
 }

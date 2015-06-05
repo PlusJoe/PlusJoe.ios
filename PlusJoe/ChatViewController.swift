@@ -166,6 +166,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
                 success: { (result) -> () in
 //                    self.chatMessages.insert(result, atIndex: 0)
                     self.chatMessageBody.text = ""
+                    self.textViewDidChange(self.textView)
                 }, failed: { (error) -> () in
                     let alertMessage = UIAlertController(title: "Error", message: "Failed replying. Try again later.", preferredStyle: UIAlertControllerStyle.Alert)
                     let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
@@ -185,6 +186,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
     }
     
     
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let chatMessage = chatMessages[indexPath.row]
         var cell:UITableViewCell?
@@ -194,14 +196,15 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         if chatMessage[PJCHATMESSAGE.createdBy] as! String == DEVICE_UUID {
             cell = self.tableView.dequeueReusableCellWithIdentifier("chat_cell") as? ChatTableViewCell
             (cell as? ChatTableViewCell)?.postedAt.text = String(format: "%@", df.stringFromDate(chatMessage.createdAt!))
-            (cell as? ChatTableViewCell)?.body.text = chatMessage[PJCHATMESSAGE.body] as? String
+            (cell as? ChatTableViewCell)?.body.text = "\((chatMessage[PJCHATMESSAGE.body])!)\n"
 
         } else {
             cell = self.tableView.dequeueReusableCellWithIdentifier("chat1_cell") as? ChatTableViewCell1
             (cell as? ChatTableViewCell1)?.postedAt.text = String(format: "%@", df.stringFromDate(chatMessage.createdAt!))
-            (cell as? ChatTableViewCell1)?.body.text = chatMessage[PJCHATMESSAGE.body] as? String
+            (cell as? ChatTableViewCell1)?.body.text = "\((chatMessage[PJCHATMESSAGE.body])!)\n"
         }
 
+    
         
         NSLog("Rendering ReplyPost")
         

@@ -1013,8 +1013,18 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="pC8-sM-aHg" id="At6-2E-eyA">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iph-to-6wb">
+                                                    <rect key="frame" x="235" y="0.0" width="131" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="131" id="hpz-aP-7je"/>
+                                                        <constraint firstAttribute="height" constant="21" id="yLL-Y9-3n6"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="body" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rg4-M8-nH8" customClass="UIChatLabel" customModule="PlusJoe" customModuleProvider="target">
-                                                    <rect key="frame" x="139" y="3" width="453" height="41.5"/>
+                                                    <rect key="frame" x="48" y="23" width="544" height="30"/>
                                                     <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <rect key="contentStretch" x="0.0" y="1" width="0.0" height="1"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -1027,25 +1037,14 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iph-to-6wb">
-                                                    <rect key="frame" x="0.0" y="3" width="131" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="131" id="WhG-Su-cfB"/>
-                                                        <constraint firstAttribute="height" constant="21" id="dhV-e1-Gvd"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="rg4-M8-nH8" firstAttribute="leading" secondItem="iph-to-6wb" secondAttribute="trailing" constant="8" id="09u-Aw-1Ov"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="rg4-M8-nH8" secondAttribute="bottom" id="7xF-X8-f6G"/>
-                                                <constraint firstItem="rg4-M8-nH8" firstAttribute="top" secondItem="At6-2E-eyA" secondAttribute="topMargin" constant="-5" id="992-2b-TUJ"/>
-                                                <constraint firstItem="rg4-M8-nH8" firstAttribute="trailing" secondItem="At6-2E-eyA" secondAttribute="trailingMargin" id="Ct1-xs-NsE"/>
-                                                <constraint firstItem="iph-to-6wb" firstAttribute="top" secondItem="At6-2E-eyA" secondAttribute="topMargin" constant="-5" id="O0F-Wd-hwk"/>
-                                                <constraint firstItem="iph-to-6wb" firstAttribute="leading" secondItem="At6-2E-eyA" secondAttribute="leadingMargin" constant="-8" id="kJI-vY-AGy"/>
-                                                <constraint firstItem="rg4-M8-nH8" firstAttribute="leading" secondItem="iph-to-6wb" secondAttribute="trailing" constant="8" id="zRS-BC-cWa"/>
+                                                <constraint firstItem="rg4-M8-nH8" firstAttribute="top" secondItem="iph-to-6wb" secondAttribute="bottom" constant="2" id="604-74-H88"/>
+                                                <constraint firstItem="rg4-M8-nH8" firstAttribute="leading" secondItem="At6-2E-eyA" secondAttribute="leadingMargin" constant="40" id="CPm-hQ-1Y2"/>
+                                                <constraint firstItem="rg4-M8-nH8" firstAttribute="trailing" secondItem="At6-2E-eyA" secondAttribute="trailingMargin" id="H7M-Ne-Fc5"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="rg4-M8-nH8" secondAttribute="bottom" constant="-8" id="MrJ-kU-VI2"/>
+                                                <constraint firstAttribute="centerX" secondItem="iph-to-6wb" secondAttribute="centerX" id="ZwJ-we-sox"/>
+                                                <constraint firstItem="iph-to-6wb" firstAttribute="top" secondItem="At6-2E-eyA" secondAttribute="topMargin" constant="-8" id="awd-Vx-nqs"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1053,14 +1052,14 @@
                                             <outlet property="postedAt" destination="iph-to-6wb" id="19H-GK-WMO"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="chat1_cell" rowHeight="56" id="3tI-mr-87d" customClass="ChatTableViewCell1" customModule="PlusJoe">
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="chat1_cell" rowHeight="53" id="3tI-mr-87d" customClass="ChatTableViewCell1" customModule="PlusJoe">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3tI-mr-87d" id="oEK-Vx-F3Z">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="body" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXK-cB-UkC" customClass="UIChatLabel" customModule="PlusJoe" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="8" width="453" height="39.5"/>
+                                                    <rect key="frame" x="8" y="23" width="544" height="30"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <rect key="contentStretch" x="0.0" y="1" width="0.0" height="1"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -1073,25 +1072,23 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdp-qh-I8N">
-                                                    <rect key="frame" x="469" y="8" width="131" height="21"/>
+                                                    <rect key="frame" x="235" y="0.0" width="131" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="131" id="dFd-X8-akT"/>
-                                                        <constraint firstAttribute="height" constant="21" id="eAM-dO-diY"/>
+                                                        <constraint firstAttribute="height" constant="21" id="8DF-OD-quZ"/>
+                                                        <constraint firstAttribute="width" constant="131" id="bSD-L6-gHl"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Sdp-qh-I8N" secondAttribute="trailing" constant="-8" id="3R3-Gt-dHg"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="tXK-cB-UkC" secondAttribute="bottom" id="GfM-dq-q42"/>
-                                                <constraint firstItem="tXK-cB-UkC" firstAttribute="leading" secondItem="oEK-Vx-F3Z" secondAttribute="leadingMargin" id="RNn-gv-aoY"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Sdp-qh-I8N" secondAttribute="bottom" constant="18.5" id="dos-RV-eRd"/>
-                                                <constraint firstItem="Sdp-qh-I8N" firstAttribute="leading" secondItem="tXK-cB-UkC" secondAttribute="trailing" constant="8" id="due-KO-BhX"/>
-                                                <constraint firstItem="tXK-cB-UkC" firstAttribute="top" secondItem="oEK-Vx-F3Z" secondAttribute="topMargin" id="joZ-4G-B1t"/>
-                                                <constraint firstItem="Sdp-qh-I8N" firstAttribute="top" secondItem="oEK-Vx-F3Z" secondAttribute="topMargin" id="v28-6M-Siu"/>
-                                                <constraint firstItem="Sdp-qh-I8N" firstAttribute="leading" secondItem="tXK-cB-UkC" secondAttribute="trailing" constant="8" id="vjO-NG-bto"/>
+                                                <constraint firstAttribute="centerX" secondItem="Sdp-qh-I8N" secondAttribute="centerX" id="Fd2-Yp-u4E"/>
+                                                <constraint firstItem="Sdp-qh-I8N" firstAttribute="top" secondItem="oEK-Vx-F3Z" secondAttribute="topMargin" constant="-8" id="Gtk-of-rtw"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="tXK-cB-UkC" secondAttribute="bottom" constant="-8" id="Xl3-UT-hi1"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="tXK-cB-UkC" secondAttribute="trailing" constant="40" id="Xqz-Fa-1Qt"/>
+                                                <constraint firstItem="tXK-cB-UkC" firstAttribute="leading" secondItem="oEK-Vx-F3Z" secondAttribute="leadingMargin" id="hUt-2E-NJR"/>
+                                                <constraint firstItem="tXK-cB-UkC" firstAttribute="top" secondItem="Sdp-qh-I8N" secondAttribute="bottom" constant="2" id="mL2-0N-D52"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
