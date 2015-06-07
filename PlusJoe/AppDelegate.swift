@@ -168,7 +168,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         getCurrentLocation()
-//        getAlerts()
+        GET_ALERTS()
         
         return true
     }
