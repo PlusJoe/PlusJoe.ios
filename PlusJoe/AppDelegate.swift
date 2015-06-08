@@ -34,26 +34,6 @@ var UNFINISHED_POST:PFObject! = nil // we use this to store intermidiary post ob
 var UNREAD_ALERTS_COUNT = 0
 
 
-func GET_ALERTS() -> Void{
-    UIApplication.sharedApplication().applicationIconBadgeNumber = 0
-    PJAlert.loadUnreadAlertsCount({ (alertsCount) -> () in
-        UNREAD_ALERTS_COUNT = alertsCount
-        NSLog("There are \(alertsCount) unread alerts")
-        
-        if  alertsCount > 0 {
-            var localNotification:UILocalNotification = UILocalNotification()
-            localNotification.alertAction = "Alerts"
-            localNotification.alertBody = "There are \(alertsCount) unread alerts."
-            localNotification.fireDate = NSDate(timeIntervalSinceNow: 1)
-            UIApplication.sharedApplication().applicationIconBadgeNumber = alertsCount
-            UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-        }
-        },
-        failed: { (error) -> () in
-            NSLog("Error retreiveing alerts in background: %@ %@", error, error.userInfo!)
-    })
-}
-
 
 func roundMoney(number: Double) -> Double {
     let numberOfPlaces = 2.0
@@ -169,7 +149,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         getCurrentLocation()
-//        GET_ALERTS()
         
         if timer == nil {
         timer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: Selector("getAlerts"), userInfo: nil, repeats: true)
@@ -178,7 +157,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     // need this wrapper function, because selecter can only invoke the function on the class
     func getAlerts() -> Void {
-        GET_ALERTS()
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        PJAlert.loadUnreadAlertsCount({ (alertsCount) -> () in
+            UNREAD_ALERTS_COUNT = alertsCount
+            NSLog("There are \(alertsCount) unread alerts")
+            
+            if  alertsCount > 0 {
+                var localNotification:UILocalNotification = UILocalNotification()
+                localNotification.alertAction = "Alerts"
+                localNotification.alertBody = "There are \(alertsCount) unread alerts."
+                localNotification.fireDate = NSDate(timeIntervalSinceNow: 1)
+                UIApplication.sharedApplication().applicationIconBadgeNumber = alertsCount
+                UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+            }
+            },
+            failed: { (error) -> () in
+                NSLog("Error retreiveing alerts in background: %@ %@", error, error.userInfo!)
+        })
     }
     
     func getCurrentLocation() -> PFGeoPoint? {
@@ -223,8 +218,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         NSLog("fetching in background");
         completionHandler(UIBackgroundFetchResult.NewData)        
-        GET_ALERTS()
-        
+        getAlerts()        
     }
     
     
