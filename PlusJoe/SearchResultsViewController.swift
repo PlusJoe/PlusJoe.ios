@@ -32,6 +32,8 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     
     var posts:[PFObject] = [PFObject]()
     
+    var timer:NSTimer?
+
     
     var currentPost:UInt = 0
     
@@ -43,22 +45,27 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     }
     
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-
-        GET_ALERTS()
-        
+    func updateAlertsView() -> Void {
         if UNREAD_ALERTS_COUNT == 0 {
             self.alertsCountLabel.hidden = true
         } else {
             self.alertsCountLabel.text = String(UNREAD_ALERTS_COUNT)
             self.alertsCountLabel.hidden = false
         }
+    }
 
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if timer == nil {
+            timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("updateAlertsView"), userInfo: nil, repeats: true)
+        }
+
         //        detailsButton.enabled = false
         
         // Do any additional setup after loading the view, typically from a nib.

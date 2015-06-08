@@ -31,6 +31,8 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var chatButton: UIButton!
     
+    var timer:NSTimer?
+
     //    var images = [NSData]()
     var imageViewControllers = [ImageViewController]()
     
@@ -43,9 +45,22 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     }
     
     
-    
+    func updateAlertsView() -> Void {
+        if UNREAD_ALERTS_COUNT == 0 {
+            self.alertsCountLabel.hidden = true
+        } else {
+            self.alertsCountLabel.text = String(UNREAD_ALERTS_COUNT)
+            self.alertsCountLabel.hidden = false
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if timer == nil {
+            timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("updateAlertsView"), userInfo: nil, repeats: true)
+        }
+
         // Do any additional setup after loading the view, typically from a nib.
         backNavButton.title = "\u{f053}"
         menuButton.setTitle("\u{f0c9}", forState: .Normal)
@@ -161,18 +176,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     
     
     override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-
-        GET_ALERTS()
-
-        
-        if UNREAD_ALERTS_COUNT == 0 {
-            self.alertsCountLabel.hidden = true
-        } else {
-            self.alertsCountLabel.text = String(UNREAD_ALERTS_COUNT)
-            self.alertsCountLabel.hidden = false
-        }
-        
+        super.viewDidAppear(animated)        
     }
     
     

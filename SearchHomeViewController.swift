@@ -28,15 +28,29 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     
     var completions = [String]()
     
-    
+    var timer:NSTimer?
+
     
     @IBAction func backButtonAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
+    func updateAlertsView() -> Void {
+        if UNREAD_ALERTS_COUNT == 0 {
+            self.alertsCountLabel.hidden = true
+        } else {
+            self.alertsCountLabel.text = String(UNREAD_ALERTS_COUNT)
+            self.alertsCountLabel.hidden = false
+        }
+    }
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if timer == nil {
+            timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("updateAlertsView"), userInfo: nil, repeats: true)
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
         backNavButton.title = "\u{f053}"
         menuButton.setTitle("\u{f0c9}", forState: .Normal)
@@ -62,7 +76,6 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         autocompleteTableView.hidden = true
         autocompleteTableView.delegate      =   self
         autocompleteTableView.dataSource    =   self
-        
 
     }
     
@@ -79,15 +92,8 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
             presentViewController(alertMessage, animated: true, completion: nil)
         }
 
-        GET_ALERTS()
-        
-            if UNREAD_ALERTS_COUNT == 0 {
-                self.alertsCountLabel.hidden = true
-            } else {
-                self.alertsCountLabel.text = String(UNREAD_ALERTS_COUNT)
-                self.alertsCountLabel.hidden = false
-            }
     }
+    
     
     func textFieldTextChanged(sender : AnyObject) {
         NSLog("searching for text: " + searchTextField.text); //the textView parameter is the textView where text was changed

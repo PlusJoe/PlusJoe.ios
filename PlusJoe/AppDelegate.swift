@@ -114,6 +114,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var timer:NSTimer?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -168,9 +169,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         getCurrentLocation()
-        GET_ALERTS()
+//        GET_ALERTS()
         
+        if timer == nil {
+        timer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: Selector("getAlerts"), userInfo: nil, repeats: true)
+        }
         return true
+    }
+    // need this wrapper function, because selecter can only invoke the function on the class
+    func getAlerts() -> Void {
+        GET_ALERTS()
     }
     
     func getCurrentLocation() -> PFGeoPoint? {

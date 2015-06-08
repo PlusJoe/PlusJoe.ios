@@ -102,7 +102,9 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         
         self.retrieveAllMessages()
 
-        timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("retrieveNewMessages"), userInfo: nil, repeats: true)
+        if timer == nil {
+            timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("retrieveNewMessages"), userInfo: nil, repeats: true)
+        }
 
     }
 
