@@ -154,7 +154,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     
     
     func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
-        NSLog("!!!!!!!!!!!!!!!!!!!!!!! selected annotation: \(view.annotation.title)")
+        NSLog("!!!!!!!!!!!!!!!!!!!!!!! selected annotation: \(view.annotation!.title)")
         currentPost = UInt(view.annotation.title!.toInt()!)
         //        resultNumber.text = "\(currentPost) of \(posts.count)"
         

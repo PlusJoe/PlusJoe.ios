@@ -30,7 +30,7 @@ class PJAlert: BaseDataModel {
     let CLASS_NAME = "Alerts"
     
     let chatMessage = "chatMessage" //: PJChatMessage
-    let target = "target" //: String
+    let targetUser = "targetUser" //: PJUser
     let read = "read" //: Bool
     
     

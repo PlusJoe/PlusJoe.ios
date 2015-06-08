@@ -2216,6 +2216,50 @@ Specify finder's fee ammount only if you are willing to pay it.</string>
             </objects>
             <point key="canvasLocation" x="4543" y="-1829"/>
         </scene>
+        <!--Sell View Controller-->
+        <scene sceneID="qG2-eZ-la6">
+            <objects>
+                <viewController storyboardIdentifier="SellViewController" id="HmH-29-1lm" customClass="SellViewController" customModule="PlusJoe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G1r-6y-BgF"/>
+                        <viewControllerLayoutGuide type="bottom" id="9jY-FC-FPm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cQT-iR-eiT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nX2-Bo-RNF">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="fCE-KG-LS1"/>
+                                </constraints>
+                                <color key="barTintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Selling" id="IXE-bw-tJ6">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="7x3-r2-PuB">
+                                            <connections>
+                                                <action selector="backButtonAction:" destination="HmH-29-1lm" id="ALs-SC-iWx"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nX2-Bo-RNF" firstAttribute="leading" secondItem="cQT-iR-eiT" secondAttribute="leadingMargin" constant="-16" id="GfR-s7-JNy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nX2-Bo-RNF" secondAttribute="trailing" constant="-16" id="Tuv-73-EGw"/>
+                            <constraint firstItem="nX2-Bo-RNF" firstAttribute="top" secondItem="G1r-6y-BgF" secondAttribute="bottom" id="fBT-v6-oIi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backNavButton" destination="7x3-r2-PuB" id="ojx-40-2Df"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DBx-hz-tQU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2714" y="3957"/>
+        </scene>
         <!--My Activities View Controller-->
         <scene sceneID="f0u-tU-lmO">
             <objects>

@@ -24,7 +24,7 @@ let SUPPORTED_PAYMENT_NETWORKS = [PKPaymentNetworkVisa, PKPaymentNetworkMasterCa
 let PJHost = "http://plusjoe.com"
 
 var DEVICE_PHONE_NUMBER = ""
-var DEVICE_UUID = ""
+var CURRENT_USER:PJUser?
 let APP_DELEGATE:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 let USER_DEFAULTS = NSUserDefaults.standardUserDefaults()
 
@@ -155,6 +155,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
+    
+    var count = 0
+    
     // need this wrapper function, because selecter can only invoke the function on the class
     func getAlerts() -> Void {
         UIApplication.sharedApplication().applicationIconBadgeNumber = 0
@@ -174,7 +177,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             failed: { (error) -> () in
                 NSLog("Error retreiveing alerts in background: %@ %@", error, error.userInfo!)
         })
+        
+        if count == 0 {
+            if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
+                while let presentedViewController = topController.presentedViewController {
+                    topController = presentedViewController
+                }
+                let sellViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SellViewController") as! SellViewController
+                topController.presentViewController(sellViewController, animated: true, completion: nil)
+            }
+            
+        }
+        NSLog("count \(count)")
+        count++
     }
+    
+    
     
     func getCurrentLocation() -> PFGeoPoint? {
         if CURRENT_LOCATION == nil {
@@ -218,7 +236,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         NSLog("fetching in background");
         completionHandler(UIBackgroundFetchResult.NewData)        
-        getAlerts()        
+        getAlerts()
     }
     
     
