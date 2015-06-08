@@ -17,7 +17,7 @@ import Parse
 
 let PJCHATMESSAGE:PJChatMessage = PJChatMessage()
 class PJChatMessage: BaseDataModel {
-    let CLASS_NAME = "ChatMessages"
+    let CLASS_NAME = "ChatMessage"
     
     let conversation = "conversation" //: PJConversation
     let body = "body" //: String // no more then 140 chars
@@ -75,7 +75,7 @@ class PJChatMessage: BaseDataModel {
         for chatMessage in chatMessages {
             let alertsQuery = PFQuery(className:PJALERT.CLASS_NAME)
             alertsQuery.whereKey(PJALERT.chatMessage, equalTo: chatMessage)
-            alertsQuery.whereKey(PJALERT.target, equalTo: DEVICE_UUID)
+            alertsQuery.whereKey(PJALERT.targetUser, equalTo: CURRENT_USER!)
             alertsQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 for alert in objects as! [PFObject] {
                     alert[PJALERT.read] = true
@@ -89,7 +89,7 @@ class PJChatMessage: BaseDataModel {
     class func createChatMessageAndAlert(
         conversation:PFObject,
         body:String,
-        createdBy:String,
+        createdBy:PFUser,
         success:(result: PFObject) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
@@ -102,10 +102,10 @@ class PJChatMessage: BaseDataModel {
                     let alert1 = PFObject(className: PJALERT.CLASS_NAME)
                     alert1[PJALERT.chatMessage] = chatMessage
                     alert1[PJALERT.read] = false
-                    if (conversation[PJCONVERSATION.participants] as! [String])[0] == createdBy {
-                        alert1[PJALERT.target] = (conversation[PJCONVERSATION.participants] as! [String])[1]
+                    if (conversation[PJCONVERSATION.participants] as! [PFUser])[0] == createdBy {
+                        alert1[PJALERT.targetUser] = (conversation[PJCONVERSATION.participants] as! [PFUser])[1]
                     } else {
-                        alert1[PJALERT.target] = (conversation[PJCONVERSATION.participants] as! [String])[0]
+                        alert1[PJALERT.targetUser] = (conversation[PJCONVERSATION.participants] as! [PFUser])[0]
                     }
                     alert1.saveInBackgroundWithBlock({ (succeeded:Bool, error:NSError?) -> Void in })
 
@@ -113,9 +113,9 @@ class PJChatMessage: BaseDataModel {
                     alert2[PJALERT.chatMessage] = chatMessage
                     alert2[PJALERT.read] = true
                     if (conversation[PJCONVERSATION.participants] as! [String])[0] == createdBy {
-                        alert2[PJALERT.target] = (conversation[PJCONVERSATION.participants] as! [String])[0]
+                        alert2[PJALERT.targetUser] = (conversation[PJCONVERSATION.participants] as! [PFUser])[0]
                     } else {
-                        alert2[PJALERT.target] = (conversation[PJCONVERSATION.participants] as! [String])[1]
+                        alert2[PJALERT.targetUser] = (conversation[PJCONVERSATION.participants] as! [PFUser])[1]
                     }
                     alert2.saveInBackgroundWithBlock({ (succeeded:Bool, error:NSError?) -> Void in })
 

@@ -12,17 +12,17 @@ import Parse
 let PJCONVERSATION:PJConversation = PJConversation()
 
 class PJConversation: BaseDataModel {
-    let CLASS_NAME = "Conversations"
+    let CLASS_NAME = "Conversation"
     
     let post = "post" //: PJPost
-    let participants = "participants" //: [String] // always 2 participants
+    let participants = "participants" //: [PFUser] // always 2 participants
     
     
     
     
     class func findOrCreateConversation(
         post: PFObject, // participant1 always comes from the post
-        participant2: String
+        participant2: PFUser
         ) -> (PFObject?) {
             let participant1 = post[PJPOST.createdBy] as! String
             if participant1 == participant2 {
@@ -57,7 +57,7 @@ class PJConversation: BaseDataModel {
         ) -> () {
             let conversationQuery = PFQuery(className:PJCONVERSATION.CLASS_NAME)
             conversationQuery.includeKey("post")
-            conversationQuery.whereKey(PJCONVERSATION.participants, equalTo: DEVICE_UUID)
+            conversationQuery.whereKey(PJCONVERSATION.participants, equalTo: CURRENT_USER!)
             conversationQuery.orderByDescending("updatedAt")
             
             conversationQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in

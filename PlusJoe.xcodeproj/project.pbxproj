@@ -22,7 +22,6 @@
 		0A4C7AC41AF6E76500C271F2 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7AC31AF6E76500C271F2 /* ChatViewController.swift */; };
 		0A4C7AC61AF99C3700C271F2 /* MenuSearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7AC51AF99C3700C271F2 /* MenuSearchHomeViewController.swift */; };
 		0A4C7AC81AF9C17700C271F2 /* MenuPostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7AC71AF9C17700C271F2 /* MenuPostDetailsViewController.swift */; };
-		0A5237AC1B260BFC0046DE9A /* PJUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5237AB1B260BFC0046DE9A /* PJUser.swift */; };
 		0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */; };
 		0A5E5E641B2140C5007B447F /* UIChatLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5E5E631B2140C5007B447F /* UIChatLabel.swift */; };
 		0A60E1C31AC8E854003887C5 /* BaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */; };
@@ -136,7 +135,6 @@
 		0A4C7AC31AF6E76500C271F2 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		0A4C7AC51AF99C3700C271F2 /* MenuSearchHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSearchHomeViewController.swift; sourceTree = "<group>"; };
 		0A4C7AC71AF9C17700C271F2 /* MenuPostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuPostDetailsViewController.swift; sourceTree = "<group>"; };
-		0A5237AB1B260BFC0046DE9A /* PJUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJUser.swift; sourceTree = "<group>"; };
 		0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
 		0A5E5E631B2140C5007B447F /* UIChatLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIChatLabel.swift; sourceTree = "<group>"; };
 		0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataModel.swift; sourceTree = "<group>"; };
@@ -318,7 +316,6 @@
 			isa = PBXGroup;
 			children = (
 				0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */,
-				0A5237AB1B260BFC0046DE9A /* PJUser.swift */,
 				0A60E1C41AC8ED2B003887C5 /* PJPost.swift */,
 				0AF02E071AD5B78800792A5E /* PJHashTag.swift */,
 				0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */,
@@ -804,7 +801,6 @@
 				0A4C7AC81AF9C17700C271F2 /* MenuPostDetailsViewController.swift in Sources */,
 				0AAC2E361AC4580900B60B47 /* CreatePostDescribeStepViewController.swift in Sources */,
 				0AE7825A1B053A23008678B8 /* Menu2PostDetailsViewController.swift in Sources */,
-				0A5237AC1B260BFC0046DE9A /* PJUser.swift in Sources */,
 				0AD856A71B16BB5200CAEF08 /* STPStrictURLProtocol.m in Sources */,
 				0AD856AE1B16BB5200CAEF08 /* STPToken.m in Sources */,
 				0AD856A51B16BB5200CAEF08 /* STPIOSCheckoutWebViewAdapter.m in Sources */,

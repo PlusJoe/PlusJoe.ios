@@ -13,10 +13,10 @@ import Parse
 let PJPOST:PJPost = PJPost()
 
 class PJPost: BaseDataModel {
-    let CLASS_NAME = "Posts"
+    let CLASS_NAME = "Post"
     
     
-    let createdBy = "createdBy" //uuid
+    let createdBy = "createdBy" //PFUser
     let sell = "sell" //: Bool // if it's false, it's not a sell, it's a buy
     let thing = "thing" //: Bool // if it's false, it's not a thing, it's a service
     let body =  "body" //: String
@@ -39,14 +39,14 @@ class PJPost: BaseDataModel {
         // Interested in locations near user.
         query.whereKey(PJPOST.active, equalTo: false)
         query.whereKey(PJPOST.archived, equalTo: false)
-        query.whereKey(PJPOST.createdBy, equalTo: DEVICE_UUID)
+        query.whereKey(PJPOST.createdBy, equalTo: CURRENT_USER!)
         return query.getFirstObject()
     }
     
     class func createUnfinishedPost() -> (PFObject) {
         let newPost = PFObject(className: PJPOST.CLASS_NAME)
         newPost[PJPOST.location] = CURRENT_LOCATION!
-        newPost[PJPOST.createdBy] = DEVICE_UUID
+        newPost[PJPOST.createdBy] = CURRENT_USER!
         newPost[PJPOST.sell] = true
         newPost[PJPOST.thing] = true
         newPost[PJPOST.active] = false
@@ -75,7 +75,7 @@ class PJPost: BaseDataModel {
             queryPost.whereKey(PJPOST.active, equalTo:true)
             queryPost.whereKey(PJPOST.archived, equalTo:false)
             queryPost.whereKey(PJPOST.inappropriate, notEqualTo:true)
-            queryPost.whereKey(PJPOST.createdBy, notEqualTo: DEVICE_UUID)
+            queryPost.whereKey(PJPOST.createdBy, notEqualTo: CURRENT_USER!)
             NSLog("Searching for string \(searchText)")
             
             
@@ -120,7 +120,7 @@ class PJPost: BaseDataModel {
         failed:(error: NSError!) -> ()
         ) -> () {
             let postQuery = PFQuery(className:PJPOST.CLASS_NAME)
-            postQuery.whereKey(PJPOST.createdBy, equalTo: DEVICE_UUID)
+            postQuery.whereKey(PJPOST.createdBy, equalTo: CURRENT_USER!)
             postQuery.whereKey(PJPOST.active, equalTo:true)
             postQuery.whereKey(PJPOST.archived, equalTo:false)
             postQuery.whereKey(PJPOST.inappropriate, notEqualTo:true)
@@ -154,17 +154,17 @@ class PJPost: BaseDataModel {
                     
                     let query = PFQuery(className:PJFOLLOWING.CLASS_NAME)
                     query.whereKey(PJFOLLOWING.location, nearGeoPoint:post[PJPOST.location] as! PFGeoPoint)
-                    query.whereKey(PJFOLLOWING.createdBy, notEqualTo: DEVICE_UUID)
+                    query.whereKey(PJFOLLOWING.createdBy, notEqualTo: CURRENT_USER!)
                     query.whereKey(PJFOLLOWING.hashTag, equalTo: hashTag[PJHASHTAG.hashTag]!)
                     query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                         if error == nil {
                             NSLog("there are \((objects?.count)!) followings to notify about new post")
                             for bookmark in objects as! [PFObject] {
-                                let conversation = PJConversation.findOrCreateConversation(post, participant2: bookmark[PJFOLLOWING.createdBy] as! String)
+                                let conversation = PJConversation.findOrCreateConversation(post, participant2: (bookmark[PJFOLLOWING.createdBy] as? PFUser)!)
                                 PJChatMessage.createChatMessageAndAlert(
                                     conversation!,
                                     body: "Here is a new post matching one of your bookmarks.",
-                                    createdBy: post[PJPOST.createdBy] as! String,
+                                    createdBy: (post[PJPOST.createdBy] as? PFUser)!,
                                     success: { (result) -> () in
                                         succeeded()
                                 }, failed: { (error) -> () in

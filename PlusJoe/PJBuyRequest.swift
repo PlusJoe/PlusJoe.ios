@@ -11,10 +11,10 @@ import Parse
 
 let PJBUYREQUEST:PJBuyRequest = PJBuyRequest()
 class PJBuyRequest: BaseDataModel {
-    let CLASS_NAME = "BuyRequests"
+    let CLASS_NAME = "BuyRequest"
     
-    let buyer = "buyer" //: String
-    let seller = "seller" //: String
+    let buyer = "buyer" //: PFUser
+    let seller = "seller" //: PFUser
     
     let post = "post" //: PJPost
     

@@ -102,7 +102,7 @@ class MenuPostDetailsViewController: UIViewController {
             
             if self.conversation == nil {
                 let conversation = PJConversation.findOrCreateConversation(post!,
-                    participant2: DEVICE_UUID)
+                    participant2: CURRENT_USER!)
                 chatViewController.conversation = conversation
             } else {
                 chatViewController.conversation = self.conversation

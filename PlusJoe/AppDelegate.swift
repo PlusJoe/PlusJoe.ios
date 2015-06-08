@@ -24,7 +24,7 @@ let SUPPORTED_PAYMENT_NETWORKS = [PKPaymentNetworkVisa, PKPaymentNetworkMasterCa
 let PJHost = "http://plusjoe.com"
 
 var DEVICE_PHONE_NUMBER = ""
-var CURRENT_USER:PJUser?
+var CURRENT_USER:PFUser? = PFUser.currentUser()
 let APP_DELEGATE:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 let USER_DEFAULTS = NSUserDefaults.standardUserDefaults()
 
@@ -127,22 +127,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //        BaseDataModel.clearStoredCredential()
-        //generate and store UUID for device if necessey
-        if let credentials = BaseDataModel.getStoredCredential() {
-            NSLog("getting GUID from nsuserdefaults")
-            //            DEVICE_PHONE_NUMBER = credentials.user!
-            DEVICE_UUID = credentials.password!
-        }
-        if DEVICE_UUID == "" {
-            NSLog("generating new UDID")
-            let uuidString = NSUUID().UUIDString
-            //            var uuidRef:CFUUIDRef  = CFUUIDCreate(kCFAllocatorDefault)
-            //            var uuidString = CFUUIDCreateString(nil, uuidRef)
-            NSLog("uuid: \(uuidString)")
-            BaseDataModel.storeCredential(uuidString)
-            DEVICE_UUID = uuidString
-        }
 
+        
+        // configure CURRENT_USER, register a new user if necessery
+        if  CURRENT_USER == nil {
+        PFAnonymousUtils.logInWithBlock {
+            (user: PFUser?, error: NSError?) -> Void in
+            if error != nil || user == nil {
+                NSLog("Anonymous login failed.")
+            } else {
+                NSLog("Anonymous user logged in.")
+                
+                CURRENT_USER = user
+                user?.username = user?.objectId
+                user?.password = ""
+                user?.saveInBackgroundWithBlock({ (suceeds:Bool, error:NSError?) -> Void in})
+            }
+        }
+    }
+
+        
         
         // configure stripe
         Stripe.setDefaultPublishableKey(STRIPE_PUBLISHABLE_KEY)

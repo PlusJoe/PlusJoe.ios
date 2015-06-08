@@ -11,7 +11,7 @@ import Parse
 
 let PJHASHTAG:PJHashTag = PJHashTag()
 class PJHashTag: BaseDataModel {
-    let CLASS_NAME = "HashTags"
+    let CLASS_NAME = "HashTag"
     
     let post = "post"
     let hashTag = "hashTag" //: String

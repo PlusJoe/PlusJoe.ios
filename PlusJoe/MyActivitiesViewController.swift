@@ -121,7 +121,7 @@ class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITable
             let df = NSDateFormatter()
             df.dateFormat = "MM-dd-yyyy hh:mm a"
             cell.postedAt.text = String(format: "%@", df.stringFromDate(post.createdAt!))
-            if post[PJPOST.createdBy] as! String == DEVICE_UUID {
+            if post[PJPOST.createdBy] as? PFUser == CURRENT_USER! {
                 cell.postedAt.text = "Created by me on \(cell.postedAt.text!)"
             } else {
                 cell.postedAt.text = "Someone created on \(cell.postedAt.text!)"
@@ -130,7 +130,7 @@ class MyActivitiesViewController: UIViewController, UITableViewDelegate, UITable
             cell.postBody.text = post[PJPOST.body] as? String
             
             cell.chattedAt.text = String(format: "%@", df.stringFromDate(chatMessage.createdAt!))
-            if chatMessage[PJCHATMESSAGE.createdBy] as! String == DEVICE_UUID {
+            if chatMessage[PJCHATMESSAGE.createdBy] as? PFUser == CURRENT_USER! {
                 cell.chattedAt.text = "Replied by me on \(cell.chattedAt.text!)"
             } else {
                 cell.chattedAt.text = "Someone replied on \(cell.chattedAt.text!)"

@@ -78,7 +78,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         chatButton.setTitle("chat \u{f086}", forState: UIControlState.Normal)
         
         // looking at my own post
-        if post?[PJPOST.createdBy] as! String == DEVICE_UUID && conversation == nil {
+        if post?[PJPOST.createdBy] as? PFUser == CURRENT_USER && conversation == nil {
             chatButton.enabled = false
             //            menuButton.hidden = true
             buyButton.enabled = false
@@ -232,7 +232,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         
         
         // looking at my own post
-        if post?[PJPOST.createdBy] as! String == DEVICE_UUID && conversation == nil {
+        if post?[PJPOST.createdBy] as? PFUser == CURRENT_USER! && conversation == nil {
             let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("Menu2PostDetails") as! Menu2PostDetailsViewController
             popoverVC.modalPresentationStyle = .Popover
             popoverVC.preferredContentSize = CGSizeMake(300, 50)
@@ -276,7 +276,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
             
             if self.conversation == nil {
                 let conversation = PJConversation.findOrCreateConversation(post!,
-                    participant2: DEVICE_UUID)
+                    participant2: CURRENT_USER!)
                 chatViewController.conversation = conversation
             } else {
                 chatViewController.conversation = self.conversation
