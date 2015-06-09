@@ -54,18 +54,8 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
         cells.append(UITableViewCell())
         let label1 = UILabel()
         label1.font = UIFont(name: "Helvetica-Bold", size: 18)
-        if (UNFINISHED_POST?[PJPOST.sell] as! Bool) == false && (UNFINISHED_POST?[PJPOST.thing] as! Bool) == false {
-            label1.text = "You wish to hire a service for $\(UNFINISHED_POST![PJPOST.price] as! Int)"
-        } else
-        if (UNFINISHED_POST?[PJPOST.sell] as! Bool) == false && (UNFINISHED_POST?[PJPOST.thing] as! Bool) == true {
-            label1.text = "You wish to buy something for $\(UNFINISHED_POST![PJPOST.price] as! Int)"
-        } else
-        if (UNFINISHED_POST?[PJPOST.sell] as! Bool) == true && (UNFINISHED_POST?[PJPOST.thing] as! Bool) == false {
-            label1.text = "You wish to offer a service for $\(UNFINISHED_POST![PJPOST.price] as! Int)"
-        } else
-        if (UNFINISHED_POST?[PJPOST.sell] as! Bool) == true && (UNFINISHED_POST?[PJPOST.thing] as! Bool) == true {
-            label1.text = "You wish to sell something for $\(UNFINISHED_POST![PJPOST.price] as! Int)"
-        }
+        label1.text = "Selling and item for $\(UNFINISHED_POST![PJPOST.price] as! Int)"
+        
         label1.numberOfLines = 0
         cells.last!.addSubview(label1)
         embedConstrainst(cells.last!, childView: label1)

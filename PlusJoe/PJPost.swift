@@ -17,11 +17,9 @@ class PJPost: BaseDataModel {
     
     
     let createdBy = "createdBy" //PFUser.objectId!
-    let sell = "sell" //: Bool // if it's false, it's not a sell, it's a buy
-    let thing = "thing" //: Bool // if it's false, it's not a thing, it's a service
     let body =  "body" //: String
-    let price =  "price" //: Int
-    let fee = "fee" //: Int
+    let price =  "price" //: Int (whole amount)
+    let fee = "fee" //: Int (whole amount)
     let location = "location" //: PFGeoPoint
     let active = "active" //: Bool
     let archived = "archived" //: Bool
@@ -47,8 +45,6 @@ class PJPost: BaseDataModel {
         let newPost = PFObject(className: PJPOST.CLASS_NAME)
         newPost[PJPOST.location] = CURRENT_LOCATION!
         newPost[PJPOST.createdBy] = CURRENT_USER!.objectId!
-        newPost[PJPOST.sell] = true
-        newPost[PJPOST.thing] = true
         newPost[PJPOST.active] = false
         newPost[PJPOST.archived] = false
         newPost[PJPOST.body] = ""

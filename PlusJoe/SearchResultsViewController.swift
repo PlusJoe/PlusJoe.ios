@@ -282,16 +282,17 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
         alertController.addAction(oneAction)
         
         
-        if self.posts[Int(self.currentPost)-1][PJPOST.sell] as! Bool == true { // this menu should only be available for the sell posts
-            let twoAction = UIAlertAction(title: "Buy it", style: .Default) { (_) in
-                let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
-                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
-                alertMessage.addAction(ok)
-                self.presentViewController(alertMessage, animated: true, completion: nil)
-            }
-            alertController.addAction(twoAction)
+        
+        let twoAction = UIAlertAction(title: "Buy it", style: .Default) { (_) in
+            let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })
+            alertMessage.addAction(ok)
+            self.presentViewController(alertMessage, animated: true, completion: nil)
         }
+        alertController.addAction(twoAction)
 
+        
+        
         let bookmarkAction = UIAlertAction(title: "Bookmark #hashtags", style: .Default) { (_) in
             let alertMessage = UIAlertController(title: nil, message: "Under construction. \nComing soon.", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in })

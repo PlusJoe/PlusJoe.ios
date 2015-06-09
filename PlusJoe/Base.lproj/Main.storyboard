@@ -37,7 +37,6 @@
             <string>FontAwesome</string>
             <string>FontAwesome</string>
             <string>FontAwesome</string>
-            <string>FontAwesome</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -521,7 +520,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="cgd-iz-mUg"/>
+                                    <segue destination="ea3-Qz-A6u" kind="show" id="xOu-kc-hA3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1538,182 +1537,6 @@
             </objects>
             <point key="canvasLocation" x="4137" y="1073"/>
         </scene>
-        <!--Create Post Buy Sell Step View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="CreatePostBuySellStepViewController" customModule="PlusJoe" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuk-B1-57Y">
-                                <rect key="frame" x="145" y="212" width="150" height="90"/>
-                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="Hjw-gi-kiA"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="Nzv-Rx-mEg"/>
-                                    <constraint firstAttribute="width" constant="150" id="iRM-rI-K9E"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="rgN-VJ-bnE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                <state key="normal" title="Thing">
-                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="thingButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hfh-2k-kya"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4f-qT-BAq">
-                                <rect key="frame" x="305" y="212" width="150" height="90"/>
-                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="IiI-CE-Gji"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="ctU-RG-GxC"/>
-                                    <constraint firstAttribute="height" constant="90" id="knv-KV-jGq"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="x0x-HZ-J40"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                <state key="normal" title="Service">
-                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="serviceButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nUR-zc-17o"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAS-wm-gzp">
-                                <rect key="frame" x="145" y="310" width="310" height="60"/>
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="if3-wP-NUG"/>
-                                    <constraint firstAttribute="width" constant="310" id="v8Y-eI-MTZ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                <state key="normal" title="next">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="ea3-Qz-A6u" kind="show" id="1ms-5M-6fi"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHf-D9-sYv">
-                                <rect key="frame" x="305" y="114" width="150" height="90"/>
-                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="3ny-Zn-3nI"/>
-                                    <constraint firstAttribute="width" constant="150" id="dmz-5H-t3C"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                <state key="normal" title="Buy">
-                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="buyButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bYe-Wb-tjG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBG-Br-CyC">
-                                <rect key="frame" x="145" y="114" width="150" height="90"/>
-                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="by2-fw-cSE"/>
-                                    <constraint firstAttribute="height" constant="90" id="r3l-F1-GhH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                <state key="normal" title="Sell">
-                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="sellButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yid-pA-bqa"/>
-                                </connections>
-                            </button>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVQ-0k-Jmu">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="RLK-s1-JiD"/>
-                                </constraints>
-                                <color key="barTintColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="I want to" id="SoY-UW-O7i">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="tz4-2n-gSx">
-                                            <connections>
-                                                <action selector="backButtonAction:" destination="BYZ-38-t0r" id="QiK-tm-npv"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="LAS-wm-gzp" firstAttribute="top" secondItem="i4f-qT-BAq" secondAttribute="bottom" constant="8" id="2B2-st-XRQ"/>
-                            <constraint firstItem="mVQ-0k-Jmu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="8Ct-Vr-CgX"/>
-                            <constraint firstAttribute="centerX" secondItem="i4f-qT-BAq" secondAttribute="centerX" constant="-80" id="JEd-0h-hrV"/>
-                            <constraint firstItem="xHf-D9-sYv" firstAttribute="top" secondItem="mVQ-0k-Jmu" secondAttribute="bottom" constant="50" id="NUN-Lt-8mU"/>
-                            <constraint firstItem="mVQ-0k-Jmu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="NtB-vW-SQA"/>
-                            <constraint firstItem="i4f-qT-BAq" firstAttribute="top" secondItem="xHf-D9-sYv" secondAttribute="bottom" constant="8" id="SXD-wo-oZQ"/>
-                            <constraint firstAttribute="centerX" secondItem="uuk-B1-57Y" secondAttribute="centerX" constant="80" id="TE4-bI-q0b"/>
-                            <constraint firstItem="uuk-B1-57Y" firstAttribute="top" secondItem="MBG-Br-CyC" secondAttribute="bottom" constant="8" id="oAF-PG-J4a"/>
-                            <constraint firstAttribute="centerX" secondItem="MBG-Br-CyC" secondAttribute="centerX" constant="80" id="pU2-Z1-iGP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mVQ-0k-Jmu" secondAttribute="trailing" constant="-16" id="qzK-NW-wek"/>
-                            <constraint firstAttribute="centerX" secondItem="LAS-wm-gzp" secondAttribute="centerX" id="ucN-oQ-L2T"/>
-                            <constraint firstItem="MBG-Br-CyC" firstAttribute="top" secondItem="mVQ-0k-Jmu" secondAttribute="bottom" constant="50" id="utj-hH-J77"/>
-                            <constraint firstAttribute="centerX" secondItem="xHf-D9-sYv" secondAttribute="centerX" constant="-80" id="xJr-wp-DuH"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="backNavButton" destination="tz4-2n-gSx" id="NVf-YK-2Dy"/>
-                        <outlet property="buyButton" destination="xHf-D9-sYv" id="vgk-Fl-8eS"/>
-                        <outlet property="nextButton" destination="LAS-wm-gzp" id="bGN-lY-ICb"/>
-                        <outlet property="sellButton" destination="MBG-Br-CyC" id="cVB-Fs-H0c"/>
-                        <outlet property="serviceButton" destination="i4f-qT-BAq" id="1KV-kX-XCp"/>
-                        <outlet property="thingButton" destination="uuk-B1-57Y" id="499-2d-wKQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1588" y="-1829"/>
-        </scene>
         <!--Create Post Describe Step View Controller-->
         <scene sceneID="91s-kg-tSt">
             <objects>
@@ -1813,7 +1636,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iak-xL-cnT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2357" y="-1829"/>
+            <point key="canvasLocation" x="1588" y="-1811"/>
         </scene>
         <!--Create Post Photos Step View Controller-->
         <scene sceneID="TLt-jO-UAe">
@@ -2013,7 +1836,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQO-zB-vvs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3045" y="-1829"/>
+            <point key="canvasLocation" x="2276" y="-1811"/>
         </scene>
         <!--Create Post Finders Fee Step View Controller-->
         <scene sceneID="8Un-mv-iED">
@@ -2128,7 +1951,7 @@ Specify finder's fee ammount only if you are willing to pay it.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5o-bC-NbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3799" y="-1829"/>
+            <point key="canvasLocation" x="3030" y="-1811"/>
         </scene>
         <!--Create Post Review And Submit Step View Controller-->
         <scene sceneID="BXz-EG-XIX">
@@ -2214,7 +2037,7 @@ Specify finder's fee ammount only if you are willing to pay it.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4D1-ad-ly6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="fqb-au-uUD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4543" y="-1829"/>
+            <point key="canvasLocation" x="3774" y="-1811"/>
         </scene>
         <!--Sell View Controller-->
         <scene sceneID="qG2-eZ-la6">

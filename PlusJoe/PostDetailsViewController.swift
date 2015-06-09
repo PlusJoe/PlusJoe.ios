@@ -86,11 +86,8 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
             buyButton.backgroundColor = UIColor.grayColor()
         }
         
-        //disable buy button for posts that can't be bought
-        if post![PJPOST.sell] as! Bool == false {
-            buyButton.enabled = false
-            buyButton.backgroundColor = UIColor.grayColor()
-        }
+//            buyButton.enabled = false
+//            buyButton.backgroundColor = UIColor.grayColor()
 
         
         

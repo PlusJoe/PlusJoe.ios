@@ -31,12 +31,12 @@ class MenuPostDetailsViewController: UIViewController {
         follow.setTitle("\u{f02c}", forState: UIControlState.Normal)
         shareAndEarn.setTitle("\u{f0d6}", forState: UIControlState.Normal)
         
-        //disable buy button for posts that can't be bought
-        if post![PJPOST.sell] as! Bool == false {
-            buyIt.enabled = false
-            buyIt.setTitleColor(UIColor.grayColor(), forState: .Normal)
-            buyItLabel.textColor = UIColor.grayColor()
-        }
+//        //disable buy button for posts that can't be bought
+//        if post![PJPOST.sell] as! Bool == false {
+//            buyIt.enabled = false
+//            buyIt.setTitleColor(UIColor.grayColor(), forState: .Normal)
+//            buyItLabel.textColor = UIColor.grayColor()
+//        }
     }
     
     
