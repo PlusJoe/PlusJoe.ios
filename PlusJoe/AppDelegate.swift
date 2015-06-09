@@ -91,12 +91,12 @@ extension String {
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     var timer:NSTimer?
-
-
+    
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -127,35 +127,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //        BaseDataModel.clearStoredCredential()
-
+        
         
         // configure CURRENT_USER, register a new user if necessery
         if  CURRENT_USER == nil {
-        PFAnonymousUtils.logInWithBlock {
-            (user: PFUser?, error: NSError?) -> Void in
-            if error != nil || user == nil {
-                NSLog("Anonymous login failed.")
-            } else {
-                NSLog("Anonymous user logged in.")
-                
-                CURRENT_USER = user
-                user?.username = user?.objectId
-                user?.password = ""
-                user?.saveInBackgroundWithBlock({ (suceeds:Bool, error:NSError?) -> Void in})
+            PFAnonymousUtils.logInWithBlock {
+                (user: PFUser?, error: NSError?) -> Void in
+                if error != nil || user == nil {
+                    NSLog("Anonymous login failed.")
+                } else {
+                    NSLog("Anonymous user logged in.")
+                    
+                    CURRENT_USER = user
+                    user?.username = user?.objectId
+                    user?.password = ""
+                    user?.saveInBackgroundWithBlock({ (suceeds:Bool, error:NSError?) -> Void in})
+                }
             }
         }
-    }
-
+        
         
         
         // configure stripe
         Stripe.setDefaultPublishableKey(STRIPE_PUBLISHABLE_KEY)
-
+        
         
         getCurrentLocation()
         
         if timer == nil {
-        timer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: Selector("getAlerts"), userInfo: nil, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: Selector("getAlerts"), userInfo: nil, repeats: true)
         }
         return true
     }
@@ -182,16 +182,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 NSLog("Error retreiveing alerts in background: %@ %@", error, error.userInfo!)
         })
         
-        if count == 0 {
-            if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
-                while let presentedViewController = topController.presentedViewController {
-                    topController = presentedViewController
-                }
-                let sellViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SellViewController") as! SellViewController
-                topController.presentViewController(sellViewController, animated: true, completion: nil)
-            }
-            
-        }
+//        if count == 0 {
+//            if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
+//                while let presentedViewController = topController.presentedViewController {
+//                    topController = presentedViewController
+//                }
+//                let sellViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SellViewController") as! SellViewController
+//                topController.presentViewController(sellViewController, animated: true, completion: nil)
+//            }
+//            
+//        }
         NSLog("count \(count)")
         count++
     }
@@ -214,32 +214,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
-
+    
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
-
+    
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
-
+    
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
-
+    
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
     
-
+    
+    
+    
     
     
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         NSLog("fetching in background");
-        completionHandler(UIBackgroundFetchResult.NewData)        
+        completionHandler(UIBackgroundFetchResult.NewData)
         getAlerts()
     }
     
@@ -247,16 +247,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         NSLog("received local notification")
         application.applicationIconBadgeNumber = UNREAD_ALERTS_COUNT
-//        NSLog("tabBarController is nil:\(tabBarController == nil)")
-//        if tabBarController != nil {
-//            let tabArray = self.tabBarController?.tabBar.items as NSArray!
-//            let tabItem = tabArray.objectAtIndex(2) as! UITabBarItem
-//            if  unreadAlertsCount > 0 {
-//                tabItem.badgeValue = "\(unreadAlertsCount)"
-//            } else {
-//                tabItem.badgeValue = nil
-//            }
-//        }
+        //        NSLog("tabBarController is nil:\(tabBarController == nil)")
+        //        if tabBarController != nil {
+        //            let tabArray = self.tabBarController?.tabBar.items as NSArray!
+        //            let tabItem = tabArray.objectAtIndex(2) as! UITabBarItem
+        //            if  unreadAlertsCount > 0 {
+        //                tabItem.badgeValue = "\(unreadAlertsCount)"
+        //            } else {
+        //                tabItem.badgeValue = nil
+        //            }
+        //        }
         
         //        var alert = UIAlertView()
         //        alert.title = "Alert"

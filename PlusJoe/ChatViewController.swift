@@ -164,7 +164,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         } else {
             PJChatMessage.createChatMessageAndAlert(conversation!,
                 body: chatMessageBody.text,
-                createdBy: CURRENT_USER!,
+                createdBy: CURRENT_USER!.objectId!,
                 success: { (result) -> () in
 //                    self.chatMessages.insert(result, atIndex: 0)
                     self.chatMessageBody.text = ""

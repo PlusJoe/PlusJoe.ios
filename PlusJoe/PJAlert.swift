@@ -30,7 +30,7 @@ class PJAlert: BaseDataModel {
     let CLASS_NAME = "Alert"
     
     let chatMessage = "chatMessage" //: PJChatMessage
-    let targetUser = "targetUser" //: PJUser
+    let targetUser = "targetUser" //: String
     let read = "read" //: Bool
     
     
@@ -41,7 +41,7 @@ class PJAlert: BaseDataModel {
             let alertsQuery = PFQuery(className:PJALERT.CLASS_NAME)
             alertsQuery.includeKey("chatMessage.conversation.post")
 //            alertsQuery.whereKey(PJALERT.read, equalTo: false)
-            alertsQuery.whereKey(PJALERT.targetUser, equalTo: CURRENT_USER!)
+            alertsQuery.whereKey(PJALERT.targetUser, equalTo: CURRENT_USER!.objectId!)
             alertsQuery.orderByDescending("createdAt")
 
             
@@ -63,7 +63,7 @@ class PJAlert: BaseDataModel {
             let alertsQuery = PFQuery(className:PJALERT.CLASS_NAME)
             alertsQuery.includeKey("chatMessage.conversation.post")
             alertsQuery.whereKey(PJALERT.read, equalTo: false)
-            alertsQuery.whereKey(PJALERT.targetUser, equalTo: CURRENT_USER!)
+            alertsQuery.whereKey(PJALERT.targetUser, equalTo: CURRENT_USER!.objectId!)
             alertsQuery.orderByDescending("createdAt")
 
             alertsQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
@@ -82,7 +82,7 @@ class PJAlert: BaseDataModel {
         ) -> () {
             let alertsQuery = PFQuery(className:PJALERT.CLASS_NAME)
             alertsQuery.whereKey(PJALERT.read, equalTo: false)
-            alertsQuery.whereKey(PJALERT.targetUser, equalTo: CURRENT_USER!)
+            alertsQuery.whereKey(PJALERT.targetUser, equalTo: CURRENT_USER!.objectId!)
             alertsQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
                     succeeded(alertsCount: objects!.count)

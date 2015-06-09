@@ -22,17 +22,17 @@ class PJConversation: BaseDataModel {
     
     class func findOrCreateConversation(
         post: PFObject, // participant1 always comes from the post
-        participant2: PFUser
+        participant2id: String
         ) -> (PFObject?) {
-            let participant1 = post[PJPOST.createdBy] as! String
-            if participant1 == participant2 {
+            let participant1id:String = post[PJPOST.createdBy] as! String
+            if participant1id == participant2id {
                 return nil
             }
 
             let query = PFQuery(className:PJCONVERSATION.CLASS_NAME)
             // Interested in locations near user.
             query.whereKey(PJCONVERSATION.post, equalTo: post)
-            query.whereKey(PJCONVERSATION.participants, containsAllObjectsInArray: [participant1, participant2])
+            query.whereKey(PJCONVERSATION.participants, containsAllObjectsInArray: [participant1id, participant2id])
             
             
             let conversations:[PFObject]? = query.findObjects() as! [PFObject]?
@@ -44,7 +44,7 @@ class PJConversation: BaseDataModel {
                 // otherwise create one
                 var conversation = PFObject(className: PJCONVERSATION.CLASS_NAME)
                 conversation[PJCONVERSATION.post] = post
-                conversation[PJCONVERSATION.participants] = [participant1, participant2]
+                conversation[PJCONVERSATION.participants] = [participant1id, participant2id]
                 conversation.save()
                 return conversation
             }
@@ -57,7 +57,7 @@ class PJConversation: BaseDataModel {
         ) -> () {
             let conversationQuery = PFQuery(className:PJCONVERSATION.CLASS_NAME)
             conversationQuery.includeKey("post")
-            conversationQuery.whereKey(PJCONVERSATION.participants, equalTo: CURRENT_USER!)
+            conversationQuery.whereKey(PJCONVERSATION.participants, equalTo: CURRENT_USER!.objectId!)
             conversationQuery.orderByDescending("updatedAt")
             
             conversationQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in

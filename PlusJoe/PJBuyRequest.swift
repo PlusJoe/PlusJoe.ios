@@ -13,8 +13,8 @@ let PJBUYREQUEST:PJBuyRequest = PJBuyRequest()
 class PJBuyRequest: BaseDataModel {
     let CLASS_NAME = "BuyRequest"
     
-    let buyer = "buyer" //: PFUser
-    let seller = "seller" //: PFUser
+    let buyerId = "buyerId" //:String
+    let sellerId = "sellerId" //:String
     
     let post = "post" //: PJPost
     
