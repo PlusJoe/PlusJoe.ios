@@ -74,7 +74,7 @@
                                     <segue destination="Uf5-hC-ZBj" kind="show" id="1dH-78-tLj"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="here you can:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jm-Pr-6b5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="you own" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jm-Pr-6b5">
                                 <rect key="frame" x="16" y="118" width="568" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="XOt-1b-T0g"/>
@@ -83,19 +83,10 @@
                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+Joe is a Social Ads Place " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9k-yu-Yh5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+Joe is an easy way to sell things " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9k-yu-Yh5">
                                 <rect key="frame" x="16" y="98" width="568" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="pDX-iR-38W"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sell/Buy Things/Services,  Search near you,  Bookmark,  Earn finders fees." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wA-n7-oEb">
-                                <rect key="frame" x="57" y="156" width="486" height="96"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="96" id="b2Q-cB-0Ht"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -110,11 +101,20 @@
                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you can't sell, +Joe will help.  Just set your finder's fee  and spread the word." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wA-n7-oEb">
+                                <rect key="frame" x="5" y="156" width="591" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="b2Q-cB-0Ht"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9x3-Pa-wsH" firstAttribute="trailing" secondItem="Fct-uq-kIQ" secondAttribute="trailingMargin" id="0Av-Of-rjb"/>
-                            <constraint firstItem="2wA-n7-oEb" firstAttribute="leading" secondItem="Fct-uq-kIQ" secondAttribute="leadingMargin" constant="41" id="6hM-DN-9UJ"/>
+                            <constraint firstItem="2wA-n7-oEb" firstAttribute="leading" secondItem="Fct-uq-kIQ" secondAttribute="leadingMargin" constant="-11" id="6hM-DN-9UJ"/>
                             <constraint firstItem="5y4-oe-kDp" firstAttribute="trailing" secondItem="Fct-uq-kIQ" secondAttribute="trailingMargin" id="8hF-pS-sIx"/>
                             <constraint firstItem="opB-SD-Bxk" firstAttribute="top" secondItem="5y4-oe-kDp" secondAttribute="bottom" constant="20" id="Dn3-bG-sa9"/>
                             <constraint firstAttribute="centerY" secondItem="9x3-Pa-wsH" secondAttribute="centerY" id="Fde-JW-tel"/>
@@ -128,7 +128,7 @@
                             <constraint firstItem="9x3-Pa-wsH" firstAttribute="leading" secondItem="Fct-uq-kIQ" secondAttribute="leadingMargin" id="qDK-UG-oeR"/>
                             <constraint firstItem="s9k-yu-Yh5" firstAttribute="trailing" secondItem="Fct-uq-kIQ" secondAttribute="trailingMargin" id="qic-C5-xUX"/>
                             <constraint firstItem="2wA-n7-oEb" firstAttribute="top" secondItem="6Jm-Pr-6b5" secondAttribute="bottom" constant="17" id="t70-qx-Smk"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2wA-n7-oEb" secondAttribute="trailing" constant="41" id="vc5-pi-SeU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2wA-n7-oEb" secondAttribute="trailing" constant="-12" id="vc5-pi-SeU"/>
                         </constraints>
                     </view>
                     <connections>
