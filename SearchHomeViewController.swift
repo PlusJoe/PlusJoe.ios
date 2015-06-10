@@ -15,7 +15,6 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
 
-    @IBOutlet weak var alertButton: UIButton!
     @IBOutlet weak var alertsCountLabel: UILabel!
     @IBOutlet weak var menuButton: UIButton!
     
@@ -54,7 +53,6 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         // Do any additional setup after loading the view, typically from a nib.
         backNavButton.title = "\u{f053}"
         menuButton.setTitle("\u{f0c9}", forState: .Normal)
-        alertButton.setTitle("\u{f0a2}", forState: .Normal)
         if let font = UIFont(name: "FontAwesome", size: 20) {
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
@@ -146,7 +144,7 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         
         let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("MenuSearchHome") as! MenuSearchHomeViewController
         popoverVC.modalPresentationStyle = .Popover
-        popoverVC.preferredContentSize = CGSizeMake(200, 180)
+        popoverVC.preferredContentSize = CGSizeMake(200, 200)
         
         
         let popoverPresentationViewController = popoverVC.popoverPresentationController

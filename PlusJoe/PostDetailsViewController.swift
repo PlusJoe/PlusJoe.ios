@@ -14,7 +14,6 @@ import Parse
 class PostDetailsViewController : UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIPopoverPresentationControllerDelegate  {
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
-    @IBOutlet weak var alertButton: UIButton!
     @IBOutlet weak var alertsCountLabel: UILabel!
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var navBar: UINavigationBar!
@@ -64,7 +63,6 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         // Do any additional setup after loading the view, typically from a nib.
         backNavButton.title = "\u{f053}"
         menuButton.setTitle("\u{f0c9}", forState: .Normal)
-        alertButton.setTitle("\u{f0a2}", forState: .Normal)
         if let font = UIFont(name: "FontAwesome", size: 20) {
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }

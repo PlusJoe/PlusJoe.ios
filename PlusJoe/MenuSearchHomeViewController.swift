@@ -11,15 +11,11 @@ import Foundation
 class MenuSearchHomeViewController: UIViewController {
     
     @IBOutlet weak var followings: UIButton!
-    @IBOutlet weak var createNewPost: UIButton!
-    @IBOutlet weak var myActivity: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         followings.setTitle("\u{f02c}", forState: UIControlState.Normal)
-        createNewPost.setTitle("\u{f0fe}", forState: UIControlState.Normal)
-        myActivity.setTitle("\u{f0c5}", forState: UIControlState.Normal)
     }
     
     
