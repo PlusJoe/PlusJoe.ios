@@ -59,6 +59,15 @@ class CreatePostDescribeStepViewController: UIViewController, UITextViewDelegate
         nextButton.setTitle("next" + "   \u{f054}", forState: UIControlState.Normal)
         
         postBody.becomeFirstResponder()
+        
+        //now let's see if a temporary post was already created, otherwise use the new one
+        if UNFINISHED_POST == nil {// let's try to load one from a DB
+            UNFINISHED_POST = PJPost.getUnfinishedPost()
+            if UNFINISHED_POST == nil {
+                UNFINISHED_POST = PJPost.createUnfinishedPost()
+            }
+        }
+        
         postBody.text = UNFINISHED_POST?[PJPOST.body] as! String
         postBody.delegate = self
         
