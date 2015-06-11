@@ -28,7 +28,7 @@ class PJHashTag: BaseDataModel {
             queryPost.whereKey(PJPOST.location, nearGeoPoint:location)
             queryPost.whereKey(PJPOST.active, equalTo:true)
             queryPost.whereKey(PJPOST.archived, equalTo:false)
-            //            query.whereKey(PJPOST.createdBy, notEqualTo: DEVICE_UUID)  //TODO: uncomment
+            queryPost.whereKey(PJPOST.createdBy, notEqualTo: CURRENT_USER!.objectId!)  //TODO: uncomment
             NSLog("Searching for string \(searchText)")
 
             

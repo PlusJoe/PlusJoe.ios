@@ -10,13 +10,34 @@ import Foundation
 
 class MenuSearchHomeViewController: UIViewController {
     
-    @IBOutlet weak var followings: UIButton!
+    @IBOutlet weak var alertsCountLabel: UILabel!
+    @IBOutlet weak var myAlertsButton: UIButton!
+    @IBOutlet weak var myTagsButton: UIButton!
+    @IBOutlet weak var mySellsButton: UIButton!
+    @IBOutlet weak var myBuysButton: UIButton!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        followings.setTitle("\u{f02c}", forState: UIControlState.Normal)
+        updateAlertsView()
+
+        
+        myAlertsButton.setTitle("\u{f0f3}", forState: UIControlState.Normal)
+        myTagsButton.setTitle("\u{f02c}", forState: UIControlState.Normal)
+        mySellsButton.setTitle("\u{f164}", forState: UIControlState.Normal)
+        myBuysButton.setTitle("\u{f07a}", forState: UIControlState.Normal)
+
     }
     
+    func updateAlertsView() -> Void {
+        if UNREAD_ALERTS_COUNT == 0 {
+            self.alertsCountLabel.hidden = true
+        } else {
+            self.alertsCountLabel.text = String(UNREAD_ALERTS_COUNT)
+            self.alertsCountLabel.hidden = false
+        }
+    }
+
     
 }

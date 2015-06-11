@@ -43,6 +43,39 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         }
     }
  
+    // this method is called when done button is clicked in the create new sell workflow
+    @IBAction func unwindAndSaveNewPost (segue : UIStoryboardSegue) {
+        NSLog("SearchPosts seque from segue id: \(segue.identifier)")
+        var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+        actInd.center = self.view.center
+        actInd.hidesWhenStopped = true
+        actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+        self.view.addSubview(actInd)
+        self.view.backgroundColor = UIColor.grayColor()
+        actInd.startAnimating()
+        
+        
+        UNFINISHED_POST?[PJPOST.active] = true
+        UNFINISHED_POST?.save()
+        
+        
+        PJPost.notifyBookmarksAboutNewPost(UNFINISHED_POST!,
+            succeeded: { () -> () in
+                actInd.stopAnimating()
+            }) { (error) -> () in
+                actInd.stopAnimating()
+                let alertMessage = UIAlertController(title: nil, message: "Error.", preferredStyle: UIAlertControllerStyle.Alert)
+                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                })
+                alertMessage.addAction(ok)
+                self.presentViewController(alertMessage, animated: true, completion: nil)
+        }
+        UNFINISHED_POST = nil
+        actInd.stopAnimating()
+        self.view.backgroundColor = UIColor.whiteColor()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -141,7 +174,8 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     
     
     @IBAction func menuTapped(sender: AnyObject) {
-        
+        self.alertsCountLabel.hidden = true
+
         let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("MenuSearchHome") as! MenuSearchHomeViewController
         popoverVC.modalPresentationStyle = .Popover
         popoverVC.preferredContentSize = CGSizeMake(200, 200)

@@ -235,10 +235,11 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     
     
     @IBAction func menuTapped(sender: AnyObject) {
-        
+        self.alertsCountLabel.hidden = true
+
         let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("MenuPostDetails") as! MenuPostDetailsViewController
         popoverVC.modalPresentationStyle = .Popover
-        popoverVC.preferredContentSize = CGSizeMake(300, 220)
+        popoverVC.preferredContentSize = CGSizeMake(300, 300)
         popoverVC.post = self.posts[Int(self.currentPost)-1]
         
         

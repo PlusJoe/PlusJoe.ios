@@ -17,28 +17,43 @@ class MenuPostDetailsViewController: UIViewController {
     var conversation:PFObject?
     
     
+    @IBOutlet weak var alertsCountLabel: UILabel!
+    @IBOutlet weak var myAlertsButton: UIButton!
+    @IBOutlet weak var myTagsButton: UIButton!
+    @IBOutlet weak var mySellsButton: UIButton!
+    @IBOutlet weak var myBuysButton: UIButton!
+
+    
+    
     @IBOutlet weak var flagInapproproate: UIButton!
-    @IBOutlet weak var buyIt: UIButton!
-    @IBOutlet weak var buyItLabel: UILabel!
     @IBOutlet weak var follow: UIButton!
-    @IBOutlet weak var shareAndEarn: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        flagInapproproate.setTitle("\u{f05e}", forState: UIControlState.Normal)
-        buyIt.setTitle("\u{f155}", forState: UIControlState.Normal)
-        follow.setTitle("\u{f02c}", forState: UIControlState.Normal)
-        shareAndEarn.setTitle("\u{f0d6}", forState: UIControlState.Normal)
+        updateAlertsView()
         
-//        //disable buy button for posts that can't be bought
-//        if post![PJPOST.sell] as! Bool == false {
-//            buyIt.enabled = false
-//            buyIt.setTitleColor(UIColor.grayColor(), forState: .Normal)
-//            buyItLabel.textColor = UIColor.grayColor()
-//        }
+        myAlertsButton.setTitle("\u{f0f3}", forState: UIControlState.Normal)
+        myTagsButton.setTitle("\u{f02c}", forState: UIControlState.Normal)
+        mySellsButton.setTitle("\u{f164}", forState: UIControlState.Normal)
+        myBuysButton.setTitle("\u{f07a}", forState: UIControlState.Normal)
+
+        
+        flagInapproproate.setTitle("\u{f05e}", forState: UIControlState.Normal)
+        follow.setTitle("\u{f02c}", forState: UIControlState.Normal)
+        
     }
     
+    
+    func updateAlertsView() -> Void {
+        if UNREAD_ALERTS_COUNT == 0 {
+            self.alertsCountLabel.hidden = true
+        } else {
+            self.alertsCountLabel.text = String(UNREAD_ALERTS_COUNT)
+            self.alertsCountLabel.hidden = false
+        }
+    }
+
     
     @IBAction func flagInapropriate(sender: AnyObject) {
         let alertMessage = UIAlertController(title: nil, message: "Are you sure?", preferredStyle: UIAlertControllerStyle.Alert)

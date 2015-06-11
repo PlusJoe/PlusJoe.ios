@@ -14,10 +14,9 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
 {
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     
     @IBOutlet weak var tableView: UITableView!
-
-    @IBOutlet weak var nextButton: UIButton!
     
     
     @IBAction func backButtonAction(sender: AnyObject) {
@@ -25,49 +24,75 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
     }
     
     var cells = [UITableViewCell]()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.tableView.delegate      =   self
         self.tableView.dataSource    =   self
-
+        
         self.tableView.estimatedRowHeight = 10.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
-
+        
         self.tableView.scrollEnabled = true
         self.tableView.userInteractionEnabled = true
         
         // Do any additional setup after loading the view, typically from a nib.
         backNavButton.title = "\u{f053}"
+        nextButton.title = "done \u{f054}"
         if let font = UIFont(name: "FontAwesome", size: 20) {
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+            nextButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
         
-        nextButton.setTitle("done" + "   \u{f046}", forState: UIControlState.Normal)
-
-
-
         
         
+        
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        cells.append(UITableViewCell())
+        let postBody = UILabel()
+        postBody.numberOfLines = 0
+        postBody.text = ""
+        postBody.font = UIFont(name: "Helvetica Neue", size: 18)
+        postBody.textColor = UIColor(rgb: 0x666666)
+        postBody.text = postBody.text! + (UNFINISHED_POST?[PJPOST.body] as! String)
+        cells.last!.addSubview(postBody)
+        cells.last!.layer.cornerRadius=5
+        cells.last!.layer.borderWidth=1
+        cells.last!.layer.borderColor = UIColor(rgb: 0x666666).CGColor
+        embedConstrainst(cells.last!, childView: postBody)
+        
+        
+        
+        
+        
+        
+        
+        
+        ///////////////////////////////////////////////////////////////////////////////////////////
         cells.append(UITableViewCell())
         let label1 = UILabel()
         label1.font = UIFont(name: "Helvetica-Bold", size: 18)
-        label1.text = "Selling and item for $\(UNFINISHED_POST![PJPOST.price] as! Int)"
+        label1.text = "Price $\(UNFINISHED_POST![PJPOST.price] as! Int)"
         
         label1.numberOfLines = 0
+        label1.textColor = UIColor(rgb: 0x666666)
+        
         cells.last!.addSubview(label1)
         embedConstrainst(cells.last!, childView: label1)
-
         
         
+        
+        
+        ///////////////////////////////////////////////////////////////////////////////////////////
         if UNFINISHED_POST![PJPOST.fee] as! Int > 0 {
             cells.append(UITableViewCell())
             let labelFee = UILabel()
             labelFee.font = UIFont(name: "Helvetica-Bold", size: 14)
-            labelFee.text = "If someone helps you to acheive your goal, you will pay the finder's fee of $\(UNFINISHED_POST![PJPOST.fee] as! Int)"
+            labelFee.text = "Finder's fee $\(UNFINISHED_POST![PJPOST.fee] as! Int)"
             labelFee.numberOfLines = 0
+            labelFee.textColor = UIColor(rgb: 0x666666)
             cells.last!.addSubview(labelFee)
             embedConstrainst(cells.last!, childView: labelFee)
         }
@@ -76,17 +101,19 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
         
         
         
+        ///////////////////////////////////////////////////////////////////////////////////////////
         cells.append(UITableViewCell())
         let label2 = UILabel()
         label2.font = UIFont(name: "Helvetica Neue", size: 14)
         label2.text = "It will be searchable by following tags:"
+        label2.textColor = UIColor(rgb: 0x666666)
         cells.last!.addSubview(label2)
         embedConstrainst(cells.last!, childView: label2)
-
-
         
         
         
+        
+        ///////////////////////////////////////////////////////////////////////////////////////////
         cells.append(UITableViewCell())
         let label3 = UILabel()
         label3.text = ""
@@ -100,54 +127,45 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
                 label3.text = label3.text! + ", "
             }
         }
+        label3.textColor = UIColor(rgb: 0x666666)
         cells.last!.addSubview(label3)
         embedConstrainst(cells.last!, childView: label3)
-
-        
-        
-        
-        cells.append(UITableViewCell())
-        let postBody = UILabel()
-        postBody.numberOfLines = 0
-        postBody.text = ""
-        postBody.font = UIFont(name: "American TypeWriter", size: 18)
-        postBody.text = postBody.text! + (UNFINISHED_POST?[PJPOST.body] as! String)
-        cells.last!.addSubview(postBody)
-        cells.last!.layer.cornerRadius=5
-        cells.last!.layer.borderWidth=1
-        embedConstrainst(cells.last!, childView: postBody)
         
         
         
         
         
-
+        
+        ///////////////////////////////////////////////////////////////////////////////////////////
         if let imageFile = (UNFINISHED_POST?[PJPOST.image1file] as! PFFile).getData() {
-            cells.append(UITableViewCell())
-            let label4 = UILabel()
-            label4.font = UIFont(name: "Helvetica Neue", size: 12)
-            label4.text = "Here are some photos:"
-            cells.last!.addSubview(label4)
-            embedConstrainst(cells.last!, childView: label4)
-
+            //            cells.append(UITableViewCell())
+            //            let label4 = UILabel()
+            //            label4.font = UIFont(name: "Helvetica Neue", size: 12)
+            //            label4.text = "Here are some photos:"
+            //            label4.textColor = UIColor(rgb: 0x666666)
+            //
+            //            cells.last!.addSubview(label4)
+            //            embedConstrainst(cells.last!, childView: label4)
             
             cells.append(UITableViewCell())
             let image = UIImageView()
             image.image = UIImage(data: imageFile)
             
             image.contentMode = .ScaleAspectFit
-//            image.sizeToFit()
+            //            image.sizeToFit()
             image.clipsToBounds = true
             cells.last!.addSubview(image)
             embedConstrainst(cells.last!, childView: image)
-        } else {
-            cells.append(UITableViewCell())
-            let label4 = UILabel()
-            label4.font = UIFont(name: "Helvetica Neue", size: 12)
-            label4.text = "No photos provided"
-            cells.last!.addSubview(label4)
-            embedConstrainst(cells.last!, childView: label4)
         }
+        //
+        //        else {
+        //            cells.append(UITableViewCell())
+        //            let label4 = UILabel()
+        //            label4.font = UIFont(name: "Helvetica Neue", size: 12)
+        //            label4.text = "No photos provided"
+        //            cells.last!.addSubview(label4)
+        //            embedConstrainst(cells.last!, childView: label4)
+        //        }
         
         
         if let imageFile = (UNFINISHED_POST?[PJPOST.image2file] as! PFFile).getData() {
@@ -156,7 +174,7 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
             image.image = UIImage(data: imageFile)
             
             image.contentMode = .ScaleAspectFit
-//            image.sizeToFit()
+            //            image.sizeToFit()
             image.clipsToBounds = true
             cells.last!.addSubview(image)
             embedConstrainst(cells.last!, childView: image)
@@ -167,7 +185,7 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
             image.image = UIImage(data: imageFile)
             
             image.contentMode = .ScaleAspectFit
-//            image.sizeToFit()
+            //            image.sizeToFit()
             image.clipsToBounds = true
             cells.last!.addSubview(image)
             embedConstrainst(cells.last!, childView: image)
@@ -178,26 +196,26 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
             image.image = UIImage(data: imageFile)
             
             image.contentMode = .ScaleAspectFit
-//            image.sizeToFit()
+            //            image.sizeToFit()
             image.clipsToBounds = true
             cells.last!.addSubview(image)
             embedConstrainst(cells.last!, childView: image)
         }
-
         
         
         
-        cells.append(UITableViewCell())
-        let label5 = UILabel()
-        label5.numberOfLines = 0
-        label5.font = UIFont(name: "Helvetica Neue", size: 12)
-        label5.text = "Your post will be searchable within and beyond following area:"
-        cells.last!.addSubview(label5)
-        embedConstrainst(cells.last!, childView: label5)
-                
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        //        cells.append(UITableViewCell())
+        //        let label5 = UILabel()
+        //        label5.numberOfLines = 0
+        //        label5.font = UIFont(name: "Helvetica Neue", size: 12)
+        //        label5.text = "Your post will be searchable within and beyond following area:"
+        //        cells.last!.addSubview(label5)
+        //        embedConstrainst(cells.last!, childView: label5)
         
         
-
+        
+        ///////////////////////////////////////////////////////////////////////////////////////////
         let mapView = MKMapView()//frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 200))
         mapView.mapType = MKMapType.Standard
         mapView.zoomEnabled = false
@@ -210,8 +228,8 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegion(center: mylocation, span: span)
         mapView.setRegion(region, animated: false)
-//        mapView.frame.size = CGSize(width: UIScreen.mainScreen().bounds.width, height: 200)
-
+        //        mapView.frame.size = CGSize(width: UIScreen.mainScreen().bounds.width, height: 200)
+        
         let options:MKMapSnapshotOptions  = MKMapSnapshotOptions()
         options.region = region
         options.scale = UIScreen.mainScreen().scale
@@ -228,25 +246,25 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
             imageView.clipsToBounds = true
             self.cells.last!.addSubview(imageView)
             self.embedConstrainst(self.cells.last!, childView: imageView)
-
+            
             self.tableView.reloadData()
             self.tableView.reloadInputViews()
-
+            
         }
         
     }
-
-
+    
+    
     func embedConstrainst(parentView:UIView, childView:UIView) {
         childView.setTranslatesAutoresizingMaskIntoConstraints(false)
         parentView.addConstraint(
-        NSLayoutConstraint(item: childView,
-        attribute: NSLayoutAttribute.Top,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem: parentView,
-            attribute: NSLayoutAttribute.Top,
-            multiplier: 1.0,
-            constant: 8.0) )
+            NSLayoutConstraint(item: childView,
+                attribute: NSLayoutAttribute.Top,
+                relatedBy: NSLayoutRelation.Equal,
+                toItem: parentView,
+                attribute: NSLayoutAttribute.Top,
+                multiplier: 1.0,
+                constant: 8.0) )
         
         parentView.addConstraint(
             NSLayoutConstraint(item: childView,
@@ -265,7 +283,7 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
                 attribute: NSLayoutAttribute.Leading,
                 multiplier: 1.0,
                 constant: 8.0) )
-
+        
         parentView.addConstraint(
             NSLayoutConstraint(item: childView,
                 attribute: NSLayoutAttribute.Trailing,
@@ -274,12 +292,12 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
                 attribute: NSLayoutAttribute.Trailing,
                 multiplier: 1.0,
                 constant: -8.0) )
-
+        
     }
     
     
     // Return the number of sections
-     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     // Return the number of rows for each section in your static table
@@ -293,34 +311,5 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         return cells[indexPath.row]
     }
-
-    @IBAction func finishPost(sender: AnyObject) {
-        var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
-        actInd.center = self.view.center
-        actInd.hidesWhenStopped = true
-        actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
-        self.view.addSubview(actInd)
-        self.view.backgroundColor = UIColor.grayColor()
-        actInd.startAnimating()
-
-        
-        UNFINISHED_POST?[PJPOST.active] = true
-        UNFINISHED_POST?.save()
-        
-        
-        PJPost.notifyBookmarksAboutNewPost(UNFINISHED_POST!,
-            succeeded: { () -> () in
-                actInd.stopAnimating()
-            }) { (error) -> () in
-                actInd.stopAnimating()
-                let alertMessage = UIAlertController(title: nil, message: "Error.", preferredStyle: UIAlertControllerStyle.Alert)
-                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                })
-                alertMessage.addAction(ok)
-                self.presentViewController(alertMessage, animated: true, completion: nil)
-        }
-        UNFINISHED_POST = nil
-
-    }
+    
 }

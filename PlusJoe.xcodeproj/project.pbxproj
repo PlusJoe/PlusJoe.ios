@@ -520,6 +520,7 @@
 				0A62AD391B1567D700C55E67 /* PlusJoe.entitlements */,
 				0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */,
 				0A60E1C01AC8E7B4003887C5 /* Model */,
+				0AEB2F041B2A16400024CC5F /* NavMenus */,
 				0A60E1C11AC8E7CF003887C5 /* CreatePost */,
 				0AF02E061AD446D800792A5E /* SearchPost */,
 				0A8BF12F1AFD40B70058AE38 /* Chat */,
@@ -599,16 +600,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0AEB2F041B2A16400024CC5F /* NavMenus */ = {
+			isa = PBXGroup;
+			children = (
+				0A4C7AC51AF99C3700C271F2 /* MenuSearchHomeViewController.swift */,
+				0A4C7AC71AF9C17700C271F2 /* MenuPostDetailsViewController.swift */,
+				0AE782591B053A23008678B8 /* Menu2PostDetailsViewController.swift */,
+			);
+			name = NavMenus;
+			sourceTree = "<group>";
+		};
 		0AF02E061AD446D800792A5E /* SearchPost */ = {
 			isa = PBXGroup;
 			children = (
 				0A4C495A1AC501C000D164E2 /* SearchHomeViewController.swift */,
-				0A4C7AC51AF99C3700C271F2 /* MenuSearchHomeViewController.swift */,
 				0AD4A2921AD8917A00539470 /* SearchResultsViewController.swift */,
 				0A1C41441AE0555D00270347 /* SearchDetailsViewController.swift */,
 				0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */,
-				0A4C7AC71AF9C17700C271F2 /* MenuPostDetailsViewController.swift */,
-				0AE782591B053A23008678B8 /* Menu2PostDetailsViewController.swift */,
 				0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */,
 			);
 			name = SearchPost;

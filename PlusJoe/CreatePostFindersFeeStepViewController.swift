@@ -51,25 +51,32 @@ class CreatePostFindersFeeStepViewController:
     
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
         if identifier == "createPostPreviewSegue" {
-//            if postBody.text == "" || postBody.text == placeHolderText || count(postBody.text) < 10 {
-//                let alertMessage = UIAlertController(title: nil, message: "Your post can't be empty. Try again.", preferredStyle: UIAlertControllerStyle.Alert)
-//                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
-//                alertMessage.addAction(ok)
-//                presentViewController(alertMessage, animated: true, completion: nil)
-//            } else if postBody.text.rangeOfString("#") == nil {
-//                let alertMessage = UIAlertController(title: nil, message: "Your post can not be saved without any #hash_tags. You post will not be searchable unless it has #hash_tags. Add some #has_tags and try again.", preferredStyle: UIAlertControllerStyle.Alert)
-//                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
-//                alertMessage.addAction(ok)
-//                presentViewController(alertMessage, animated: true, completion: nil)
-//            } else {
-//                UNFINISHED_POST?[PJPOST.body] = postBody.text
-//                UNFINISHED_POST?.saveEventually(nil)
-//            }
+            if priceTextField.text == "" {
+                priceTextField.text = "0"
+            }
+            if findersFeeTextField.text == "" {
+                findersFeeTextField.text = "0"
+            }
             
-            UNFINISHED_POST[PJPOST.price] = priceTextField.text.toInt()!
-            UNFINISHED_POST[PJPOST.fee] = findersFeeTextField.text.toInt()!
             
-            UNFINISHED_POST?.saveEventually(nil)
+            
+            if priceTextField.text.toInt()! > 1000 || priceTextField.text.toInt()! <= 0 {
+                let alertMessage = UIAlertController(title: nil, message: "Price must be between $1 to $1000.", preferredStyle: UIAlertControllerStyle.Alert)
+                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
+                alertMessage.addAction(ok)
+                presentViewController(alertMessage, animated: true, completion: nil)
+            } else if priceTextField.text.toInt()! <= findersFeeTextField.text.toInt()! {
+                let alertMessage = UIAlertController(title: nil, message: "Finder's fee can not be greater than price.", preferredStyle: UIAlertControllerStyle.Alert)
+                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
+                alertMessage.addAction(ok)
+                presentViewController(alertMessage, animated: true, completion: nil)
+            } else {
+                UNFINISHED_POST[PJPOST.price] = priceTextField.text.toInt()!
+                UNFINISHED_POST[PJPOST.fee] = findersFeeTextField.text.toInt()!
+                
+                UNFINISHED_POST?.saveEventually(nil)
+            }
+            
 
         }
         return true

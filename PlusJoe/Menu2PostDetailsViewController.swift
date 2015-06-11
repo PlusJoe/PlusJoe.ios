@@ -14,16 +14,40 @@ class Menu2PostDetailsViewController: UIViewController {
     
     var post:PFObject?
     
+    @IBOutlet weak var alertsCountLabel: UILabel!
+    @IBOutlet weak var myAlertsButton: UIButton!
+    @IBOutlet weak var myTagsButton: UIButton!
+    @IBOutlet weak var mySellsButton: UIButton!
+    @IBOutlet weak var myBuysButton: UIButton!
+
     
     @IBOutlet weak var delete: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateAlertsView()
+        
+        myAlertsButton.setTitle("\u{f0f3}", forState: UIControlState.Normal)
+        myTagsButton.setTitle("\u{f02c}", forState: UIControlState.Normal)
+        mySellsButton.setTitle("\u{f164}", forState: UIControlState.Normal)
+        myBuysButton.setTitle("\u{f07a}", forState: UIControlState.Normal)
+
+        
         delete.setTitle("\u{f05e}", forState: UIControlState.Normal)
         
-        
     }
+    
+    
+    func updateAlertsView() -> Void {
+        if UNREAD_ALERTS_COUNT == 0 {
+            self.alertsCountLabel.hidden = true
+        } else {
+            self.alertsCountLabel.text = String(UNREAD_ALERTS_COUNT)
+            self.alertsCountLabel.hidden = false
+        }
+    }
+
     
     @IBAction func deleteIt(sender: AnyObject) {
         let alertMessage = UIAlertController(title: nil, message: "Are you sure?", preferredStyle: UIAlertControllerStyle.Alert)

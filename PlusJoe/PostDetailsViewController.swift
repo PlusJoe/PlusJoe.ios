@@ -224,13 +224,14 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     
     
     @IBAction func menuTapped(sender: AnyObject) {
-        
+        self.alertsCountLabel.hidden = true
+
         
         // looking at my own post
         if post?[PJPOST.createdBy] as? PFUser == CURRENT_USER! && conversation == nil {
             let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("Menu2PostDetails") as! Menu2PostDetailsViewController
             popoverVC.modalPresentationStyle = .Popover
-            popoverVC.preferredContentSize = CGSizeMake(300, 50)
+            popoverVC.preferredContentSize = CGSizeMake(300, 250)
             popoverVC.post = post
             
             
@@ -245,7 +246,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         } else {
             let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("MenuPostDetails") as! MenuPostDetailsViewController
             popoverVC.modalPresentationStyle = .Popover
-            popoverVC.preferredContentSize = CGSizeMake(300, 220)
+            popoverVC.preferredContentSize = CGSizeMake(300, 300)
             popoverVC.post = post
             
             
