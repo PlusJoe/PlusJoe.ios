@@ -18,7 +18,7 @@ class CreatePostDescribeStepViewController: UIViewController, UITextViewDelegate
     
     @IBOutlet weak var countLabel: UILabel!
     
-    let placeHolderText = "Your post must contain at least one #hash_tag. It should also contain exactly one $price_tag. Other people in your communitry will be able to find your post and will be notified by #hash_tags -- choose your #hash_tags wisely."
+    let placeHolderText = "Your post must contain at least one #hash_tag. Other people in your communitry will be able to find your post and will be notified by #hash_tags -- choose your #hash_tags wisely."
     
     @IBAction func backButtonAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)

@@ -48,6 +48,7 @@ class PJPost: BaseDataModel {
         newPost[PJPOST.active] = false
         newPost[PJPOST.archived] = false
         newPost[PJPOST.body] = ""
+        newPost[PJPOST.price] = 0
         newPost[PJPOST.fee] = 0
         newPost[PJPOST.image1file] = PFFile(name:"blank.png", data:NSData())
         newPost[PJPOST.image2file] = PFFile(name:"blank.png", data:NSData())

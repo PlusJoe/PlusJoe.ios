@@ -16,11 +16,12 @@ class CreatePostPhotosStepViewController:
 {
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     
     @IBOutlet weak var takePhotoButton: UIButton!
     @IBOutlet weak var pickPhotoFromLibraryButton: UIButton!
     
-    @IBOutlet weak var nextButton: UIButton!
+//    @IBOutlet weak var nextButton: UIButton!
     
     @IBOutlet weak var imageOne: UIImageView!
     @IBOutlet weak var imageTwo: UIImageView!
@@ -37,11 +38,12 @@ class CreatePostPhotosStepViewController:
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         backNavButton.title = "\u{f053}"
+        nextButton.title  = "next \u{f054}"
         if let font = UIFont(name: "FontAwesome", size: 20) {
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+            nextButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
         
-        nextButton.setTitle("next" + "   \u{f054}", forState: UIControlState.Normal)
         takePhotoButton.setTitle("\u{f030}", forState: UIControlState.Normal)
         pickPhotoFromLibraryButton.setTitle( "\u{f1c5}", forState: UIControlState.Normal)
         
