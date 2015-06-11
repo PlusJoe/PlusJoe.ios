@@ -13,6 +13,7 @@ class CreatePostFindersFeeStepViewController:
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var findersFeeTextField: UITextField!
     
     @IBAction func backButtonAction(sender: AnyObject) {
@@ -21,14 +22,11 @@ class CreatePostFindersFeeStepViewController:
     
     @IBAction func nextButtonAction(sender: AnyObject) {
         UNFINISHED_POST[PJPOST.fee] = findersFeeTextField.text.toInt()!
+        
         UNFINISHED_POST?.saveEventually(nil)
     }
     
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        findersFeeTextField.becomeFirstResponder()
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -38,9 +36,19 @@ class CreatePostFindersFeeStepViewController:
         }
         
         nextButton.setTitle("next" + "   \u{f054}", forState: UIControlState.Normal)
+        
+        if UNFINISHED_POST?[PJPOST.price] as? Int > 0 {
+            self.priceTextField.text = "\((UNFINISHED_POST?[PJPOST.price])!)"
+        }
     
-        findersFeeTextField.text = "\((UNFINISHED_POST?[PJPOST.fee])!)"
+        if UNFINISHED_POST?[PJPOST.fee] as? Int > 0 {
+            self.findersFeeTextField.text = "\((UNFINISHED_POST?[PJPOST.fee])!)"
+        }
     }
     
-        
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        priceTextField.becomeFirstResponder()
+    }
+    
 }
