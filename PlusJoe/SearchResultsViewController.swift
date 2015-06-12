@@ -60,7 +60,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        menuButton.enabled = false
         if timer == nil {
             timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("updateAlertsView"), userInfo: nil, repeats: true)
         }
@@ -137,6 +137,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
                 //                self.viewControllerAtIndex(0)
                 self.navBar.topItem?.title = "1 / \(self.posts.count)"
                 
+                self.menuButton.enabled = true
                 
             }) { (error) -> () in
                 let alertMessage = UIAlertController(title: nil, message: "Search Error, try again.", preferredStyle: UIAlertControllerStyle.Alert)

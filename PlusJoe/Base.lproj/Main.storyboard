@@ -340,7 +340,7 @@
                                 </constraints>
                                 <color key="barTintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="New Alerts" id="1Hf-JZ-dGX">
+                                    <navigationItem title="My Alerts" id="1Hf-JZ-dGX">
                                         <barButtonItem key="leftBarButtonItem" title="&lt;" id="gP3-si-fgy">
                                             <connections>
                                                 <action selector="backButtonAction:" destination="C54-4h-swo" id="7HE-fF-cA6"/>
@@ -451,7 +451,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FOA-Yx-SaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1476" y="3118"/>
+            <point key="canvasLocation" x="5423" y="-3818"/>
         </scene>
         <!--Menu Search Home View Controller-->
         <scene sceneID="bq1-uf-hFI">
@@ -488,6 +488,9 @@
                                     <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="C54-4h-swo" kind="show" id="ata-Pl-mmo"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Tags" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3k-CM-3M7">
                                 <rect key="frame" x="460" y="82" width="91" height="21"/>
@@ -556,6 +559,9 @@
                                     <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="yex-1n-u64" kind="show" id="SR4-vJ-6e0"/>
+                                </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmT-kz-wy7">
                                 <rect key="frame" x="577" y="25" width="18" height="17"/>
@@ -611,7 +617,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wd4-u4-geW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3676" y="-2295"/>
+            <point key="canvasLocation" x="2908" y="-3489"/>
         </scene>
         <!--Search Results View Controller-->
         <scene sceneID="6Og-pg-PEU">
@@ -1345,6 +1351,9 @@
                                     <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="yex-1n-u64" kind="show" id="tQa-zX-0Tt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xzo-2H-A5r">
                                 <rect key="frame" x="16" y="120" width="568" height="38"/>
@@ -1367,6 +1376,9 @@
                                     <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="C54-4h-swo" kind="show" id="4EV-2E-tAm"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Tags" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2O-ld-8ey">
                                 <rect key="frame" x="460" y="82" width="91" height="21"/>
@@ -1495,7 +1507,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fOU-S2-HCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3676" y="-1392"/>
+            <point key="canvasLocation" x="2908" y="-2586"/>
         </scene>
         <!--Search Details View Controller-->
         <scene sceneID="ZFr-oL-UuD">
@@ -2021,9 +2033,9 @@
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGm-MD-8VD">
                                 <rect key="frame" x="3" y="192" width="597" height="169"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">* Price can not be greater than $1000.  * Transaction fee of up to 5.8 percent plus 60 cent may apply. ** Finder's fee can not be greater that price. ** Finder's fee is optional. 
+                                <string key="text">* Price can not be greater than $1000.  * Transaction fee of up to 5.8 percent plus 60 cent may apply. ** Finder's fee can not be greater that price. ** Finder's fee is optional. 
 ** Finder's fee may speed up your sale.
-** Specify finder's fee ammount only if you are willing to pay it. You will be able to lower the price or higher the finder's fee any time later. By clicking "next &gt;" you agree to terms and conditions.</mutableString>
+** Specify finder's fee ammount only if you are willing to pay it. You will be able to lower the price or higher the finder's fee any time later. By clicking "next &gt;" you agree to terms and conditions.</string>
                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2352,7 +2364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eSr-TM-eKW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6112" y="-492"/>
+            <point key="canvasLocation" x="6720" y="-172"/>
         </scene>
         <!--Menu2 Post Details View Controller-->
         <scene sceneID="ZGe-KR-szh">
@@ -2400,6 +2412,9 @@
                                     <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="yex-1n-u64" kind="show" id="cdB-b1-1AI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vI-kX-CV6">
                                 <rect key="frame" x="16" y="120" width="568" height="38"/>
@@ -2497,6 +2512,9 @@
                                     <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="C54-4h-swo" kind="show" id="qVg-Lp-Qm8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2544,7 +2562,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzM-tz-pEp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3676" y="-452"/>
+            <point key="canvasLocation" x="2908" y="-1646"/>
         </scene>
         <!--Following Hash Tags View Controller-->
         <scene sceneID="Ei6-Gh-9aa">
@@ -2711,7 +2729,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N2q-fl-Pdk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6112" y="-1211"/>
+            <point key="canvasLocation" x="5423" y="-3036"/>
         </scene>
     </scenes>
     <resources>
@@ -2719,7 +2737,9 @@
         <image name="photo" width="97" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e8G-DT-VfW"/>
+        <segue reference="cdB-b1-1AI"/>
+        <segue reference="qVg-Lp-Qm8"/>
+        <segue reference="fjX-3f-ZFG"/>
         <segue reference="Wb3-RN-P3O"/>
     </inferredMetricsTieBreakers>
 </document>

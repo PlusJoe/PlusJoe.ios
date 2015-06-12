@@ -21,7 +21,7 @@ let SUPPORTED_PAYMENT_NETWORKS = [PKPaymentNetworkVisa, PKPaymentNetworkMasterCa
 
 
 
-let PJHost = "http://plusjoe.com"
+//let PJHost = "http://plusjoe.com"
 
 var DEVICE_PHONE_NUMBER = ""
 var CURRENT_USER:PFUser? = PFUser.currentUser()

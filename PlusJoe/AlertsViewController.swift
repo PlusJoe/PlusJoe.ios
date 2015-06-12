@@ -41,11 +41,11 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.estimatedRowHeight = 200.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
 
-        retrieveUnreadAlerts()
+        retrieveMyAlerts()
     }
     
-    func retrieveUnreadAlerts() -> Void {
-        PJAlert.loadUnreadAlerts({ (alerts) -> () in
+    func retrieveMyAlerts() -> Void {
+        PJAlert.loadMyAlerts({ (alerts) -> () in
             if alerts.count > 0 {
                 self.alerts = alerts
                 self.tableView.reloadData()
@@ -101,6 +101,10 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         cell.lastChatBody.text = chatMessage[PJCHATMESSAGE.body] as? String
+        
+        if alert[PJALERT.read] as! Bool == false {
+            cell.backgroundColor = UIColor(rgb: 0xFFCC66)
+        }
         
         return cell
     }
