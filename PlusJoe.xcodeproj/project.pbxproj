@@ -29,7 +29,6 @@
 		0A62AD381B10D95100C55E67 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A62AD371B10D95100C55E67 /* PassKit.framework */; };
 		0A63D7981B06685100AD70F1 /* FollowingHashTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63D7971B06685100AD70F1 /* FollowingHashTagsViewController.swift */; };
 		0A63D79A1B06689E00AD70F1 /* FollowingHashTagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63D7991B06689E00AD70F1 /* FollowingHashTagsTableViewCell.swift */; };
-		0A63D79C1B0AC26500AD70F1 /* MyAlertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63D79B1B0AC26500AD70F1 /* MyAlertTableViewCell.swift */; };
 		0A7BC6521B1BF918007AC39F /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7BC6511B1BF918007AC39F /* BuyViewController.swift */; };
 		0A8BF12E1AFC3EDC0058AE38 /* PJConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */; };
 		0A8BF1311AFD40EA0058AE38 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF1301AFD40EA0058AE38 /* ChatTableViewCell.swift */; };
@@ -79,8 +78,8 @@
 		0AD856AE1B16BB5200CAEF08 /* STPToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8568A1B16BB5200CAEF08 /* STPToken.m */; };
 		0AD856AF1B16BB5200CAEF08 /* StripeError.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8568B1B16BB5200CAEF08 /* StripeError.m */; };
 		0AD856B11B16BB6C00CAEF08 /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD856B01B16BB6C00CAEF08 /* Stripe.framework */; };
-		0AE782561B024C34008678B8 /* MyActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE782551B024C34008678B8 /* MyActivitiesViewController.swift */; };
-		0AE782581B02D702008678B8 /* MyPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE782571B02D702008678B8 /* MyPostTableViewCell.swift */; };
+		0AE782561B024C34008678B8 /* MySellsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE782551B024C34008678B8 /* MySellsViewController.swift */; };
+		0AE782581B02D702008678B8 /* MySellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE782571B02D702008678B8 /* MySellTableViewCell.swift */; };
 		0AE7825A1B053A23008678B8 /* Menu2PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE782591B053A23008678B8 /* Menu2PostDetailsViewController.swift */; };
 		0AE7825C1B0597E4008678B8 /* PJFollowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE7825B1B0597E4008678B8 /* PJFollowing.swift */; };
 		0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */; };
@@ -142,7 +141,6 @@
 		0A62AD391B1567D700C55E67 /* PlusJoe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PlusJoe.entitlements; sourceTree = "<group>"; };
 		0A63D7971B06685100AD70F1 /* FollowingHashTagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingHashTagsViewController.swift; sourceTree = "<group>"; };
 		0A63D7991B06689E00AD70F1 /* FollowingHashTagsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingHashTagsTableViewCell.swift; sourceTree = "<group>"; };
-		0A63D79B1B0AC26500AD70F1 /* MyAlertTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAlertTableViewCell.swift; sourceTree = "<group>"; };
 		0A7BC6511B1BF918007AC39F /* BuyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJConversation.swift; sourceTree = "<group>"; };
 		0A8BF1301AFD40EA0058AE38 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
@@ -213,8 +211,8 @@
 		0AD8568B1B16BB5200CAEF08 /* StripeError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StripeError.m; sourceTree = "<group>"; };
 		0AD856B01B16BB6C00CAEF08 /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Stripe.framework; sourceTree = "<group>"; };
 		0AE6D3CD1AC2F6F90098011F /* PlusJoe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlusJoe-Bridging-Header.h"; sourceTree = "<group>"; };
-		0AE782551B024C34008678B8 /* MyActivitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyActivitiesViewController.swift; sourceTree = "<group>"; };
-		0AE782571B02D702008678B8 /* MyPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostTableViewCell.swift; sourceTree = "<group>"; };
+		0AE782551B024C34008678B8 /* MySellsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySellsViewController.swift; sourceTree = "<group>"; };
+		0AE782571B02D702008678B8 /* MySellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySellTableViewCell.swift; sourceTree = "<group>"; };
 		0AE782591B053A23008678B8 /* Menu2PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu2PostDetailsViewController.swift; sourceTree = "<group>"; };
 		0AE7825B1B0597E4008678B8 /* PJFollowing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJFollowing.swift; sourceTree = "<group>"; };
 		0AEAFBC91AC0E2F900800121 /* PlusJoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusJoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -336,13 +334,13 @@
 			name = CreatePost;
 			sourceTree = "<group>";
 		};
-		0A63D7961B06681400AD70F1 /* FollowingHashTags */ = {
+		0A63D7961B06681400AD70F1 /* MyTags */ = {
 			isa = PBXGroup;
 			children = (
 				0A63D7971B06685100AD70F1 /* FollowingHashTagsViewController.swift */,
 				0A63D7991B06689E00AD70F1 /* FollowingHashTagsTableViewCell.swift */,
 			);
-			name = FollowingHashTags;
+			name = MyTags;
 			sourceTree = "<group>";
 		};
 		0A7BC6501B1BF8AE007AC39F /* BuySellWorflow */ = {
@@ -365,13 +363,13 @@
 			name = Chat;
 			sourceTree = "<group>";
 		};
-		0A8BF1361AFED2AD0058AE38 /* Alerts */ = {
+		0A8BF1361AFED2AD0058AE38 /* MyAlerts */ = {
 			isa = PBXGroup;
 			children = (
 				0A8BF1321AFDB4E10058AE38 /* AlertsViewController.swift */,
 				0A8BF1341AFED29D0058AE38 /* AlertTableViewCell.swift */,
 			);
-			name = Alerts;
+			name = MyAlerts;
 			sourceTree = "<group>";
 		};
 		0AD8564D1B16BB5200CAEF08 /* Stripe */ = {
@@ -485,14 +483,13 @@
 			path = Checkout;
 			sourceTree = "<group>";
 		};
-		0AE782541B024C0D008678B8 /* MyActivities */ = {
+		0AE782541B024C0D008678B8 /* MySells */ = {
 			isa = PBXGroup;
 			children = (
-				0AE782551B024C34008678B8 /* MyActivitiesViewController.swift */,
-				0AE782571B02D702008678B8 /* MyPostTableViewCell.swift */,
-				0A63D79B1B0AC26500AD70F1 /* MyAlertTableViewCell.swift */,
+				0AE782551B024C34008678B8 /* MySellsViewController.swift */,
+				0AE782571B02D702008678B8 /* MySellTableViewCell.swift */,
 			);
-			name = MyActivities;
+			name = MySells;
 			sourceTree = "<group>";
 		};
 		0AEAFBC01AC0E2F900800121 = {
@@ -524,9 +521,9 @@
 				0A60E1C11AC8E7CF003887C5 /* CreatePost */,
 				0AF02E061AD446D800792A5E /* SearchPost */,
 				0A8BF12F1AFD40B70058AE38 /* Chat */,
-				0A8BF1361AFED2AD0058AE38 /* Alerts */,
-				0AE782541B024C0D008678B8 /* MyActivities */,
-				0A63D7961B06681400AD70F1 /* FollowingHashTags */,
+				0A8BF1361AFED2AD0058AE38 /* MyAlerts */,
+				0A63D7961B06681400AD70F1 /* MyTags */,
+				0AE782541B024C0D008678B8 /* MySells */,
 				0A7BC6501B1BF8AE007AC39F /* BuySellWorflow */,
 				0AEAFBD21AC0E2F900800121 /* Main.storyboard */,
 				0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */,
@@ -796,9 +793,8 @@
 				0A63D79A1B06689E00AD70F1 /* FollowingHashTagsTableViewCell.swift in Sources */,
 				0A7BC6521B1BF918007AC39F /* BuyViewController.swift in Sources */,
 				0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */,
-				0AE782581B02D702008678B8 /* MyPostTableViewCell.swift in Sources */,
+				0AE782581B02D702008678B8 /* MySellTableViewCell.swift in Sources */,
 				0AD856A61B16BB5200CAEF08 /* STPOSXCheckoutWebViewAdapter.m in Sources */,
-				0A63D79C1B0AC26500AD70F1 /* MyAlertTableViewCell.swift in Sources */,
 				0A8BF12E1AFC3EDC0058AE38 /* PJConversation.swift in Sources */,
 				0AD8568D1B16BB5200CAEF08 /* Stripe+ApplePay.m in Sources */,
 				0AD856AF1B16BB5200CAEF08 /* StripeError.m in Sources */,
@@ -812,7 +808,7 @@
 				0AA8AD431B2545620079D516 /* PJBuyRequest.swift in Sources */,
 				0AD856A41B16BB5200CAEF08 /* STPColorUtils.m in Sources */,
 				0AD856A21B16BB5200CAEF08 /* STPCheckoutOptions.m in Sources */,
-				0AE782561B024C34008678B8 /* MyActivitiesViewController.swift in Sources */,
+				0AE782561B024C34008678B8 /* MySellsViewController.swift in Sources */,
 				0A8BF1331AFDB4E10058AE38 /* AlertsViewController.swift in Sources */,
 				0A4C7AC01AF5D67D00C271F2 /* PJAlert.swift in Sources */,
 				0AEC37101AE4A677005F99A7 /* ImageViewController.swift in Sources */,

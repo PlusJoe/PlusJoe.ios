@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MyPostTableViewCell: UITableViewCell {
+class MySellTableViewCell: UITableViewCell {
     @IBOutlet weak var postedAt: UILabel!
     @IBOutlet weak var body: UILabel!
 }
