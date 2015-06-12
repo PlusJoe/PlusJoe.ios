@@ -2719,7 +2719,7 @@
         <image name="photo" width="97" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="V5Z-BX-104"/>
         <segue reference="e8G-DT-VfW"/>
+        <segue reference="Wb3-RN-P3O"/>
     </inferredMetricsTieBreakers>
 </document>

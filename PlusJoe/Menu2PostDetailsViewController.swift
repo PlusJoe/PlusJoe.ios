@@ -30,7 +30,7 @@ class Menu2PostDetailsViewController: UIViewController {
         
         myAlertsButton.setTitle("\u{f0f3}", forState: UIControlState.Normal)
         myTagsButton.setTitle("\u{f02c}", forState: UIControlState.Normal)
-        mySellsButton.setTitle("\u{f164}", forState: UIControlState.Normal)
+        mySellsButton.setTitle("\u{f155}", forState: UIControlState.Normal)
         myBuysButton.setTitle("\u{f07a}", forState: UIControlState.Normal)
 
         
