@@ -98,6 +98,7 @@
 		0AEAFC181AC1C9D400800121 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC171AC1C9D400800121 /* libz.dylib */; };
 		0AEAFC1A1AC1C9E100800121 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC191AC1C9E100800121 /* libsqlite3.dylib */; };
 		0AEAFC1E1AC1CEAF00800121 /* libFlurry_6.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC1D1AC1CEAF00800121 /* libFlurry_6.2.0.a */; };
+		0AEB2F071B2B30EF0024CC5F /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB2F061B2B30EF0024CC5F /* EditPostViewController.swift */; };
 		0AEC370D1AE2B597005F99A7 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */; };
 		0AEC37101AE4A677005F99A7 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */; };
 		0AF02E081AD5B78800792A5E /* PJHashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF02E071AD5B78800792A5E /* PJHashTag.swift */; };
@@ -236,6 +237,7 @@
 		0AEAFC191AC1C9E100800121 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		0AEAFC1C1AC1CEAF00800121 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		0AEAFC1D1AC1CEAF00800121 /* libFlurry_6.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.2.0.a; sourceTree = "<group>"; };
+		0AEB2F061B2B30EF0024CC5F /* EditPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
 		0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		0AF02E071AD5B78800792A5E /* PJHashTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJHashTag.swift; sourceTree = "<group>"; };
@@ -520,13 +522,14 @@
 				0AEB2F041B2A16400024CC5F /* NavMenus */,
 				0A60E1C11AC8E7CF003887C5 /* CreatePost */,
 				0AF02E061AD446D800792A5E /* SearchPost */,
+				0AEB2F051B2B30A80024CC5F /* PostDetails */,
 				0A8BF12F1AFD40B70058AE38 /* Chat */,
 				0A8BF1361AFED2AD0058AE38 /* MyAlerts */,
 				0A63D7961B06681400AD70F1 /* MyTags */,
 				0AE782541B024C0D008678B8 /* MySells */,
 				0A7BC6501B1BF8AE007AC39F /* BuySellWorflow */,
-				0AEAFBD21AC0E2F900800121 /* Main.storyboard */,
 				0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */,
+				0AEAFBD21AC0E2F900800121 /* Main.storyboard */,
 				0AEAFBD51AC0E2F900800121 /* Images.xcassets */,
 				0AEAFBD71AC0E2F900800121 /* LaunchScreen.xib */,
 				0AEAFBCC1AC0E2F900800121 /* Supporting Files */,
@@ -607,14 +610,22 @@
 			name = NavMenus;
 			sourceTree = "<group>";
 		};
+		0AEB2F051B2B30A80024CC5F /* PostDetails */ = {
+			isa = PBXGroup;
+			children = (
+				0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */,
+				0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */,
+				0AEB2F061B2B30EF0024CC5F /* EditPostViewController.swift */,
+			);
+			name = PostDetails;
+			sourceTree = "<group>";
+		};
 		0AF02E061AD446D800792A5E /* SearchPost */ = {
 			isa = PBXGroup;
 			children = (
 				0A4C495A1AC501C000D164E2 /* SearchHomeViewController.swift */,
 				0AD4A2921AD8917A00539470 /* SearchResultsViewController.swift */,
 				0A1C41441AE0555D00270347 /* SearchDetailsViewController.swift */,
-				0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */,
-				0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */,
 			);
 			name = SearchPost;
 			sourceTree = "<group>";
@@ -787,6 +798,7 @@
 				0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */,
 				0AC66FBF1AC5C22C003C818C /* CreatePostReviewAndSubmitStepViewController.swift in Sources */,
 				0A4C495B1AC501C000D164E2 /* SearchHomeViewController.swift in Sources */,
+				0AEB2F071B2B30EF0024CC5F /* EditPostViewController.swift in Sources */,
 				0AD856AC1B16BB5200CAEF08 /* STPCard.m in Sources */,
 				0A5E5E641B2140C5007B447F /* UIChatLabel.swift in Sources */,
 				0AD8568C1B16BB5200CAEF08 /* STPAPIClient+ApplePay.m in Sources */,

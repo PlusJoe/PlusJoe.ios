@@ -195,7 +195,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy hh:mm a"
 
-        if chatMessage[PJCHATMESSAGE.createdBy] as? PFUser == CURRENT_USER! {
+        if chatMessage[PJCHATMESSAGE.createdBy] as? String == CURRENT_USER!.objectId! {
             cell = self.tableView.dequeueReusableCellWithIdentifier("chat_cell") as? ChatTableViewCell
             (cell as? ChatTableViewCell)?.postedAt.text = String(format: "%@", df.stringFromDate(chatMessage.createdAt!))
             (cell as? ChatTableViewCell)?.body.text = "\((chatMessage[PJCHATMESSAGE.body])!)\n"

@@ -85,7 +85,7 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy hh:mm a"
         cell.postedAt.text = String(format: "%@", df.stringFromDate(post.createdAt!))
-        if post[PJPOST.createdBy] as? PFUser == CURRENT_USER! {
+        if post[PJPOST.createdBy] as? String == CURRENT_USER!.objectId! {
             cell.postedAt.text = "Created by me on \(cell.postedAt.text!)"
         } else {
             cell.postedAt.text = "Someone created on \(cell.postedAt.text!)"
@@ -94,7 +94,7 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.postBody.text = post[PJPOST.body] as? String
         
         cell.chattedAt.text = String(format: "%@", df.stringFromDate(chatMessage.createdAt!))
-        if chatMessage[PJCHATMESSAGE.createdBy] as? PFUser == CURRENT_USER! {
+        if chatMessage[PJCHATMESSAGE.createdBy] as? String == CURRENT_USER!.objectId! {
             cell.chattedAt.text = "Replied by me on \(cell.chattedAt.text!)"
         } else {
             cell.chattedAt.text = "Someone replied on \(cell.chattedAt.text!)"
@@ -131,4 +131,9 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         }
     }
+    
+    @IBAction func unwindAndSaveEditedPost (segue : UIStoryboardSegue) {
+        retrieveMyAlerts()
+    }
+
 }

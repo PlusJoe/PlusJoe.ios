@@ -18,6 +18,9 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var navBar: UINavigationBar!
     
+    @IBOutlet weak var sellButton: UIButton!
+    @IBOutlet weak var menuView: UIBarButtonItem!
+    
     var post:PFObject?
     // if conversation is passed from child controller, then use it for initiating the chat
     var conversation:PFObject?
@@ -31,7 +34,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     @IBOutlet weak var chatButton: UIButton!
     
     var timer:NSTimer?
-
+    
     //    var images = [NSData]()
     var imageViewControllers = [ImageViewController]()
     
@@ -45,21 +48,23 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     
     
     func updateAlertsView() -> Void {
-        if UNREAD_ALERTS_COUNT == 0 {
-            self.alertsCountLabel.hidden = true
-        } else {
-            self.alertsCountLabel.text = String(UNREAD_ALERTS_COUNT)
-            self.alertsCountLabel.hidden = false
+        if allowChat() == true && allowBuy() == true {
+            if UNREAD_ALERTS_COUNT == 0 {
+                self.alertsCountLabel.hidden = true
+            } else {
+                self.alertsCountLabel.text = String(UNREAD_ALERTS_COUNT)
+                self.alertsCountLabel.hidden = false
+            }
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if timer == nil {
             timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("updateAlertsView"), userInfo: nil, repeats: true)
         }
-
+        
         // Do any additional setup after loading the view, typically from a nib.
         backNavButton.title = "\u{f053}"
         menuButton.setTitle("\u{f0c9}", forState: .Normal)
@@ -69,24 +74,29 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         
         self.navBar.topItem?.title = titleText
         self.navBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(rgb: 0x666666)]
-            
-            
+        
+        
         shareButton.setTitle("share \u{f1e0}", forState: .Normal)
         buyButton.setTitle("buy \u{f164}", forState: .Normal)
         chatButton.setTitle("chat \u{f086}", forState: UIControlState.Normal)
         
         // looking at my own post
-        if post?[PJPOST.createdBy] as? PFUser == CURRENT_USER && conversation == nil {
+        if allowChat() == false {
             chatButton.enabled = false
-            //            menuButton.hidden = true
-            buyButton.enabled = false
             chatButton.backgroundColor = UIColor.grayColor()
-            buyButton.backgroundColor = UIColor.grayColor()
+
+            sellButton.enabled = false
+            sellButton.hidden = true
         }
         
-//            buyButton.enabled = false
-//            buyButton.backgroundColor = UIColor.grayColor()
+        if allowBuy() == false {
+            buyButton.enabled = false
+            buyButton.backgroundColor = UIColor.grayColor()
 
+            sellButton.enabled = false
+            sellButton.hidden = true
+        }
+        
         
         
         postBody.text = post?[PJPOST.body] as? String
@@ -171,7 +181,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     
     
     override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)        
+        super.viewDidAppear(animated)
     }
     
     
@@ -225,13 +235,13 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     
     @IBAction func menuTapped(sender: AnyObject) {
         self.alertsCountLabel.hidden = true
-
+        
         
         // looking at my own post
-        if post?[PJPOST.createdBy] as? PFUser == CURRENT_USER! && conversation == nil {
+        if allowBuy() == false {
             let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("Menu2PostDetails") as! Menu2PostDetailsViewController
             popoverVC.modalPresentationStyle = .Popover
-            popoverVC.preferredContentSize = CGSizeMake(300, 250)
+            popoverVC.preferredContentSize = CGSizeMake(300, 100)
             popoverVC.post = post
             
             
@@ -280,5 +290,13 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         }
     }
     
+    
+    func allowChat() -> Bool {
+        return post?[PJPOST.createdBy]! as? String != CURRENT_USER!.objectId || conversation != nil
+    }
+
+    func allowBuy() -> Bool {
+        return post?[PJPOST.createdBy]! as? String != CURRENT_USER!.objectId
+    }
     
 }

@@ -14,39 +14,40 @@ class Menu2PostDetailsViewController: UIViewController {
     
     var post:PFObject?
     
-    @IBOutlet weak var alertsCountLabel: UILabel!
-    @IBOutlet weak var myAlertsButton: UIButton!
-    @IBOutlet weak var myTagsButton: UIButton!
-    @IBOutlet weak var mySellsButton: UIButton!
-    @IBOutlet weak var myBuysButton: UIButton!
+//    @IBOutlet weak var alertsCountLabel: UILabel!
+//    @IBOutlet weak var myAlertsButton: UIButton!
+//    @IBOutlet weak var myTagsButton: UIButton!
+//    @IBOutlet weak var mySellsButton: UIButton!
+//    @IBOutlet weak var myBuysButton: UIButton!
 
     
     @IBOutlet weak var delete: UIButton!
-    
+    @IBOutlet weak var editButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateAlertsView()
+//        updateAlertsView()
         
-        myAlertsButton.setTitle("\u{f0f3}", forState: UIControlState.Normal)
-        myTagsButton.setTitle("\u{f02c}", forState: UIControlState.Normal)
-        mySellsButton.setTitle("\u{f155}", forState: UIControlState.Normal)
-        myBuysButton.setTitle("\u{f07a}", forState: UIControlState.Normal)
+//        myAlertsButton.setTitle("\u{f0f3}", forState: UIControlState.Normal)
+//        myTagsButton.setTitle("\u{f02c}", forState: UIControlState.Normal)
+//        mySellsButton.setTitle("\u{f155}", forState: UIControlState.Normal)
+//        myBuysButton.setTitle("\u{f07a}", forState: UIControlState.Normal)
 
         
-        delete.setTitle("\u{f05e}", forState: UIControlState.Normal)
+        delete.setTitle("\u{f1f8}", forState: UIControlState.Normal)
+        editButton.setTitle("\u{f044}", forState: UIControlState.Normal)
         
     }
     
     
-    func updateAlertsView() -> Void {
-        if UNREAD_ALERTS_COUNT == 0 {
-            self.alertsCountLabel.hidden = true
-        } else {
-            self.alertsCountLabel.text = String(UNREAD_ALERTS_COUNT)
-            self.alertsCountLabel.hidden = false
-        }
-    }
+//    func updateAlertsView() -> Void {
+//        if UNREAD_ALERTS_COUNT == 0 {
+//            self.alertsCountLabel.hidden = true
+//        } else {
+//            self.alertsCountLabel.text = String(UNREAD_ALERTS_COUNT)
+//            self.alertsCountLabel.hidden = false
+//        }
+//    }
 
     
     @IBAction func deleteIt(sender: AnyObject) {
@@ -62,4 +63,15 @@ class Menu2PostDetailsViewController: UIViewController {
         self.presentViewController(alertMessage, animated: true, completion: nil)
     }
     
+    
+    @IBAction func editIt(sender: AnyObject) {
+        let editPostViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("EditPostViewController") as! EditPostViewController
+//        imageViewController.image  = image
+//        imageViewController.index = UInt(self.imageViewControllers.count)
+//        self.imageViewControllers.append(imageViewController)
+        editPostViewController.post = self.post
+        
+        self.presentViewController(editPostViewController, animated: true, completion: nil)
+    }
+
 }

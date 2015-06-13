@@ -10,5 +10,7 @@ import Foundation
 
 class MySellTableViewCell: UITableViewCell {
     @IBOutlet weak var postedAt: UILabel!
+    @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var fee: UILabel!
     @IBOutlet weak var body: UILabel!
 }

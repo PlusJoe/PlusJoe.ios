@@ -153,7 +153,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         getCurrentLocation()
-        
+        getAlerts()
         if timer == nil {
             timer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: Selector("getAlerts"), userInfo: nil, repeats: true)
         }

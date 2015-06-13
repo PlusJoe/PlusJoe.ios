@@ -85,7 +85,8 @@ class MySellsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy hh:mm a"
         cell.postedAt.text = String(format: "%@", df.stringFromDate(post.updatedAt!))
-        
+        cell.price.text = "$ \((post[PJPOST.price])!)"
+        cell.fee.text = "$ \((post[PJPOST.fee])!)"
         cell.body.text = post[PJPOST.body] as? String
         
         return cell
@@ -109,4 +110,8 @@ class MySellsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    @IBAction func unwindAndSaveEditedPost (segue : UIStoryboardSegue) {
+        retreiveMyPosts()
+    }
+
 }
