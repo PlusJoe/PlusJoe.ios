@@ -24,7 +24,7 @@ let SUPPORTED_PAYMENT_NETWORKS = [PKPaymentNetworkVisa, PKPaymentNetworkMasterCa
 //let PJHost = "http://plusjoe.com"
 
 var DEVICE_PHONE_NUMBER = ""
-var CURRENT_USER:PFUser? = PFUser.currentUser()
+//var CURRENT_USER:PFUser? = PFUser.currentUser()
 let APP_DELEGATE:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 let USER_DEFAULTS = NSUserDefaults.standardUserDefaults()
 
@@ -89,6 +89,41 @@ extension String {
 }
 
 
+func getAlerts() -> Void {
+    UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+    PJAlert.loadUnreadAlertsCount({ (alertsCount) -> () in
+        UNREAD_ALERTS_COUNT = alertsCount
+        NSLog("There are \(alertsCount) unread alerts")
+        
+        if  alertsCount > 0 {
+            var localNotification:UILocalNotification = UILocalNotification()
+            localNotification.alertAction = "Alerts"
+            localNotification.alertBody = "There are \(alertsCount) unread alerts."
+            localNotification.fireDate = NSDate(timeIntervalSinceNow: 1)
+            UIApplication.sharedApplication().applicationIconBadgeNumber = alertsCount
+            UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        }
+        },
+        failed: { (error) -> () in
+            NSLog("Error retreiveing alerts in background: %@ %@", error, error.userInfo!)
+    })
+    
+    //        if count == 0 {
+    //            if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
+    //                while let presentedViewController = topController.presentedViewController {
+    //                    topController = presentedViewController
+    //                }
+    //                let sellViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SellViewController") as! SellViewController
+    //                topController.presentViewController(sellViewController, animated: true, completion: nil)
+    //            }
+    //
+    //        }
+//    NSLog("count \(count)")
+//    count++
+}
+
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -129,25 +164,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        BaseDataModel.clearStoredCredential()
         
         
-        // configure CURRENT_USER, register a new anonimous user if necessery
-        if  CURRENT_USER == nil {
-            PFAnonymousUtils.logInWithBlock {
-                (user: PFUser?, error: NSError?) -> Void in
-                if error != nil || user == nil {
-                    NSLog("Anonymous login failed.")
-                } else {
-                    NSLog("Anonymous user logged in.")
-                    
-                    CURRENT_USER = user
-//                    user?.username = user?.objectId
-//                    user?.password = ""
-//                    user?.saveInBackgroundWithBlock({ (suceeds:Bool, error:NSError?) -> Void in})
-                    self.getAlerts()
-
-                }
-            }
-        }
-        
         
         
         // configure stripe
@@ -156,47 +172,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         getCurrentLocation()
         if timer == nil {
-            timer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: Selector("getAlerts"), userInfo: nil, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: Selector("getAppAlerts"), userInfo: nil, repeats: true)
         }
         return true
     }
     
-    var count = 0
-    
+
     // need this wrapper function, because selecter can only invoke the function on the class
-    func getAlerts() -> Void {
-        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
-        PJAlert.loadUnreadAlertsCount({ (alertsCount) -> () in
-            UNREAD_ALERTS_COUNT = alertsCount
-            NSLog("There are \(alertsCount) unread alerts")
-            
-            if  alertsCount > 0 {
-                var localNotification:UILocalNotification = UILocalNotification()
-                localNotification.alertAction = "Alerts"
-                localNotification.alertBody = "There are \(alertsCount) unread alerts."
-                localNotification.fireDate = NSDate(timeIntervalSinceNow: 1)
-                UIApplication.sharedApplication().applicationIconBadgeNumber = alertsCount
-                UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-            }
-            },
-            failed: { (error) -> () in
-                NSLog("Error retreiveing alerts in background: %@ %@", error, error.userInfo!)
-        })
-        
-//        if count == 0 {
-//            if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
-//                while let presentedViewController = topController.presentedViewController {
-//                    topController = presentedViewController
-//                }
-//                let sellViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SellViewController") as! SellViewController
-//                topController.presentViewController(sellViewController, animated: true, completion: nil)
-//            }
-//            
-//        }
-        NSLog("count \(count)")
-        count++
+    func getAppAlerts() -> Void {
+        getAlerts()
     }
-    
     
     
     func getCurrentLocation() -> PFGeoPoint? {

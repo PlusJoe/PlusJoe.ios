@@ -164,7 +164,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         } else {
             PJChatMessage.createChatMessageAndAlert(conversation!,
                 body: chatMessageBody.text,
-                createdBy: CURRENT_USER!.objectId!,
+                createdBy: PFUser.currentUser()!.objectId!,
                 success: { (result) -> () in
 //                    self.chatMessages.insert(result, atIndex: 0)
                     self.chatMessageBody.text = ""
@@ -195,7 +195,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy hh:mm a"
 
-        if chatMessage[PJCHATMESSAGE.createdBy] as? String == CURRENT_USER!.objectId! {
+        if chatMessage[PJCHATMESSAGE.createdBy] as? String == PFUser.currentUser()!.objectId! {
             cell = self.tableView.dequeueReusableCellWithIdentifier("chat_cell") as? ChatTableViewCell
             (cell as? ChatTableViewCell)?.postedAt.text = String(format: "%@", df.stringFromDate(chatMessage.createdAt!))
             (cell as? ChatTableViewCell)?.body.text = "\((chatMessage[PJCHATMESSAGE.body])!)\n"

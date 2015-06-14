@@ -282,7 +282,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
             
             if self.conversation == nil {
                 let conversation = PJConversation.findOrCreateConversation(post!,
-                    participant2id: CURRENT_USER!.objectId!)
+                    participant2id: PFUser.currentUser()!.objectId!)
                 chatViewController.conversation = conversation
             } else {
                 chatViewController.conversation = self.conversation
@@ -292,11 +292,11 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     
     
     func allowChat() -> Bool {
-        return post?[PJPOST.createdBy]! as? String != CURRENT_USER!.objectId || conversation != nil
+        return post?[PJPOST.createdBy]! as? String != PFUser.currentUser()!.objectId! || conversation != nil
     }
 
     func allowBuy() -> Bool {
-        return post?[PJPOST.createdBy]! as? String != CURRENT_USER!.objectId
+        return post?[PJPOST.createdBy]! as? String != PFUser.currentUser()!.objectId!
     }
     
 }

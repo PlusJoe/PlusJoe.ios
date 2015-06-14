@@ -75,7 +75,7 @@ class PJChatMessage: BaseDataModel {
         for chatMessage in chatMessages {
             let alertsQuery = PFQuery(className:PJALERT.CLASS_NAME)
             alertsQuery.whereKey(PJALERT.chatMessage, equalTo: chatMessage)
-            alertsQuery.whereKey(PJALERT.targetUser, equalTo: CURRENT_USER!)
+            alertsQuery.whereKey(PJALERT.targetUser, equalTo: PFUser.currentUser()!.objectId!)
             alertsQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 for alert in objects as! [PFObject] {
                     alert[PJALERT.read] = true

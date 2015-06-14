@@ -23,7 +23,7 @@ class PJFollowing: BaseDataModel {
         failed:(error: NSError!) -> ()
         ) -> () {
             let query = PFQuery(className:PJFOLLOWING.CLASS_NAME)
-            query.whereKey(PJFOLLOWING.createdBy, equalTo: CURRENT_USER!.objectId!)
+            query.whereKey(PJFOLLOWING.createdBy, equalTo: PFUser.currentUser()!.objectId!)
             query.orderByAscending(PJFOLLOWING.hashTag)
             query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
@@ -43,7 +43,7 @@ class PJFollowing: BaseDataModel {
         var following = PFObject(className: PJFOLLOWING.CLASS_NAME)
 
         let query = PFQuery(className:PJFOLLOWING.CLASS_NAME)
-        query.whereKey(PJFOLLOWING.createdBy, equalTo: CURRENT_USER!.objectId!)
+        query.whereKey(PJFOLLOWING.createdBy, equalTo: PFUser.currentUser()!.objectId!)
         query.whereKey(PJFOLLOWING.hashTag, equalTo: hashTag)
         query.getFirstObjectInBackgroundWithBlock { (object:PFObject?, error:NSError?) -> Void in
             if error != nil || object == nil {
@@ -52,7 +52,7 @@ class PJFollowing: BaseDataModel {
                 // and create new object
                 NSLog("creating new followings: \(hashTag)")
                 following[PJFOLLOWING.location] = CURRENT_LOCATION!
-                following[PJFOLLOWING.createdBy] = CURRENT_USER!.objectId!
+                following[PJFOLLOWING.createdBy] = PFUser.currentUser()!.objectId!
                 following[PJFOLLOWING.hashTag] = hashTag
             } else {
                 // lets update existing object

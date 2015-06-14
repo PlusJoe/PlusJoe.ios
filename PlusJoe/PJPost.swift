@@ -37,14 +37,14 @@ class PJPost: BaseDataModel {
         // Interested in locations near user.
         query.whereKey(PJPOST.active, equalTo: false)
         query.whereKey(PJPOST.archived, equalTo: false)
-        query.whereKey(PJPOST.createdBy, equalTo: CURRENT_USER!.objectId!)
+        query.whereKey(PJPOST.createdBy, equalTo: PFUser.currentUser()!.objectId!)
         return query.getFirstObject()
     }
     
     class func createUnfinishedPost() -> (PFObject) {
         let newPost = PFObject(className: PJPOST.CLASS_NAME)
         newPost[PJPOST.location] = CURRENT_LOCATION!
-        newPost[PJPOST.createdBy] = CURRENT_USER!.objectId!
+        newPost[PJPOST.createdBy] = PFUser.currentUser()!.objectId!
         newPost[PJPOST.active] = false
         newPost[PJPOST.archived] = false
         newPost[PJPOST.body] = ""
@@ -72,7 +72,7 @@ class PJPost: BaseDataModel {
             queryPost.whereKey(PJPOST.active, equalTo:true)
             queryPost.whereKey(PJPOST.archived, equalTo:false)
             queryPost.whereKey(PJPOST.inappropriate, notEqualTo:true)
-            queryPost.whereKey(PJPOST.createdBy, notEqualTo: CURRENT_USER!.objectId!)
+            queryPost.whereKey(PJPOST.createdBy, notEqualTo: PFUser.currentUser()!.objectId!)
             NSLog("Searching for string \(searchText)")
             
             
@@ -117,7 +117,7 @@ class PJPost: BaseDataModel {
         failed:(error: NSError!) -> ()
         ) -> () {
             let postQuery = PFQuery(className:PJPOST.CLASS_NAME)
-            postQuery.whereKey(PJPOST.createdBy, equalTo: CURRENT_USER!.objectId!)
+            postQuery.whereKey(PJPOST.createdBy, equalTo: PFUser.currentUser()!.objectId!)
             postQuery.whereKey(PJPOST.active, equalTo:true)
             postQuery.whereKey(PJPOST.archived, equalTo:false)
             postQuery.whereKey(PJPOST.inappropriate, notEqualTo:true)
@@ -151,7 +151,7 @@ class PJPost: BaseDataModel {
                     
                     let query = PFQuery(className:PJFOLLOWING.CLASS_NAME)
                     query.whereKey(PJFOLLOWING.location, nearGeoPoint:post[PJPOST.location] as! PFGeoPoint)
-                    query.whereKey(PJFOLLOWING.createdBy, notEqualTo: CURRENT_USER!.objectId!)
+                    query.whereKey(PJFOLLOWING.createdBy, notEqualTo: PFUser.currentUser()!.objectId!)
                     query.whereKey(PJFOLLOWING.hashTag, equalTo: hashTag[PJHASHTAG.hashTag]!)
                     query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                         if error == nil {

@@ -57,7 +57,7 @@ class PJConversation: BaseDataModel {
         ) -> () {
             let conversationQuery = PFQuery(className:PJCONVERSATION.CLASS_NAME)
             conversationQuery.includeKey("post")
-            conversationQuery.whereKey(PJCONVERSATION.participants, equalTo: CURRENT_USER!.objectId!)
+            conversationQuery.whereKey(PJCONVERSATION.participants, equalTo: PFUser.currentUser()!.objectId!)
             conversationQuery.orderByDescending("updatedAt")
             
             conversationQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in

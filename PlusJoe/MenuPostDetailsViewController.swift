@@ -117,7 +117,7 @@ class MenuPostDetailsViewController: UIViewController {
             
             if self.conversation == nil {
                 let conversation = PJConversation.findOrCreateConversation(post!,
-                    participant2id: CURRENT_USER!.objectId!)
+                    participant2id: PFUser.currentUser()!.objectId!)
                 chatViewController.conversation = conversation
             } else {
                 chatViewController.conversation = self.conversation
