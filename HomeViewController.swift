@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
         
     }
     
-    
+    @IBAction func unwindFromRegistration (segue : UIStoryboardSegue) {
+    }
 }
 

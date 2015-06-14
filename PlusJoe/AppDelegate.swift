@@ -129,7 +129,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        BaseDataModel.clearStoredCredential()
         
         
-        // configure CURRENT_USER, register a new user if necessery
+        // configure CURRENT_USER, register a new anonimous user if necessery
         if  CURRENT_USER == nil {
             PFAnonymousUtils.logInWithBlock {
                 (user: PFUser?, error: NSError?) -> Void in
@@ -139,9 +139,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     NSLog("Anonymous user logged in.")
                     
                     CURRENT_USER = user
-                    user?.username = user?.objectId
-                    user?.password = ""
-                    user?.saveInBackgroundWithBlock({ (suceeds:Bool, error:NSError?) -> Void in})
+//                    user?.username = user?.objectId
+//                    user?.password = ""
+//                    user?.saveInBackgroundWithBlock({ (suceeds:Bool, error:NSError?) -> Void in})
                 }
             }
         }

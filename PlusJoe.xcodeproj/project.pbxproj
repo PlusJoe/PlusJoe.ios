@@ -99,6 +99,9 @@
 		0AEAFC1A1AC1C9E100800121 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC191AC1C9E100800121 /* libsqlite3.dylib */; };
 		0AEAFC1E1AC1CEAF00800121 /* libFlurry_6.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC1D1AC1CEAF00800121 /* libFlurry_6.2.0.a */; };
 		0AEB2F071B2B30EF0024CC5F /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB2F061B2B30EF0024CC5F /* EditPostViewController.swift */; };
+		0AEB2F0A1B2C8BD40024CC5F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB2F091B2C8BD40024CC5F /* SignInViewController.swift */; };
+		0AEB2F0C1B2D2CA10024CC5F /* ConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB2F0B1B2D2CA10024CC5F /* ConfirmEmailViewController.swift */; };
+		0AEB2F0E1B2D2CB00024CC5F /* ForgotEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB2F0D1B2D2CB00024CC5F /* ForgotEmailViewController.swift */; };
 		0AEC370D1AE2B597005F99A7 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */; };
 		0AEC37101AE4A677005F99A7 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */; };
 		0AF02E081AD5B78800792A5E /* PJHashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF02E071AD5B78800792A5E /* PJHashTag.swift */; };
@@ -238,6 +241,9 @@
 		0AEAFC1C1AC1CEAF00800121 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		0AEAFC1D1AC1CEAF00800121 /* libFlurry_6.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.2.0.a; sourceTree = "<group>"; };
 		0AEB2F061B2B30EF0024CC5F /* EditPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
+		0AEB2F091B2C8BD40024CC5F /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		0AEB2F0B1B2D2CA10024CC5F /* ConfirmEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmEmailViewController.swift; sourceTree = "<group>"; };
+		0AEB2F0D1B2D2CB00024CC5F /* ForgotEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotEmailViewController.swift; sourceTree = "<group>"; };
 		0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		0AF02E071AD5B78800792A5E /* PJHashTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJHashTag.swift; sourceTree = "<group>"; };
@@ -520,6 +526,7 @@
 				0A57C6C11AD38DA300A0D746 /* HomeViewController.swift */,
 				0A60E1C01AC8E7B4003887C5 /* Model */,
 				0AEB2F041B2A16400024CC5F /* NavMenus */,
+				0AEB2F081B2C8BAB0024CC5F /* SignIn */,
 				0A60E1C11AC8E7CF003887C5 /* CreatePost */,
 				0AF02E061AD446D800792A5E /* SearchPost */,
 				0AEB2F051B2B30A80024CC5F /* PostDetails */,
@@ -618,6 +625,16 @@
 				0AEB2F061B2B30EF0024CC5F /* EditPostViewController.swift */,
 			);
 			name = PostDetails;
+			sourceTree = "<group>";
+		};
+		0AEB2F081B2C8BAB0024CC5F /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				0AEB2F091B2C8BD40024CC5F /* SignInViewController.swift */,
+				0AEB2F0B1B2D2CA10024CC5F /* ConfirmEmailViewController.swift */,
+				0AEB2F0D1B2D2CB00024CC5F /* ForgotEmailViewController.swift */,
+			);
+			name = SignIn;
 			sourceTree = "<group>";
 		};
 		0AF02E061AD446D800792A5E /* SearchPost */ = {
@@ -788,6 +805,7 @@
 				0AD856AD1B16BB5200CAEF08 /* STPFormEncoder.m in Sources */,
 				0AEC370D1AE2B597005F99A7 /* PostDetailsViewController.swift in Sources */,
 				0AD856A11B16BB5200CAEF08 /* STPCheckoutInternalUIWebViewController.m in Sources */,
+				0AEB2F0C1B2D2CA10024CC5F /* ConfirmEmailViewController.swift in Sources */,
 				0AD856A31B16BB5200CAEF08 /* STPCheckoutViewController.m in Sources */,
 				0A8BF1311AFD40EA0058AE38 /* ChatTableViewCell.swift in Sources */,
 				0A8BF1351AFED29D0058AE38 /* AlertTableViewCell.swift in Sources */,
@@ -826,6 +844,8 @@
 				0AEC37101AE4A677005F99A7 /* ImageViewController.swift in Sources */,
 				0A1A318B1AF406F100853A30 /* CreatePostFindersFeeStepViewController.swift in Sources */,
 				0A1C41451AE0555D00270347 /* SearchDetailsViewController.swift in Sources */,
+				0AEB2F0A1B2C8BD40024CC5F /* SignInViewController.swift in Sources */,
+				0AEB2F0E1B2D2CB00024CC5F /* ForgotEmailViewController.swift in Sources */,
 				0AE7825C1B0597E4008678B8 /* PJFollowing.swift in Sources */,
 				0AD856A91B16BB5200CAEF08 /* STPAPIClient.m in Sources */,
 				0AC66FBD1AC5C1CA003C818C /* CreatePostPhotosStepViewController.swift in Sources */,
