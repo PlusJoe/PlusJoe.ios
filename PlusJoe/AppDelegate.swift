@@ -142,6 +142,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                    user?.username = user?.objectId
 //                    user?.password = ""
 //                    user?.saveInBackgroundWithBlock({ (suceeds:Bool, error:NSError?) -> Void in})
+                    self.getAlerts()
+
                 }
             }
         }
@@ -153,7 +155,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         getCurrentLocation()
-        getAlerts()
         if timer == nil {
             timer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: Selector("getAlerts"), userInfo: nil, repeats: true)
         }

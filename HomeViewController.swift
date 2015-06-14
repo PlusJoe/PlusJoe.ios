@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import Parse
 
 import UIKit
 
 class HomeViewController: UIViewController {
     
     
+    @IBOutlet weak var signedInAsLabel: UILabel!
     @IBOutlet weak var searchButton: UIButton!
  
     
@@ -21,6 +23,12 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         searchButton.setTitle("Go Do It   \u{f164}",forState: UIControlState.Normal)
+
+        if PFAnonymousUtils.isLinkedWithUser(CURRENT_USER!) {
+            signedInAsLabel.text = "Signed in as guest"
+        } else {
+            signedInAsLabel.text = "Signed in as \((CURRENT_USER?.username)!)"
+        }
         
     }
     
