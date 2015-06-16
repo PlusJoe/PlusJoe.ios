@@ -89,7 +89,11 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.postedAt.text = "Created by me on \(cell.postedAt.text!)"
         } else {
             let user = PFQuery.getUserObjectWithId(post[PJPOST.createdBy] as! String)
-            cell.postedAt.text = "\((user?.username)!) \(cell.postedAt.text!)"
+            if !PFAnonymousUtils.isLinkedWithUser(user) {
+                cell.postedAt.text = "guest \(cell.postedAt.text!)"
+            } else {
+                cell.postedAt.text = "\((user?.username)!) \(cell.postedAt.text!)"
+            }
         }
         
         cell.postBody.text = post[PJPOST.body] as? String
@@ -99,7 +103,11 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.chattedAt.text = "Replied by me on \(cell.chattedAt.text!)"
         } else {
             let user = PFQuery.getUserObjectWithId(chatMessage[PJCHATMESSAGE.createdBy] as! String)
-            cell.chattedAt.text = "\((user?.username)!) \(cell.chattedAt.text!)"
+            if !PFAnonymousUtils.isLinkedWithUser(user) {
+                cell.chattedAt.text = "guest \(cell.chattedAt.text!)"
+            } else {
+                cell.postedAt.text = "\((user?.username)!) \(cell.postedAt.text!)"
+            }
         }
         
         cell.lastChatBody.text = chatMessage[PJCHATMESSAGE.body] as? String
