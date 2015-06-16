@@ -90,16 +90,15 @@ class BuyViewController: UIViewController {
             buyWithCreditCardButton.hidden = true
         } else {
             buyWithApplePayButton.hidden = true
-            if !CardIOUtilities.canReadCardWithCamera()  {
-                // Hide your "Scan Card" button, or take other appropriate action...
-                let alertMessage = UIAlertController(title: nil, message: "You need at least one method of payment available. Either configure ApplePay, or enable access to PhotoCamera to be able to scan CreditCard image.", preferredStyle: UIAlertControllerStyle.Alert)
-                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                })
-                alertMessage.addAction(ok)
-                self.presentViewController(alertMessage, animated: true, completion: nil)
-            }                        
         }
+
+        
+        if !PFAnonymousUtils.isLinkedWithUser(PFUser.currentUser()) {
+            let signInViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SignInViewController") as! SignInViewController
+            self.presentViewController(signInViewController, animated: true, completion: nil)
+        }
+        
+
         
     }
     
