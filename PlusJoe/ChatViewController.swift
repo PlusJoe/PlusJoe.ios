@@ -194,15 +194,22 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         var cell:UITableViewCell?
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy hh:mm a"
+        let dateStr  = String(format: "%@", df.stringFromDate(chatMessage.createdAt!))
 
         if chatMessage[PJCHATMESSAGE.createdBy] as? String == PFUser.currentUser()!.objectId! {
             cell = self.tableView.dequeueReusableCellWithIdentifier("chat_cell") as? ChatTableViewCell
-            (cell as? ChatTableViewCell)?.postedAt.text = String(format: "%@", df.stringFromDate(chatMessage.createdAt!))
+            (cell as? ChatTableViewCell)?.postedAt.text = "me \(dateStr)"
             (cell as? ChatTableViewCell)?.body.text = "\((chatMessage[PJCHATMESSAGE.body])!)\n"
 
         } else {
             cell = self.tableView.dequeueReusableCellWithIdentifier("chat1_cell") as? ChatTableViewCell1
-            (cell as? ChatTableViewCell1)?.postedAt.text = String(format: "%@", df.stringFromDate(chatMessage.createdAt!))
+            
+            let user = PFQuery.getUserObjectWithId(chatMessage[PJCHATMESSAGE.createdBy] as! String)
+            if !PFAnonymousUtils.isLinkedWithUser(user) {
+                (cell as? ChatTableViewCell1)?.postedAt.text = "guest \(dateStr)"
+            } else {
+                (cell as? ChatTableViewCell)?.postedAt.text = "\((user!.username)!) \(dateStr)"
+            }
             (cell as? ChatTableViewCell1)?.body.text = "\((chatMessage[PJCHATMESSAGE.body])!)\n"
         }
 

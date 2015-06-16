@@ -100,7 +100,7 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.chattedAt.text = String(format: "%@", df.stringFromDate(chatMessage.createdAt!))
         if chatMessage[PJCHATMESSAGE.createdBy] as? String == PFUser.currentUser()!.objectId! {
-            cell.chattedAt.text = "Replied by me on \(cell.chattedAt.text!)"
+            cell.chattedAt.text = "me on \(cell.chattedAt.text!)"
         } else {
             let user = PFQuery.getUserObjectWithId(chatMessage[PJCHATMESSAGE.createdBy] as! String)
             if !PFAnonymousUtils.isLinkedWithUser(user) {

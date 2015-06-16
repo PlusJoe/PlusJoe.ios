@@ -1388,10 +1388,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iph-to-6wb">
-                                                    <rect key="frame" x="235" y="0.0" width="131" height="21"/>
+                                                    <rect key="frame" x="48" y="0.0" width="544" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="131" id="hpz-aP-7je"/>
-                                                        <constraint firstAttribute="height" constant="21" id="yLL-Y9-3n6"/>
+                                                        <constraint firstAttribute="height" constant="21" id="umI-qH-CyQ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1413,12 +1412,13 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="rg4-M8-nH8" firstAttribute="top" secondItem="iph-to-6wb" secondAttribute="bottom" constant="2" id="604-74-H88"/>
                                                 <constraint firstItem="rg4-M8-nH8" firstAttribute="leading" secondItem="At6-2E-eyA" secondAttribute="leadingMargin" constant="40" id="CPm-hQ-1Y2"/>
+                                                <constraint firstItem="rg4-M8-nH8" firstAttribute="top" secondItem="iph-to-6wb" secondAttribute="bottom" constant="2" id="Dbx-pV-N6W"/>
                                                 <constraint firstItem="rg4-M8-nH8" firstAttribute="trailing" secondItem="At6-2E-eyA" secondAttribute="trailingMargin" id="H7M-Ne-Fc5"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="rg4-M8-nH8" secondAttribute="bottom" constant="-8" id="MrJ-kU-VI2"/>
-                                                <constraint firstAttribute="centerX" secondItem="iph-to-6wb" secondAttribute="centerX" id="ZwJ-we-sox"/>
-                                                <constraint firstItem="iph-to-6wb" firstAttribute="top" secondItem="At6-2E-eyA" secondAttribute="topMargin" constant="-8" id="awd-Vx-nqs"/>
+                                                <constraint firstItem="iph-to-6wb" firstAttribute="trailing" secondItem="At6-2E-eyA" secondAttribute="trailingMargin" id="tpE-tK-RKM"/>
+                                                <constraint firstItem="iph-to-6wb" firstAttribute="top" secondItem="At6-2E-eyA" secondAttribute="topMargin" constant="-8" id="xOd-ub-uM3"/>
+                                                <constraint firstItem="iph-to-6wb" firstAttribute="leading" secondItem="At6-2E-eyA" secondAttribute="leadingMargin" constant="40" id="zka-qg-qtC"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1446,10 +1446,9 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdp-qh-I8N">
-                                                    <rect key="frame" x="235" y="0.0" width="131" height="21"/>
+                                                    <rect key="frame" x="8" y="0.0" width="544" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="8DF-OD-quZ"/>
-                                                        <constraint firstAttribute="width" constant="131" id="bSD-L6-gHl"/>
+                                                        <constraint firstAttribute="height" constant="21" id="F3J-YN-3YU"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1457,12 +1456,13 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="centerX" secondItem="Sdp-qh-I8N" secondAttribute="centerX" id="Fd2-Yp-u4E"/>
-                                                <constraint firstItem="Sdp-qh-I8N" firstAttribute="top" secondItem="oEK-Vx-F3Z" secondAttribute="topMargin" constant="-8" id="Gtk-of-rtw"/>
+                                                <constraint firstItem="Sdp-qh-I8N" firstAttribute="top" secondItem="oEK-Vx-F3Z" secondAttribute="topMargin" constant="-8" id="BRr-AF-LpC"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Sdp-qh-I8N" secondAttribute="trailing" constant="40" id="JqP-gG-4Mr"/>
+                                                <constraint firstItem="tXK-cB-UkC" firstAttribute="top" secondItem="Sdp-qh-I8N" secondAttribute="bottom" constant="2" id="NU3-SD-yfi"/>
+                                                <constraint firstItem="Sdp-qh-I8N" firstAttribute="leading" secondItem="oEK-Vx-F3Z" secondAttribute="leadingMargin" id="Xe1-KE-AAK"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="tXK-cB-UkC" secondAttribute="bottom" constant="-8" id="Xl3-UT-hi1"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="tXK-cB-UkC" secondAttribute="trailing" constant="40" id="Xqz-Fa-1Qt"/>
                                                 <constraint firstItem="tXK-cB-UkC" firstAttribute="leading" secondItem="oEK-Vx-F3Z" secondAttribute="leadingMargin" id="hUt-2E-NJR"/>
-                                                <constraint firstItem="tXK-cB-UkC" firstAttribute="top" secondItem="Sdp-qh-I8N" secondAttribute="bottom" constant="2" id="mL2-0N-D52"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
