@@ -42,7 +42,8 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
             self.alertsCountLabel.hidden = false
         }
     }
- 
+    
+
     // this method is called when done button is clicked in the create new sell workflow
     @IBAction func unwindAndSaveNewPost (segue : UIStoryboardSegue) {
         NSLog("SearchPosts seque from segue id: \(segue.identifier)")
@@ -78,7 +79,6 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         if timer == nil {
             timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("updateAlertsView"), userInfo: nil, repeats: true)
         }
@@ -114,6 +114,7 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        updateAlertsView()
         if CURRENT_LOCATION == nil {
             let alertMessage = UIAlertController(title: nil, message: "Your current location cant be detected. Turn GPS on, and/or enable PlusJoe GPS access in preferences and try again.", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in

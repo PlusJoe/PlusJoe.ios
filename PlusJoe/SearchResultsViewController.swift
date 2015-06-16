@@ -56,11 +56,13 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        updateAlertsView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         menuButton.enabled = false
+
         if timer == nil {
             timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("updateAlertsView"), userInfo: nil, repeats: true)
         }

@@ -88,7 +88,8 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if post[PJPOST.createdBy] as? String == PFUser.currentUser()!.objectId! {
             cell.postedAt.text = "Created by me on \(cell.postedAt.text!)"
         } else {
-            cell.postedAt.text = "Someone created on \(cell.postedAt.text!)"
+            let user = PFQuery.getUserObjectWithId(post[PJPOST.createdBy] as! String)
+            cell.postedAt.text = "\((user?.username)!) \(cell.postedAt.text!)"
         }
         
         cell.postBody.text = post[PJPOST.body] as? String
@@ -97,7 +98,8 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if chatMessage[PJCHATMESSAGE.createdBy] as? String == PFUser.currentUser()!.objectId! {
             cell.chattedAt.text = "Replied by me on \(cell.chattedAt.text!)"
         } else {
-            cell.chattedAt.text = "Someone replied on \(cell.chattedAt.text!)"
+            let user = PFQuery.getUserObjectWithId(chatMessage[PJCHATMESSAGE.createdBy] as! String)
+            cell.chattedAt.text = "\((user?.username)!) \(cell.chattedAt.text!)"
         }
         
         cell.lastChatBody.text = chatMessage[PJCHATMESSAGE.body] as? String

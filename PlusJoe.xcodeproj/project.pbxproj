@@ -83,7 +83,6 @@
 		0AE7825A1B053A23008678B8 /* Menu2PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE782591B053A23008678B8 /* Menu2PostDetailsViewController.swift */; };
 		0AE7825C1B0597E4008678B8 /* PJFollowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE7825B1B0597E4008678B8 /* PJFollowing.swift */; };
 		0AEAFBCF1AC0E2F900800121 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */; };
-		0AEAFBD41AC0E2F900800121 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD21AC0E2F900800121 /* Main.storyboard */; };
 		0AEAFBD61AC0E2F900800121 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD51AC0E2F900800121 /* Images.xcassets */; };
 		0AEAFBD91AC0E2F900800121 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFBD71AC0E2F900800121 /* LaunchScreen.xib */; };
 		0AEAFBE51AC0E2F900800121 /* PlusJoeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFBE41AC0E2F900800121 /* PlusJoeTests.swift */; };
@@ -100,8 +99,9 @@
 		0AEAFC1E1AC1CEAF00800121 /* libFlurry_6.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEAFC1D1AC1CEAF00800121 /* libFlurry_6.2.0.a */; };
 		0AEB2F071B2B30EF0024CC5F /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB2F061B2B30EF0024CC5F /* EditPostViewController.swift */; };
 		0AEB2F0A1B2C8BD40024CC5F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB2F091B2C8BD40024CC5F /* SignInViewController.swift */; };
-		0AEB2F0C1B2D2CA10024CC5F /* ConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB2F0B1B2D2CA10024CC5F /* ConfirmEmailViewController.swift */; };
-		0AEB2F0E1B2D2CB00024CC5F /* ForgotEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB2F0D1B2D2CB00024CC5F /* ForgotEmailViewController.swift */; };
+		0AEB2F0C1B2D2CA10024CC5F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB2F0B1B2D2CA10024CC5F /* SignUpViewController.swift */; };
+		0AEB2F101B2F38260024CC5F /* ForgotEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB2F0F1B2F38260024CC5F /* ForgotEmailViewController.swift */; };
+		0AEB2F131B2F3A400024CC5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEB2F111B2F3A3F0024CC5F /* Main.storyboard */; };
 		0AEC370D1AE2B597005F99A7 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */; };
 		0AEC37101AE4A677005F99A7 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */; };
 		0AF02E081AD5B78800792A5E /* PJHashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF02E071AD5B78800792A5E /* PJHashTag.swift */; };
@@ -222,7 +222,6 @@
 		0AEAFBC91AC0E2F900800121 /* PlusJoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusJoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEAFBCD1AC0E2F900800121 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0AEAFBD31AC0E2F900800121 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AEAFBD51AC0E2F900800121 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0AEAFBD81AC0E2F900800121 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0AEAFBDE1AC0E2F900800121 /* PlusJoeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlusJoeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,8 +241,9 @@
 		0AEAFC1D1AC1CEAF00800121 /* libFlurry_6.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.2.0.a; sourceTree = "<group>"; };
 		0AEB2F061B2B30EF0024CC5F /* EditPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
 		0AEB2F091B2C8BD40024CC5F /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		0AEB2F0B1B2D2CA10024CC5F /* ConfirmEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmEmailViewController.swift; sourceTree = "<group>"; };
-		0AEB2F0D1B2D2CB00024CC5F /* ForgotEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotEmailViewController.swift; sourceTree = "<group>"; };
+		0AEB2F0B1B2D2CA10024CC5F /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		0AEB2F0F1B2F38260024CC5F /* ForgotEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotEmailViewController.swift; sourceTree = "<group>"; };
+		0AEB2F121B2F3A400024CC5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		0AF02E071AD5B78800792A5E /* PJHashTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJHashTag.swift; sourceTree = "<group>"; };
@@ -536,9 +536,9 @@
 				0AE782541B024C0D008678B8 /* MySells */,
 				0A7BC6501B1BF8AE007AC39F /* BuySellWorflow */,
 				0AEAFBCE1AC0E2F900800121 /* AppDelegate.swift */,
-				0AEAFBD21AC0E2F900800121 /* Main.storyboard */,
 				0AEAFBD51AC0E2F900800121 /* Images.xcassets */,
 				0AEAFBD71AC0E2F900800121 /* LaunchScreen.xib */,
+				0AEB2F111B2F3A3F0024CC5F /* Main.storyboard */,
 				0AEAFBCC1AC0E2F900800121 /* Supporting Files */,
 				0AE6D3CD1AC2F6F90098011F /* PlusJoe-Bridging-Header.h */,
 			);
@@ -631,8 +631,8 @@
 			isa = PBXGroup;
 			children = (
 				0AEB2F091B2C8BD40024CC5F /* SignInViewController.swift */,
-				0AEB2F0B1B2D2CA10024CC5F /* ConfirmEmailViewController.swift */,
-				0AEB2F0D1B2D2CB00024CC5F /* ForgotEmailViewController.swift */,
+				0AEB2F0B1B2D2CA10024CC5F /* SignUpViewController.swift */,
+				0AEB2F0F1B2F38260024CC5F /* ForgotEmailViewController.swift */,
 			);
 			name = SignIn;
 			sourceTree = "<group>";
@@ -761,8 +761,8 @@
 				0AD8569E1B16BB5200CAEF08 /* StripeOSXTests-Debug.xcconfig in Resources */,
 				0AD856901B16BB5200CAEF08 /* Project-Shared.xcconfig in Resources */,
 				0AD856981B16BB5200CAEF08 /* StripeiOSStaticFramework.xcconfig in Resources */,
+				0AEB2F131B2F3A400024CC5F /* Main.storyboard in Resources */,
 				0AD8569B1B16BB5200CAEF08 /* StripeOSX-Debug.xcconfig in Resources */,
-				0AEAFBD41AC0E2F900800121 /* Main.storyboard in Resources */,
 				0AD856921B16BB5200CAEF08 /* StripeiOS Tests-Release.xcconfig in Resources */,
 				0AD856931B16BB5200CAEF08 /* StripeiOS Tests-Shared.xcconfig in Resources */,
 				0AD8569A1B16BB5200CAEF08 /* StripeiOSStaticWithoutApplePay.xcconfig in Resources */,
@@ -805,7 +805,7 @@
 				0AD856AD1B16BB5200CAEF08 /* STPFormEncoder.m in Sources */,
 				0AEC370D1AE2B597005F99A7 /* PostDetailsViewController.swift in Sources */,
 				0AD856A11B16BB5200CAEF08 /* STPCheckoutInternalUIWebViewController.m in Sources */,
-				0AEB2F0C1B2D2CA10024CC5F /* ConfirmEmailViewController.swift in Sources */,
+				0AEB2F0C1B2D2CA10024CC5F /* SignUpViewController.swift in Sources */,
 				0AD856A31B16BB5200CAEF08 /* STPCheckoutViewController.m in Sources */,
 				0A8BF1311AFD40EA0058AE38 /* ChatTableViewCell.swift in Sources */,
 				0A8BF1351AFED29D0058AE38 /* AlertTableViewCell.swift in Sources */,
@@ -845,7 +845,7 @@
 				0A1A318B1AF406F100853A30 /* CreatePostFindersFeeStepViewController.swift in Sources */,
 				0A1C41451AE0555D00270347 /* SearchDetailsViewController.swift in Sources */,
 				0AEB2F0A1B2C8BD40024CC5F /* SignInViewController.swift in Sources */,
-				0AEB2F0E1B2D2CB00024CC5F /* ForgotEmailViewController.swift in Sources */,
+				0AEB2F101B2F38260024CC5F /* ForgotEmailViewController.swift in Sources */,
 				0AE7825C1B0597E4008678B8 /* PJFollowing.swift in Sources */,
 				0AD856A91B16BB5200CAEF08 /* STPAPIClient.m in Sources */,
 				0AC66FBD1AC5C1CA003C818C /* CreatePostPhotosStepViewController.swift in Sources */,
@@ -875,20 +875,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0AEAFBD21AC0E2F900800121 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0AEAFBD31AC0E2F900800121 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0AEAFBD71AC0E2F900800121 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0AEAFBD81AC0E2F900800121 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		0AEB2F111B2F3A3F0024CC5F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0AEB2F121B2F3A400024CC5F /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

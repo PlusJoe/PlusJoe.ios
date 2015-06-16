@@ -18,9 +18,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
     
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         // Do any additional setup after loading the view, typically from a nib.
         searchButton.setTitle("Go Do It   \u{f164}",forState: UIControlState.Normal)
 
