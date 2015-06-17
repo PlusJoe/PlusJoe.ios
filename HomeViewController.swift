@@ -36,6 +36,7 @@ class HomeViewController: UIViewController {
                 }
             }
         } else {
+//            PFUser.currentUser()!.fetch()
             // the user is already signed in and it's a guest
             getAlerts()
             // the user is already signed in and it's a guest

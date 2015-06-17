@@ -26,6 +26,8 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     var conversation:PFObject?
     
     @IBOutlet weak var imagesView: UIView!
+    @IBOutlet weak var postDate: UILabel!
+    @IBOutlet weak var postUserName: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var fee: UILabel!
     @IBOutlet weak var postBody: UILabel!
@@ -58,18 +60,9 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         }
     }
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        updateAlertsView()
-    }
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        if timer == nil {
-            timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("updateAlertsView"), userInfo: nil, repeats: true)
-        }
-        
+
         // Do any additional setup after loading the view, typically from a nib.
         backNavButton.title = "\u{f053}"
         menuButton.setTitle("\u{f0c9}", forState: .Normal)
@@ -84,6 +77,17 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         shareButton.setTitle("share \u{f1e0}", forState: .Normal)
         buyButton.setTitle("buy \u{f164}", forState: .Normal)
         chatButton.setTitle("chat \u{f086}", forState: UIControlState.Normal)
+
+        if timer == nil {
+            timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("updateAlertsView"), userInfo: nil, repeats: true)
+        }
+    }
+
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        updateAlertsView()
+    
         
         // looking at my own post
         if allowChat() == false {
@@ -108,6 +112,18 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         price.text = "$\((post?[PJPOST.price] as? Int)!)"
         fee.text = "$\((post?[PJPOST.fee] as? Int)!)"
         
+        let df = NSDateFormatter()
+        df.dateFormat = "MM-dd-yyyy"
+        let dateStr  = String(format: "%@", df.stringFromDate((post?.createdAt!)!))
+
+        let user = PFQuery.getUserObjectWithId(post?[PJPOST.createdBy] as! String)
+        if PFAnonymousUtils.isLinkedWithUser(user) {
+            self.postUserName.text = "guest"
+        } else {
+            self.postUserName.text = "\((user!.username)!)"
+        }
+        
+        self.postDate.text = "\(dateStr)"
         
         // set pagination
         let options = [UIPageViewControllerOptionSpineLocationKey: UIPageViewControllerSpineLocation.Min.rawValue]

@@ -205,10 +205,10 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
             cell = self.tableView.dequeueReusableCellWithIdentifier("chat1_cell") as? ChatTableViewCell1
             
             let user = PFQuery.getUserObjectWithId(chatMessage[PJCHATMESSAGE.createdBy] as! String)
-            if !PFAnonymousUtils.isLinkedWithUser(user) {
+            if PFAnonymousUtils.isLinkedWithUser(user) {
                 (cell as? ChatTableViewCell1)?.postedAt.text = "guest \(dateStr)"
             } else {
-                (cell as? ChatTableViewCell)?.postedAt.text = "\((user!.username)!) \(dateStr)"
+                (cell as? ChatTableViewCell1)?.postedAt.text = "\((user!.username)!) \(dateStr)"
             }
             (cell as? ChatTableViewCell1)?.body.text = "\((chatMessage[PJCHATMESSAGE.body])!)\n"
         }

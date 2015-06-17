@@ -152,8 +152,9 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
             image.image = UIImage(data: imageFile)
             
             image.contentMode = .ScaleAspectFit
-            //            image.sizeToFit()
+            image.sizeToFit()
             image.clipsToBounds = true
+
             cells.last!.addSubview(image)
             embedConstrainst(cells.last!, childView: image)
         }
@@ -174,8 +175,9 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
             image.image = UIImage(data: imageFile)
             
             image.contentMode = .ScaleAspectFit
-            //            image.sizeToFit()
+            image.sizeToFit()
             image.clipsToBounds = true
+
             cells.last!.addSubview(image)
             embedConstrainst(cells.last!, childView: image)
         }
@@ -185,8 +187,9 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
             image.image = UIImage(data: imageFile)
             
             image.contentMode = .ScaleAspectFit
-            //            image.sizeToFit()
+            image.sizeToFit()
             image.clipsToBounds = true
+
             cells.last!.addSubview(image)
             embedConstrainst(cells.last!, childView: image)
         }
@@ -196,7 +199,9 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
             image.image = UIImage(data: imageFile)
             
             image.contentMode = .ScaleAspectFit
-            //            image.sizeToFit()
+            image.sizeToFit()
+            image.clipsToBounds = true
+
             image.clipsToBounds = true
             cells.last!.addSubview(image)
             embedConstrainst(cells.last!, childView: image)
