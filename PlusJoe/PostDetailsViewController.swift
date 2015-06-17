@@ -293,7 +293,11 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     
     
     func allowChat() -> Bool {
-        return post?[PJPOST.createdBy]! as? String != PFUser.currentUser()!.objectId! || conversation != nil
+        var currentUser = PFUser.currentUser()
+        if currentUser != nil {
+            return post?[PJPOST.createdBy]! as? String != PFUser.currentUser()!.objectId! || conversation != nil
+        }
+        return false
     }
 
     func allowBuy() -> Bool {

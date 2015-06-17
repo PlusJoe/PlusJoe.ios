@@ -169,6 +169,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // configure stripe
         Stripe.setDefaultPublishableKey(STRIPE_PUBLISHABLE_KEY)
         
+//        PFUser.enableAutomaticUser()
         
         getCurrentLocation()
         if timer == nil {

@@ -40,14 +40,6 @@ class SignInViewController: UIViewController {
             if user != nil {
                 // Do stuff after successful login.
                 self.dismissViewControllerAnimated(true, completion: nil)
-
-//                let alertMessage = UIAlertController(title: nil, message: "Successfully signed in as \(user?.username!)", preferredStyle: UIAlertControllerStyle.Alert)
-//                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-//                })
-//                alertMessage.addAction(ok)
-//                self.presentViewController(alertMessage, animated: true, completion: { () -> Void in
-//                    self.dismissViewControllerAnimated(true, completion: nil)
-//                })
             } else {
                 // The login failed. Check error to see why.
                 let alertMessage = UIAlertController(title: nil, message: "Try different credentials, or Register a new user.", preferredStyle: UIAlertControllerStyle.Alert)

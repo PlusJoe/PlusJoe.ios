@@ -80,17 +80,20 @@ class PJAlert: BaseDataModel {
         succeeded:(alertsCount:Int) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
-            let alertsQuery = PFQuery(className:PJALERT.CLASS_NAME)
-            alertsQuery.whereKey(PJALERT.read, equalTo: false)
-            alertsQuery.whereKey(PJALERT.targetUser, equalTo: PFUser.currentUser()!.objectId!)
-            alertsQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
-                if error == nil {
-                    succeeded(alertsCount: objects!.count)
-                } else {
-                    // Log details of the failure
-                    failed(error: error)
-                }
-            })
+            var currentUser = PFUser.currentUser()
+            if currentUser != nil {
+                let alertsQuery = PFQuery(className:PJALERT.CLASS_NAME)
+                alertsQuery.whereKey(PJALERT.read, equalTo: false)
+                alertsQuery.whereKey(PJALERT.targetUser, equalTo: currentUser!.objectId!)
+                alertsQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+                    if error == nil {
+                        succeeded(alertsCount: objects!.count)
+                    } else {
+                        // Log details of the failure
+                        failed(error: error)
+                    }
+                })
+            }
     }
 
 }

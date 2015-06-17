@@ -75,6 +75,36 @@ class BuyViewController: UIViewController {
     
     @IBOutlet weak var buyWithApplePayButton: UIButton!
     @IBOutlet weak var buyWithCreditCardButton: UIButton!
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
+        if PFAnonymousUtils.isLinkedWithUser(PFUser.currentUser()) {
+            let signInViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SignInViewController") as! SignInViewController
+            self.presentViewController(signInViewController, animated: true, completion: nil)
+        }
+        
+        PFUser.currentUser()?.fetch()
+        if PFUser.currentUser()!["emailVerified"] == nil || PFUser.currentUser()!["emailVerified"] as! Bool == false {
+            let alertMessage = UIAlertController(title: nil, message: "Unable to buy for unverified user. Check your email for verification code and try again.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+            
+            alertMessage.addAction(ok)
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+            let verifyEmail = PFUser.currentUser()?.email
+            PFUser.currentUser()?.email = "dmitry@plusjoe.com" // this should trigger verification email to be sent out
+            PFUser.currentUser()?.save()
+            PFUser.currentUser()?.email = verifyEmail // this should trigger verification email to be sent out
+            PFUser.currentUser()?.save()
+//                saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
+//                NSLog("new verification email is sent our")
+//            })
+        }
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,13 +121,6 @@ class BuyViewController: UIViewController {
         } else {
             buyWithApplePayButton.hidden = true
         }
-
-        
-        if !PFAnonymousUtils.isLinkedWithUser(PFUser.currentUser()) {
-            let signInViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SignInViewController") as! SignInViewController
-            self.presentViewController(signInViewController, animated: true, completion: nil)
-        }
-        
 
         
     }
@@ -210,4 +233,7 @@ class BuyViewController: UIViewController {
         paymentViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func unwindFromRegistration (segue : UIStoryboardSegue) {
+    }
+
 }
