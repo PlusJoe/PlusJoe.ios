@@ -1363,8 +1363,11 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="sXL-ps-UPE"/>
                                 </constraints>
                                 <color key="barTintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
                                 <items>
-                                    <navigationItem id="b4j-DN-gHq">
+                                    <navigationItem title="chat" id="b4j-DN-gHq">
                                         <barButtonItem key="leftBarButtonItem" title="&lt;" id="Tok-og-B4o">
                                             <connections>
                                                 <action selector="backButtonAction:" destination="Pwa-CV-Z39" id="tFI-sS-GhW"/>
@@ -1526,6 +1529,7 @@
                         <outlet property="backNavButton" destination="Tok-og-B4o" id="BkY-mW-Hnz"/>
                         <outlet property="chatMessageBody" destination="QT5-L6-NoS" id="djm-PZ-eqD"/>
                         <outlet property="countLabel" destination="ruO-R7-qzA" id="YVh-ag-Vef"/>
+                        <outlet property="navBar" destination="QoC-QP-tm8" id="XrB-Qb-BTe"/>
                         <outlet property="sendButton" destination="wGd-41-phY" id="yLD-0d-deZ"/>
                         <outlet property="tableView" destination="fRE-eT-nI8" id="YQi-Mp-ctg"/>
                         <outlet property="textView" destination="QT5-L6-NoS" id="yS2-aO-3DN"/>

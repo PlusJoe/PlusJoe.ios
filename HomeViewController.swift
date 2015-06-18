@@ -25,6 +25,8 @@ class HomeViewController: UIViewController {
 
         // if there is no current user, sign in as guest
         if  PFUser.currentUser() == nil {
+            
+            
             PFAnonymousUtils.logInWithBlock {
                 (user: PFUser?, error: NSError?) -> Void in
                 if error != nil || user == nil {
@@ -32,6 +34,10 @@ class HomeViewController: UIViewController {
                 } else {
                     NSLog("Anonymous user logged in.")
                     self.signedInAsLabel.text = "Signed in as guest"
+                    
+                    PFUser.currentUser()?.username = PFUser.currentUser()?.objectId!
+                    PFUser.currentUser()?.signUp()
+                    
                     getAlerts()
                 }
             }
@@ -40,7 +46,7 @@ class HomeViewController: UIViewController {
             // the user is already signed in and it's a guest
             getAlerts()
             // the user is already signed in and it's a guest
-            if PFAnonymousUtils.isLinkedWithUser(PFUser.currentUser()) {
+            if isGuestUser(PFUser.currentUser()!) {
                 signedInAsLabel.text = "Signed in as guest"
             } else {
                 signedInAsLabel.text = "Signed in as \((PFUser.currentUser()!.username)!)"

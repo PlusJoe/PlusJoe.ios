@@ -80,7 +80,7 @@ class BuyViewController: UIViewController {
         super.viewDidAppear(animated)
         
         
-        if PFAnonymousUtils.isLinkedWithUser(PFUser.currentUser()) {
+        if isGuestUser(PFUser.currentUser()!) {
             let signInViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SignInViewController") as! SignInViewController
             self.presentViewController(signInViewController, animated: true, completion: nil)
         }

@@ -15,7 +15,7 @@ class PJConversation: BaseDataModel {
     let CLASS_NAME = "Conversation"
     
     let post = "post" //: PJPost
-    let participants = "participants" //: [PFUser] // always 2 participants
+    let participants = "participants" //: [String] // always 2 participants
     
     
     

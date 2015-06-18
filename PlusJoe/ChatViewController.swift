@@ -12,6 +12,7 @@ import Parse
 class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
     var timer:NSTimer?
     
+    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var backNavButton: UIBarButtonItem!
     
     @IBOutlet weak var chatMessageBody: UITextView!
@@ -63,8 +64,23 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         chatMessageBody.textColor = UIColor.lightGrayColor()
         chatMessageBody.delegate = self
         
-        
         sendButton.setTitle("\u{f1d8}", forState: .Normal)
+        
+        
+
+        let meUserId:String = PFUser.currentUser()!.objectId!
+        let participantId:String
+        let participant:PFUser
+        
+        if (conversation?[PJCONVERSATION.participants] as! [String])[0] == meUserId {
+            participantId = (conversation?[PJCONVERSATION.participants] as! [String])[1]
+            participant = PFQuery.getUserObjectWithId(participantId)!
+        } else {
+            participantId = (conversation?[PJCONVERSATION.participants] as! [String])[0]
+            participant = PFQuery.getUserObjectWithId(participantId)!
+        }
+        
+        navBar.topItem?.title = participant.username
 
     }
     
@@ -204,11 +220,11 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         } else {
             cell = self.tableView.dequeueReusableCellWithIdentifier("chat1_cell") as? ChatTableViewCell1
             
-            let user = PFQuery.getUserObjectWithId(chatMessage[PJCHATMESSAGE.createdBy] as! String)
-            if PFAnonymousUtils.isLinkedWithUser(user) {
+            let user = PFQuery.getUserObjectWithId(chatMessage[PJCHATMESSAGE.createdBy] as! String)!
+            if isGuestUser(user) {
                 (cell as? ChatTableViewCell1)?.postedAt.text = "guest \(dateStr)"
             } else {
-                (cell as? ChatTableViewCell1)?.postedAt.text = "\((user!.username)!) \(dateStr)"
+                (cell as? ChatTableViewCell1)?.postedAt.text = "\((user.username)!) \(dateStr)"
             }
             (cell as? ChatTableViewCell1)?.body.text = "\((chatMessage[PJCHATMESSAGE.body])!)\n"
         }

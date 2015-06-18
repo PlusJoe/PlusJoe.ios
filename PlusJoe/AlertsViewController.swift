@@ -88,11 +88,11 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if post[PJPOST.createdBy] as? String == PFUser.currentUser()!.objectId! {
             cell.postedAt.text = "Created by me on \(cell.postedAt.text!)"
         } else {
-            let user = PFQuery.getUserObjectWithId(post[PJPOST.createdBy] as! String)
-            if PFAnonymousUtils.isLinkedWithUser(user) {
+            let user = PFQuery.getUserObjectWithId(post[PJPOST.createdBy] as! String)!
+            if isGuestUser(user) {
                 cell.postedAt.text = "guest \(cell.postedAt.text!)"
             } else {
-                cell.postedAt.text = "\((user?.username)!) \(cell.postedAt.text!)"
+                cell.postedAt.text = "\((user.username)!) \(cell.postedAt.text!)"
             }
         }
         
@@ -102,11 +102,11 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if chatMessage[PJCHATMESSAGE.createdBy] as? String == PFUser.currentUser()!.objectId! {
             cell.chattedAt.text = "me on \(cell.chattedAt.text!)"
         } else {
-            let user = PFQuery.getUserObjectWithId(chatMessage[PJCHATMESSAGE.createdBy] as! String)
-            if PFAnonymousUtils.isLinkedWithUser(user) {
+            let user = PFQuery.getUserObjectWithId(chatMessage[PJCHATMESSAGE.createdBy] as! String)!
+            if isGuestUser(user) {
                 cell.chattedAt.text = "guest \(cell.chattedAt.text!)"
             } else {
-                cell.chattedAt.text = "\((user?.username)!) \(cell.chattedAt.text!)"
+                cell.chattedAt.text = "\((user.username)!) \(cell.chattedAt.text!)"
             }
         }
         

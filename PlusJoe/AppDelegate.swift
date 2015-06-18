@@ -122,6 +122,12 @@ func getAlerts() -> Void {
 //    count++
 }
 
+func isGuestUser(user:PFUser) -> Bool {
+    if user.username! == user.objectId! {
+        return true
+    }
+    return false
+}
 
 
 @UIApplicationMain

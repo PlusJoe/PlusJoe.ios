@@ -116,11 +116,12 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         df.dateFormat = "MM-dd-yyyy"
         let dateStr  = String(format: "%@", df.stringFromDate((post?.createdAt!)!))
 
-        let user = PFQuery.getUserObjectWithId(post?[PJPOST.createdBy] as! String)
-        if PFAnonymousUtils.isLinkedWithUser(user) {
+        let user = PFQuery.getUserObjectWithId(post?[PJPOST.createdBy] as! String)!
+
+        if isGuestUser(user) {
             self.postUserName.text = "guest"
         } else {
-            self.postUserName.text = "\((user!.username)!)"
+            self.postUserName.text = "\((user.username)!)"
         }
         
         self.postDate.text = "\(dateStr)"
