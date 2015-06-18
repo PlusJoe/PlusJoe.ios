@@ -81,43 +81,16 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         if timer == nil {
             timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("updateAlertsView"), userInfo: nil, repeats: true)
         }
-    }
-
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        updateAlertsView()
-    
-        
-        // looking at my own post
-        if allowChat() == false {
-            chatButton.enabled = false
-            chatButton.backgroundColor = UIColor.grayColor()
-
-            sellButton.enabled = false
-            sellButton.hidden = true
-        }
-        
-        if allowBuy() == false {
-            buyButton.enabled = false
-            buyButton.backgroundColor = UIColor.grayColor()
-
-            sellButton.enabled = false
-            sellButton.hidden = true
-        }
-        
         
         
         postBody.text = post?[PJPOST.body] as? String
-        price.text = "$\((post?[PJPOST.price] as? Int)!)"
-        fee.text = "$\((post?[PJPOST.fee] as? Int)!)"
         
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy"
         let dateStr  = String(format: "%@", df.stringFromDate((post?.createdAt!)!))
-
+        
         let user = PFQuery.getUserObjectWithId(post?[PJPOST.createdBy] as! String)!
-
+        
         if isGuestUser(user) {
             self.postUserName.text = "guest"
         } else {
@@ -195,6 +168,38 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
             self.pageController!.didMoveToParentViewController(self)
             self.viewControllerAtIndex(0)
         }
+
+        
+    }
+
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        updateAlertsView()
+    
+        
+        // looking at my own post
+        if allowChat() == false {
+            chatButton.enabled = false
+            chatButton.backgroundColor = UIColor.grayColor()
+
+            sellButton.enabled = false
+            sellButton.hidden = true
+        }
+        
+        if allowBuy() == false {
+            buyButton.enabled = false
+            buyButton.backgroundColor = UIColor.grayColor()
+
+            sellButton.enabled = false
+            sellButton.hidden = true
+        }
+        
+        
+        
+        price.text = "$\((post?[PJPOST.price] as? Int)!)"
+        fee.text = "$\((post?[PJPOST.fee] as? Int)!)"
+
         
         
         

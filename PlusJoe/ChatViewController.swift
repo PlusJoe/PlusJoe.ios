@@ -80,7 +80,11 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
             participant = PFQuery.getUserObjectWithId(participantId)!
         }
         
-        navBar.topItem?.title = participant.username
+        if isGuestUser(participant) {
+            navBar.topItem?.title = "guest"
+        } else {
+            navBar.topItem?.title = participant.username
+        }
 
     }
     
