@@ -30,6 +30,10 @@ class PJPost: BaseDataModel {
     let image3file = "image3file" //: PFFile
     let image4file = "image4file" //: PFFile
     
+    let purchasedBy = "" //String
+    let purchaseStatus = "" // ""|"Pending"|"Purchased"
+    let purchasedAt = NSDate()
+    
     
     
     class func getUnfinishedPost() -> (PFObject?) {

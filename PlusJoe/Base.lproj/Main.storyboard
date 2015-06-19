@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E33b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wcr-fH-kYS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E36b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wcr-fH-kYS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -289,7 +289,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="OIB-7w-9vt">
             <objects>
-                <viewController storyboardIdentifier="ConfirmEmailViewController" id="IAs-Rh-v8O" customClass="SignUpViewController" customModule="PlusJoe" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="IAs-Rh-v8O" customClass="SignUpViewController" customModule="PlusJoe" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zd3-La-Qy5"/>
                         <viewControllerLayoutGuide type="bottom" id="vUU-WE-3WD"/>

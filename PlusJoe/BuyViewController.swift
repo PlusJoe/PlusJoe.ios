@@ -81,8 +81,8 @@ class BuyViewController: UIViewController {
         
         
         if isGuestUser(PFUser.currentUser()!) {
-            let signInViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SignInViewController") as! SignInViewController
-            self.presentViewController(signInViewController, animated: true, completion: nil)
+            let signUpViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SignUpViewController") as! SignUpViewController
+            self.presentViewController(signUpViewController, animated: true, completion: nil)
         }
         
         PFUser.currentUser()?.fetch()
