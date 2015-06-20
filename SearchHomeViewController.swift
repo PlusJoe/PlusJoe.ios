@@ -15,6 +15,7 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
 
+    @IBOutlet weak var sellButton: UIButton!
     @IBOutlet weak var alertsCountLabel: UILabel!
     @IBOutlet weak var menuButton: UIButton!
     
@@ -123,6 +124,16 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
             alertMessage.addAction(ok)
             presentViewController(alertMessage, animated: true, completion: nil)
         }
+        
+        
+        
+        var pulseAnimation:CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
+        pulseAnimation.duration = 1.0
+        pulseAnimation.toValue = NSNumber(float: 0.7)
+        pulseAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        pulseAnimation.autoreverses = true
+        pulseAnimation.repeatCount = FLT_MAX
+        sellButton.layer.addAnimation(pulseAnimation, forKey: nil)
 
     }
     
