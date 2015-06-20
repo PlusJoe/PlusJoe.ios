@@ -18,6 +18,7 @@ class PJPurchase: BaseDataModel {
     let post = "post" //PJPost
     
     let purchasedBy = "purchasedBy" //String
+    let soldBy = "soldBy" //String
     let status = "status" // ""|"Pending"|"Purchased"
     let purchasedAt = NSDate()
     
@@ -41,7 +42,8 @@ class PJPurchase: BaseDataModel {
 //                        create a new purchase object
                         let newPurchase = PFObject(className: PJPURCHASE.CLASS_NAME)
                         newPurchase[PJPURCHASE.post] = post
-                        newPurchase[PJPURCHASE.purchasedBy] = purchasedBy
+                        newPurchase[PJPURCHASE.purchasedBy] = purchasedBy.objectId!
+                        newPurchase[PJPURCHASE.soldBy] = post[PJPOST.createdBy] as! String
                         newPurchase[PJPURCHASE.status] = "Pending"
                         newPurchase.save()
                         succeeded(result: newPurchase)
@@ -54,4 +56,27 @@ class PJPurchase: BaseDataModel {
                 }
             })
     }
+    
+    class func getPendingPurchases(
+        seller:String,//seller's objectId
+        succeeded:(results:[PFObject]) -> (),
+        failed:(error: NSError!) -> ()
+        ) -> () {
+            let purchaseQuery = PFQuery(className:PJPURCHASE.CLASS_NAME)
+            purchaseQuery.includeKey("post")
+            purchaseQuery.whereKey(PJPURCHASE.soldBy, equalTo: seller)
+//            purchaseQuery.whereKey(PJPURCHASE.status, equalTo: pen)
+            
+            purchaseQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+                if error == nil  {
+                    NSLog("found \((objects?.count)!) pending purchasess")                    
+                    succeeded(results: objects as! [PFObject])
+                } else {
+                    // Log details of the failure
+                    failed(error: error)
+                }
+            })
+    }
+
+    
 }

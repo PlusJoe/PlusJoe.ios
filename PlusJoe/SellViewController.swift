@@ -12,6 +12,7 @@ class SellViewController: UIViewController {
     @IBOutlet weak var backNavButton: UIBarButtonItem!
     
     @IBAction func backButtonAction(sender: AnyObject) {
+        sellScreenActive = false
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 

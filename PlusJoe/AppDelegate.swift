@@ -89,6 +89,8 @@ extension String {
 }
 
 
+var sellScreenActive = false
+
 func getAlerts() -> Void {
     UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     PJAlert.loadUnreadAlertsCount({ (alertsCount) -> () in
@@ -108,6 +110,27 @@ func getAlerts() -> Void {
             NSLog("Error retreiveing alerts in background: %@ %@", error, error.userInfo!)
     })
     
+    
+    if sellScreenActive != true {
+        PJPurchase.getPendingPurchases(
+            (PFUser.currentUser()?.objectId!)!,
+            succeeded: { (results) -> () in
+                if results.count > 0 {
+                    if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
+                        while let presentedViewController = topController.presentedViewController {
+                            topController = presentedViewController
+                        }
+                        let sellViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SellViewController") as! SellViewController
+                        sellScreenActive = true
+                        
+                        NSLog("found purchases: \(results.count)")
+                        topController.presentViewController(sellViewController, animated: true, completion: nil)
+                    }
+                }
+            }) { (error) -> () in
+                NSLog("error retreiving purchases \(error)")
+        }
+    }
     //        if count == 0 {
     //            if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
     //                while let presentedViewController = topController.presentedViewController {
@@ -121,6 +144,8 @@ func getAlerts() -> Void {
     //    NSLog("count \(count)")
     //    count++
 }
+
+
 
 func isGuestUser(user:PFUser) -> Bool {
     if user.username! == user.objectId! {
