@@ -108,6 +108,7 @@
 		0AFB4CEF1B1F823000960E0D /* libCardIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFB4CEE1B1F823000960E0D /* libCardIO.a */; };
 		0AFB4CF11B1F829900960E0D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFB4CF01B1F829900960E0D /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		0AFB4CF31B1F82B800960E0D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFB4CF21B1F82B800960E0D /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0AFD51E01B34791900914538 /* PJPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD51DF1B34791900914538 /* PJPurchase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -257,6 +258,7 @@
 		0AFB4CEE1B1F823000960E0D /* libCardIO.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCardIO.a; sourceTree = "<group>"; };
 		0AFB4CF01B1F829900960E0D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		0AFB4CF21B1F82B800960E0D /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		0AFD51DF1B34791900914538 /* PJPurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJPurchase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +321,7 @@
 			children = (
 				0A60E1C21AC8E854003887C5 /* BaseDataModel.swift */,
 				0A60E1C41AC8ED2B003887C5 /* PJPost.swift */,
+				0AFD51DF1B34791900914538 /* PJPurchase.swift */,
 				0AF02E071AD5B78800792A5E /* PJHashTag.swift */,
 				0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */,
 				0A4C7AC11AF5D93F00C271F2 /* PJChatMessage.swift */,
@@ -828,6 +831,7 @@
 				0A4C7AC81AF9C17700C271F2 /* MenuPostDetailsViewController.swift in Sources */,
 				0AAC2E361AC4580900B60B47 /* CreatePostDescribeStepViewController.swift in Sources */,
 				0AE7825A1B053A23008678B8 /* Menu2PostDetailsViewController.swift in Sources */,
+				0AFD51E01B34791900914538 /* PJPurchase.swift in Sources */,
 				0AD856A71B16BB5200CAEF08 /* STPStrictURLProtocol.m in Sources */,
 				0AD856AE1B16BB5200CAEF08 /* STPToken.m in Sources */,
 				0AD856A51B16BB5200CAEF08 /* STPIOSCheckoutWebViewAdapter.m in Sources */,

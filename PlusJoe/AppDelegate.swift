@@ -277,5 +277,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // apple pay tutorial http://www.raywenderlich.com/87300/apple-pay-tutorial
 // one more apple pay tutorial http://nshipster.com/apple-pay/
 // scanning CC with camera https://github.com/card-io/card.io-iOS-SDK
+// generate QR code in swift http://stackoverflow.com/questions/26007484/qr-code-reader-generator-in-swift
+// qr code reader http://www.appcoda.com/qr-code-reader-swift/
 
 

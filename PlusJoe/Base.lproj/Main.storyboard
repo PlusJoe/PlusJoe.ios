@@ -1554,7 +1554,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQp-zI-dNM">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="IRc-oI-WWl"/>
+                                    <constraint firstAttribute="height" constant="44" id="ckG-Ju-cWc"/>
                                 </constraints>
                                 <color key="barTintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
@@ -1567,24 +1567,11 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFF-f8-tSJ">
-                                <rect key="frame" x="206" y="151" width="189" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="189" id="Hca-JY-lbN"/>
-                                    <constraint firstAttribute="height" constant="30" id="l73-f0-D35"/>
-                                </constraints>
-                                <state key="normal" title="buy with credit card">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buyItWithCC:" destination="L3s-3x-lro" eventType="touchUpInside" id="2WH-Us-aHg"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rf8-5D-SaR">
-                                <rect key="frame" x="230" y="103" width="141" height="40"/>
+                                <rect key="frame" x="230" y="552" width="141" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="141" id="bSV-D9-4pj"/>
-                                    <constraint firstAttribute="height" constant="40" id="cqg-nN-uF7"/>
+                                    <constraint firstAttribute="height" constant="40" id="Rvy-dy-x3R"/>
+                                    <constraint firstAttribute="width" constant="141" id="dch-EZ-hZ8"/>
                                 </constraints>
                                 <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="ApplePayBTN_32pt__whiteLine_textLogo_">
@@ -1594,22 +1581,69 @@
                                     <action selector="buyItWithApplePay:" destination="L3s-3x-lro" eventType="touchUpInside" id="QLL-Mj-bDS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFF-f8-tSJ">
+                                <rect key="frame" x="206" y="562" width="189" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="jY7-to-UbO"/>
+                                    <constraint firstAttribute="width" constant="189" id="jpI-Pc-6LJ"/>
+                                </constraints>
+                                <state key="normal" title="buy with credit card">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buyItWithCC:" destination="L3s-3x-lro" eventType="touchUpInside" id="2WH-Us-aHg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6So-7F-qtq">
+                                <rect key="frame" x="299" y="102" width="2" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="2" id="kjh-Yq-RiC"/>
+                                    <constraint firstAttribute="height" constant="21" id="qbl-T5-mVW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To complete the purchase have the seller to scan QR code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sac-3A-Qn5">
+                                <rect key="frame" x="177" y="82" width="246" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="246" id="rLu-lT-mSO"/>
+                                    <constraint firstAttribute="height" constant="40" id="sYc-ln-QOL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZGj-Oi-efe">
+                                <rect key="frame" x="200" y="131" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="6MK-ap-Lzx"/>
+                                    <constraint firstAttribute="height" constant="200" id="am2-n6-78B"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="Rf8-5D-SaR" secondAttribute="centerX" id="1x1-Wo-ddH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xQp-zI-dNM" secondAttribute="trailing" constant="-16" id="H82-fc-5NM"/>
-                            <constraint firstItem="Rf8-5D-SaR" firstAttribute="top" secondItem="xQp-zI-dNM" secondAttribute="bottom" constant="39" id="Pkp-ZE-JTH"/>
-                            <constraint firstItem="xQp-zI-dNM" firstAttribute="top" secondItem="vR2-Cr-KHA" secondAttribute="bottom" id="R2D-Xa-do8"/>
-                            <constraint firstItem="xQp-zI-dNM" firstAttribute="leading" secondItem="eCF-kd-avK" secondAttribute="leadingMargin" constant="-16" id="SUn-dc-y7a"/>
-                            <constraint firstItem="wFF-f8-tSJ" firstAttribute="top" secondItem="Rf8-5D-SaR" secondAttribute="bottom" constant="8" id="aIc-VO-ahU"/>
-                            <constraint firstAttribute="centerX" secondItem="wFF-f8-tSJ" secondAttribute="centerX" id="ueo-0D-6g3"/>
+                            <constraint firstItem="ZGj-Oi-efe" firstAttribute="top" secondItem="sac-3A-Qn5" secondAttribute="bottom" constant="9" id="3gy-0E-5Jn"/>
+                            <constraint firstItem="zfg-zO-9lB" firstAttribute="top" secondItem="wFF-f8-tSJ" secondAttribute="bottom" constant="8" id="6t8-jA-SzX"/>
+                            <constraint firstItem="xQp-zI-dNM" firstAttribute="leading" secondItem="eCF-kd-avK" secondAttribute="leadingMargin" constant="-16" id="BQ6-1E-ckV"/>
+                            <constraint firstItem="xQp-zI-dNM" firstAttribute="top" secondItem="vR2-Cr-KHA" secondAttribute="bottom" id="DRN-DL-3xQ"/>
+                            <constraint firstItem="6So-7F-qtq" firstAttribute="top" secondItem="eCF-kd-avK" secondAttribute="topMargin" constant="102" id="LSN-QV-xkh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xQp-zI-dNM" secondAttribute="trailing" constant="-16" id="YCG-3X-Yyr"/>
+                            <constraint firstAttribute="centerX" secondItem="ZGj-Oi-efe" secondAttribute="centerX" id="ezY-w5-zOg"/>
+                            <constraint firstAttribute="centerX" secondItem="sac-3A-Qn5" secondAttribute="centerX" id="i3x-OG-RPy"/>
+                            <constraint firstAttribute="centerX" secondItem="6So-7F-qtq" secondAttribute="centerX" id="jhm-Wm-Z90"/>
+                            <constraint firstAttribute="centerX" secondItem="wFF-f8-tSJ" secondAttribute="centerX" id="rOA-lv-jNA"/>
+                            <constraint firstItem="zfg-zO-9lB" firstAttribute="top" secondItem="Rf8-5D-SaR" secondAttribute="bottom" constant="8" id="w9o-hm-IjA"/>
+                            <constraint firstAttribute="centerX" secondItem="Rf8-5D-SaR" secondAttribute="centerX" id="y5H-cH-0jE"/>
+                            <constraint firstItem="sac-3A-Qn5" firstAttribute="top" secondItem="xQp-zI-dNM" secondAttribute="bottom" constant="18" id="zXs-rL-EcS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backNavButton" destination="nwF-cJ-9EJ" id="Rkr-bW-Uuz"/>
                         <outlet property="buyWithApplePayButton" destination="Rf8-5D-SaR" id="5ow-v6-GTe"/>
                         <outlet property="buyWithCreditCardButton" destination="wFF-f8-tSJ" id="KNd-EG-yFj"/>
+                        <outlet property="qrImageView" destination="ZGj-Oi-efe" id="CdS-ig-88B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BAY-dl-rHH" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -73,6 +73,7 @@ class BuyViewController: UIViewController {
     }
 
     
+    @IBOutlet weak var qrImageView: UIImageView!
     @IBOutlet weak var buyWithApplePayButton: UIButton!
     @IBOutlet weak var buyWithCreditCardButton: UIButton!
 
@@ -122,6 +123,9 @@ class BuyViewController: UIViewController {
             buyWithApplePayButton.hidden = true
         }
 
+        //here generate a new purchase and encode it in QR code plusjoe://purchases/123123
+        
+        qrImageView.image = generateQRImage("hohoho")
         
     }
     
@@ -236,4 +240,35 @@ class BuyViewController: UIViewController {
     @IBAction func unwindFromRegistration (segue : UIStoryboardSegue) {
     }
 
+    
+    
+//    func generateQRImage(stringQR:NSString, withSizeRate rate:CGFloat) -> UIImage
+    func generateQRImage(stringQR:NSString) -> UIImage
+    {
+        var filter:CIFilter = CIFilter(name:"CIQRCodeGenerator")
+        filter.setDefaults()
+        
+        var data:NSData = stringQR.dataUsingEncoding(NSUTF8StringEncoding)!
+        filter.setValue(data, forKey: "inputMessage")
+        
+        var outputImg:CIImage = filter.outputImage
+        
+        var context:CIContext = CIContext(options: nil)
+        var cgimg:CGImageRef = context.createCGImage(outputImg, fromRect: outputImg.extent())
+        
+        var img:UIImage = UIImage(CGImage: cgimg, scale: 1.0, orientation: UIImageOrientation.Up)!
+        
+//        let width  = img.size.width * rate
+//        let height = img.size.height * rate
+        let width  = CGFloat(200)
+        let height = CGFloat(200)
+        
+        UIGraphicsBeginImageContext(CGSizeMake(width, height))
+        var cgContxt:CGContextRef = UIGraphicsGetCurrentContext()
+        CGContextSetInterpolationQuality(cgContxt, kCGInterpolationNone)
+        img.drawInRect(CGRectMake(0, 0, width, height))
+        img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return img
+    }
 }
