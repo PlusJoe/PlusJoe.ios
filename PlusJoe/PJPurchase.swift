@@ -17,20 +17,19 @@ class PJPurchase: BaseDataModel {
     
     let post = "post" //PJPost
     
-    let purchasedBy = "" //String
-    let status = "" // ""|"Pending"|"Purchased"
+    let purchasedBy = "purchasedBy" //String
+    let status = "status" // ""|"Pending"|"Purchased"
     let purchasedAt = NSDate()
     
     
     
     class func createOrSelectPurchase(
-        post:PJPost,
+        post:PFObject,
         purchasedBy: PFUser, // currentUser
         succeeded:(result:PFObject) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
             //first see if the purchase already created
-            
             let purchaseQuery = PFQuery(className:PJPURCHASE.CLASS_NAME)
 //            purchaeQuery.includeKey("post")
             purchaseQuery.whereKey(PJPURCHASE.post, equalTo: post)
@@ -40,20 +39,12 @@ class PJPurchase: BaseDataModel {
                 if error == nil  {
                     if objects?.count == 0 {
 //                        create a new purchase object
-                        
-                        
                         let newPurchase = PFObject(className: PJPURCHASE.CLASS_NAME)
                         newPurchase[PJPURCHASE.post] = post
                         newPurchase[PJPURCHASE.purchasedBy] = purchasedBy
                         newPurchase[PJPURCHASE.status] = "Pending"
-                        newPurchase.saveInBackgroundWithBlock({ (succeeded2:Bool, error2:NSError?) -> Void in
-                            if error2 == nil {
-                                succeeded(result: newPurchase)
-                            } else {
-                                failed(error: error2)
-                            }
-                        })
-
+                        newPurchase.save()
+                        succeeded(result: newPurchase)
                     } else {
                         succeeded(result: objects?[0] as! PFObject)
                     }

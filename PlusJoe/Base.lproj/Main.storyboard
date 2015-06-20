@@ -1137,7 +1137,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="L3s-3x-lro" kind="show" id="MFM-IA-fow"/>
+                                    <segue destination="L3s-3x-lro" kind="show" identifier="BuyViewControllerSegue" id="MFM-IA-fow"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1a-pP-1aw">

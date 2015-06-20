@@ -118,8 +118,8 @@ func getAlerts() -> Void {
     //            }
     //
     //        }
-//    NSLog("count \(count)")
-//    count++
+    //    NSLog("count \(count)")
+    //    count++
 }
 
 func isGuestUser(user:PFUser) -> Bool {
@@ -127,6 +127,38 @@ func isGuestUser(user:PFUser) -> Bool {
         return true
     }
     return false
+}
+
+
+
+//    func generateQRImage(stringQR:NSString, withSizeRate rate:CGFloat) -> UIImage
+func generateQRImage(stringQR:NSString) -> UIImage
+{
+    var filter:CIFilter = CIFilter(name:"CIQRCodeGenerator")
+    filter.setDefaults()
+    
+    var data:NSData = stringQR.dataUsingEncoding(NSUTF8StringEncoding)!
+    filter.setValue(data, forKey: "inputMessage")
+    
+    var outputImg:CIImage = filter.outputImage
+    
+    var context:CIContext = CIContext(options: nil)
+    var cgimg:CGImageRef = context.createCGImage(outputImg, fromRect: outputImg.extent())
+    
+    var img:UIImage = UIImage(CGImage: cgimg, scale: 1.0, orientation: UIImageOrientation.Up)!
+    
+    //        let width  = img.size.width * rate
+    //        let height = img.size.height * rate
+    let width  = CGFloat(200)
+    let height = CGFloat(200)
+    
+    UIGraphicsBeginImageContext(CGSizeMake(width, height))
+    var cgContxt:CGContextRef = UIGraphicsGetCurrentContext()
+    CGContextSetInterpolationQuality(cgContxt, kCGInterpolationNone)
+    img.drawInRect(CGRectMake(0, 0, width, height))
+    img = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return img
 }
 
 
@@ -175,7 +207,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // configure stripe
         Stripe.setDefaultPublishableKey(STRIPE_PUBLISHABLE_KEY)
         
-//        PFUser.enableAutomaticUser()
+        //        PFUser.enableAutomaticUser()
         
         getCurrentLocation()
         if timer == nil {
@@ -184,7 +216,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-
+    
     // need this wrapper function, because selecter can only invoke the function on the class
     func getAppAlerts() -> Void {
         getAlerts()

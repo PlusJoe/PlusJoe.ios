@@ -65,18 +65,20 @@ extension BuyViewController: PKPaymentAuthorizationViewControllerDelegate, CardI
 
 class BuyViewController: UIViewController {
     
+    var post:PFObject?
+    
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
-
+    
     @IBAction func backButtonAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
     
     @IBOutlet weak var qrImageView: UIImageView!
     @IBOutlet weak var buyWithApplePayButton: UIButton!
     @IBOutlet weak var buyWithCreditCardButton: UIButton!
-
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -100,11 +102,11 @@ class BuyViewController: UIViewController {
             PFUser.currentUser()?.save()
             PFUser.currentUser()?.email = verifyEmail // this should trigger verification email to be sent out
             PFUser.currentUser()?.save()
-//                saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
-//                NSLog("new verification email is sent our")
-//            })
+            //                saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
+            //                NSLog("new verification email is sent our")
+            //            })
         }
-
+        
     }
     
     override func viewDidLoad() {
@@ -122,10 +124,20 @@ class BuyViewController: UIViewController {
         } else {
             buyWithApplePayButton.hidden = true
         }
-
-        //here generate a new purchase and encode it in QR code plusjoe://purchases/123123
         
-        qrImageView.image = generateQRImage("hohoho")
+        //here generate a new purchase and encode it in QR code plusjoe://purchases/123123
+        PJPurchase.createOrSelectPurchase(post!, purchasedBy: PFUser.currentUser()!,
+            succeeded: { (result) -> () in
+                self.qrImageView.image = generateQRImage("plusjoe://purchases/\(result.objectId!)")
+            })
+            { (error) -> () in
+                //            let alertMessage = UIAlertController(title: nil, message: "Unable to generate QR code.", preferredStyle: UIAlertControllerStyle.Alert)
+                //            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                //                self.dismissViewControllerAnimated(true, completion: nil)
+                //            })
+                //            alertMessage.addAction(ok)
+                //            self.presentViewController(alertMessage, animated: true, completion: nil)
+        }
         
     }
     
@@ -164,8 +176,8 @@ class BuyViewController: UIViewController {
         }
         
     }
-
-
+    
+    
     @IBAction func buyItWithCC(sender: AnyObject) {
         var cardIOVC = CardIOPaymentViewController(paymentDelegate: self)
         cardIOVC.modalPresentationStyle = .FormSheet
@@ -173,14 +185,14 @@ class BuyViewController: UIViewController {
     }
     
     func userDidCancelPaymentViewController(paymentViewController: CardIOPaymentViewController!) {
-//        resultLabel.text = "user canceled"
+        //        resultLabel.text = "user canceled"
         paymentViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func userDidProvideCreditCardInfo(cardInfo: CardIOCreditCardInfo!, inPaymentViewController paymentViewController: CardIOPaymentViewController!) {
         if let info = cardInfo {
             let str = NSString(format: "Received card info.\n Number: %@\n expiry: %02lu/%lu\n cvv: %@.", info.redactedCardNumber, info.expiryMonth, info.expiryYear, info.cvv)
-
+            
             NSLog(str as String)
             
             
@@ -201,7 +213,7 @@ class BuyViewController: UIViewController {
                         self.presentViewController(alertMessage, animated: true, completion: nil)
                         
                     } else {
-
+                        
                         let requestInfo = [
                             "cardToken": token!.tokenId,
                             "price": 1.10
@@ -224,7 +236,7 @@ class BuyViewController: UIViewController {
                                     })
                                     alertMessage.addAction(ok)
                                     self.presentViewController(alertMessage, animated: true, completion: nil)
-
+                                    
                                 }
                         })
                         
@@ -238,37 +250,5 @@ class BuyViewController: UIViewController {
     }
     
     @IBAction func unwindFromRegistration (segue : UIStoryboardSegue) {
-    }
-
-    
-    
-//    func generateQRImage(stringQR:NSString, withSizeRate rate:CGFloat) -> UIImage
-    func generateQRImage(stringQR:NSString) -> UIImage
-    {
-        var filter:CIFilter = CIFilter(name:"CIQRCodeGenerator")
-        filter.setDefaults()
-        
-        var data:NSData = stringQR.dataUsingEncoding(NSUTF8StringEncoding)!
-        filter.setValue(data, forKey: "inputMessage")
-        
-        var outputImg:CIImage = filter.outputImage
-        
-        var context:CIContext = CIContext(options: nil)
-        var cgimg:CGImageRef = context.createCGImage(outputImg, fromRect: outputImg.extent())
-        
-        var img:UIImage = UIImage(CGImage: cgimg, scale: 1.0, orientation: UIImageOrientation.Up)!
-        
-//        let width  = img.size.width * rate
-//        let height = img.size.height * rate
-        let width  = CGFloat(200)
-        let height = CGFloat(200)
-        
-        UIGraphicsBeginImageContext(CGSizeMake(width, height))
-        var cgContxt:CGContextRef = UIGraphicsGetCurrentContext()
-        CGContextSetInterpolationQuality(cgContxt, kCGInterpolationNone)
-        img.drawInRect(CGRectMake(0, 0, width, height))
-        img = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return img
     }
 }

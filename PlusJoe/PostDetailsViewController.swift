@@ -195,18 +195,10 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
             sellButton.hidden = true
         }
         
-        
-        
         price.text = "$\((post?[PJPOST.price] as? Int)!)"
         fee.text = "$\((post?[PJPOST.fee] as? Int)!)"
 
-        
-        
-        
     }
-    
-    
-    
     
     
     
@@ -311,6 +303,16 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
                 chatViewController.conversation = self.conversation
             }
         }
+        
+
+        if(segue.identifier == "BuyViewControllerSegue") {
+            
+            var buyViewController = segue.destinationViewController as! BuyViewController
+            buyViewController.post = post
+        }
+
+        
+        
     }
     
     
