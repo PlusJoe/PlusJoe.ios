@@ -127,9 +127,9 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
         
         
         
-        var pulseAnimation:CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
+        var pulseAnimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
         pulseAnimation.duration = 1.0
-        pulseAnimation.toValue = NSNumber(float: 0.7)
+        pulseAnimation.toValue = NSNumber(float: 0.3)
         pulseAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         pulseAnimation.autoreverses = true
         pulseAnimation.repeatCount = FLT_MAX
