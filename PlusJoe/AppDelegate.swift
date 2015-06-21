@@ -32,7 +32,7 @@ var CURRENT_LOCATION:PFGeoPoint! = nil // the app will only work if the current 
 
 var UNFINISHED_POST:PFObject! = nil // we use this to store intermidiary post object
 var UNREAD_ALERTS_COUNT = 0
-
+var PENDING_SALES_PRESENT = false
 
 
 func roundMoney(number: Double) -> Double {
@@ -89,8 +89,6 @@ extension String {
 }
 
 
-var sellScreenActive = false
-
 func getAlerts() -> Void {
     UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     PJAlert.loadUnreadAlertsCount({ (alertsCount) -> () in
@@ -110,27 +108,9 @@ func getAlerts() -> Void {
             NSLog("Error retreiveing alerts in background: %@ %@", error, error.userInfo!)
     })
     
+    PENDING_SALES_PRESENT = PJPurchase.arePendingPurchasesPresent()
     
-    if sellScreenActive != true {
-        PJPurchase.getPendingPurchases(
-            (PFUser.currentUser()?.objectId!)!,
-            succeeded: { (results) -> () in
-                if results.count > 0 {
-                    if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
-                        while let presentedViewController = topController.presentedViewController {
-                            topController = presentedViewController
-                        }
-                        let sellViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SellViewController") as! SellViewController
-                        sellScreenActive = true
-                        
-                        NSLog("found purchases: \(results.count)")
-                        topController.presentViewController(sellViewController, animated: true, completion: nil)
-                    }
-                }
-            }) { (error) -> () in
-                NSLog("error retreiving purchases \(error)")
-        }
-    }
+    
     //        if count == 0 {
     //            if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
     //                while let presentedViewController = topController.presentedViewController {
@@ -184,6 +164,32 @@ func generateQRImage(stringQR:NSString) -> UIImage
     img = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     return img
+}
+
+func addPulseAnimation(layer:CALayer) {
+    if layer.animationForKey("scale") == nil {
+        var pulseAnimation1:CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
+        pulseAnimation1.duration = 1.0
+        pulseAnimation1.toValue = NSNumber(float: 0.85)
+        pulseAnimation1.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        pulseAnimation1.autoreverses = true
+        pulseAnimation1.repeatCount = FLT_MAX
+        
+        var pulseAnimation2:CABasicAnimation = CABasicAnimation(keyPath: "opacity");
+        pulseAnimation2.duration = 1.0
+        pulseAnimation2.toValue = NSNumber(float: 0.7)
+        pulseAnimation2.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        pulseAnimation2.autoreverses = true
+        pulseAnimation2.repeatCount = FLT_MAX
+        
+        layer.addAnimation(pulseAnimation1, forKey: "scale")
+        layer.addAnimation(pulseAnimation2, forKey: "opacity")
+    }
+}
+
+func removePulseAnimation(layer:CALayer) {
+    layer.removeAnimationForKey("scale")
+    layer.removeAnimationForKey("opacity")
 }
 
 
@@ -296,7 +302,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         NSLog("received local notification")
-        application.applicationIconBadgeNumber = UNREAD_ALERTS_COUNT
+        application.applicationIconBadgeNumber = UNREAD_ALERTS_COUNT + Int(PENDING_SALES_PRESENT)
         //        NSLog("tabBarController is nil:\(tabBarController == nil)")
         //        if tabBarController != nil {
         //            let tabArray = self.tabBarController?.tabBar.items as NSArray!
@@ -336,5 +342,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // scanning CC with camera https://github.com/card-io/card.io-iOS-SDK
 // generate QR code in swift http://stackoverflow.com/questions/26007484/qr-code-reader-generator-in-swift
 // qr code reader http://www.appcoda.com/qr-code-reader-swift/
+// pulse effect http://stackoverflow.com/questions/8083138/ios-how-to-do-a-native-pulse-effect-animation-on-a-uibutton
 
 

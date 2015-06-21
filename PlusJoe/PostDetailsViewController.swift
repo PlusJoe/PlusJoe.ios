@@ -58,6 +58,13 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
                 self.alertsCountLabel.hidden = false
             }
         }
+        if PENDING_SALES_PRESENT == true {
+            addPulseAnimation(sellButton.layer)
+        } else {
+            removePulseAnimation(sellButton.layer)
+
+        }
+
     }
 
     override func viewDidLoad() {

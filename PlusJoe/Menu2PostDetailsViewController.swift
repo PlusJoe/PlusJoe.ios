@@ -39,15 +39,6 @@ class Menu2PostDetailsViewController: UIViewController {
         
     }
     
-    
-//    func updateAlertsView() -> Void {
-//        if UNREAD_ALERTS_COUNT == 0 {
-//            self.alertsCountLabel.hidden = true
-//        } else {
-//            self.alertsCountLabel.text = String(UNREAD_ALERTS_COUNT)
-//            self.alertsCountLabel.hidden = false
-//        }
-//    }
 
     
     @IBAction func deleteIt(sender: AnyObject) {

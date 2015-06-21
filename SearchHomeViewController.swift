@@ -42,6 +42,12 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
             self.alertsCountLabel.text = String(UNREAD_ALERTS_COUNT)
             self.alertsCountLabel.hidden = false
         }
+        if PENDING_SALES_PRESENT == true {
+            addPulseAnimation(sellButton.layer)
+        } else {
+            removePulseAnimation(sellButton.layer)
+        }
+
     }
     
 
@@ -124,18 +130,9 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
             alertMessage.addAction(ok)
             presentViewController(alertMessage, animated: true, completion: nil)
         }
-        
-        
-        
-        var pulseAnimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
-        pulseAnimation.duration = 1.0
-        pulseAnimation.toValue = NSNumber(float: 0.3)
-        pulseAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        pulseAnimation.autoreverses = true
-        pulseAnimation.repeatCount = FLT_MAX
-        sellButton.layer.addAnimation(pulseAnimation, forKey: nil)
 
     }
+
     
     
     func textFieldTextChanged(sender : AnyObject) {

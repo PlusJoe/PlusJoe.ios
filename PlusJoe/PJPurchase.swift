@@ -32,14 +32,14 @@ class PJPurchase: BaseDataModel {
         ) -> () {
             //first see if the purchase already created
             let purchaseQuery = PFQuery(className:PJPURCHASE.CLASS_NAME)
-//            purchaeQuery.includeKey("post")
+            //            purchaeQuery.includeKey("post")
             purchaseQuery.whereKey(PJPURCHASE.post, equalTo: post)
             purchaseQuery.whereKey(PJPURCHASE.purchasedBy, equalTo: purchasedBy)
             
             purchaseQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil  {
                     if objects?.count == 0 {
-//                        create a new purchase object
+                        //                        create a new purchase object
                         let newPurchase = PFObject(className: PJPURCHASE.CLASS_NAME)
                         newPurchase[PJPURCHASE.post] = post
                         newPurchase[PJPURCHASE.purchasedBy] = purchasedBy.objectId!
@@ -57,26 +57,16 @@ class PJPurchase: BaseDataModel {
             })
     }
     
-    class func getPendingPurchases(
-        seller:String,//seller's objectId
-        succeeded:(results:[PFObject]) -> (),
-        failed:(error: NSError!) -> ()
-        ) -> () {
-            let purchaseQuery = PFQuery(className:PJPURCHASE.CLASS_NAME)
-            purchaseQuery.includeKey("post")
-            purchaseQuery.whereKey(PJPURCHASE.soldBy, equalTo: seller)
-//            purchaseQuery.whereKey(PJPURCHASE.status, equalTo: pen)
-            
-            purchaseQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
-                if error == nil  {
-                    NSLog("found \((objects?.count)!) pending purchasess")                    
-                    succeeded(results: objects as! [PFObject])
-                } else {
-                    // Log details of the failure
-                    failed(error: error)
-                }
-            })
+    class func arePendingPurchasesPresent() -> (Bool) {
+        let purchaseQuery = PFQuery(className:PJPURCHASE.CLASS_NAME)
+        purchaseQuery.whereKey(PJPURCHASE.soldBy, equalTo: (PFUser.currentUser()?.objectId)!)
+        purchaseQuery.whereKey(PJPURCHASE.status, equalTo: "Pending")
+ 
+        if purchaseQuery.countObjects() == 0 {
+            return false
+        }
+        return true
     }
-
+    
     
 }

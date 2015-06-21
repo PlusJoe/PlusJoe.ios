@@ -27,6 +27,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     
     @IBOutlet weak var navBar: UINavigationBar!
     
+    @IBOutlet weak var sellButton: UIButton!
     @IBOutlet weak var postView: UIView!
     
     var posts:[PFObject] = [PFObject]()
@@ -51,6 +52,12 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
             self.alertsCountLabel.text = String(UNREAD_ALERTS_COUNT)
             self.alertsCountLabel.hidden = false
         }
+        if PENDING_SALES_PRESENT == true {
+            addPulseAnimation(sellButton.layer)
+        } else {
+            removePulseAnimation(sellButton.layer)
+        }
+
     }
 
     

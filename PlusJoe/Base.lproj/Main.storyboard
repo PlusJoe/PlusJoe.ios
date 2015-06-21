@@ -1064,6 +1064,7 @@
                         <outlet property="navBar" destination="MSf-lC-Rov" id="RCW-tk-CKz"/>
                         <outlet property="pageView" destination="E0E-IY-Tij" id="p0T-PC-2RN"/>
                         <outlet property="postView" destination="E0E-IY-Tij" id="igq-9u-yYl"/>
+                        <outlet property="sellButton" destination="bgk-rf-KsW" id="2Pv-gS-dwo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RvG-il-0Cw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3100,10 +3101,10 @@ By clicking "next &gt;" you agree to terms and conditions.</string>
         <image name="photo" width="97" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fjX-3f-ZFG"/>
         <segue reference="ata-Pl-mmo"/>
         <segue reference="SR4-vJ-6e0"/>
         <segue reference="gcQ-rb-Y4Y"/>
-        <segue reference="V5Z-BX-104"/>
+        <segue reference="bLZ-0h-Vos"/>
+        <segue reference="BuD-Bt-6x2"/>
     </inferredMetricsTieBreakers>
 </document>
