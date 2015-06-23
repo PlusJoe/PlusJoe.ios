@@ -24,32 +24,33 @@ class PJPurchase: BaseDataModel {
     
     
     
-    class func createOrSelectPurchase(
+    class func createPurchase(
         post:PFObject,
-        purchasedBy: PFUser, // currentUser
+//        purchasedBy: PFUser, // currentUser
         succeeded:(result:PFObject) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
             //first see if the purchase already created
             let purchaseQuery = PFQuery(className:PJPURCHASE.CLASS_NAME)
             //            purchaeQuery.includeKey("post")
-            purchaseQuery.whereKey(PJPURCHASE.post, equalTo: post)
-            purchaseQuery.whereKey(PJPURCHASE.purchasedBy, equalTo: purchasedBy)
+//            purchaseQuery.whereKey(PJPURCHASE.post, equalTo: post)
+            purchaseQuery.whereKey(PJPURCHASE.purchasedBy, equalTo: (PFUser.currentUser()?.objectId)!)
+            purchaseQuery.whereKey(PJPURCHASE.status, equalTo: "Pending")
             
             purchaseQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil  {
-                    if objects?.count == 0 {
-                        //                        create a new purchase object
-                        let newPurchase = PFObject(className: PJPURCHASE.CLASS_NAME)
-                        newPurchase[PJPURCHASE.post] = post
-                        newPurchase[PJPURCHASE.purchasedBy] = purchasedBy.objectId!
-                        newPurchase[PJPURCHASE.soldBy] = post[PJPOST.createdBy] as! String
-                        newPurchase[PJPURCHASE.status] = "Pending"
-                        newPurchase.save()
-                        succeeded(result: newPurchase)
-                    } else {
-                        succeeded(result: objects?[0] as! PFObject)
+                    for purchase in (objects as! [PFObject]) {
+                        purchase.deleteInBackgroundWithBlock(nil)
                     }
+                    
+                    //                        create a new purchase object
+                    let newPurchase = PFObject(className: PJPURCHASE.CLASS_NAME)
+                    newPurchase[PJPURCHASE.post] = post
+                    newPurchase[PJPURCHASE.purchasedBy] = PFUser.currentUser()?.objectId!
+                    newPurchase[PJPURCHASE.soldBy] = post[PJPOST.createdBy] as! String
+                    newPurchase[PJPURCHASE.status] = "Pending"
+                    newPurchase.save()
+                    succeeded(result: newPurchase)
                 } else {
                     // Log details of the failure
                     failed(error: error)

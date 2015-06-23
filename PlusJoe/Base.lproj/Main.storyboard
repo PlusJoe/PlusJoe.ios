@@ -556,7 +556,7 @@
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="ea3-Qz-A6u" kind="show" id="V5Z-BX-104"/>
+                                                            <action selector="sellButtonAction:" destination="Uf5-hC-ZBj" eventType="touchUpInside" id="3he-X9-FWd"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1011,7 +1011,7 @@
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="ea3-Qz-A6u" kind="show" id="BuD-Bt-6x2"/>
+                                                            <action selector="sellButtonAction:" destination="LoE-Pl-xOk" eventType="touchUpInside" id="eI7-f8-vHP"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1251,7 +1251,7 @@
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="ea3-Qz-A6u" kind="show" id="Wb3-RN-P3O"/>
+                                                            <action selector="sellButtonAction:" destination="vqn-qR-0zV" eventType="touchUpInside" id="38n-lz-gbx"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -2063,7 +2063,7 @@
         <!--Create Post Describe Step View Controller-->
         <scene sceneID="91s-kg-tSt">
             <objects>
-                <viewController id="ea3-Qz-A6u" customClass="CreatePostDescribeStepViewController" customModule="PlusJoe" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreatePostDescribeStepViewController" id="ea3-Qz-A6u" customClass="CreatePostDescribeStepViewController" customModule="PlusJoe" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Jk-LC-Eam"/>
                         <viewControllerLayoutGuide type="bottom" id="HOY-cb-Hup"/>
@@ -3105,6 +3105,5 @@ By clicking "next &gt;" you agree to terms and conditions.</string>
         <segue reference="SR4-vJ-6e0"/>
         <segue reference="gcQ-rb-Y4Y"/>
         <segue reference="bLZ-0h-Vos"/>
-        <segue reference="BuD-Bt-6x2"/>
     </inferredMetricsTieBreakers>
 </document>

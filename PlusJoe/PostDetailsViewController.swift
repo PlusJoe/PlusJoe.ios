@@ -49,6 +49,18 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     }
     
     
+    @IBAction func sellButtonAction(sender: AnyObject) {
+        if PJPurchase.arePendingPurchasesPresent() {
+            let sellViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SellViewController") as! SellViewController
+            self.presentViewController(sellViewController, animated: true, completion: nil)
+            
+        } else {
+            let createPostDescribeStepViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("CreatePostDescribeStepViewController") as! CreatePostDescribeStepViewController
+            self.presentViewController(createPostDescribeStepViewController, animated: true, completion: nil)
+        }
+    }
+
+    
     func updateAlertsView() -> Void {
         if allowChat() == true && allowBuy() == true {
             if UNREAD_ALERTS_COUNT == 0 {
@@ -62,9 +74,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
             addPulseAnimation(sellButton.layer)
         } else {
             removePulseAnimation(sellButton.layer)
-
         }
-
     }
 
     override func viewDidLoad() {

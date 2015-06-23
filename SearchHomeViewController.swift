@@ -34,6 +34,18 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     @IBAction func backButtonAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+
+    @IBAction func sellButtonAction(sender: AnyObject) {
+        if PJPurchase.arePendingPurchasesPresent() {
+            let sellViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SellViewController") as! SellViewController
+            self.presentViewController(sellViewController, animated: true, completion: nil)
+            
+        } else {
+            let createPostDescribeStepViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("CreatePostDescribeStepViewController") as! CreatePostDescribeStepViewController
+            self.presentViewController(createPostDescribeStepViewController, animated: true, completion: nil)
+        }
+    }
+
     
     func updateAlertsView() -> Void {
         if UNREAD_ALERTS_COUNT == 0 {

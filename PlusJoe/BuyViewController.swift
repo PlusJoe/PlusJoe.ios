@@ -71,6 +71,9 @@ class BuyViewController: UIViewController {
     @IBOutlet weak var backNavButton: UIBarButtonItem!
     
     @IBAction func backButtonAction(sender: AnyObject) {
+        if self.pendingPurchase != nil {
+            self.pendingPurchase!.deleteInBackgroundWithBlock(nil)
+        }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -78,6 +81,8 @@ class BuyViewController: UIViewController {
     @IBOutlet weak var qrImageView: UIImageView!
     @IBOutlet weak var buyWithApplePayButton: UIButton!
     @IBOutlet weak var buyWithCreditCardButton: UIButton!
+    
+    var pendingPurchase:PFObject?
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -92,13 +97,16 @@ class BuyViewController: UIViewController {
         if PFUser.currentUser()!["emailVerified"] == nil || PFUser.currentUser()!["emailVerified"] as! Bool == false {
             let alertMessage = UIAlertController(title: nil, message: "Unable to buy for unverified user. Check your email for verification code and try again.", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                if self.pendingPurchase != nil {
+                    self.pendingPurchase!.deleteInBackgroundWithBlock(nil)
+                }
                 self.dismissViewControllerAnimated(true, completion: nil)
             })
             
             alertMessage.addAction(ok)
             self.presentViewController(alertMessage, animated: true, completion: nil)
             let verifyEmail = PFUser.currentUser()?.email
-            PFUser.currentUser()?.email = "dmitry@plusjoe.com" // this should trigger verification email to be sent out
+            PFUser.currentUser()?.email = "dmitry+ignore@plusjoe.com" // this should trigger verification email to be sent out
             PFUser.currentUser()?.save()
             PFUser.currentUser()?.email = verifyEmail // this should trigger verification email to be sent out
             PFUser.currentUser()?.save()
@@ -126,8 +134,9 @@ class BuyViewController: UIViewController {
         }
         
         //here generate a new purchase and encode it in QR code plusjoe://purchases/123123
-        PJPurchase.createOrSelectPurchase(post!, purchasedBy: PFUser.currentUser()!,
+        PJPurchase.createPurchase(post!, 
             succeeded: { (result) -> () in
+                self.pendingPurchase = result
                 self.qrImageView.image = generateQRImage("plusjoe://purchases/\(result.objectId!)")
             })
             { (error) -> () in
@@ -207,6 +216,9 @@ class BuyViewController: UIViewController {
                     if (error != nil) {
                         let alertMessage = UIAlertController(title: nil, message: "Error processing your payment. \(error!)", preferredStyle: UIAlertControllerStyle.Alert)
                         let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                            if self.pendingPurchase != nil {
+                                self.pendingPurchase!.deleteInBackgroundWithBlock(nil)
+                            }
                             self.dismissViewControllerAnimated(true, completion: nil)
                         })
                         alertMessage.addAction(ok)
@@ -232,6 +244,9 @@ class BuyViewController: UIViewController {
                                 } else {
                                     let alertMessage = UIAlertController(title: nil, message: "Payent successfull.", preferredStyle: UIAlertControllerStyle.Alert)
                                     let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                                        
+                                        // here, update purchase as complete
+
                                         self.dismissViewControllerAnimated(true, completion: nil)
                                     })
                                     alertMessage.addAction(ok)
