@@ -343,5 +343,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // generate QR code in swift http://stackoverflow.com/questions/26007484/qr-code-reader-generator-in-swift
 // qr code reader http://www.appcoda.com/qr-code-reader-swift/
 // pulse effect http://stackoverflow.com/questions/8083138/ios-how-to-do-a-native-pulse-effect-animation-on-a-uibutton
+// QR code scanning http://shrikar.com/implementing-barcode-scanning-in-ios8-with-swift/
 
 
