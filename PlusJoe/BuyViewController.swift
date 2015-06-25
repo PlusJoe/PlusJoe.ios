@@ -86,36 +86,34 @@ class BuyViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
-        if isGuestUser(PFUser.currentUser()!) {
-            let signUpViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SignUpViewController") as! SignUpViewController
-            self.presentViewController(signUpViewController, animated: true, completion: nil)
-        }
-        
-        PFUser.currentUser()?.fetch()
-        if PFUser.currentUser()!["emailVerified"] == nil || PFUser.currentUser()!["emailVerified"] as! Bool == false {
-            let alertMessage = UIAlertController(title: nil, message: "Unable to buy for unverified user. Check your email for verification code and try again.", preferredStyle: UIAlertControllerStyle.Alert)
-            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-                if self.pendingPurchase != nil {
-                    self.pendingPurchase!.deleteInBackgroundWithBlock(nil)
-                }
-                self.dismissViewControllerAnimated(true, completion: nil)
-            })
+        if registerUserIfNecessery(self) == true {
+            //user is registered and verified, can proceed with purchase
             
-            alertMessage.addAction(ok)
-            self.presentViewController(alertMessage, animated: true, completion: nil)
-            let verifyEmail = PFUser.currentUser()?.email
-            PFUser.currentUser()?.email = "dmitry+ignore@plusjoe.com" // this should trigger verification email to be sent out
-            PFUser.currentUser()?.save()
-            PFUser.currentUser()?.email = verifyEmail // this should trigger verification email to be sent out
-            PFUser.currentUser()?.save()
-            //                saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
-            //                NSLog("new verification email is sent our")
-            //            })
+            if PKPaymentAuthorizationViewController.canMakePaymentsUsingNetworks(SUPPORTED_PAYMENT_NETWORKS) {
+                // Pay is available!
+                buyWithCreditCardButton.hidden = true
+            } else {
+                buyWithApplePayButton.hidden = true
+            }
+            
+            //here generate a new purchase and encode it in QR code plusjoe://purchases/123123
+            PJPurchase.createPurchase(post!,
+                succeeded: { (result) -> () in
+                    self.pendingPurchase = result
+                    self.qrImageView.image = generateQRImage("plusjoe://purchases/\(result.objectId!)")
+                })
+                { (error) -> () in
+                    //            let alertMessage = UIAlertController(title: nil, message: "Unable to generate QR code.", preferredStyle: UIAlertControllerStyle.Alert)
+                    //            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                    //                self.dismissViewControllerAnimated(true, completion: nil)
+                    //            })
+                    //            alertMessage.addAction(ok)
+                    //            self.presentViewController(alertMessage, animated: true, completion: nil)
+            }
+
         }
-        
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,30 +122,6 @@ class BuyViewController: UIViewController {
         if let font = UIFont(name: "FontAwesome", size: 20) {
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
-        
-        
-        if PKPaymentAuthorizationViewController.canMakePaymentsUsingNetworks(SUPPORTED_PAYMENT_NETWORKS) {
-            // Pay is available!
-            buyWithCreditCardButton.hidden = true
-        } else {
-            buyWithApplePayButton.hidden = true
-        }
-        
-        //here generate a new purchase and encode it in QR code plusjoe://purchases/123123
-        PJPurchase.createPurchase(post!, 
-            succeeded: { (result) -> () in
-                self.pendingPurchase = result
-                self.qrImageView.image = generateQRImage("plusjoe://purchases/\(result.objectId!)")
-            })
-            { (error) -> () in
-                //            let alertMessage = UIAlertController(title: nil, message: "Unable to generate QR code.", preferredStyle: UIAlertControllerStyle.Alert)
-                //            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-                //                self.dismissViewControllerAnimated(true, completion: nil)
-                //            })
-                //            alertMessage.addAction(ok)
-                //            self.presentViewController(alertMessage, animated: true, completion: nil)
-        }
-        
     }
     
     

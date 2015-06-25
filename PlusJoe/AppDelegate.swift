@@ -193,6 +193,37 @@ func removePulseAnimation(layer:CALayer) {
 }
 
 
+
+func registerUserIfNecessery(viewController:UIViewController) ->(Bool) {
+    if isGuestUser(PFUser.currentUser()!) {
+        let signUpViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SignUpViewController") as! SignUpViewController
+        viewController.presentViewController(signUpViewController, animated: true, completion: nil)
+    } else {
+        PFUser.currentUser()?.fetch()
+        if PFUser.currentUser()!["emailVerified"] == nil || PFUser.currentUser()!["emailVerified"] as! Bool == false {
+            let alertMessage = UIAlertController(title: nil, message: "Unable to proceed for unverified user. Check your email for verification code and try again.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                viewController.dismissViewControllerAnimated(true, completion: nil)
+            })
+            
+            alertMessage.addAction(ok)
+            viewController.presentViewController(alertMessage, animated: true, completion: nil)
+            let verifyEmail = PFUser.currentUser()?.email
+            PFUser.currentUser()?.email = "dmitry+ignore@plusjoe.com" // this should trigger verification email to be sent out
+            PFUser.currentUser()?.save()
+            PFUser.currentUser()?.email = verifyEmail // this should trigger verification email to be sent out
+            PFUser.currentUser()?.save()
+            //                saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
+            //                NSLog("new verification email is sent our")
+            //            })
+        } else {
+            return true // means user is registered and verified
+        }
+    }
+    return false
+}
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     

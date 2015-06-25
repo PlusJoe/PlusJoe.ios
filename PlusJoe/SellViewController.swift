@@ -33,6 +33,39 @@ class SellViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         self.camView.layer.addSublayer(previewLayer)
     }
     
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if(registerUserIfNecessery(self) == true) {
+            
+            let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+            var error : NSError?
+            let inputDevice = AVCaptureDeviceInput(device: captureDevice, error: &error)
+            
+            if let inp = inputDevice {
+                session.addInput(inp)
+            } else {
+                println(error)
+            }
+            addPreviewLayer()
+            
+            identifiedBorder = DiscoveredBarCodeView(frame: self.camView.bounds)
+            identifiedBorder?.backgroundColor = UIColor.clearColor()
+            identifiedBorder?.hidden = true;
+            self.camView.addSubview(identifiedBorder!)
+            
+            
+            /* Check for metadata */
+            let output = AVCaptureMetadataOutput()
+            session.addOutput(output)
+            output.metadataObjectTypes = output.availableMetadataObjectTypes
+            println(output.availableMetadataObjectTypes)
+            output.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+            session.startRunning()
+        }
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -41,32 +74,6 @@ class SellViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             backNavButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
         
-        
-        
-        let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
-        var error : NSError?
-        let inputDevice = AVCaptureDeviceInput(device: captureDevice, error: &error)
-        
-        if let inp = inputDevice {
-            session.addInput(inp)
-        } else {
-            println(error)
-        }
-        addPreviewLayer()
-        
-        identifiedBorder = DiscoveredBarCodeView(frame: self.camView.bounds)
-        identifiedBorder?.backgroundColor = UIColor.clearColor()
-        identifiedBorder?.hidden = true;
-        self.camView.addSubview(identifiedBorder!)
-        
-        
-        /* Check for metadata */
-        let output = AVCaptureMetadataOutput()
-        session.addOutput(output)
-        output.metadataObjectTypes = output.availableMetadataObjectTypes
-        println(output.availableMetadataObjectTypes)
-        output.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
-        session.startRunning()
     }
     
     override func viewWillDisappear(animated: Bool) {
