@@ -10,7 +10,7 @@ import Foundation
 
 import UIKit
 
-class DiscoveredBarCodeView: UIView {
+class DiscoveredQRCodeView: UIView {
     
     var borderLayer : CAShapeLayer?
     var corners : [CGPoint]?

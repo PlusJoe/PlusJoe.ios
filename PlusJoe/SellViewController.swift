@@ -21,7 +21,7 @@ class SellViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     @IBOutlet weak var camView: UIView!
     let session = AVCaptureSession()
     var previewLayer : AVCaptureVideoPreviewLayer?
-    var  identifiedBorder : DiscoveredBarCodeView?
+    var  identifiedBorder : DiscoveredQRCodeView?
     var timer : NSTimer?
     
     /* Add the preview layer here */
@@ -49,7 +49,7 @@ class SellViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             }
             addPreviewLayer()
             
-            identifiedBorder = DiscoveredBarCodeView(frame: self.camView.bounds)
+            identifiedBorder = DiscoveredQRCodeView(frame: self.camView.bounds)
             identifiedBorder?.backgroundColor = UIColor.clearColor()
             identifiedBorder?.hidden = true;
             self.camView.addSubview(identifiedBorder!)
@@ -62,6 +62,8 @@ class SellViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             println(output.availableMetadataObjectTypes)
             output.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
             session.startRunning()
+        } else {
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
 

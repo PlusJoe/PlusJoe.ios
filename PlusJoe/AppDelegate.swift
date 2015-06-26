@@ -203,7 +203,7 @@ func registerUserIfNecessery(viewController:UIViewController) ->(Bool) {
         if PFUser.currentUser()!["emailVerified"] == nil || PFUser.currentUser()!["emailVerified"] as! Bool == false {
             let alertMessage = UIAlertController(title: nil, message: "Unable to proceed for unverified user. Check your email for verification code and try again.", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-                viewController.dismissViewControllerAnimated(true, completion: nil)
+//                viewController.dismissViewControllerAnimated(true, completion: nil)
             })
             
             alertMessage.addAction(ok)

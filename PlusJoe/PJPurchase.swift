@@ -19,7 +19,7 @@ class PJPurchase: BaseDataModel {
     
     let purchasedBy = "purchasedBy" //String
     let soldBy = "soldBy" //String
-    let status = "status" // ""|"Pending"|"Purchased"
+    let status = "status" // "Pending" (just created by a buyer)| "Confirmed" (by a seller scanning QR code) | "Completed" (by a buyer making a payment)
     let purchasedAt = NSDate()
     
     

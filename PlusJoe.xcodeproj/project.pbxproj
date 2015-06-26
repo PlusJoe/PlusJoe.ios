@@ -30,6 +30,8 @@
 		0A63D7981B06685100AD70F1 /* FollowingHashTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63D7971B06685100AD70F1 /* FollowingHashTagsViewController.swift */; };
 		0A63D79A1B06689E00AD70F1 /* FollowingHashTagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63D7991B06689E00AD70F1 /* FollowingHashTagsTableViewCell.swift */; };
 		0A7BC6521B1BF918007AC39F /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7BC6511B1BF918007AC39F /* BuyViewController.swift */; };
+		0A864E131B3BB5F9007B3CF7 /* BuyViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A864E121B3BB5F9007B3CF7 /* BuyViewController1.swift */; };
+		0A864E151B3BB604007B3CF7 /* SellViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A864E141B3BB604007B3CF7 /* SellViewController1.swift */; };
 		0A8BF12E1AFC3EDC0058AE38 /* PJConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */; };
 		0A8BF1311AFD40EA0058AE38 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF1301AFD40EA0058AE38 /* ChatTableViewCell.swift */; };
 		0A8BF1331AFDB4E10058AE38 /* AlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF1321AFDB4E10058AE38 /* AlertsViewController.swift */; };
@@ -104,7 +106,7 @@
 		0AEC370D1AE2B597005F99A7 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */; };
 		0AEC37101AE4A677005F99A7 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */; };
 		0AF02E081AD5B78800792A5E /* PJHashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF02E071AD5B78800792A5E /* PJHashTag.swift */; };
-		0AF40E411B39FCC500AAE28D /* DiscoveredBarCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF40E401B39FCC500AAE28D /* DiscoveredBarCodeView.swift */; };
+		0AF40E411B39FCC500AAE28D /* DiscoveredQRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF40E401B39FCC500AAE28D /* DiscoveredQRCodeView.swift */; };
 		0AF801821ACD7D27009CAB14 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF801811ACD7D27009CAB14 /* MapKit.framework */; };
 		0AFB4CEF1B1F823000960E0D /* libCardIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFB4CEE1B1F823000960E0D /* libCardIO.a */; };
 		0AFB4CF11B1F829900960E0D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFB4CF01B1F829900960E0D /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -147,6 +149,8 @@
 		0A63D7971B06685100AD70F1 /* FollowingHashTagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingHashTagsViewController.swift; sourceTree = "<group>"; };
 		0A63D7991B06689E00AD70F1 /* FollowingHashTagsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingHashTagsTableViewCell.swift; sourceTree = "<group>"; };
 		0A7BC6511B1BF918007AC39F /* BuyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
+		0A864E121B3BB5F9007B3CF7 /* BuyViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyViewController1.swift; sourceTree = "<group>"; };
+		0A864E141B3BB604007B3CF7 /* SellViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellViewController1.swift; sourceTree = "<group>"; };
 		0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJConversation.swift; sourceTree = "<group>"; };
 		0A8BF1301AFD40EA0058AE38 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		0A8BF1321AFDB4E10058AE38 /* AlertsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsViewController.swift; sourceTree = "<group>"; };
@@ -247,7 +251,7 @@
 		0AEC370C1AE2B597005F99A7 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		0AEC370F1AE4A677005F99A7 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		0AF02E071AD5B78800792A5E /* PJHashTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJHashTag.swift; sourceTree = "<group>"; };
-		0AF40E401B39FCC500AAE28D /* DiscoveredBarCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveredBarCodeView.swift; sourceTree = "<group>"; };
+		0AF40E401B39FCC500AAE28D /* DiscoveredQRCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveredQRCodeView.swift; sourceTree = "<group>"; };
 		0AF801811ACD7D27009CAB14 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0AFB4CE61B1F823000960E0D /* CardIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIO.h; sourceTree = "<group>"; };
 		0AFB4CE71B1F823000960E0D /* CardIOCreditCardInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOCreditCardInfo.h; sourceTree = "<group>"; };
@@ -357,8 +361,10 @@
 			isa = PBXGroup;
 			children = (
 				0A7BC6511B1BF918007AC39F /* BuyViewController.swift */,
+				0A864E121B3BB5F9007B3CF7 /* BuyViewController1.swift */,
 				0AA8AD401B25198E0079D516 /* SellViewController.swift */,
-				0AF40E401B39FCC500AAE28D /* DiscoveredBarCodeView.swift */,
+				0A864E141B3BB604007B3CF7 /* SellViewController1.swift */,
+				0AF40E401B39FCC500AAE28D /* DiscoveredQRCodeView.swift */,
 			);
 			name = BuySellWorkflow;
 			sourceTree = "<group>";
@@ -821,12 +827,13 @@
 				0A4C495B1AC501C000D164E2 /* SearchHomeViewController.swift in Sources */,
 				0AEB2F071B2B30EF0024CC5F /* EditPostViewController.swift in Sources */,
 				0AD856AC1B16BB5200CAEF08 /* STPCard.m in Sources */,
+				0A864E131B3BB5F9007B3CF7 /* BuyViewController1.swift in Sources */,
 				0A5E5E641B2140C5007B447F /* UIChatLabel.swift in Sources */,
 				0AD8568C1B16BB5200CAEF08 /* STPAPIClient+ApplePay.m in Sources */,
 				0A63D79A1B06689E00AD70F1 /* FollowingHashTagsTableViewCell.swift in Sources */,
 				0A7BC6521B1BF918007AC39F /* BuyViewController.swift in Sources */,
 				0A57C6C21AD38DA300A0D746 /* HomeViewController.swift in Sources */,
-				0AF40E411B39FCC500AAE28D /* DiscoveredBarCodeView.swift in Sources */,
+				0AF40E411B39FCC500AAE28D /* DiscoveredQRCodeView.swift in Sources */,
 				0AE782581B02D702008678B8 /* MySellTableViewCell.swift in Sources */,
 				0AD856A61B16BB5200CAEF08 /* STPOSXCheckoutWebViewAdapter.m in Sources */,
 				0A8BF12E1AFC3EDC0058AE38 /* PJConversation.swift in Sources */,
@@ -857,6 +864,7 @@
 				0AD856AA1B16BB5200CAEF08 /* STPAPIConnection.m in Sources */,
 				0A4C7AC61AF99C3700C271F2 /* MenuSearchHomeViewController.swift in Sources */,
 				0A60E1C51AC8ED2B003887C5 /* PJPost.swift in Sources */,
+				0A864E151B3BB604007B3CF7 /* SellViewController1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
