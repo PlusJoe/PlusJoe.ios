@@ -13,6 +13,7 @@ import Parse
 class BuyViewController: UIViewController {
     
     var post:PFObject?
+    var pendingPurchase:PFObject?
     
     
     @IBOutlet weak var backNavButton: UIBarButtonItem!
@@ -27,7 +28,6 @@ class BuyViewController: UIViewController {
     
     @IBOutlet weak var qrImageView: UIImageView!
     
-    var pendingPurchase:PFObject?
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)

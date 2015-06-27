@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import Stripe
+import Bolts
 
 let FLURRY_API_KEY = "SHP3N5P9KFXPBT6BHY9G"
 let PARSE_APP_ID = "2VdZroRZXm1voBa03m3F1cgkwgV5AFgJel1dYsVf"
@@ -353,8 +354,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        let parsedUrl:BFURL = BFURL(inboundURL: url, sourceApplication: sourceApplication)
+
+        handleIncomingUrl(parsedUrl)
+        return true
+    }
+    
+    
+    
+    
 }
 
+func handleIncomingUrl(url:BFURL) -> () {
+    NSLog("%%%%%%%%%%%%%%%%%%%%%% received url: \(url.inputURL.description)")    
+}
 
 //http://stackoverflow.com/questions/16244969/how-to-tell-git-to-ignore-individual-lines-i-e-gitignore-for-specific-lines-of
 //http://www.buildsucceeded.com/2014/swift-move-uitextfield-so-keyboard-does-not-hide-it-ios-8-xcode-6-swift/

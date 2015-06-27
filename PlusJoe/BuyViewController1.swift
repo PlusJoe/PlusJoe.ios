@@ -64,6 +64,9 @@ extension BuyViewController1: PKPaymentAuthorizationViewControllerDelegate, Card
 
 class BuyViewController1: UIViewController {
 
+    var pendingPurchase:PFObject?
+
+    
     @IBOutlet weak var buyWithApplePayButton: UIButton!
     @IBOutlet weak var buyWithCreditCardButton: UIButton!
 

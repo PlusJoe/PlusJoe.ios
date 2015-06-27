@@ -32,6 +32,7 @@
 		0A7BC6521B1BF918007AC39F /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7BC6511B1BF918007AC39F /* BuyViewController.swift */; };
 		0A864E131B3BB5F9007B3CF7 /* BuyViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A864E121B3BB5F9007B3CF7 /* BuyViewController1.swift */; };
 		0A864E151B3BB604007B3CF7 /* SellViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A864E141B3BB604007B3CF7 /* SellViewController1.swift */; };
+		0A864E171B3E3938007B3CF7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A864E161B3E3938007B3CF7 /* Bolts.framework */; };
 		0A8BF12E1AFC3EDC0058AE38 /* PJConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */; };
 		0A8BF1311AFD40EA0058AE38 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF1301AFD40EA0058AE38 /* ChatTableViewCell.swift */; };
 		0A8BF1331AFDB4E10058AE38 /* AlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BF1321AFDB4E10058AE38 /* AlertsViewController.swift */; };
@@ -151,6 +152,7 @@
 		0A7BC6511B1BF918007AC39F /* BuyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		0A864E121B3BB5F9007B3CF7 /* BuyViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyViewController1.swift; sourceTree = "<group>"; };
 		0A864E141B3BB604007B3CF7 /* SellViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellViewController1.swift; sourceTree = "<group>"; };
+		0A864E161B3E3938007B3CF7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		0A8BF12D1AFC3EDC0058AE38 /* PJConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJConversation.swift; sourceTree = "<group>"; };
 		0A8BF1301AFD40EA0058AE38 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		0A8BF1321AFDB4E10058AE38 /* AlertsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsViewController.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				0AEAFC1E1AC1CEAF00800121 /* libFlurry_6.2.0.a in Frameworks */,
 				0AEAFC101AC1C9A900800121 /* QuartzCore.framework in Frameworks */,
 				0A2D0E311AFEF3C8009AD9D9 /* Bolts.framework in Frameworks */,
+				0A864E171B3E3938007B3CF7 /* Bolts.framework in Frameworks */,
 				0AEAFC0E1AC1C9A000800121 /* MobileCoreServices.framework in Frameworks */,
 				0AEAFC0C1AC1C99500800121 /* CoreLocation.framework in Frameworks */,
 				0A2D0E331AFEF3D4009AD9D9 /* Parse.framework in Frameworks */,
@@ -592,6 +595,7 @@
 		0AEAFC1B1AC1CA1600800121 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0A864E161B3E3938007B3CF7 /* Bolts.framework */,
 				0AFB4CF21B1F82B800960E0D /* CoreMedia.framework */,
 				0AFB4CF01B1F829900960E0D /* AVFoundation.framework */,
 				0AFB4CE51B1F823000960E0D /* CardIO */,

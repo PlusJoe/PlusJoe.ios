@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import AVFoundation
+import Bolts
 
 
 class SellViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
@@ -126,7 +127,17 @@ class SellViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             
             println(transformed?.stringValue!)
             if (transformed?.stringValue!.beginsWith("plusjoe://") != nil) {
-                self.dismissViewControllerAnimated(true, completion: nil)
+                
+                //TODO: check if this is legitimate request
+                
+                self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                    NSLog("$$$$$$$$$$$$$$$ navigating in background to \((transformed?.stringValue)!)")
+                    
+                    let nsUrl:NSURL = NSURL(string: (transformed?.stringValue)!)!
+                    let bfUrl:BFURL = BFURL(URL: nsUrl)
+
+                    handleIncomingUrl(bfUrl)
+                })
             }
         }
     }
