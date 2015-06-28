@@ -102,13 +102,13 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
         
         
         ///////////////////////////////////////////////////////////////////////////////////////////
-        cells.append(UITableViewCell())
-        let label2 = UILabel()
-        label2.font = UIFont(name: "Helvetica Neue", size: 14)
-        label2.text = "It will be searchable by following tags:"
-        label2.textColor = UIColor(rgb: 0x666666)
-        cells.last!.addSubview(label2)
-        embedConstrainst(cells.last!, childView: label2)
+//        cells.append(UITableViewCell())
+//        let label2 = UILabel()
+//        label2.font = UIFont(name: "Helvetica Neue", size: 14)
+//        label2.text = "It will be searchable by following tags:"
+//        label2.textColor = UIColor(rgb: 0x666666)
+//        cells.last!.addSubview(label2)
+//        embedConstrainst(cells.last!, childView: label2)
         
         
         
