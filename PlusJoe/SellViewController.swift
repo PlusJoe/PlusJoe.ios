@@ -128,7 +128,7 @@ class SellViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             println(transformed?.stringValue!)
             if (transformed?.stringValue!.beginsWith("plusjoe://") != nil) {
                 
-                //TODO: check if this is legitimate request
+                // there is no need to check the code here, let's check it in handleIncomingUrl() because there are potentially 2 different ways to enter the app, one here, and one from scanning the QR code with an external scanner
                 
                 self.dismissViewControllerAnimated(true, completion: { () -> Void in
                     NSLog("$$$$$$$$$$$$$$$ navigating in background to \((transformed?.stringValue)!)")
@@ -136,7 +136,7 @@ class SellViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
                     let nsUrl:NSURL = NSURL(string: (transformed?.stringValue)!)!
                     let bfUrl:BFURL = BFURL(URL: nsUrl)
 
-                    handleIncomingUrl(bfUrl)
+                    handleIncomingPurchaseUrl(bfUrl)
                 })
             }
         }

@@ -225,6 +225,21 @@ func registerUserIfNecessery(viewController:UIViewController) ->(Bool) {
 }
 
 
+func handleIncomingPurchaseUrl(url:BFURL) -> () {
+    NSLog("%%%%%%%%%%%%%%%%%%%%%% received purchase url: \(url.inputURL.description)")
+    // let's check if the code was scanned by the right seller
+    let host:String = url.targetURL!.host!
+    let pathComponents:[String]? = url.targetURL!.pathComponents as? [String]
+        
+    if host == "purchases" {
+        let purchaseId:String = pathComponents![1]
+        NSLog("%%%%%%%%%%%%%%%%%%%%%% received purchase id: \(purchaseId)")
+    }
+    
+}
+
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -358,18 +373,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
         let parsedUrl:BFURL = BFURL(inboundURL: url, sourceApplication: sourceApplication)
 
-        handleIncomingUrl(parsedUrl)
-        return true
+        let host:String = parsedUrl.targetURL!.host!
+        if host == "purchases" {
+            handleIncomingPurchaseUrl(parsedUrl)
+            return true
+        }
+        return false
     }
-    
-    
     
     
 }
 
-func handleIncomingUrl(url:BFURL) -> () {
-    NSLog("%%%%%%%%%%%%%%%%%%%%%% received url: \(url.inputURL.description)")    
-}
 
 //http://stackoverflow.com/questions/16244969/how-to-tell-git-to-ignore-individual-lines-i-e-gitignore-for-specific-lines-of
 //http://www.buildsucceeded.com/2014/swift-move-uitextfield-so-keyboard-does-not-hide-it-ios-8-xcode-6-swift/
