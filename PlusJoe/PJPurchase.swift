@@ -69,5 +69,18 @@ class PJPurchase: BaseDataModel {
         return true
     }
     
+    class func loadPurchase(purchaseId:String,
+        succeeded:(result:PFObject) -> (),
+        failed:(error: NSError!) -> ()
+        ) -> () {
+            let purchaseQuery = PFQuery(className:PJPURCHASE.CLASS_NAME)
+            purchaseQuery.getObjectInBackgroundWithId(purchaseId, block: { (object:PFObject?, error:NSError?) -> Void in
+                if error == nil {
+                    succeeded(result: object!)
+                } else {
+                    failed(error: error)
+                }
+            })
+    }
     
 }

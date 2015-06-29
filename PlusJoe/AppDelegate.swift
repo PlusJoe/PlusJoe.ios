@@ -230,10 +230,24 @@ func handleIncomingPurchaseUrl(url:BFURL) -> () {
     // let's check if the code was scanned by the right seller
     let host:String = url.targetURL!.host!
     let pathComponents:[String]? = url.targetURL!.pathComponents as? [String]
-        
+    
     if host == "purchases" {
         let purchaseId:String = pathComponents![1]
         NSLog("%%%%%%%%%%%%%%%%%%%%%% received purchase id: \(purchaseId)")
+        
+        
+        PJPurchase.loadPurchase(
+            purchaseId,
+            succeeded: { (result) -> () in
+                if result[PJPURCHASE.soldBy] as? String == PFUser.currentUser()?.objectId {
+                    NSLog("^^^^^^^^^^^^^^^^^^^^^^^^^ correct seller")
+                } else {
+                    NSLog("^^^^^^^^^^^^^^^^^^^^^^^^^ incorrect seller")
+                }
+            },
+            failed: { (error) -> () in
+                NSLog("^^^^^^^^^^^^^^^^^^^^^^^^^ error seller")
+        })
     }
     
 }
