@@ -7,7 +7,21 @@
 //
 
 import Foundation
+import Parse
 
 
 class SellViewController1: UIViewController {
+    
+    var purchase:PFObject?
+ 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // here, let's check if the seller has stripe account, and if not, have then register
+        
+        
+        
+        
+    }
+
+    
 }

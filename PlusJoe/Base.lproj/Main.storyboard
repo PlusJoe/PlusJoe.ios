@@ -1544,7 +1544,7 @@
         <!--Buy View Controller1-->
         <scene sceneID="SvJ-Eu-DVb">
             <objects>
-                <viewController id="XH5-yu-53e" customClass="BuyViewController1" customModule="PlusJoe" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BuyViewController1" id="XH5-yu-53e" customClass="BuyViewController1" customModule="PlusJoe" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fyu-lw-Vho"/>
                         <viewControllerLayoutGuide type="bottom" id="faO-Xs-KuQ"/>
@@ -1595,7 +1595,7 @@
         <!--Sell View Controller1-->
         <scene sceneID="Pwp-PF-1SU">
             <objects>
-                <viewController id="ErB-kA-W7P" customClass="SellViewController1" customModule="PlusJoe" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SellViewController1" id="ErB-kA-W7P" customClass="SellViewController1" customModule="PlusJoe" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tUc-vQ-AcR"/>
                         <viewControllerLayoutGuide type="bottom" id="ZrI-6G-xU1"/>

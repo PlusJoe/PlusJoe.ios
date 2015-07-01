@@ -126,6 +126,15 @@ func getAlerts() -> Void {
     //    count++
 }
 
+func getTopViewController() -> UIViewController? {
+    if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
+        while let presentedViewController = topController.presentedViewController {
+            topController = presentedViewController
+        }
+        return topController
+    }
+    return nil
+}
 
 
 func isGuestUser(user:PFUser) -> Bool {
@@ -235,19 +244,39 @@ func handleIncomingPurchaseUrl(url:BFURL) -> () {
         let purchaseId:String = pathComponents![1]
         NSLog("%%%%%%%%%%%%%%%%%%%%%% received purchase id: \(purchaseId)")
         
-        
-        PJPurchase.loadPurchase(
-            purchaseId,
-            succeeded: { (result) -> () in
-                if result[PJPURCHASE.soldBy] as? String == PFUser.currentUser()?.objectId {
-                    NSLog("^^^^^^^^^^^^^^^^^^^^^^^^^ correct seller")
-                } else {
-                    NSLog("^^^^^^^^^^^^^^^^^^^^^^^^^ incorrect seller")
-                }
-            },
-            failed: { (error) -> () in
-                NSLog("^^^^^^^^^^^^^^^^^^^^^^^^^ error seller")
-        })
+        let topController:UIViewController? = getTopViewController()
+        if topController != nil {
+            PJPurchase.loadPurchase(
+                purchaseId,
+                succeeded: { (result) -> () in
+                    if result[PJPURCHASE.soldBy] as? String == PFUser.currentUser()?.objectId {
+                        NSLog("^^^^^^^^^^^^^^^^^^^^^^^^^ correct seller")
+                        let sellViewController1 = UIStoryboard(name: "Main", bundle:nil).instantiateViewControllerWithIdentifier("SellViewController1") as! SellViewController1
+                        
+                        sellViewController1.purchase = result
+                        topController?.presentViewController(sellViewController1, animated: true, completion: nil)
+                        
+                        
+                    } else {
+                        NSLog("^^^^^^^^^^^^^^^^^^^^^^^^^ incorrect seller")
+                        let alertMessage = UIAlertController(title: nil, message: "Incorrect seller.", preferredStyle: UIAlertControllerStyle.Alert)
+                        let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+//                            topController?.dismissViewControllerAnimated(true, completion: nil)
+                        })
+                        alertMessage.addAction(ok)
+                        topController?.presentViewController(alertMessage, animated: true, completion: nil)
+                    }
+                },
+                failed: { (error) -> () in
+                    NSLog("^^^^^^^^^^^^^^^^^^^^^^^^^ error seller")
+                    let alertMessage = UIAlertController(title: nil, message: "Error, unable to proceed.", preferredStyle: UIAlertControllerStyle.Alert)
+                    let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+//                        topController?.dismissViewControllerAnimated(true, completion: nil)
+                    })
+                    alertMessage.addAction(ok)
+                    topController?.presentViewController(alertMessage, animated: true, completion: nil)
+            })
+        }
     }
     
 }
