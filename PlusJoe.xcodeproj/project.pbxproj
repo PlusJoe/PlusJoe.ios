@@ -45,25 +45,6 @@
 		0AD4A2931AD8917A00539470 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4A2921AD8917A00539470 /* SearchResultsViewController.swift */; };
 		0AD8568C1B16BB5200CAEF08 /* STPAPIClient+ApplePay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8564F1B16BB5200CAEF08 /* STPAPIClient+ApplePay.m */; };
 		0AD8568D1B16BB5200CAEF08 /* Stripe+ApplePay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD856501B16BB5200CAEF08 /* Stripe+ApplePay.m */; };
-		0AD8568E1B16BB5200CAEF08 /* Project-Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD856521B16BB5200CAEF08 /* Project-Debug.xcconfig */; };
-		0AD8568F1B16BB5200CAEF08 /* Project-Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD856531B16BB5200CAEF08 /* Project-Release.xcconfig */; };
-		0AD856901B16BB5200CAEF08 /* Project-Shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD856541B16BB5200CAEF08 /* Project-Shared.xcconfig */; };
-		0AD856911B16BB5200CAEF08 /* StripeiOS Tests-Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD856551B16BB5200CAEF08 /* StripeiOS Tests-Debug.xcconfig */; };
-		0AD856921B16BB5200CAEF08 /* StripeiOS Tests-Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD856561B16BB5200CAEF08 /* StripeiOS Tests-Release.xcconfig */; };
-		0AD856931B16BB5200CAEF08 /* StripeiOS Tests-Shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD856571B16BB5200CAEF08 /* StripeiOS Tests-Shared.xcconfig */; };
-		0AD856941B16BB5200CAEF08 /* StripeiOS-Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD856581B16BB5200CAEF08 /* StripeiOS-Debug.xcconfig */; };
-		0AD856951B16BB5200CAEF08 /* StripeiOS-Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD856591B16BB5200CAEF08 /* StripeiOS-Release.xcconfig */; };
-		0AD856961B16BB5200CAEF08 /* StripeiOS-Shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD8565A1B16BB5200CAEF08 /* StripeiOS-Shared.xcconfig */; };
-		0AD856971B16BB5200CAEF08 /* StripeiOSStatic.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD8565B1B16BB5200CAEF08 /* StripeiOSStatic.xcconfig */; };
-		0AD856981B16BB5200CAEF08 /* StripeiOSStaticFramework.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD8565C1B16BB5200CAEF08 /* StripeiOSStaticFramework.xcconfig */; };
-		0AD856991B16BB5200CAEF08 /* StripeiOSStaticFrameworkWithoutApplePay.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD8565D1B16BB5200CAEF08 /* StripeiOSStaticFrameworkWithoutApplePay.xcconfig */; };
-		0AD8569A1B16BB5200CAEF08 /* StripeiOSStaticWithoutApplePay.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD8565E1B16BB5200CAEF08 /* StripeiOSStaticWithoutApplePay.xcconfig */; };
-		0AD8569B1B16BB5200CAEF08 /* StripeOSX-Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD8565F1B16BB5200CAEF08 /* StripeOSX-Debug.xcconfig */; };
-		0AD8569C1B16BB5200CAEF08 /* StripeOSX-Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD856601B16BB5200CAEF08 /* StripeOSX-Release.xcconfig */; };
-		0AD8569D1B16BB5200CAEF08 /* StripeOSX-Shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD856611B16BB5200CAEF08 /* StripeOSX-Shared.xcconfig */; };
-		0AD8569E1B16BB5200CAEF08 /* StripeOSXTests-Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD856621B16BB5200CAEF08 /* StripeOSXTests-Debug.xcconfig */; };
-		0AD8569F1B16BB5200CAEF08 /* StripeOSXTests-Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD856631B16BB5200CAEF08 /* StripeOSXTests-Release.xcconfig */; };
-		0AD856A01B16BB5200CAEF08 /* StripeOSXTests-Shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AD856641B16BB5200CAEF08 /* StripeOSXTests-Shared.xcconfig */; };
 		0AD856A11B16BB5200CAEF08 /* STPCheckoutInternalUIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD856681B16BB5200CAEF08 /* STPCheckoutInternalUIWebViewController.m */; };
 		0AD856A21B16BB5200CAEF08 /* STPCheckoutOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD856691B16BB5200CAEF08 /* STPCheckoutOptions.m */; };
 		0AD856A31B16BB5200CAEF08 /* STPCheckoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8566A1B16BB5200CAEF08 /* STPCheckoutViewController.m */; };
@@ -720,7 +701,9 @@
 		0AEAFBC11AC0E2F900800121 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = PlusJoe;
 				TargetAttributes = {
 					0AEAFBC81AC0E2F900800121 = {
@@ -771,29 +754,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AD8569E1B16BB5200CAEF08 /* StripeOSXTests-Debug.xcconfig in Resources */,
-				0AD856901B16BB5200CAEF08 /* Project-Shared.xcconfig in Resources */,
-				0AD856981B16BB5200CAEF08 /* StripeiOSStaticFramework.xcconfig in Resources */,
 				0AEB2F131B2F3A400024CC5F /* Main.storyboard in Resources */,
-				0AD8569B1B16BB5200CAEF08 /* StripeOSX-Debug.xcconfig in Resources */,
-				0AD856921B16BB5200CAEF08 /* StripeiOS Tests-Release.xcconfig in Resources */,
-				0AD856931B16BB5200CAEF08 /* StripeiOS Tests-Shared.xcconfig in Resources */,
-				0AD8569A1B16BB5200CAEF08 /* StripeiOSStaticWithoutApplePay.xcconfig in Resources */,
 				0AD856A81B16BB5200CAEF08 /* Info.plist in Resources */,
 				0AC50CA41AC42AC90087F5D8 /* fontawesome-webfont.ttf in Resources */,
-				0AD856951B16BB5200CAEF08 /* StripeiOS-Release.xcconfig in Resources */,
-				0AD856991B16BB5200CAEF08 /* StripeiOSStaticFrameworkWithoutApplePay.xcconfig in Resources */,
-				0AD856941B16BB5200CAEF08 /* StripeiOS-Debug.xcconfig in Resources */,
-				0AD8568F1B16BB5200CAEF08 /* Project-Release.xcconfig in Resources */,
-				0AD8569C1B16BB5200CAEF08 /* StripeOSX-Release.xcconfig in Resources */,
-				0AD856961B16BB5200CAEF08 /* StripeiOS-Shared.xcconfig in Resources */,
-				0AD856971B16BB5200CAEF08 /* StripeiOSStatic.xcconfig in Resources */,
-				0AD8569F1B16BB5200CAEF08 /* StripeOSXTests-Release.xcconfig in Resources */,
-				0AD8568E1B16BB5200CAEF08 /* Project-Debug.xcconfig in Resources */,
 				0AEAFBD91AC0E2F900800121 /* LaunchScreen.xib in Resources */,
-				0AD8569D1B16BB5200CAEF08 /* StripeOSX-Shared.xcconfig in Resources */,
-				0AD856911B16BB5200CAEF08 /* StripeiOS Tests-Debug.xcconfig in Resources */,
-				0AD856A01B16BB5200CAEF08 /* StripeOSXTests-Shared.xcconfig in Resources */,
 				0AEAFBD61AC0E2F900800121 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -930,7 +894,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -975,6 +941,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1020,6 +987,7 @@
 					"$(PROJECT_DIR)/CardIO",
 				);
 				OTHER_LDFLAGS = "-lc++";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.plusjoe.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PlusJoe/PlusJoe-Bridging-Header.h";
@@ -1052,6 +1020,7 @@
 					"$(PROJECT_DIR)/CardIO",
 				);
 				OTHER_LDFLAGS = "-lc++";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.plusjoe.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PlusJoe/PlusJoe-Bridging-Header.h";
@@ -1072,6 +1041,7 @@
 				);
 				INFOPLIST_FILE = PlusJoeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.plusjoe.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlusJoe.app/PlusJoe";
 			};
@@ -1087,6 +1057,7 @@
 				);
 				INFOPLIST_FILE = PlusJoeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.plusjoe.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlusJoe.app/PlusJoe";
 			};

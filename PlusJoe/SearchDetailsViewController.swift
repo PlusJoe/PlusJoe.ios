@@ -72,14 +72,14 @@ class SearchDetailsViewController : UIViewController {
             }
         })
 
-        searchResultsViewController?.mapView.selectAnnotation(searchResultsViewController?.annotations[Int(postIndex)], animated: true)
+        searchResultsViewController?.mapView.selectAnnotation((searchResultsViewController?.annotations[Int(postIndex)])!, animated: true)
         
 
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "postDetailsSegue") {
-            var postDetailsViewController = segue.destinationViewController as! PostDetailsViewController
+            let postDetailsViewController = segue.destinationViewController as! PostDetailsViewController
             postDetailsViewController.post = self.post
             postDetailsViewController.titleText = "\(searchResultsViewController!.currentPost) / \(searchResultsViewController!.posts.count)"
         }

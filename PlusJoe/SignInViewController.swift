@@ -35,7 +35,7 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func signInAction(sender: AnyObject) {
-        PFUser.logInWithUsernameInBackground(userNameTextField.text, password:passwordTextField.text) {
+        PFUser.logInWithUsernameInBackground(userNameTextField.text!, password:passwordTextField.text!) {
             (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
                 // Do stuff after successful login.

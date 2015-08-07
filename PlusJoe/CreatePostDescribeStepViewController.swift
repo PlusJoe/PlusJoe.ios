@@ -25,9 +25,9 @@ class CreatePostDescribeStepViewController: UIViewController, UITextViewDelegate
     }
     
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "createPostPhotosSegue" {
-            if postBody.text == "" || postBody.text == placeHolderText || count(postBody.text) < 10 {
+            if postBody.text == "" || postBody.text == placeHolderText || postBody.text.characters.count < 10 {
                 let alertMessage = UIAlertController(title: nil, message: "Your post can't be empty. Try again.", preferredStyle: UIAlertControllerStyle.Alert)
                 let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
                 alertMessage.addAction(ok)
@@ -69,7 +69,7 @@ class CreatePostDescribeStepViewController: UIViewController, UITextViewDelegate
         postBody.text = UNFINISHED_POST?[PJPOST.body] as! String
         postBody.delegate = self
         
-        countLabel.text = "+" + String(140 - count(postBody.text))
+        countLabel.text = "+" + String(140 - postBody.text.characters.count)
         
         if postBody.text == "" {
             postBody.textColor = UIColor.lightGrayColor()
@@ -87,7 +87,7 @@ class CreatePostDescribeStepViewController: UIViewController, UITextViewDelegate
             postBody.textColor = UIColor.blackColor()
         }
 
-        var countChars = count(textView.text)
+        var countChars = textView.text.characters.count
         countLabel.text = "+" + String(140 - countChars)
         
         if(countChars > 130) {
@@ -97,7 +97,7 @@ class CreatePostDescribeStepViewController: UIViewController, UITextViewDelegate
         }
         
         while(countChars > 140) {
-            postBody.text = dropLast(postBody.text)
+            postBody.text = String(dropLast(postBody.text.characters))
             countChars--
             countLabel.text = "+" + String(140 - countChars)
         }

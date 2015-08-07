@@ -113,7 +113,7 @@ class MenuPostDetailsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "chatSegue") {
             
-            var chatViewController = segue.destinationViewController as! ChatViewController
+            let chatViewController = segue.destinationViewController as! ChatViewController
             
             if self.conversation == nil {
                 let conversation = PJConversation.findOrCreateConversation(post!,

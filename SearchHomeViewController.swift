@@ -66,7 +66,7 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     // this method is called when done button is clicked in the create new sell workflow
     @IBAction func unwindAndSaveNewPost (segue : UIStoryboardSegue) {
         NSLog("SearchPosts seque from segue id: \(segue.identifier)")
-        var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+        let actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
         actInd.center = self.view.center
         actInd.hidesWhenStopped = true
         actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
@@ -148,8 +148,8 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     
     
     func textFieldTextChanged(sender : AnyObject) {
-        NSLog("searching for text: " + searchTextField.text); //the textView parameter is the textView where text was changed
-        PJHashTag.autoComplete(CURRENT_LOCATION!, searchText: searchTextField.text, succeeded: { (results) -> () in
+        NSLog("searching for text: " + searchTextField.text!); //the textView parameter is the textView where text was changed
+        PJHashTag.autoComplete(CURRENT_LOCATION!, searchText: searchTextField.text!, succeeded: { (results) -> () in
             
             self.autocompleteTableView.hidden = false
             self.completions = results
@@ -168,7 +168,7 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell = autocompleteTableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+        let cell = autocompleteTableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell!
         
         cell.textLabel?.text = self.completions[indexPath.row]
         cell.textLabel?.textColor = UIColor(rgb: 0xff8000)
@@ -179,7 +179,7 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         autocompleteTableView.hidden = true
-        println("You selected cell #\(self.completions[indexPath.row])!")
+        print("You selected cell #\(self.completions[indexPath.row])!")
         searchTextField.text = self.completions[indexPath.row]
     }
     
@@ -187,8 +187,8 @@ class SearchHomeViewController: UIViewController,UITableViewDelegate, UITableVie
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "searchResults") {
-            var searchResutsViewController = segue.destinationViewController as! SearchResultsViewController
-            searchResutsViewController.searchString = searchTextField.text
+            let searchResutsViewController = segue.destinationViewController as! SearchResultsViewController
+            searchResutsViewController.searchString = searchTextField.text!
         }
     }
     

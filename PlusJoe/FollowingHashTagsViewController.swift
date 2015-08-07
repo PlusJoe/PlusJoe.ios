@@ -80,7 +80,7 @@ class FollowingHashTagsViewController: UIViewController, UITableViewDelegate, UI
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:FollowingHashTagsTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("following_cell") as! FollowingHashTagsTableViewCell
+        let cell:FollowingHashTagsTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("following_cell") as! FollowingHashTagsTableViewCell
         
         let following:PFObject = followings[indexPath.row]
         
@@ -98,7 +98,7 @@ class FollowingHashTagsViewController: UIViewController, UITableViewDelegate, UI
     }
     
     func deleteFollowingAction(sender:UIButton!) {
-        let deleteButton:UIButton = sender as UIButton!
+//        let deleteButton:UIButton = sender as UIButton!
         let buttonRow:Int = sender.tag
         NSLog("button clicked: \(buttonRow)")
         let bookmarkObject = followings[buttonRow]
@@ -118,10 +118,10 @@ class FollowingHashTagsViewController: UIViewController, UITableViewDelegate, UI
     }
     
     @IBAction func addNewBookmark(sender: AnyObject) {
-        if newFollowing.text.isEmpty {
+        if newFollowing.text!.isEmpty {
             return
         }
-        PJFollowing.createOrUpdateTagsImFollowing(newFollowing.text,
+        PJFollowing.createOrUpdateTagsImFollowing(newFollowing.text!,
             succeeded: { (succeeds) -> () in
                 self.retrieveFollowings()
             }) { (error) -> () in

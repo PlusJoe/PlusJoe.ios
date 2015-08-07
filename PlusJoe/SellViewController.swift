@@ -31,7 +31,7 @@ class SellViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
         previewLayer?.bounds = self.camView.bounds
         previewLayer?.position = CGPointMake(CGRectGetMidX(self.camView.bounds), CGRectGetMidY(self.camView.bounds))
-        self.camView.layer.addSublayer(previewLayer)
+        self.camView.layer.addSublayer(previewLayer!)
     }
     
     
@@ -41,12 +41,18 @@ class SellViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             
             let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
             var error : NSError?
-            let inputDevice = AVCaptureDeviceInput(device: captureDevice, error: &error)
+            let inputDevice: AVCaptureDeviceInput!
+            do {
+                inputDevice = try AVCaptureDeviceInput(device: captureDevice)
+            } catch let error1 as NSError {
+                error = error1
+                inputDevice = nil
+            }
             
             if let inp = inputDevice {
                 session.addInput(inp)
             } else {
-                println(error)
+                print(error)
             }
             addPreviewLayer()
             
@@ -60,7 +66,7 @@ class SellViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             let output = AVCaptureMetadataOutput()
             session.addOutput(output)
             output.metadataObjectTypes = output.availableMetadataObjectTypes
-            println(output.availableMetadataObjectTypes)
+            print(output.availableMetadataObjectTypes)
             output.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
             session.startRunning()
         } else {
@@ -87,7 +93,7 @@ class SellViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     func translatePoints(points : [AnyObject], fromView : UIView, toView: UIView) -> [CGPoint] {
         var translatedPoints : [CGPoint] = []
         for point in points {
-            var dict = point as! NSDictionary
+            let dict = point as! NSDictionary
             let x = CGFloat((dict.objectForKey("X") as! NSNumber).floatValue)
             let y = CGFloat((dict.objectForKey("Y") as! NSNumber).floatValue)
             let curr = CGPointMake(x, y)
@@ -125,7 +131,7 @@ class SellViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
                 self.startTimer()
             }
             
-            println(transformed?.stringValue!)
+            print(transformed?.stringValue!)
             if (transformed?.stringValue!.beginsWith("plusjoe://") != nil) {
                 
                 // there is no need to check the code here, let's check it in handleIncomingUrl() because there are potentially 2 different ways to enter the app, one here, and one from scanning the QR code with an external scanner

@@ -40,7 +40,7 @@ class ForgotEmailViewController: UIViewController {
         alertMessage.addAction(ok)
         self.presentViewController(alertMessage, animated: true, completion: nil)
         } else {
-            PFUser.requestPasswordResetForEmailInBackground(emailTextField.text, block: { (success: Bool, error:NSError?) -> Void in
+            PFUser.requestPasswordResetForEmailInBackground(emailTextField.text!, block: { (success: Bool, error:NSError?) -> Void in
                 if success == true {
                     let alertMessage = UIAlertController(title: nil, message: "Password reset. Check your email for a reset link.", preferredStyle: UIAlertControllerStyle.Alert)
                     let ok = UIAlertAction(title: "OK", style: .Default, handler: nil)

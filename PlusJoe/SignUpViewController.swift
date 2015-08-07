@@ -82,7 +82,7 @@ class SignUpViewController: UIViewController {
                         } else {
                             // all validation passed, register here
                             
-                            var user = PFUser.currentUser()!
+                            let user = PFUser.currentUser()!
                             
                             if !isGuestUser(user) {
 
@@ -122,14 +122,14 @@ class SignUpViewController: UIViewController {
     func saveUserInBackround(user: PFUser) -> () {
         user.saveInBackgroundWithBlock({ (succeeded: Bool, error: NSError?) -> Void in
             if let error = error {
-                let errorString = error.userInfo?["error"] as? NSString
+                let errorString = error.userInfo["error"] as? NSString
                 // Show the errorString somewhere and let the user try again.
                 let alertMessage = UIAlertController(title: nil, message: "Unable to register a user \(errorString!)", preferredStyle: UIAlertControllerStyle.Alert)
                 let ok = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 alertMessage.addAction(ok)
                 self.presentViewController(alertMessage, animated: true, completion: nil)
             } else {
-                PFUser.logInWithUsernameInBackground(self.userNameTextField.text, password:self.passwordTextField.text) {
+                PFUser.logInWithUsernameInBackground(self.userNameTextField.text!, password:self.passwordTextField.text!) {
                     (user: PFUser?, error: NSError?) -> Void in
                     if user != nil {
                         // Do stuff after successful login.

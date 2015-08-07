@@ -91,7 +91,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
 
     func retrieveNewMessages() -> Void {
         
-        let conversationDate = conversation!.createdAt
+//        let conversationDate = conversation!.createdAt
 //        let firstChatMessageDate = chatMessages[0].createdAt
 //        NSLog("conversationDate: \(conversationDate)")
 //        NSLog("first chat message date: \(firstChatMessageDate)")
@@ -156,7 +156,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         //        NSLog("text changed: \(textView.text)")
         
         
-        var countChars = count(textView.text)
+        var countChars = textView.text.characters.count
         countLabel.text = "+" + String(140 - countChars)
         
         if(countChars > 130) {
@@ -166,7 +166,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         }
         
         while(countChars > 140) {
-            chatMessageBody.text = dropLast(chatMessageBody.text)
+            chatMessageBody.text = String(dropLast(chatMessageBody.text.characters))
             countChars--
             countLabel.text = "+" + String(140 - countChars)
         }

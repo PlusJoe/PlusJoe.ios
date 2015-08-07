@@ -42,7 +42,7 @@ class PJConversation: BaseDataModel {
                 return conversations![0]
             } else {
                 // otherwise create one
-                var conversation = PFObject(className: PJCONVERSATION.CLASS_NAME)
+                let conversation = PFObject(className: PJCONVERSATION.CLASS_NAME)
                 conversation[PJCONVERSATION.post] = post
                 conversation[PJCONVERSATION.participants] = [participant1id, participant2id]
                 conversation.save()

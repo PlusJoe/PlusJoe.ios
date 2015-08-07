@@ -11,9 +11,9 @@ import Parse
 import Stripe
 
 extension BuyViewController1: PKPaymentAuthorizationViewControllerDelegate, CardIOPaymentViewControllerDelegate {
-    func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController!,
-        didAuthorizePayment payment: PKPayment!,
-        completion: ((PKPaymentAuthorizationStatus) -> Void)!) {
+    func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController,
+        didAuthorizePayment payment: PKPayment,
+        completion: ((PKPaymentAuthorizationStatus) -> Void)) {
             //            completion(PKPaymentAuthorizationStatus.Success)
             
             // 2
@@ -24,7 +24,7 @@ extension BuyViewController1: PKPaymentAuthorizationViewControllerDelegate, Card
                 (token, error) -> Void in
                 
                 if (error != nil) {
-                    println(error)
+                    print(error)
                     completion(PKPaymentAuthorizationStatus.Failure)
                     return
                 }
@@ -56,7 +56,7 @@ extension BuyViewController1: PKPaymentAuthorizationViewControllerDelegate, Card
             
     }
     
-    func paymentAuthorizationViewControllerDidFinish(controller: PKPaymentAuthorizationViewController!) {
+    func paymentAuthorizationViewControllerDidFinish(controller: PKPaymentAuthorizationViewController) {
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
 }
@@ -84,7 +84,7 @@ class BuyViewController1: UIViewController {
     
     
     @IBAction func buyItWithApplePay(sender: AnyObject) {
-        var request:PKPaymentRequest = PKPaymentRequest()
+        let request:PKPaymentRequest = PKPaymentRequest()
         // Configure your request here.
         let label = "+Joe"
         let amount = NSDecimalNumber(string: "1.00")
@@ -119,7 +119,7 @@ class BuyViewController1: UIViewController {
     
     
     @IBAction func buyItWithCC(sender: AnyObject) {
-        var cardIOVC = CardIOPaymentViewController(paymentDelegate: self)
+        let cardIOVC = CardIOPaymentViewController(paymentDelegate: self)
         cardIOVC.modalPresentationStyle = .FormSheet
         presentViewController(cardIOVC, animated: true, completion: nil)
     }
@@ -137,7 +137,7 @@ class BuyViewController1: UIViewController {
             
             
             
-            var card:STPCard  = STPCard()
+            let card:STPCard  = STPCard()
             card.number = info.cardNumber
             card.expMonth = info.expiryMonth
             card.expYear = info.expiryYear

@@ -19,7 +19,7 @@ class DiscoveredQRCodeView: UIView {
         self.setMyView()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -41,7 +41,7 @@ class DiscoveredQRCodeView: UIView {
         borderLayer?.strokeColor = UIColor.redColor().CGColor
         borderLayer?.lineWidth = 2.0
         borderLayer?.fillColor = UIColor.clearColor().CGColor
-        self.layer.addSublayer(borderLayer)
+        self.layer.addSublayer(borderLayer!)
     }
     
 }

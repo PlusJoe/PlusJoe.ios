@@ -52,7 +52,7 @@ class PJHashTag: BaseDataModel {
                     for tag in alltags {
                         hashTags.insert(tag as! String)
                     }
-                    for tag in sorted(hashTags) {
+                    for tag in hashTags.sort() {
                         orderedResults.append(tag)
                     }                    
                     

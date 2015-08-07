@@ -67,7 +67,7 @@ extension UIImage {
             UIGraphicsEndImageContext()
             let imageData = UIImageJPEGRepresentation(newImage, 0.5)
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                completionHandler(resizedImage: newImage, data:imageData)
+                completionHandler(resizedImage: newImage, data:imageData!)
             })
         })
     }
@@ -97,7 +97,7 @@ func getAlerts() -> Void {
         NSLog("There are \(alertsCount) unread alerts")
         
         if  alertsCount > 0 {
-            var localNotification:UILocalNotification = UILocalNotification()
+            let localNotification:UILocalNotification = UILocalNotification()
             localNotification.alertAction = "Alerts"
             localNotification.alertBody = "There are \(alertsCount) unread alerts."
             localNotification.fireDate = NSDate(timeIntervalSinceNow: 1)
@@ -106,7 +106,8 @@ func getAlerts() -> Void {
         }
         },
         failed: { (error) -> () in
-            NSLog("Error retreiveing alerts in background: %@ %@", error, error.userInfo!)
+//            NSLog("Error retreiveing alerts in background: %@ %@", error, error.userInfo!)
+            NSLog("Error retreiveing alerts in background: %@", error)
     })
     
     PENDING_SALES_PRESENT = PJPurchase.arePendingPurchasesPresent()
@@ -149,18 +150,18 @@ func isGuestUser(user:PFUser) -> Bool {
 //    func generateQRImage(stringQR:NSString, withSizeRate rate:CGFloat) -> UIImage
 func generateQRImage(stringQR:NSString) -> UIImage
 {
-    var filter:CIFilter = CIFilter(name:"CIQRCodeGenerator")
+    let filter:CIFilter = CIFilter(name:"CIQRCodeGenerator")!
     filter.setDefaults()
     
-    var data:NSData = stringQR.dataUsingEncoding(NSUTF8StringEncoding)!
+    let data:NSData = stringQR.dataUsingEncoding(NSUTF8StringEncoding)!
     filter.setValue(data, forKey: "inputMessage")
     
-    var outputImg:CIImage = filter.outputImage
+    let outputImg:CIImage = filter.outputImage
     
-    var context:CIContext = CIContext(options: nil)
-    var cgimg:CGImageRef = context.createCGImage(outputImg, fromRect: outputImg.extent())
+    let context:CIContext = CIContext(options: nil)
+    let cgimg:CGImageRef = context.createCGImage(outputImg, fromRect: outputImg.extent)
     
-    var img:UIImage = UIImage(CGImage: cgimg, scale: 1.0, orientation: UIImageOrientation.Up)!
+    var img:UIImage = UIImage(CGImage: cgimg, scale: 1.0, orientation: UIImageOrientation.Up)
     
     //        let width  = img.size.width * rate
     //        let height = img.size.height * rate
@@ -168,8 +169,8 @@ func generateQRImage(stringQR:NSString) -> UIImage
     let height = CGFloat(200)
     
     UIGraphicsBeginImageContext(CGSizeMake(width, height))
-    var cgContxt:CGContextRef = UIGraphicsGetCurrentContext()
-    CGContextSetInterpolationQuality(cgContxt, kCGInterpolationNone)
+    let cgContxt:CGContextRef = UIGraphicsGetCurrentContext()
+    CGContextSetInterpolationQuality(cgContxt, CGInterpolationQuality.None)
     img.drawInRect(CGRectMake(0, 0, width, height))
     img = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
@@ -178,14 +179,14 @@ func generateQRImage(stringQR:NSString) -> UIImage
 
 func addPulseAnimation(layer:CALayer) {
     if layer.animationForKey("scale") == nil {
-        var pulseAnimation1:CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
+        let pulseAnimation1:CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
         pulseAnimation1.duration = 1.0
         pulseAnimation1.toValue = NSNumber(float: 0.85)
         pulseAnimation1.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         pulseAnimation1.autoreverses = true
         pulseAnimation1.repeatCount = FLT_MAX
         
-        var pulseAnimation2:CABasicAnimation = CABasicAnimation(keyPath: "opacity");
+        let pulseAnimation2:CABasicAnimation = CABasicAnimation(keyPath: "opacity");
         pulseAnimation2.duration = 1.0
         pulseAnimation2.toValue = NSNumber(float: 0.7)
         pulseAnimation2.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
@@ -238,7 +239,7 @@ func handleIncomingPurchaseUrl(url:BFURL) -> () {
     NSLog("%%%%%%%%%%%%%%%%%%%%%% received purchase url: \(url.inputURL.description)")
     // let's check if the code was scanned by the right seller
     let host:String = url.targetURL!.host!
-    let pathComponents:[String]? = url.targetURL!.pathComponents as? [String]
+    let pathComponents:[String]? = url.targetURL!.pathComponents as [String]?
     
     if host == "purchases" {
         let purchaseId:String = pathComponents![1]
@@ -310,9 +311,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // Register for Push Notitications and/or Alerts
-        let userNotificationTypes:UIUserNotificationType = (UIUserNotificationType.Alert |
-            UIUserNotificationType.Badge |
-            UIUserNotificationType.Sound)
+        let userNotificationTypes:UIUserNotificationType = ([UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound])
         
         let settings:UIUserNotificationSettings  = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
         //        application.registerForRemoteNotifications()
@@ -413,7 +412,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         let parsedUrl:BFURL = BFURL(inboundURL: url, sourceApplication: sourceApplication)
 
         let host:String = parsedUrl.targetURL!.host!

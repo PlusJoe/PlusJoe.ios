@@ -160,8 +160,8 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         //        mapOptions.scale = self.imagesView.scale
         mapOptions.size = CGSize(width: self.imagesView.bounds.width, height: self.imagesView.bounds.height)
         let snapshotter:MKMapSnapshotter  = MKMapSnapshotter(options: mapOptions)
-        snapshotter.startWithCompletionHandler { (snapshot:MKMapSnapshot!, error:NSError!) -> Void in
-            self.addImageToView(snapshot.image)
+        snapshotter.startWithCompletionHandler { (snapshot:MKMapSnapshot?, error:NSError?) -> Void in
+            self.addImageToView(snapshot!.image)
             
             self.pageController?.dataSource = self
             self.pageController?.view.frame = self.imagesView.bounds
@@ -310,7 +310,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "chatSegue") {
             
-            var chatViewController = segue.destinationViewController as! ChatViewController
+            let chatViewController = segue.destinationViewController as! ChatViewController
             
             if self.conversation == nil {
                 let conversation = PJConversation.findOrCreateConversation(post!,
@@ -324,7 +324,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
 
         if(segue.identifier == "BuyViewControllerSegue") {
             
-            var buyViewController = segue.destinationViewController as! BuyViewController
+            let buyViewController = segue.destinationViewController as! BuyViewController
             buyViewController.post = post
         }
 
@@ -334,7 +334,7 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
     
     
     func allowChat() -> Bool {
-        var currentUser = PFUser.currentUser()
+        let currentUser = PFUser.currentUser()
         if currentUser != nil {
             return post?[PJPOST.createdBy]! as? String != PFUser.currentUser()!.objectId! || conversation != nil
         }

@@ -80,7 +80,7 @@ class PJAlert: BaseDataModel {
         succeeded:(alertsCount:Int) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
-            var currentUser = PFUser.currentUser()
+            let currentUser = PFUser.currentUser()
             if currentUser != nil {
                 let alertsQuery = PFQuery(className:PJALERT.CLASS_NAME)
                 alertsQuery.whereKey(PJALERT.read, equalTo: false)

@@ -56,7 +56,7 @@ class EditPostViewController : UIViewController {
     
 
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         
         if priceTextField.text == "" {
             priceTextField.text = "0"
@@ -66,21 +66,21 @@ class EditPostViewController : UIViewController {
         }
         
         
-        if priceTextField.text.toInt()! > origPrice || priceTextField.text.toInt()! <= 0 {
+        if Int(priceTextField.text!)! > origPrice || Int(priceTextField.text!)! <= 0 {
             let alertMessage = UIAlertController(title: nil, message: "Price must be between $1 and \(origPrice).", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
             alertMessage.addAction(ok)
             presentViewController(alertMessage, animated: true, completion: nil)
-        } else if findersFeeTextField.text.toInt()! < origFindersFee || findersFeeTextField.text.toInt()! > priceTextField.text.toInt()! {
-            let alertMessage = UIAlertController(title: nil, message: "Finder's fee must be between \(origFindersFee) and \(priceTextField.text.toInt()!)", preferredStyle: UIAlertControllerStyle.Alert)
+        } else if Int(findersFeeTextField.text!)! < origFindersFee || Int(findersFeeTextField.text!)! > Int(priceTextField.text!)! {
+            let alertMessage = UIAlertController(title: nil, message: "Finder's fee must be between \(origFindersFee) and \(Int(priceTextField.text!)!)", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
             alertMessage.addAction(ok)
             presentViewController(alertMessage, animated: true, completion: nil)
         } else {
-            post?[PJPOST.price] = priceTextField.text.toInt()!
-            post?[PJPOST.fee] = findersFeeTextField.text.toInt()!
-            
-            post?.save(nil)
+            post?[PJPOST.price] = Int(priceTextField.text!)!
+            post?[PJPOST.fee] = Int(findersFeeTextField.text!)!
+        
+            post?.save()
             return true
         }
 

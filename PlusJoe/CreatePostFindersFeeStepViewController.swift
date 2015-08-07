@@ -49,7 +49,7 @@ class CreatePostFindersFeeStepViewController:
     }
     
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "createPostPreviewSegue" {
             if priceTextField.text == "" {
                 priceTextField.text = "0"
@@ -60,19 +60,19 @@ class CreatePostFindersFeeStepViewController:
             
             
             
-            if priceTextField.text.toInt()! > 1000 || priceTextField.text.toInt()! <= 0 {
+            if Int(priceTextField.text!)! > 1000 || Int(priceTextField.text!)! <= 0 {
                 let alertMessage = UIAlertController(title: nil, message: "Price must be between $1 to $1000.", preferredStyle: UIAlertControllerStyle.Alert)
                 let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
                 alertMessage.addAction(ok)
                 presentViewController(alertMessage, animated: true, completion: nil)
-            } else if priceTextField.text.toInt()! <= findersFeeTextField.text.toInt()! {
+            } else if Int(priceTextField.text!)! <= Int(findersFeeTextField.text!)! {
                 let alertMessage = UIAlertController(title: nil, message: "Finder's fee can not be greater than price.", preferredStyle: UIAlertControllerStyle.Alert)
                 let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
                 alertMessage.addAction(ok)
                 presentViewController(alertMessage, animated: true, completion: nil)
             } else {
-                UNFINISHED_POST[PJPOST.price] = priceTextField.text.toInt()!
-                UNFINISHED_POST[PJPOST.fee] = findersFeeTextField.text.toInt()!
+                UNFINISHED_POST[PJPOST.price] = Int(priceTextField.text!)!
+                UNFINISHED_POST[PJPOST.fee] = Int(findersFeeTextField.text!)!
                 
                 UNFINISHED_POST?.saveEventually(nil)
             }

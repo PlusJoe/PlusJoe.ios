@@ -172,9 +172,11 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate , UIPageV
     }
     
     
-    func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         NSLog("!!!!!!!!!!!!!!!!!!!!!!! selected annotation: \(view.annotation!.title)")
-        currentPost = UInt(view.annotation.title!.toInt()!)
+        let title:String = ((view.annotation?.title)!)!
+        let intTitle:Int = Int(title)!
+        currentPost = UInt(intTitle)
         //        resultNumber.text = "\(currentPost) of \(posts.count)"
         
         let searchDetailsViewController:SearchDetailsViewController = self.viewControllerAtIndex(currentPost-1)!

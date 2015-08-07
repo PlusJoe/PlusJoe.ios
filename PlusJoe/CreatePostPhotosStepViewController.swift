@@ -134,7 +134,7 @@ class CreatePostPhotosStepViewController:
             UNFINISHED_POST?[PJPOST.image2file] = file3
             UNFINISHED_POST?[PJPOST.image3file] = file4
             UNFINISHED_POST?[PJPOST.image4file] = PFFile(name:"blank.png", data:NSData())
-            var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+            let actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
             actInd.center = self.view.center
             actInd.hidesWhenStopped = true
             actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
@@ -168,7 +168,7 @@ class CreatePostPhotosStepViewController:
             UNFINISHED_POST?[PJPOST.image2file] = file3
             UNFINISHED_POST?[PJPOST.image3file] = file4
             UNFINISHED_POST?[PJPOST.image4file] = PFFile(name:"blank.png", data:NSData())
-            var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+            let actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
             actInd.center = self.view.center
             actInd.hidesWhenStopped = true
             actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
@@ -198,7 +198,7 @@ class CreatePostPhotosStepViewController:
             let file4 = UNFINISHED_POST?[PJPOST.image4file] as! PFFile
             UNFINISHED_POST?[PJPOST.image3file] = file4
             UNFINISHED_POST?[PJPOST.image4file] = PFFile(name:"blank.png", data:NSData())
-            var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+            let actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
             actInd.center = self.view.center
             actInd.hidesWhenStopped = true
             actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
@@ -226,7 +226,7 @@ class CreatePostPhotosStepViewController:
         let cancel = UIAlertAction(title: "Cancel", style: .Default, handler: { (action) -> Void in})
         let ok =     UIAlertAction(title: "OK",     style: .Default, handler: { (action) -> Void in
             UNFINISHED_POST?[PJPOST.image4file] = PFFile(name:"blank.png", data:NSData())
-            var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+            let actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
             actInd.center = self.view.center
             actInd.hidesWhenStopped = true
             actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
@@ -247,8 +247,8 @@ class CreatePostPhotosStepViewController:
     
     
     //MARK: Delegates
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        var chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
 
         chosenImage.resize(500) { (resizedImage, data) -> () in
             let imageFile = PFFile(name:"image.png", data:data)

@@ -75,7 +75,7 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:AlertTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("alert_cell") as! AlertTableViewCell
+        let cell:AlertTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("alert_cell") as! AlertTableViewCell
         
         let alert:PFObject = alerts[indexPath.row]
         let chatMessage:PFObject = alert[PJALERT.chatMessage] as! PFObject
@@ -126,7 +126,7 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if segue.identifier == "show_post" {
             let postDetailsViewController:PostDetailsViewController = segue.destinationViewController as! PostDetailsViewController
 
-            let indexPath = self.tableView.indexPathForSelectedRow()!
+            let indexPath = self.tableView.indexPathForSelectedRow!
             NSLog("indexpath row1: \(indexPath.row)")
             let alert:PFObject = self.alerts[indexPath.row]
             alert[PJALERT.read] = true

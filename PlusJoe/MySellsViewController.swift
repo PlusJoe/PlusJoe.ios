@@ -77,7 +77,7 @@ class MySellsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:MySellTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("mysell_cell") as! MySellTableViewCell
+        let cell:MySellTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("mysell_cell") as! MySellTableViewCell
         
         
         let post:PFObject = myPosts[indexPath.row]
@@ -99,7 +99,7 @@ class MySellsViewController: UIViewController, UITableViewDelegate, UITableViewD
         if segue.identifier == "show_mypost" || segue.identifier == "show_myalert" {
             let postDetailsViewController:PostDetailsViewController = segue.destinationViewController as! PostDetailsViewController
             
-            let indexPath = self.tableView.indexPathForSelectedRow()!
+            let indexPath = self.tableView.indexPathForSelectedRow!
             NSLog("indexpath row1: \(indexPath.row)")
             
             let post:PFObject = self.myPosts[indexPath.row]

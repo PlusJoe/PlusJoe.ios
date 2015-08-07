@@ -240,8 +240,8 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
         options.scale = UIScreen.mainScreen().scale
         options.size = CGSize(width: UIScreen.mainScreen().bounds.width, height: 200)
         let snapshotter:MKMapSnapshotter  = MKMapSnapshotter(options: options)
-        snapshotter.startWithCompletionHandler { (snapshot:MKMapSnapshot!, error:NSError!) -> Void in
-            let image:UIImage = snapshot.image
+        snapshotter.startWithCompletionHandler { (snapshot:MKMapSnapshot?, error:NSError?) -> Void in
+            let image:UIImage = snapshot!.image
             self.cells.append(UITableViewCell())
             let imageView = UIImageView()
             imageView.image = image
@@ -261,7 +261,7 @@ class CreatePostReviewAndSubmitStepViewController: UIViewController, UITableView
     
     
     func embedConstrainst(parentView:UIView, childView:UIView) {
-        childView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        childView.translatesAutoresizingMaskIntoConstraints = false
         parentView.addConstraint(
             NSLayoutConstraint(item: childView,
                 attribute: NSLayoutAttribute.Top,
