@@ -156,7 +156,7 @@ func generateQRImage(stringQR:NSString) -> UIImage
     let data:NSData = stringQR.dataUsingEncoding(NSUTF8StringEncoding)!
     filter.setValue(data, forKey: "inputMessage")
     
-    let outputImg:CIImage = filter.outputImage
+    let outputImg:CIImage = filter.outputImage!
     
     let context:CIContext = CIContext(options: nil)
     let cgimg:CGImageRef = context.createCGImage(outputImg, fromRect: outputImg.extent)
@@ -169,7 +169,7 @@ func generateQRImage(stringQR:NSString) -> UIImage
     let height = CGFloat(200)
     
     UIGraphicsBeginImageContext(CGSizeMake(width, height))
-    let cgContxt:CGContextRef = UIGraphicsGetCurrentContext()
+    let cgContxt:CGContextRef = UIGraphicsGetCurrentContext()!
     CGContextSetInterpolationQuality(cgContxt, CGInterpolationQuality.None)
     img.drawInRect(CGRectMake(0, 0, width, height))
     img = UIGraphicsGetImageFromCurrentImageContext()

@@ -126,16 +126,24 @@ class PostDetailsViewController : UIViewController, UIPageViewControllerDataSour
         
         
         if let imageFile = (post?[PJPOST.image1file] as! PFFile).getData() {
-            addImageToView(UIImage(data: imageFile)!)
+            if imageFile.length > 0 {
+                addImageToView(UIImage(data: imageFile)!)
+            }
         }
         if let imageFile = (post?[PJPOST.image2file] as! PFFile).getData() {
-            addImageToView(UIImage(data: imageFile)!)
+            if imageFile.length > 0 {
+                addImageToView(UIImage(data: imageFile)!)
+            }
         }
         if let imageFile = (post?[PJPOST.image3file] as! PFFile).getData() {
-            addImageToView(UIImage(data: imageFile)!)
+            if imageFile.length > 0 {
+                addImageToView(UIImage(data: imageFile)!)
+            }
         }
         if let imageFile = (post?[PJPOST.image4file] as! PFFile).getData() {
-            addImageToView(UIImage(data: imageFile)!)
+            if imageFile.length > 0 {
+                addImageToView(UIImage(data: imageFile)!)
+            }
         }
         
         

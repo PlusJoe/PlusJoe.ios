@@ -97,7 +97,7 @@ class CreatePostDescribeStepViewController: UIViewController, UITextViewDelegate
         }
         
         while(countChars > 140) {
-            postBody.text = String(dropLast(postBody.text.characters))
+            postBody.text = String(postBody.text.characters.dropLast())
             countChars--
             countLabel.text = "+" + String(140 - countChars)
         }

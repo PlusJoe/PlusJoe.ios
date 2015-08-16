@@ -60,9 +60,9 @@ class PJFollowing: BaseDataModel {
                 following = object!
                 following[PJFOLLOWING.location] = CURRENT_LOCATION!
             }
-            following.saveInBackgroundWithBlock({ (succeeds: Bool, error:NSError?) -> Void in
+            following.saveInBackgroundWithBlock({ (succeeds: ObjCBool, error:NSError?) -> Void in
                 if error == nil {
-                    succeeded(succeeds: succeeds)
+                    succeeded(succeeds: succeeds.boolValue)
                 } else {
                     failed(error: error)
                 }

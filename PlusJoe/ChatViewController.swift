@@ -33,7 +33,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
     
     @IBAction func backButtonAction(sender: AnyObject) {
         if chatMessages.count == 0 {
-            conversation?.deleteInBackgroundWithBlock({ (sucseeded:Bool, error:NSError?) -> Void in})
+            conversation?.deleteInBackgroundWithBlock({ (sucseeded:ObjCBool, error:NSError?) -> Void in})
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -166,7 +166,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         }
         
         while(countChars > 140) {
-            chatMessageBody.text = String(dropLast(chatMessageBody.text.characters))
+            chatMessageBody.text = String(chatMessageBody.text.characters.dropLast())
             countChars--
             countLabel.text = "+" + String(140 - countChars)
         }

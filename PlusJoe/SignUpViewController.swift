@@ -120,7 +120,7 @@ class SignUpViewController: UIViewController {
 
 
     func saveUserInBackround(user: PFUser) -> () {
-        user.saveInBackgroundWithBlock({ (succeeded: Bool, error: NSError?) -> Void in
+        user.saveInBackgroundWithBlock({ (succeeded: ObjCBool, error: NSError?) -> Void in
             if let error = error {
                 let errorString = error.userInfo["error"] as? NSString
                 // Show the errorString somewhere and let the user try again.
