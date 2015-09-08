@@ -13,15 +13,15 @@ import Parse
 class SellViewController1: UIViewController {
     
     var purchase:PFObject?
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // here, let's check if the seller has stripe account, and if not, have then register
         
-        
+        UIApplication.sharedApplication().openURL(NSURL(string: "https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_6HALH5MwR7tfdRfqYn4m3oMbBOL3Twdb&scope=read_write")!)
         
         
     }
-
+    
     
 }

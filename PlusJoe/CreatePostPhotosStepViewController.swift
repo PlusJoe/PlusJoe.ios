@@ -141,7 +141,7 @@ class CreatePostPhotosStepViewController:
             self.view.addSubview(actInd)
             self.view.backgroundColor = UIColor.grayColor()
             actInd.startAnimating()
-            UNFINISHED_POST?.saveInBackgroundWithBlock {(success: ObjCBool, error: NSError?) -> Void in
+            UNFINISHED_POST?.saveInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
                 self.reloadImageViews()
                 actInd.stopAnimating()
                 self.view.backgroundColor = UIColor.whiteColor()
@@ -175,7 +175,7 @@ class CreatePostPhotosStepViewController:
             self.view.addSubview(actInd)
             self.view.backgroundColor = UIColor.grayColor()
             actInd.startAnimating()
-            UNFINISHED_POST?.saveInBackgroundWithBlock {(success: ObjCBool, error: NSError?) -> Void in
+            UNFINISHED_POST?.saveInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
                 self.reloadImageViews()
                 actInd.stopAnimating()
                 self.view.backgroundColor = UIColor.whiteColor()
@@ -205,7 +205,7 @@ class CreatePostPhotosStepViewController:
             self.view.addSubview(actInd)
             self.view.backgroundColor = UIColor.grayColor()
             actInd.startAnimating()
-            UNFINISHED_POST?.saveInBackgroundWithBlock {(success: ObjCBool, error: NSError?) -> Void in
+            UNFINISHED_POST?.saveInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
                 self.reloadImageViews()
                 actInd.stopAnimating()
                 self.view.backgroundColor = UIColor.whiteColor()
@@ -233,7 +233,7 @@ class CreatePostPhotosStepViewController:
             self.view.addSubview(actInd)
             self.view.backgroundColor = UIColor.grayColor()
             actInd.startAnimating()
-            UNFINISHED_POST?.saveInBackgroundWithBlock {(success: ObjCBool, error: NSError?) -> Void in
+            UNFINISHED_POST?.saveInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
                 self.reloadImageViews()
                 actInd.stopAnimating()
                 self.view.backgroundColor = UIColor.whiteColor()

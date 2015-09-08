@@ -79,7 +79,7 @@ class PJChatMessage: BaseDataModel {
             alertsQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 for alert in objects as! [PFObject] {
                     alert[PJALERT.read] = true
-                    alert.saveInBackgroundWithBlock({ (succeeds: ObjCBool, error:NSError?) -> Void in})
+                    alert.saveInBackgroundWithBlock({ (succeeds: Bool, error:NSError?) -> Void in})
                 }
             })
         }
@@ -97,7 +97,7 @@ class PJChatMessage: BaseDataModel {
             chatMessage[PJCHATMESSAGE.conversation] = conversation
             chatMessage[PJCHATMESSAGE.body] = body
             chatMessage[PJCHATMESSAGE.createdBy] = createdBy
-            chatMessage.saveInBackgroundWithBlock { (succeeded:ObjCBool, error:NSError?) -> Void in
+            chatMessage.saveInBackgroundWithBlock { (succeeded: Bool, error:NSError?) -> Void in
                 if error == nil {
                     let alert1 = PFObject(className: PJALERT.CLASS_NAME)
                     alert1[PJALERT.chatMessage] = chatMessage
@@ -107,7 +107,7 @@ class PJChatMessage: BaseDataModel {
                     } else {
                         alert1[PJALERT.targetUser] = (conversation[PJCONVERSATION.participants] as! [String])[0]
                     }
-                    alert1.saveInBackgroundWithBlock({ (succeeded:ObjCBool, error:NSError?) -> Void in })
+                    alert1.saveInBackgroundWithBlock({ (succeeded:Bool, error:NSError?) -> Void in })
 
                     let alert2 = PFObject(className: PJALERT.CLASS_NAME)
                     alert2[PJALERT.chatMessage] = chatMessage
@@ -117,7 +117,7 @@ class PJChatMessage: BaseDataModel {
                     } else {
                         alert2[PJALERT.targetUser] = (conversation[PJCONVERSATION.participants] as! [String])[1]
                     }
-                    alert2.saveInBackgroundWithBlock({ (succeeded:ObjCBool, error:NSError?) -> Void in })
+                    alert2.saveInBackgroundWithBlock({ (succeeded:Bool, error:NSError?) -> Void in })
 
                     success(result: chatMessage)
                 } else {

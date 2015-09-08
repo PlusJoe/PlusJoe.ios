@@ -33,7 +33,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
     
     @IBAction func backButtonAction(sender: AnyObject) {
         if chatMessages.count == 0 {
-            conversation?.deleteInBackgroundWithBlock({ (sucseeded:ObjCBool, error:NSError?) -> Void in})
+            conversation?.deleteInBackgroundWithBlock({ (sucseeded: Bool, error:NSError?) -> Void in})
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
