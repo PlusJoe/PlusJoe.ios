@@ -16,6 +16,8 @@ let PARSE_APP_ID = "2VdZroRZXm1voBa03m3F1cgkwgV5AFgJel1dYsVf"
 let PARSE_CLIENT_KEY = "GUtWFcyuOVxCYSA1vMs0XDSWpTHKpbb1DhEweAy0"
 let STRIPE_PUBLISHABLE_KEY = "pk_test_a8Gey5Uae2pQrcZfkqmjWaDO"
 let STRIPE_MERCHANT_ID = "merchant.com.plusjoe"
+let STRIPE_CLIENT_ID = "ca_6WHv4qTWCLmokJtRrRzBnXe4NoAzdso0"
+let STRIPE_CLIENT_ID_DEV = "ca_6WHv6jMAxfgwUrcFDoTUTLaGQuHARLHI"
 let SUPPORTED_PAYMENT_NETWORKS = [PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex]
 
 

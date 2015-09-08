@@ -18,9 +18,7 @@ class SellViewController1: UIViewController {
         super.viewDidLoad()
         // here, let's check if the seller has stripe account, and if not, have then register
         
-        UIApplication.sharedApplication().openURL(NSURL(string: "https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_6HALH5MwR7tfdRfqYn4m3oMbBOL3Twdb&scope=read_write")!)
-        
-        
+        UIApplication.sharedApplication().openURL(NSURL(string: "https://connect.stripe.com/oauth/authorize?response_type=code&client_id=\(STRIPE_CLIENT_ID)&scope=read_write")!)
     }
     
     
